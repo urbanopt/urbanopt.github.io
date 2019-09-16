@@ -3,9 +3,12 @@
 URBANopt is a Software Development Kit (SDK) to aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows URBANopt to address important questions in low energy, grid aware, future thinking urban districts such as tradeoffs between building height and PV (photovoltaic) production, investments in building efficiency vs distributed renewable generation, coordination of multiple buildings to optimize grid metrics, and performance gains of shared thermal district systems vs conventional single building systems. For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system.  
 A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.nrel.gov/buildings/urbanopt.html).
 
-City planners, utility management, and **(TODO: who else are the intended users?)** can use URBANopt to… **TODO: why would someone use UO**
+<!-- TODO: who else are the intended users? -->
+<!-- TODO: why would someone use UO? -->
+City planners, utility management, and **TODO** can use URBANopt to… **TODO**
 
-URBANopt is a package of code for software engineers to use. **This is not a standalone program for end users.** This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies... **TODO: finish this block**
+<!-- TODO: finish this block -->
+URBANopt is a package of code for software engineers to use. **This is not a standalone program for end users.** This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies... **TODO**
 
 This documentation is intended for power users to operate from the command line
 
@@ -22,14 +25,10 @@ This documentation is intended for power users to operate from the command line
 - [Modifying mapper classes](#modifying-mapper-classes)
 - [Adding a custom post processor](#adding-a-custom-post-processor)
 - [Advanced usage](#advanced-usage)
-  - [Building properties](#building-properties)
-  - [District System Properties](#district-system-properties)
-  - [Electrical Connector Properties](#electrical-connector-properties)
-  - [Electrical Junction Properties](#electrical-junction-properties)
-  - [Region Properties](#region-properties)
-  - [Site Properties](#site-properties)
-  - [Thermal Connector Properties](#thermal-connector-properties)
-  - [Thermal Junction Properties](#thermal-junction-properties)
+  - [geoJSON docs](#geojson-docs)
+  - [geoJSON github](#geojson-github)
+  - [Scenario docs](#scenario-docs)
+  - [Scenario github](#scenario-github)
 
 ## Mac installation
 
@@ -100,8 +99,7 @@ You need to create symlinks to the appropriate version (`libgdbm.so.5` and `libg
 
 ### Set up
 
-Make a Fork of our example project:
-<https://github.com/urbanopt/urbanopt-example-geojson-project>  
+Make a Fork of our example project: <https://github.com/urbanopt/urbanopt-example-geojson-project>
 
 - Check out to a short path (e.g. `C:\urbanopt-project`) to avoid problems with long file names on Windows
 - Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
@@ -141,11 +139,11 @@ This rake task creates and runs `ScenarioDefaultPostProcessor` for each scenario
 
 #### update_all
 
-This rake task combines the run_all and post_process_all tasks.
+This rake task combines the `run_all` and `post_process_all` tasks.
 
 #### default
 
-This runs the update_all rake task.
+This runs the `update_all` rake task.
 
 #### clear_all
 
@@ -153,7 +151,8 @@ This rake task clears the scenario results from any previous runs.
 
 - `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for individual scenarios.
 
-### Adding your own measures TODO: Is this how you create a new building/feature?
+<!-- TODO: Is this how you create a new building/feature? -->
+### Adding your own measures TODO
 
 The `mappers` folder contains `baseline.osw` which serves as a simulation input for URBANopt. It is a workflow of OpenStudio measures and dictates the sequence of running the measures.  
 Additional measures can be added to the workflow by adding the measure name and directory along with the measure arguments.
@@ -171,12 +170,16 @@ method should be used and the OpenStudio measure name and arguments and the corr
 
 ### Adding a custom post processor
 
-Scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” **(add reference)**. This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
+<!-- TODO: add reference -->
+Scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” **TODO**. This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
 
-Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio `workflow.osw` file **(add reference)** and rerun the simulation.  
+<!-- TODO: add reference -->
+Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio `workflow.osw` file **TODO** and rerun the simulation.  
 The `DefaultPostProcessor` reads these feature reports and aggregates them to create a `ScenarioReport`.
 
 ## Advanced Usage
+
+To customize or develop URBANopt, please use the following documentation and source code to aid you:
 
 - ### [geoJSON docs](https://urbanopt.github.io/urbanopt-geojson-gem/)
 

@@ -47,9 +47,12 @@
 <p>URBANopt is a Software Development Kit (SDK) to aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows URBANopt to address important questions in low energy, grid aware, future thinking urban districts such as tradeoffs between building height and PV (photovoltaic) production, investments in building efficiency vs distributed renewable generation, coordination of multiple buildings to optimize grid metrics, and performance gains of shared thermal district systems vs conventional single building systems. For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system.<br />
 A high-level introduction to the intent and purpose of URBANopt can be found <a href="https://www.nrel.gov/buildings/urbanopt.html">here</a>.</p>
 
-<p>City planners, utility management, and <strong>(TODO: who else are the intended users?)</strong> can use URBANopt to… <strong>TODO: why would someone use UO</strong></p>
+<!-- TODO: who else are the intended users? -->
+<!-- TODO: why would someone use UO? -->
+<p>City planners, utility management, and <strong>TODO</strong> can use URBANopt to… <strong>TODO</strong></p>
 
-<p>URBANopt is a package of code for software engineers to use. <strong>This is not a standalone program for end users.</strong> This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab (<a href="https://www.nrel.gov">NREL</a>). The goal of URBANopt is to enable a thriving public/private partnership of software companies… <strong>TODO: finish this block</strong></p>
+<!-- TODO: finish this block -->
+<p>URBANopt is a package of code for software engineers to use. <strong>This is not a standalone program for end users.</strong> This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab (<a href="https://www.nrel.gov">NREL</a>). The goal of URBANopt is to enable a thriving public/private partnership of software companies… <strong>TODO</strong></p>
 
 <p>This documentation is intended for power users to operate from the command line</p>
 
@@ -71,14 +74,10 @@ A high-level introduction to the intent and purpose of URBANopt can be found <a 
   <li><a href="#adding-a-custom-post-processor">Adding a custom post processor</a></li>
   <li><a href="#advanced-usage">Advanced usage</a>
     <ul>
-      <li><a href="#building-properties">Building properties</a></li>
-      <li><a href="#district-system-properties">District System Properties</a></li>
-      <li><a href="#electrical-connector-properties">Electrical Connector Properties</a></li>
-      <li><a href="#electrical-junction-properties">Electrical Junction Properties</a></li>
-      <li><a href="#region-properties">Region Properties</a></li>
-      <li><a href="#site-properties">Site Properties</a></li>
-      <li><a href="#thermal-connector-properties">Thermal Connector Properties</a></li>
-      <li><a href="#thermal-junction-properties">Thermal Junction Properties</a></li>
+      <li><a href="#geojson-docs">geoJSON docs</a></li>
+      <li><a href="#geojson-github">geoJSON github</a></li>
+      <li><a href="#scenario-docs">Scenario docs</a></li>
+      <li><a href="#scenario-github">Scenario github</a></li>
     </ul>
   </li>
 </ul>
@@ -164,8 +163,7 @@ Gdbm libs:</p>
 
 <h3 id="set-up">Set up</h3>
 
-<p>Make a Fork of our example project:
-<a href="https://github.com/urbanopt/urbanopt-example-geojson-project">https://github.com/urbanopt/urbanopt-example-geojson-project</a></p>
+<p>Make a Fork of our example project: <a href="https://github.com/urbanopt/urbanopt-example-geojson-project">https://github.com/urbanopt/urbanopt-example-geojson-project</a></p>
 
 <ul>
   <li>Check out to a short path (e.g. <code class="highlighter-rouge">C:\urbanopt-project</code>) to avoid problems with long file names on Windows</li>
@@ -217,11 +215,11 @@ Gdbm libs:</p>
 
 <h4 id="update_all">update_all</h4>
 
-<p>This rake task combines the run_all and post_process_all tasks.</p>
+<p>This rake task combines the <code class="highlighter-rouge">run_all</code> and <code class="highlighter-rouge">post_process_all</code> tasks.</p>
 
 <h4 id="default">default</h4>
 
-<p>This runs the update_all rake task.</p>
+<p>This runs the <code class="highlighter-rouge">update_all</code> rake task.</p>
 
 <h4 id="clear_all">clear_all</h4>
 
@@ -231,7 +229,8 @@ Gdbm libs:</p>
   <li><code class="highlighter-rouge">clear_baseline</code>, <code class="highlighter-rouge">clear_high_efficiency</code>, <code class="highlighter-rouge">clear_mixed</code> rake tasks can be used for individual scenarios.</li>
 </ul>
 
-<h3 id="adding-your-own-measures-todo-is-this-how-you-create-a-new-buildingfeature">Adding your own measures TODO: Is this how you create a new building/feature?</h3>
+<!-- TODO: Is this how you create a new building/feature? -->
+<h3 id="adding-your-own-measures-todo">Adding your own measures TODO</h3>
 
 <p>The <code class="highlighter-rouge">mappers</code> folder contains <code class="highlighter-rouge">baseline.osw</code> which serves as a simulation input for URBANopt. It is a workflow of OpenStudio measures and dictates the sequence of running the measures.<br />
 Additional measures can be added to the workflow by adding the measure name and directory along with the measure arguments.</p>
@@ -248,12 +247,16 @@ On adding additional measures to the <code class="highlighter-rouge">baseline.os
 
 <h3 id="adding-a-custom-post-processor">Adding a custom post processor</h3>
 
-<p>Scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” <strong>(add reference)</strong>. This measure writes a <code class="highlighter-rouge">default_feature_reports.json</code> file containing information on all features in the simulation. It also writes a <code class="highlighter-rouge">default_feature_reports.csv</code> containing timeseries data for all the features.</p>
+<!-- TODO: add reference -->
+<p>Scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” <strong>TODO</strong>. This measure writes a <code class="highlighter-rouge">default_feature_reports.json</code> file containing information on all features in the simulation. It also writes a <code class="highlighter-rouge">default_feature_reports.csv</code> containing timeseries data for all the features.</p>
 
-<p>Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio <code class="highlighter-rouge">workflow.osw</code> file <strong>(add reference)</strong> and rerun the simulation.<br />
+<!-- TODO: add reference -->
+<p>Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio <code class="highlighter-rouge">workflow.osw</code> file <strong>TODO</strong> and rerun the simulation.<br />
 The <code class="highlighter-rouge">DefaultPostProcessor</code> reads these feature reports and aggregates them to create a <code class="highlighter-rouge">ScenarioReport</code>.</p>
 
 <h2 id="advanced-usage">Advanced Usage</h2>
+
+<p>To customize or develop URBANopt, please use the following documentation and source code to aid you:</p>
 
 <ul>
   <li>
