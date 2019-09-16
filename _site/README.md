@@ -178,22 +178,12 @@ The `DefaultPostProcessor` reads these feature reports and aggregates them to cr
 
 ## Advanced Usage
 
-- **TODO: write these docs**
+- ### [geoJSON docs](https://urbanopt.github.io/urbanopt-geojson-gem/)
 
-- ### [Building Properties](building-properties.md)
+- ### [geoJSON github](https://github.com/urbanopt/urbanopt-geojson-gem)
 
-- ### [District System Properties](district-system-properties.md)
+- ### [Scenario docs](https://urbanopt.github.io/urbanopt-scenario-gem/)
 
-- ### [Electrical Connector Properties](electrical-connector-properties.md)
-
-- ### [Electrical Junction Properties](electrical-junction-properties.md)
-
-- ### [Region Properties](region-properties.md)
-
-- ### [Site Properties](site-properties.md)
-
-- ### [Thermal Connector Properties](thermal-connector-properties.md)
-
-- ### [Thermal Junction Properties](thermal-junction-properties.md)
+- ### [Scenario github](https://github.com/urbanopt/urbanopt-scenario-gem)
 
 [Top](#welcome-to-urbanopt)
