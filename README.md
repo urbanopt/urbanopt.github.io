@@ -97,7 +97,7 @@ You need to create symlinks to the appropriate version (`libgdbm.so.5` and `libg
 
 ## Basic Usage
 
-### Set up
+### **Set up**
 
 Make a Fork of our example project: <https://github.com/urbanopt/urbanopt-example-geojson-project>
 
@@ -105,70 +105,136 @@ Make a Fork of our example project: <https://github.com/urbanopt/urbanopt-exampl
 - Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
 - Solution: `git config --system core.longpaths true`
 
+### **Run example project**
+
 Run the following commands to execute the Rake tasks defined in the Rakefile of the current working directory.
 
-1. `bundle install`
-1. `bundle exec rake`
-1. `bundle update`
+1. `bundle install` :
+Use this to ensure all dependencies in your Gemfile are available. 
 
-### Run example project
+1. `bundle exec rake` : 
+Use this to execute the Rake tasks.
+
+1. `bundle update` :
+Use this to update your gems to the latest available versions.
+
 
 To run specific rake tasks:
 
-- `bundle exec rake <name of the Rake task>`
+`bundle exec rake <name of the Rake task>`
 
-### Overview of Rake tasks
+### **Overview of Rake tasks**
 
-#### run_all
+#### *run_all*
 
 In the Rake file methods are defined to create a Scenario CSV for each scenario, that take as arguments:
 
-- the `geojson` file (for example: `industry_denver.geojson`)
-- `mappers` folder (for example: `mappers`)
+- The `geojson` file (for example: `industry_denver.geojson`)
+- `mappers_files_dir` the file path for the `baseline.osw` file and the mapper classes.  
 - `csv` file (for example: `baseline_scenario.csv`)
 
-The run_all Rake task creates and runs a `ScenarioRunnerOSW` for each scenario passing the scenario method as an argument.
+The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario, passing the scenario method as an argument.
 
 - `run_baseline`, `run_high_efficiency` and `run_mixed rake` tasks can be used for running individual scenarios.
 
-#### post_process_all
+#### *post_process_all*
 
 This rake task creates and runs `ScenarioDefaultPostProcessor` for each scenario and saves the results.
 
 - `post_process_baseline`, `post_process_high_efficiency`, `post_process_mixed` rake tasks can be used for individual scenarios.
 
-#### update_all
+#### *update_all*
 
 This rake task combines the `run_all` and `post_process_all` tasks.
 
-#### default
+#### *default*
 
 This runs the `update_all` rake task.
 
-#### clear_all
+#### *clear_all*
 
 This rake task clears the scenario results from any previous runs.
 
 - `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for individual scenarios.
 
 <!-- TODO: Is this how you create a new building/feature? -->
-### Adding your own measures TODO
+### **Adding your own measures**
 
-The `mappers` folder contains `baseline.osw` which serves as a simulation input for URBANopt. It is a workflow of OpenStudio measures and dictates the sequence of running the measures.  
-Additional measures can be added to the workflow by adding the measure name and directory along with the measure arguments.
+The `mappers` folder contains `baseline.osw` which serves as a simulation input for
+URBANopt. It is a workflow of OpenStudio and URBANopt measures and dictates the sequence of running
+these measures. Measures are added to create building models and test different energy conservation measures
+for different scenarios. 
 
-### Modifying mapper classes
+- `set_run_period`: It is an OpenStudio Measure used to define the number of timesteps per hour and specify
+  the begin and end date for running the simulation.
 
-The Simulation mapper class maps the features in the feature file to arguments required as simulation inputs in the `baseline.osw`.  
-On adding additional measures to the `baseline.osw` file:
+- `ChangeBuildingLocation`: It is an OpenStudio Measure used to load the EPW file and
+  specify to the EPW weather file. 
 
-```Ruby
-OpenStudio::Extension.set_measure_argument
-```
+- [`create_bar_from_building_type_ratios`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_bar_from_building_type_ratios):
+  It is an OpenStudio Model Articulation Measure to create a core
+  and perimeter bar sliced by space type. It takes in one or more building types as user
+  arguments to create space type collections.
 
-method should be used and the OpenStudio measure name and arguments and the corresponding feature from the feature file should be added as arguments.
+- [`create_typical_building_from_model
+  1`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): It is an OpenStudio Model Articulation Measure that creates a custom prototype
+    building with user-defined geometry and assigns constructions, schedules, internal loads,
+    HVAC and other loads such as exterior lights and service water heating based on the
+    space and sub space types. The `add_hvac` is set to `false` by default. 
 
-### Adding a custom post processor
+- [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/blended_space_type_from_model):
+  It is an OpenStudio Model Articulation Measure that used is used to create a single
+  space type that represents the loads and schedules of a collection of space types. It
+  removes all previous space type assignments and hard assigns internal loads from spaces
+  included in the building floor area. A blended space type will be created from the
+  original internal loads and assigned at the building level.
+
+- [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation):
+  It is an URBANopt GeoJSON measure that is used to create geometry for a particular
+    building, accounting for surrounding buildings as shading.
+
+- `create_typical_building_from_model 2`: It is added in the workflow after urban
+  geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system
+  for the blended space types. The rest of the arguments for adding constructions, space
+  type loads etc. are set to `false`.
+
+- `ReduceElectricEquipmentLoadsByPercentage`: It is an OpenStudio Measure and is used
+  to reduce the equipment load by a certain amount. The measure is skipped for the
+  baseline scenario. For the high efficiency scenario, the skip measure argument is
+  set to false and the measure is implemented.
+
+- `ReduceLightingLoadsByPercentage`: It is an OpenStudio Measure and is used
+  to reduce the lighting load by a certain amount. The measure is skipped for the
+  baseline scenario. For the high efficiency scenario, the skip measure argument is
+  set to false and the measure is implemented.
+
+- [`default_feature_reports`](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports):
+  It is an URBANopt Scenario Measure and it creates a `default_feature_reports.json` used
+  by URBANopt Scenario Default Post Processor.
+
+Additional measures can be added to the workflow by adding the measure name and directory
+name along with the measure arguments.
+
+### **Modifying mapper classes**
+
+The Simulation Mapper Class derives from the
+[SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb)
+class. It maps the features in the feature file to arguments required as simulation
+inputs in the `baseline.osw`. Currently, it does so for the *Building* feature_type. When the Scenario is run, a new Simulation Mapper instance
+is created and the `create_osw` method is implemented for each Feature assigned to the
+Simulation Mapper Class in the Scenario CSV.
+
+On adding additional measures to the `baseline.osw` file, the necessary features from the feature
+files must be mapped to measure arguments in the Simulation Mapper Class.
+
+The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the
+feature file as simulation input, passing the measure and
+argument name and the corresponding feature from the feature file as arguments.
+
+The `HighEfficiency` class inherits from the `BaselineMapper`
+class and can override measures that were skipped in the `BaselineMapper`.
+
+### **Adding a custom post processor**
 
 <!-- TODO: add reference -->
 Scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” **TODO**. This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
