@@ -3,15 +3,13 @@
 URBANopt is a Software Development Kit (SDK) to aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows URBANopt to address important questions in low energy, grid aware, future thinking urban districts such as tradeoffs between building height and PV (photovoltaic) production, investments in building efficiency vs distributed renewable generation, coordination of multiple buildings to optimize grid metrics, and performance gains of shared thermal district systems vs conventional single building systems. For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system.  
 A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.nrel.gov/buildings/urbanopt.html).
 
+Urban planning firms, utility management facilities, architecture firms, energy consultancies and researchers can use URBANopt to create customized workflows to perform a specific environmental design task of interest eg. capturing interactions between individual buildings, district energy systems, distributed energy resources, and various other interactions.
 
-Urban planner firms, utility management facilities, architecture firms, energy consultancies and researchers can use URBANopt to create customized workflows to perform a specific environmental design task of interest eg. capturing interactions between individual buildings, district energy systems, distributed energy resources, and various other interactions.
+URBANopt is a package of code for software engineers to use. **This is not a standalone program for end users.** This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies to build enduse enevironmental design tools using URBANopt SDK modules. These developers can use URBANopt modules, customize URBANopt modules, or create new modules to implement the desired workflows for their tools.
 
+The initial URBANopt modules are written in ruby language. Hence, each URBANopt module is a ruby Gem hosting a group of ruby files. Each ruby file defines a class with unique methods and functionality. The logical structure that describe the connection of classes within a gem is described in a JSON schema or multiple JSON schemas located in the schema folders for each module. 
 
-URBANopt is a package of code for software engineers to use. **This is not a standalone program for end users.** This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies to build enduse enevironmental design tools using URBANopt SDK modules. These end users can use URBANopt modules, customize URBANopt odules, or create new modules to implement the desired workflow for their project.
-
-The initial URBANopt modules are written in ruby language. Hence, each URBANopt module is a ruby Gem hosting a group of ruby files. Each ruby file defines a class with unique meathods and functionality. The logical structure that describe the connection of these classes is described in a JSON schema or multiple JSON schemas located in the schema folders for each module. 
-
-Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. These modules are combined to run an example project generating scenario level and feature level results. This documentation will walk users through the following steps: installing required softwares,  running the example project using rake tasks, adding your own measures, modifying mapper classes and adding a custom post processor. In addition, advanced users should refer to the module docs to furture customize and modify their modules. These docs include a detailed description of all the classes and methods in each module.
+Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. These modules are combined to run an example project generating scenario level and feature level results. This documentation will walk users through the following steps: installing required softwares,  running the example project using rake tasks, adding your own measures, modifying mapper classes, and adding a custom post processor. In addition, advanced users should refer to the module docs to further customize and modify their modules. These docs include a detailed description of all the classes and methods in each URBANopt module.
 
 
 **This documentation is intended for power users to operate from the command line*
@@ -240,11 +238,21 @@ class and can override measures that were skipped in the `BaselineMapper`.
 
 ### **Adding a custom post processor**
 
-<!-- TODO: add reference -->
-Scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” (https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports)**TODO**. This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
+A customized post processor should be added to the rake file replacing the current post processor.  The current post processor defined in the rake file is `default_post_processor` :
+  ```ruby
+  default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
+  scenario_result = default_post_processor.run
+  scenario_result.save
+  ```
+`default_post_processor` is an object of ScenarioDefaultPostProcessor class this class can be customized in the Scenario Gem. Advanced users should refer to scenario docs to learn about the all the methods and classes that are used to aggreagate all the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
+
+#### Feature reports
+<!-- TODO: add reference as hyperlinks -->
+This scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” (https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports)**TODO**. This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
 
 <!-- TODO: add reference -->
 Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio `workflow.osw` file **TODO** and rerun the simulation.  
+
 The `DefaultPostProcessor` reads these feature reports and aggregates them to create a `ScenarioReport`.
 
 
@@ -259,16 +267,5 @@ To customize or develop URBANopt, please use the following documentation and sou
 - ### [Scenario docs](https://urbanopt.github.io/urbanopt-scenario-gem/)
 
 - ### [Scenario github](https://github.com/urbanopt/urbanopt-scenario-gem)
-
-
-Advanced customization of Scenario Gem:
-  
-  Steps: 
-  1 - Customize the Scenario Gem. Refer to Scenario Gem rdocs(link) to learn about the Scenario Gem scheama and its the ruby files. 
-  2- The customized post processor should then be defined in the rake file(link to rake file) to post process the results of your project, for eaxmple:
-
-  default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
-  scenario_result = default_post_processor.run
-  scenario_result.save
 
 [Top](#welcome-to-urbanopt)
