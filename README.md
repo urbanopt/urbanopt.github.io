@@ -86,11 +86,10 @@ If you have a secure firewall that prevents **bundler** from installing, follow 
   - `gem sources -c`
   - `gem sources -a http://rubygems.org/`
 - Accept the reduced security of `http`
-- Create file: `C:\Users\<user_name>\.gemrc` by moving to that directory at the command prompt and typing:
-<!-- TODO: confirm creating files from a different directory, so this can be cleaned up. -->
+- Create a `.gemrc` file from the command prompt by typing:
 
 ```terminal
-type nul > .gemrc
+type nul > C:\Users\<user_name>\.gemrc
 ```
 
 Edit this file to contain:
@@ -279,6 +278,7 @@ The `DefaultPostProcessor` reads these feature reports and aggregates them to cr
 
 To customize or develop URBANopt, please use the following documentation and source code to aid you:
 
+<!-- TODO: Get Scenario published the same way geoJSON is -->
 - [geoJSON documentation](https://urbanopt.github.io/urbanopt-geojson-gem/)
 - [geoJSON github](https://github.com/urbanopt/urbanopt-geojson-gem)
 - [Scenario documentation](https://urbanopt.github.io/urbanopt-scenario-gem/)
