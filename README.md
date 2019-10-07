@@ -1,15 +1,31 @@
 # Welcome to URBANopt
 
-URBANopt is a Software Development Kit (SDK) to aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows URBANopt to address important questions in low energy, grid aware, future thinking urban districts such as tradeoffs between building height and PV (photovoltaic) production, investments in building efficiency vs distributed renewable generation, coordination of multiple buildings to optimize grid metrics, and performance gains of shared thermal district systems vs conventional single building systems. For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system.  
 A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.nrel.gov/buildings/urbanopt.html).
 
-Urban planning firms, utility management facilities, architecture firms, energy consultancies and researchers can use URBANopt to create customized workflows to perform a specific environmental design task of interest eg. capturing interactions between individual buildings, district energy systems, distributed energy resources, and various other interactions.
+URBANopt is a Software Development Kit (SDK) to aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows [URBANopt](https://urbanopt.net) to address important questions in low energy, grid aware, future thinking urban districts such as:
 
-URBANopt is a package of code for software engineers to use. **This is not a standalone program for end users.** This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies to build enduse enevironmental design tools using URBANopt SDK modules. These developers can use URBANopt modules, customize URBANopt modules, or create new modules to implement the desired workflows for their tools.
+- Tradeoffs between building height and photovoltaic (PV) production
+- Investments in building efficiency vs. renewable generation
+- Coordination of multiple buildings to optimize grid metrics
+- Performance gains of shared thermal district systems vs conventional single building systems.
+
+For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system.  
+
+Urban planning firms, utility management facilities, architecture firms, energy consultancies, and researchers can use URBANopt to create customized workflows to perform a specific environmental design task of interest eg. capturing interactions between individual buildings, district energy systems, distributed energy resources, and various other interactions.
+
+URBANopt is a package of code for software engineers to use. **_This is not a standalone program for end users._** This SDK is an engine that can be used to construct a modern, intuitive, performant software package supported by scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies to build enduse enevironmental design tools using URBANopt SDK modules. These developers can use URBANopt modules, customize URBANopt modules, or create new modules to implement the desired workflows for their tools.
 
 The initial URBANopt modules are written in Ruby. Hence, each URBANopt module is a Ruby Gem hosting a group of Ruby files. Each Ruby file defines a class with unique methods and functionality. The logical structure that describe the connection of classes within a gem is described in a JSON schema or multiple JSON schemas located in the schema folders for each module.
 
-Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. These modules are combined to run an example project generating scenario level and feature level results. This documentation will walk users through the following steps: installing required softwares,  running the example project using rake tasks, adding your own measures, modifying mapper classes, and adding a custom post processor. In addition, advanced users should refer to the module docs to further customize and modify their modules. These docs include a detailed description of all the classes and methods in each URBANopt module.
+Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. These modules are combined to run an example project generating scenario level and feature level results. This documentation will walk users through:
+
+- Installing required software
+- Running the example project using rake tasks
+- Adding your own measures
+- Modifying mapper classes
+- Adding a custom post processor
+
+In addition, advanced users should refer to the module docs to further customize and modify their modules. These docs include a detailed description of all classes and methods in each URBANopt module.
 
 **This documentation is intended for power users to operate from the command line*
 
@@ -35,9 +51,9 @@ Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-
 ## Mac installation
 
 Install [Ruby 2.2.4](https://github.com/rbenv/rbenv)  
-Install Bundler 1.17 by typing into your command line:
+Install **Bundler 1.17** by typing into your command line:
 
-```bash
+```terminal
 gem install bundler -v 1.17
 ```
 
@@ -53,11 +69,7 @@ If necessary, create a `.gemrc` file in your home directory that contains:
 ```
 
 Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
-Add path to Ruby in the new OpenStudio folder by pasting into your `.bash_profile` or similar file:
-
-```bash
-export RUBYLIB=/Applications/OpenStudio-2.8.1/Ruby
-```
+Add path to Ruby in the new OpenStudio folder by pasting into your `.bash_profile` or similar file: `export RUBYLIB=/Applications/OpenStudio-2.8.1/Ruby`
 
 ## Windows installation
 
@@ -68,7 +80,7 @@ Create a new environment variable `HOME` and set the variable value to: `C:\User
 
 Install Bundler 1.17 by typing into your command line
 
-```bash
+```terminal
 gem install bundler -v 1.17
 ```
 
@@ -77,11 +89,11 @@ If you have a secure firewall that prevents **bundler** from installing, follow 
 - Type into the command line:
   - `gem sources -c`
   - `gem sources -a http://rubygems.org/`
-- Accept the lowered security of `http` instead of `https`
-- Create file: `C:\Users\<user_name>\.gemrc`. Move to that directory at the command prompt and do this by typing:
+- Accept the reduced security of `http`
+- Create file: `C:\Users\<user_name>\.gemrc` by moving to that directory at the command prompt and typing:
 <!-- TODO: confirm creating files from a different directory, so this can be cleaned up. -->
 
-```bash
+```terminal
 type nul > .gemrc
 ```
 
@@ -98,7 +110,7 @@ Edit this file to contain:
 
 Now you are able to install **bundler** with
 
-```bash
+```terminal
 gem install bundler -v 1.17
 ```
 
@@ -113,13 +125,13 @@ require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
 
 Verify your OpenStudio and Ruby configuration by typing this into your command line:
 
-```bash
+```terminal
 ruby -e "require 'openstudio'" -e "puts OpenStudio::Model::Model.new"
 ```
 
-Expected output is
+Expected output is:
 
-```bash
+```terminal
 OS:Version,
  {5f1cd617-3f1e-47e0-ab6c-3a27160f114b}, !- Handle
  2.7.1;                                  !- Version Identifier`
@@ -129,15 +141,15 @@ OS:Version,
 
 Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
 Manually install [libpng12](https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html)  
-Gdbm libs:
+If you get gdbm libs errors like this:
 
-```bash
+```terminal
 /usr/local/openstudio-2.8.1/bin/openstudio: error while loading shared libraries: libgdbm.so.3: cannot open shared object file: No such file or directory
 ```
 
-and
+or this:
 
-```bash
+```terminal
 /usr/local/openstudio-2.8.1/bin/openstudio: error while loading shared libraries: libgdbm_compat.so.3: cannot open shared object file: No such file or directory
 ```
 
@@ -148,14 +160,14 @@ You need to create symlinks to the appropriate version (`libgdbm.so.5` and `libg
 ### **Set up**
 
 Install [Git](https://git-scm.com/) if not already installed  
-NREL provides a list of optional git GUI's, and some help using git with OpenStudio, [here](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub)  
-Make a Fork of our example project: <https://github.com/urbanopt/urbanopt-example-geojson-project>
+NREL [provides](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub) a list of optional git GUI's, and some help using git with OpenStudio  
+Fork the URBANopt example project: <https://github.com/urbanopt/urbanopt-example-geojson-project> so you can make edits
 
 - Check out to a short path (e.g. `C:\urbanopt-project`) to avoid problems with long file names on Windows
   - Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
   - Solution:
 
-```bash
+```terminal
 git config --system core.longpaths true
 ```
 
@@ -172,7 +184,7 @@ Use this to update your gems to the latest available versions.
 
 To run specific rake tasks:
 
-```bash
+```terminal
 bundle exec rake <name of the Rake task>
 ```
 
@@ -302,8 +314,8 @@ A customized post processor should be added to the rake file replacing the curre
 <!-- TODO: add reference as hyperlinks -->
 This scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
 
-<!-- TODO: add reference -->
-Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio `workflow.osw` file **TODO** and rerun the simulation.  
+<!-- TODO: add workflow reference -->
+Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio `workflow.osw` file and rerun the simulation.  
 
 The `DefaultPostProcessor` reads these feature reports and aggregates them to create a `ScenarioReport`.
 
@@ -311,12 +323,9 @@ The `DefaultPostProcessor` reads these feature reports and aggregates them to cr
 
 To customize or develop URBANopt, please use the following documentation and source code to aid you:
 
-- ### [geoJSON docs](https://urbanopt.github.io/urbanopt-geojson-gem/)
-
-- ### [geoJSON github](https://github.com/urbanopt/urbanopt-geojson-gem)
-
-- ### [Scenario docs](https://urbanopt.github.io/urbanopt-scenario-gem/)
-
-- ### [Scenario github](https://github.com/urbanopt/urbanopt-scenario-gem)
+- [geoJSON documentation](https://urbanopt.github.io/urbanopt-geojson-gem/)
+- [geoJSON github](https://github.com/urbanopt/urbanopt-geojson-gem)
+- [Scenario documentation](https://urbanopt.github.io/urbanopt-scenario-gem/)
+- [Scenario github](https://github.com/urbanopt/urbanopt-scenario-gem)
 
 [Contents](#table-of-contents)
