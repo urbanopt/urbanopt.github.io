@@ -7,15 +7,15 @@ Urban planning firms, utility management facilities, architecture firms, energy 
 
 URBANopt is a package of code for software engineers to use. **This is not a standalone program for end users.** This SDK is the engine, the building blocks that can be used to construct a modern, intuitive, performant software package supported by the scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies to build enduse enevironmental design tools using URBANopt SDK modules. These developers can use URBANopt modules, customize URBANopt modules, or create new modules to implement the desired workflows for their tools.
 
-The initial URBANopt modules are written in ruby language. Hence, each URBANopt module is a ruby Gem hosting a group of ruby files. Each ruby file defines a class with unique methods and functionality. The logical structure that describe the connection of classes within a gem is described in a JSON schema or multiple JSON schemas located in the schema folders for each module. 
+The initial URBANopt modules are written in Ruby. Hence, each URBANopt module is a Ruby Gem hosting a group of Ruby files. Each Ruby file defines a class with unique methods and functionality. The logical structure that describe the connection of classes within a gem is described in a JSON schema or multiple JSON schemas located in the schema folders for each module.
 
 Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. These modules are combined to run an example project generating scenario level and feature level results. This documentation will walk users through the following steps: installing required softwares,  running the example project using rake tasks, adding your own measures, modifying mapper classes, and adding a custom post processor. In addition, advanced users should refer to the module docs to further customize and modify their modules. These docs include a detailed description of all the classes and methods in each URBANopt module.
-
 
 **This documentation is intended for power users to operate from the command line*
 
 ## Table of Contents
 
+- [Introduction](#welcome-to-urbanopt)
 - [Mac installation](#mac-installation)
 - [Windows installation](#windows-installation)
 - [Linux installation](#linux-installation)
@@ -35,11 +35,13 @@ Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-
 ## Mac installation
 
 Install [Ruby 2.2.4](https://github.com/rbenv/rbenv)  
-Install Bundler 1.17 by typing this into your command line:
+Install Bundler 1.17 by typing into your command line:
 
-- `gem install bundler -v 1.17`
+```bash
+gem install bundler -v 1.17
+```
 
-Ensure your local `.gemrc` file contains:
+If necessary, create a `.gemrc` file in your home directory that contains:
 
 ```yml
 :backtrace: false
@@ -51,19 +53,39 @@ Ensure your local `.gemrc` file contains:
 ```
 
 Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
-Add path to Ruby in the new OpenStudio folder by pasting this line to your `.bash_profile` or similar file:
+Add path to Ruby in the new OpenStudio folder by pasting into your `.bash_profile` or similar file:
 
-- `export RUBYLIB=/Applications/OpenStudio-2.8.1/Ruby`
+```bash
+export RUBYLIB=/Applications/OpenStudio-2.8.1/Ruby
+```
 
 ## Windows installation
 
 Install Ruby using the [RubyInstaller](https://rubyinstaller.org/downloads/archives/) for [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
 Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
-Install Bundler 1.17 by typing this into your command line
+Include path to Ruby by adding to your environment variables path: `C:\Ruby22-x64\bin`
+Create a new environment variable `HOME` and set the variable value to: `C:\Users\<user_name>`
 
-- `gem install bundler -v 1.17`
+Install Bundler 1.17 by typing into your command line
 
-Ensure your local `.gemrc` file contains:
+```bash
+gem install bundler -v 1.17
+```
+
+If you have a secure firewall that prevents **bundler** from installing, follow these steps:
+
+- Type into the command line:
+  - `gem sources -c`
+  - `gem sources -a http://rubygems.org/`
+- Accept the lowered security of `http` instead of `https`
+- Create file: `C:\Users\<user_name>\.gemrc`. Move to that directory at the command prompt and do this by typing:
+<!-- TODO: confirm creating files from a different directory, so this can be cleaned up. -->
+
+```bash
+type nul > .gemrc
+```
+
+Edit this file to contain:
 
 ```yml
 :backtrace: false
@@ -74,26 +96,50 @@ Ensure your local `.gemrc` file contains:
 :verbose: true
 ```
 
-Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
-Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and point it to your OpenStudio installation by editing the contents. E.g.:
+Now you are able to install **bundler** with
 
-- `require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'`
+```bash
+gem install bundler -v 1.17
+```
+
+in your command line
+
+Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
+Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain:
+
+```ruby
+require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
+```
 
 Verify your OpenStudio and Ruby configuration by typing this into your command line:
 
-- `ruby -e "require 'openstudio'" -e "puts OpenStudio::Model::Model.new"`
+```bash
+ruby -e "require 'openstudio'" -e "puts OpenStudio::Model::Model.new"
+```
+
+Expected output is
+
+```bash
+OS:Version,
+ {5f1cd617-3f1e-47e0-ab6c-3a27160f114b}, !- Handle
+ 2.7.1;                                  !- Version Identifier`
+ ```
 
 ## Linux installation
 
 Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
-Need to manually install [libpng12](https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html)  
+Manually install [libpng12](https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html)  
 Gdbm libs:
 
-- `/usr/local/openstudio-2.8.1/bin/openstudio: error while loading shared libraries: libgdbm.so.3: cannot open shared object file: No such file or directory`
+```bash
+/usr/local/openstudio-2.8.1/bin/openstudio: error while loading shared libraries: libgdbm.so.3: cannot open shared object file: No such file or directory
+```
 
 and
 
-- `/usr/local/openstudio-2.8.1/bin/openstudio: error while loading shared libraries: libgdbm_compat.so.3: cannot open shared object file: No such file or directory`
+```bash
+/usr/local/openstudio-2.8.1/bin/openstudio: error while loading shared libraries: libgdbm_compat.so.3: cannot open shared object file: No such file or directory
+```
 
 You need to create symlinks to the appropriate version (`libgdbm.so.5` and `libgdbm_compat.so.4`)
 
@@ -101,31 +147,36 @@ You need to create symlinks to the appropriate version (`libgdbm.so.5` and `libg
 
 ### **Set up**
 
+Install [Git](https://git-scm.com/) if not already installed  
+NREL provides a list of optional git GUI's, and some help using git with OpenStudio, [here](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub)  
 Make a Fork of our example project: <https://github.com/urbanopt/urbanopt-example-geojson-project>
 
 - Check out to a short path (e.g. `C:\urbanopt-project`) to avoid problems with long file names on Windows
-- Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
-- Solution: `git config --system core.longpaths true`
+  - Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
+  - Solution:
+
+```bash
+git config --system core.longpaths true
+```
 
 ### **Run example project**
 
 Run the following commands to execute the Rake tasks defined in the Rakefile of the current working directory.
 
 1. `bundle install` :
-Use this to ensure all dependencies in your Gemfile are available. 
-
-1. `bundle exec rake` : 
+Use this to ensure all dependencies in your Gemfile are available.
+1. `bundle exec rake` :
 Use this to execute the Rake tasks.
-
 1. `bundle update` :
 Use this to update your gems to the latest available versions.
 
-
 To run specific rake tasks:
 
-`bundle exec rake <name of the Rake task>`
+```bash
+bundle exec rake <name of the Rake task>
+```
 
-### **Overview of Rake tasks**
+### **Rake tasks**
 
 #### *run_all*
 
@@ -159,19 +210,18 @@ This rake task clears the scenario results from any previous runs.
 
 - `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for individual scenarios.
 
-<!-- TODO: Is this how you create a new building/feature? -->
 ### **Adding your own measures**
 
 The `mappers` folder contains `baseline.osw` which serves as a simulation input for
 URBANopt. It is a workflow of OpenStudio and URBANopt measures and dictates the sequence of running
 these measures. Measures are added to create building models and test different energy conservation measures
-for different scenarios. 
+for different scenarios.
 
 - `set_run_period`: It is an OpenStudio Measure used to define the number of timesteps per hour and specify
   the begin and end date for running the simulation.
 
 - `ChangeBuildingLocation`: It is an OpenStudio Measure used to load the EPW file and
-  specify to the EPW weather file. 
+  specify to the EPW weather file.
 
 - [`create_bar_from_building_type_ratios`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_bar_from_building_type_ratios):
   It is an OpenStudio Model Articulation Measure to create a core
@@ -182,7 +232,7 @@ for different scenarios.
   1`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): It is an OpenStudio Model Articulation Measure that creates a custom prototype
     building with user-defined geometry and assigns constructions, schedules, internal loads,
     HVAC and other loads such as exterior lights and service water heating based on the
-    space and sub space types. The `add_hvac` is set to `false` by default. 
+    space and sub space types. The `add_hvac` is set to `false` by default.
 
 - [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/blended_space_type_from_model):
   It is an OpenStudio Model Articulation Measure that used is used to create a single
@@ -239,22 +289,23 @@ class and can override measures that were skipped in the `BaselineMapper`.
 ### **Adding a custom post processor**
 
 A customized post processor should be added to the rake file replacing the current post processor.  The current post processor defined in the rake file is `default_post_processor` :
+
   ```ruby
   default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
   scenario_result = default_post_processor.run
   scenario_result.save
   ```
+
 `default_post_processor` is an object of ScenarioDefaultPostProcessor class this class can be customized in the Scenario Gem. Advanced users should refer to scenario docs to learn about the all the methods and classes that are used to aggreagate all the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
 
 #### Feature reports
 <!-- TODO: add reference as hyperlinks -->
-This scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the “default_feature_reports” (https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports)**TODO**. This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
+This scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
 
 <!-- TODO: add reference -->
 Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio `workflow.osw` file **TODO** and rerun the simulation.  
 
 The `DefaultPostProcessor` reads these feature reports and aggregates them to create a `ScenarioReport`.
-
 
 ## Advanced Usage
 
@@ -268,4 +319,4 @@ To customize or develop URBANopt, please use the following documentation and sou
 
 - ### [Scenario github](https://github.com/urbanopt/urbanopt-scenario-gem)
 
-[Top](#welcome-to-urbanopt)
+[Contents](#table-of-contents)
