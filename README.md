@@ -43,10 +43,6 @@ In addition, advanced users should refer to the module docs to further customize
 - [Modifying mapper classes](#modifying-mapper-classes)
 - [Adding a custom post processor](#adding-a-custom-post-processor)
 - [Advanced usage](#advanced-usage)
-  - [geoJSON docs](#geojson-docs)
-  - [geoJSON github](#geojson-github)
-  - [Scenario docs](#scenario-docs)
-  - [Scenario github](#scenario-github)
 
 ## Mac installation
 
