@@ -71,10 +71,10 @@ Add path to Ruby in the new OpenStudio folder by pasting into your `.bash_profil
 
 Install Ruby using the [RubyInstaller](https://rubyinstaller.org/downloads/archives/) for [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
 Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
-Include path to Ruby by adding to your environment variables path: `C:\Ruby22-x64\bin`
+Include path to Ruby by adding to your environment variables path: `C:\Ruby22-x64\bin`  
 Create a new environment variable `HOME` and set the variable value to: `C:\Users\<user_name>`
 
-Install Bundler 1.17 by typing into your command line
+Install Bundler 1.17 by typing into your command line:
 
 ```terminal
 gem install bundler -v 1.17
@@ -110,7 +110,7 @@ Now you are able to install **bundler** with
 gem install bundler -v 1.17
 ```
 
-in your command line
+in the command line as described earlier.
 
 Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
 Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain:
@@ -119,13 +119,13 @@ Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edi
 require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
 ```
 
-Verify your OpenStudio and Ruby configuration by typing this into your command line:
+Verify your OpenStudio and Ruby configuration by typing into your command line:
 
 ```terminal
 ruby -e "require 'openstudio'" -e "puts OpenStudio::Model::Model.new"
 ```
 
-Expected output is:
+Expected output:
 
 ```terminal
 OS:Version,
@@ -156,12 +156,12 @@ You need to create symlinks to the appropriate version (`libgdbm.so.5` and `libg
 ### **Set up**
 
 Install [Git](https://git-scm.com/) if not already installed  
-NREL [provides](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub) a list of optional git GUI's, and some help using git with OpenStudio  
+NREL [provides a list](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub) of optional git GUI's, and some help using git with OpenStudio  
 Fork the URBANopt example project: <https://github.com/urbanopt/urbanopt-example-geojson-project> so you can make edits
 
 - Check out to a short path (e.g. `C:\urbanopt-project`) to avoid problems with long file names on Windows
   - Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
-  - Solution:
+  - The solution is to type into your command prompt:
 
 ```terminal
 git config --system core.longpaths true
@@ -171,12 +171,9 @@ git config --system core.longpaths true
 
 Run the following commands to execute the Rake tasks defined in the Rakefile of the current working directory.
 
-1. `bundle install` :
-Use this to ensure all dependencies in your Gemfile are available.
-1. `bundle exec rake` :
-Use this to execute the Rake tasks.
-1. `bundle update` :
-Use this to update your gems to the latest available versions.
+1. `bundle install` to ensure all dependencies in your Gemfile are available
+1. `bundle exec rake` to execute Rake tasks
+1. `bundle update` to update your gems to the latest available versions
 
 To run specific rake tasks:
 
@@ -225,74 +222,28 @@ URBANopt. It is a workflow of OpenStudio and URBANopt measures and dictates the 
 these measures. Measures are added to create building models and test different energy conservation measures
 for different scenarios.
 
-- `set_run_period`: It is an OpenStudio Measure used to define the number of timesteps per hour and specify
-  the begin and end date for running the simulation.
+- `set_run_period`: An OpenStudio Measure used to define the number of timesteps per hour and specify the begin and end date for running the simulation.
+- `ChangeBuildingLocation`: An OpenStudio Measure used to load the EPW file and specify to the EPW weather file.
+- [`create_bar_from_building_type_ratios`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_bar_from_building_type_ratios): An OpenStudio Model Articulation Measure to create a core and perimeter bar sliced by space type. It takes in one or more building types as user arguments to create space type collections.
+- [`create_typical_building_from_model 1`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): An OpenStudio Model Articulation Measure that creates a custom prototype building with user-defined geometry and assigns constructions, schedules, internal loads, HVAC and other loads such as exterior lights and service water heating based on the space and sub space types. The `add_hvac` is set to `false` by default.
+- [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/blended_space_type_from_model): An OpenStudio Model Articulation Measure that used is used to create a single space type that represents the loads and schedules of a collection of space types. It removes all previous space type assignments and hard assigns internal loads from spaces included in the building floor area. A blended space type will be created from the original internal loads and assigned at the building level.
+- [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation): An URBANopt GeoJSON measure that is used to create geometry for a particular building, accounting for surrounding buildings as shading.
+- `create_typical_building_from_model 2`: Added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type loads etc. are set to `false`.
+- `ReduceElectricEquipmentLoadsByPercentage`: An OpenStudio Measure and is used to reduce the equipment load by a certain amount. The measure is skipped for the baseline scenario. For the high efficiency scenario, the skip measure argument is set to false and the measure is implemented.
+- `ReduceLightingLoadsByPercentage`: An OpenStudio Measure and is used to reduce the lighting load by a certain amount. The measure is skipped for the baseline scenario. For the high efficiency scenario, the skip measure argument is set to false and the measure is implemented.
+- [`default_feature_reports`](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports): An URBANopt Scenario Measure that creates a `default_feature_reports.json` used by URBANopt Scenario Default Post Processor.
 
-- `ChangeBuildingLocation`: It is an OpenStudio Measure used to load the EPW file and
-  specify to the EPW weather file.
-
-- [`create_bar_from_building_type_ratios`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_bar_from_building_type_ratios):
-  It is an OpenStudio Model Articulation Measure to create a core
-  and perimeter bar sliced by space type. It takes in one or more building types as user
-  arguments to create space type collections.
-
-- [`create_typical_building_from_model
-  1`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): It is an OpenStudio Model Articulation Measure that creates a custom prototype
-    building with user-defined geometry and assigns constructions, schedules, internal loads,
-    HVAC and other loads such as exterior lights and service water heating based on the
-    space and sub space types. The `add_hvac` is set to `false` by default.
-
-- [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/blended_space_type_from_model):
-  It is an OpenStudio Model Articulation Measure that used is used to create a single
-  space type that represents the loads and schedules of a collection of space types. It
-  removes all previous space type assignments and hard assigns internal loads from spaces
-  included in the building floor area. A blended space type will be created from the
-  original internal loads and assigned at the building level.
-
-- [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation):
-  It is an URBANopt GeoJSON measure that is used to create geometry for a particular
-    building, accounting for surrounding buildings as shading.
-
-- `create_typical_building_from_model 2`: It is added in the workflow after urban
-  geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system
-  for the blended space types. The rest of the arguments for adding constructions, space
-  type loads etc. are set to `false`.
-
-- `ReduceElectricEquipmentLoadsByPercentage`: It is an OpenStudio Measure and is used
-  to reduce the equipment load by a certain amount. The measure is skipped for the
-  baseline scenario. For the high efficiency scenario, the skip measure argument is
-  set to false and the measure is implemented.
-
-- `ReduceLightingLoadsByPercentage`: It is an OpenStudio Measure and is used
-  to reduce the lighting load by a certain amount. The measure is skipped for the
-  baseline scenario. For the high efficiency scenario, the skip measure argument is
-  set to false and the measure is implemented.
-
-- [`default_feature_reports`](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports):
-  It is an URBANopt Scenario Measure and it creates a `default_feature_reports.json` used
-  by URBANopt Scenario Default Post Processor.
-
-Additional measures can be added to the workflow by adding the measure name and directory
-name along with the measure arguments.
+Additional measures can be added to the workflow by adding the measure name and directory name along with the measure arguments.
 
 ### **Modifying mapper classes**
 
-The Simulation Mapper Class derives from the
-[SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb)
-class. It maps the features in the feature file to arguments required as simulation
-inputs in the `baseline.osw`. Currently, it does so for the *Building* feature_type. When the Scenario is run, a new Simulation Mapper instance
-is created and the `create_osw` method is implemented for each Feature assigned to the
-Simulation Mapper Class in the Scenario CSV.
+The Simulation Mapper Class derives from the [SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb) class. It maps the features in the feature file to arguments required as simulation inputs in the `baseline.osw`. Currently, it does so for the *Building* feature_type. When the Scenario is run, a new Simulation Mapper instance is created and the `create_osw` method is implemented for each Feature assigned to the Simulation Mapper Class in the Scenario CSV.
 
-On adding additional measures to the `baseline.osw` file, the necessary features from the feature
-files must be mapped to measure arguments in the Simulation Mapper Class.
+On adding additional measures to the `baseline.osw` file, the necessary features from the feature files must be mapped to measure arguments in the Simulation Mapper Class.
 
-The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the
-feature file as simulation input, passing the measure and
-argument name and the corresponding feature from the feature file as arguments.
+The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the feature file as simulation input, passing the measure and argument name and the corresponding feature from the feature file as arguments.
 
-The `HighEfficiency` class inherits from the `BaselineMapper`
-class and can override measures that were skipped in the `BaselineMapper`.
+The `HighEfficiency` class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
 
 ### **Adding a custom post processor**
 
@@ -324,4 +275,4 @@ To customize or develop URBANopt, please use the following documentation and sou
 - [Scenario documentation](https://urbanopt.github.io/urbanopt-scenario-gem/)
 - [Scenario github](https://github.com/urbanopt/urbanopt-scenario-gem)
 
-[Contents](#table-of-contents)
+[Return to table of contents](#table-of-contents)
