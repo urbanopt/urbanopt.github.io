@@ -135,6 +135,8 @@ OS:Version,
 
 ## Linux installation
 
+**_Linux installation/operation has not been tested exhaustively. Please submit an issue if you find something that doesn't work_**
+
 Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
 Manually install [libpng12](https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html)  
 If you get gdbm libs errors like this:
@@ -159,7 +161,8 @@ Install [Git](https://git-scm.com/) if not already installed
 NREL [provides a list](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub) of optional git GUI's, and some help using git with OpenStudio  
 Fork the URBANopt example project: <https://github.com/urbanopt/urbanopt-example-geojson-project> so you can make edits
 
-- Check out to a short path (e.g. `C:\urbanopt-project`) to avoid problems with long file names on Windows
+- Check out to a short path (e.g. `C:\urbanopt`) to reduce problems with long file names on Windows
+- To allow long file names in git:
   - Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
   - The solution is to type into your command prompt:
 
