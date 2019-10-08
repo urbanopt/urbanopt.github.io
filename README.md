@@ -47,6 +47,7 @@ In addition, advanced users should refer to the module docs to further customize
 ## Mac installation
 
 Install [Ruby 2.2.4](https://github.com/rbenv/rbenv)  
+(URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released)  
 Install **Bundler 1.17** by typing into your command line:
 
 ```terminal
@@ -70,6 +71,7 @@ Add path to Ruby in the new OpenStudio folder by pasting into your `.bash_profil
 ## Windows installation
 
 Install Ruby using the [RubyInstaller](https://rubyinstaller.org/downloads/archives/) for [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
+(URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released)  
 Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
 Include path to Ruby by adding to your environment variables path: `C:\Ruby22-x64\bin`  
 Create a new environment variable `HOME` and set the variable value to: `C:\Users\<user_name>`
