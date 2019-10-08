@@ -46,7 +46,7 @@ In addition, advanced users should refer to the module docs to further customize
 
 ## Mac installation
 
-Install [Ruby 2.2.4](https://github.com/rbenv/rbenv)  
+Install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installation)  
 (URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released)  
 Install **Bundler 1.17** by typing into your command line:
 
