@@ -160,12 +160,14 @@ You need to create symlinks to the appropriate version (`libgdbm.so.5` and `libg
 
 Install [Git](https://git-scm.com/) if not already installed  
 NREL [provides a list](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub) of optional git GUI's, and some help using git with OpenStudio  
-Fork the URBANopt example project: <https://github.com/urbanopt/urbanopt-example-geojson-project> so you can make edits
+Fork the URBANopt example project: <https://github.com/urbanopt/urbanopt-example-geojson-project>  
+Clone your fork down to your local machine  
 
-- Check out to a short path (e.g. `C:\urbanopt`) to reduce problems with long file names on Windows
-- To allow long file names in git:
-  - Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
-  - The solution is to type into your command prompt:
+**If using Windows:**  
+To allow long file names in git:
+
+- Reference: <https://ourcodeworld.com/articles/read/109/how-to-solve-filename-too-long-error-in-git-powershell-and-github-application-for-windows>
+- The solution is to type into your command prompt:
 
 ```terminal
 git config --system core.longpaths true
