@@ -257,7 +257,7 @@ The `HighEfficiency` class inherits from the `BaselineMapper` class and can over
 
 ### **Adding a custom post processor**
 
-A customized post processor should be added to the rake file replacing the current post processor.  The current post processor defined in the rake file is `default_post_processor` :
+The Scenario post processor post_processes a scenario, by aggregating the [Feature reports](#Feature-reports) in this scenario, to create scenario level results. A customized post processor can be added to the rake file replacing the current post processor.  The current post processor defined in the rake file is `default_post_processor` :
 
   ```ruby
   default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
@@ -265,16 +265,29 @@ A customized post processor should be added to the rake file replacing the curre
   scenario_result.save
   ```
 
-`default_post_processor` is an object of ScenarioDefaultPostProcessor class this class can be customized in the Scenario Gem. Advanced users should refer to scenario docs to learn about the all the methods and classes that are used to aggreagate all the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
+`default_post_processor` is an object of ScenarioDefaultPostProcessor class this class can be customized in the [Scenario Gem](https://github.com/urbanopt/urbanopt-scenario-gem). Advanced users should refer to [scenario documentation](#Advanced-Usage) to learn about the all the methods and classes that are used to aggreagate the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
 
 #### Feature reports
-<!-- TODO: add reference as hyperlinks -->
+
 This scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
 
-<!-- TODO: add workflow reference -->
-Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. User can then add the new reporting measure to the openstudio `workflow.osw` file and rerun the simulation.  
+Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. Users should refer to this [reporting measure writing guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/#reporting-measures) to customize the `measure.rb` file in [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports) or create a new reporting measure. 
+
+User can then add any new reporting measure to the openstudio `.osw` file ,as describe [here](#Adding-your-own-measures), and rerun the simulation.
+The current measure added to the baseline.osw is the default_feature_reports:
+```
+{
+      "measure_dir_name": "default_feature_reports",
+      "arguments": {
+        "feature_id": null,
+        "feature_name": null,
+        "feature_type": null
+      }
+    }
+```
 
 The `DefaultPostProcessor` reads these feature reports and aggregates them to create a `ScenarioReport`.
+
 
 ## Advanced Usage
 
