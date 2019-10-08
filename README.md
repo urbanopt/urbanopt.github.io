@@ -54,7 +54,7 @@ Install **Bundler 1.17** by typing into your command line:
 gem install bundler -v 1.17
 ```
 
-If necessary, create a `.gemrc` file in your home directory that contains:
+If it doesn't already exist, create a `.gemrc` file in your home directory that contains:
 
 ```yml
 :backtrace: false
@@ -70,7 +70,7 @@ Add path to Ruby in the new OpenStudio folder by pasting into your `.bash_profil
 
 ## Windows installation
 
-Install Ruby using the [RubyInstaller](https://rubyinstaller.org/downloads/archives/) for [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
+Install [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
 (URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released)  
 Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
 Include path to Ruby by adding to your environment variables path: `C:\Ruby22-x64\bin`  
