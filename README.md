@@ -1,19 +1,26 @@
 # Welcome to URBANopt
 
-A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.nrel.gov/buildings/urbanopt.html).
+URBANopt (Urban Renewable Building And Neighborhood optimization) is an EnergyPlus and OpenStudio-based simulation platform aimed at district- and campus-scale thermal and electrical analysis.
 
-URBANopt is a Software Development Kit (SDK) to aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows [URBANopt](https://urbanopt.net) to address important questions in low energy, grid aware, future thinking urban districts such as:
+The URBANopt project website can be found [here](https://www.nrel.gov/buildings/urbanopt.html).  
+A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.energy.gov/eere/buildings/urbanopt).
+
+**_URBANopt is not a standalone program for end users._** URBANopt Software Development Kit (SDK) is a package of modules that can be used to build commercial software. Developers can use existing URBANopt modules, customize URBANopt modules, and create new modules to implement the desired workflows for their tools.
+
+URBANopt initially focuses on enabling three types of use cases:
+
+- Design of low energy campuses and districts.
+- Design and optimization of grid-interactive efficient buildings (GEBs) at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems.
+- Detailed design of next-generation district thermal systems.
+
+The URBANopt SDK can aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows URBANopt to address important questions in low energy, grid aware, future thinking urban districts such as:
 
 - Tradeoffs between building height and photovoltaic (PV) production
 - Investments in building efficiency vs. renewable generation
 - Coordination of multiple buildings to optimize grid metrics
 - Performance gains of shared thermal district systems vs conventional single building systems.
 
-For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system.  
-
-Urban planning firms, utility management facilities, architecture firms, energy consultancies, and researchers can use URBANopt to create customized workflows to perform a specific environmental design task of interest eg. capturing interactions between individual buildings, district energy systems, distributed energy resources, and various other interactions.
-
-URBANopt is a package of code for software engineers to use. **_This is not a standalone program for end users._** This SDK is an engine that can be used to construct a modern, intuitive, performant software package supported by scientific data provided by the National Renewable Energy Lab ([NREL](https://www.nrel.gov)). The goal of URBANopt is to enable a thriving public/private partnership of software companies to build enduse enevironmental design tools using URBANopt SDK modules. These developers can use URBANopt modules, customize URBANopt modules, or create new modules to implement the desired workflows for their tools.
+For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system.
 
 The initial URBANopt modules are written in Ruby. Hence, each URBANopt module is a Ruby Gem hosting a group of Ruby files. Each Ruby file defines a class with unique methods and functionality. The logical structure that describe the connection of classes within a gem is described in a JSON schema or multiple JSON schemas located in the schema folders for each module.
 
@@ -24,10 +31,9 @@ Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-
 - Adding your own measures
 - Modifying mapper classes
 - Adding a custom post processor
+- Details on classes and methods available to developers
 
-In addition, advanced users should refer to the module docs to further customize and modify their modules. These docs include a detailed description of all classes and methods in each URBANopt module.
-
-**This documentation is intended for power users to operate from the command line*
+**This documentation is intended for developers to operate from the command line*
 
 ## Table of Contents
 
