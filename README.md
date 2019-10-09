@@ -5,7 +5,7 @@ URBANopt (Urban Renewable Building And Neighborhood optimization) is an EnergyPl
 The URBANopt project website can be found [here](https://www.nrel.gov/buildings/urbanopt.html).  
 A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.energy.gov/eere/buildings/urbanopt).
 
-**_URBANopt is not a standalone program for end users._** URBANopt Software Development Kit (SDK) is a package of modules that can be used to build commercial software. Developers can use existing URBANopt modules, customize URBANopt modules, and create new modules to implement the desired workflows for their tools.
+**_URBANopt is not a standalone program for end users._** URBANopt Software Development Kit (SDK) is a package of modules that can be used to build a user-friendly tool. Developers can use existing URBANopt modules, customize URBANopt modules, and create new modules to implement the desired workflows for their tools. Other users of the SDK could include researchers looking to create customized workflows to perform a specific environmental design task.
 
 URBANopt initially focuses on enabling three types of use cases:
 
@@ -33,7 +33,7 @@ Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-
 - Adding a custom post processor
 - Details on classes and methods available to developers
 
-**This documentation is intended for developers to operate from the command line*
+_*This documentation is intended for developers to operate from the command line_*
 
 ## Table of Contents
 
@@ -305,5 +305,6 @@ To customize or develop URBANopt, please use the following documentation and sou
 - [GeoJSON Github](https://github.com/urbanopt/urbanopt-geojson-gem)
 - [Scenario documentation](https://urbanopt.github.io/urbanopt-scenario-gem/)
 - [Scenario Github](https://github.com/urbanopt/urbanopt-scenario-gem)
+- [Core Github](https://github.com/urbanopt/urbanopt-core-gem)
 
 [Return to table of contents](#table-of-contents)
