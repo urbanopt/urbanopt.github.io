@@ -184,14 +184,10 @@ git config --system core.longpaths true
 Run the following commands to execute the Rake tasks defined in the Rakefile of the current working directory.
 
 1. `bundle install` to ensure all dependencies in your Gemfile are available
-1. `bundle exec rake` to execute Rake tasks
+1. `bundle exec rake <rake task>` to execute Rake tasks
 1. `bundle update` to update your gems to the latest available versions
 
-To run specific rake tasks:
-
-```terminal
-bundle exec rake <name of the Rake task>
-```
+`bundle exec rake` with no arguments means: `bundle exec rake run_all`
 
 ### **Rake tasks**
 
