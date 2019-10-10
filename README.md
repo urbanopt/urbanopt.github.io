@@ -94,7 +94,7 @@ If you have a secure firewall that prevents **bundler** from installing, follow 
   - `gem sources -c`
   - `gem sources -a http://rubygems.org/`
 - Accept the reduced security of `http`
-- Create a `.gemrc` file from the command prompt by typing:
+- If it doesn't already exist, create a .gemrc file in your home directory by typing:
 
 ```terminal
 type nul > C:\Users\<user_name>\.gemrc
