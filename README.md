@@ -44,7 +44,7 @@ _*This documentation is intended for developers to operate from the command line
 - [Basic usage](#basic-usage)
   - [Set up](#set-up)
   - [Run example project](#run-example-project)
-  - [Overview of rake tasks](#overview-of-rake-tasks)
+  - [Overview of rake tasks](#rake-tasks)
 - [Adding your own measures](#adding-your-own-measures)
 - [Modifying mapper classes](#modifying-mapper-classes)
 - [Adding a custom post processor](#adding-a-custom-post-processor)
