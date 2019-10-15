@@ -22,7 +22,7 @@ The URBANopt SDK can aid in the design of districts where the interactions betwe
 
 For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system (see Figure 2 from the [URBANopt project website](https://www.nrel.gov/buildings/urbanopt.html) for an example).
 
-Currently URBANopt include 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. The logical structure of the connection between classes within a gem is described in JSON schemas located in the schema folders for each module. These modules are combined to run an example project generating scenario level and feature level results.
+Currently URBANopt includes 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. The logical structure of the connection between classes within a gem is described in JSON schemas located in the schema folders for each module. These modules are combined to run an example project generating scenario level and feature level results.
 
 ## Table of Contents
 
@@ -165,7 +165,7 @@ git config --system core.longpaths true
 
 ### [**Run example project**](#table-of-contents)
 
-Run the following commands to execute the Rake tasks defined in the Rakefile of the current working directory.
+Move to the top level directory of the example you just cloned. Run the following commands to execute the Rake tasks defined in the Rakefile of the current working directory.
 
 1. `bundle install` to ensure all dependencies in your Gemfile are available
 1. `bundle exec rake <rake task>` to execute Rake tasks
@@ -183,7 +183,7 @@ In the Rake file methods are defined to create a Scenario CSV for each scenario,
 
 The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario, passing the scenario method as an argument.
 
-- `run_baseline`, `run_high_efficiency` and `run_mixed rake` tasks can be used for running individual scenarios.
+- `run_baseline`, `run_high_efficiency` and `run_mixed` rake tasks can be used for running individual scenarios.
 
 #### *post_process_all*
 
@@ -251,7 +251,7 @@ The Scenario post processor post_processes a scenario, by aggregating the [Featu
   scenario_result.save
   ```
 
-`default_post_processor` is an object of ScenarioDefaultPostProcessor class this class can be customized in the [Scenario Gem](https://github.com/urbanopt/urbanopt-scenario-gem). Advanced users should refer to [scenario documentation](#Advanced-Usage) to learn about the all the methods and classes that are used to aggreagate the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
+`default_post_processor` is an object of ScenarioDefaultPostProcessor class this class can be customized in the [Scenario Gem](https://github.com/urbanopt/urbanopt-scenario-gem). Advanced users should refer to [scenario documentation](#Advanced-Usage) to learn about the all the methods and classes that are used to aggregate the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
 
 #### [Feature reports](#table-of-contents)
 
