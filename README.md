@@ -187,9 +187,9 @@ The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario
 
 #### *post_process_all*
 
-This rake task creates and runs `ScenarioDefaultPostProcessor` for each scenario and saves the results.
+The default "post-process" of a scenario aggregates the [Feature reports](#Feature-reports) into results across the whole scenario. This rake task creates and runs `ScenarioDefaultPostProcessor` for each scenario and saves the results.
 
-- `post_process_baseline`, `post_process_high_efficiency`, `post_process_mixed` rake tasks can be used for individual scenarios.
+- `post_process_baseline`, `post_process_high_efficiency`, `post_process_mixed` rake tasks are pre-built and can be used for those individual scenarios.
 
 #### *update_all*
 
@@ -243,19 +243,15 @@ The `HighEfficiency` class inherits from the `BaselineMapper` class and can over
 
 ### [**Adding a custom post processor**](#table-of-contents)
 
-The Scenario post processor post_processes a scenario, by aggregating the [Feature reports](#Feature-reports) in this scenario, to create scenario level results. A customized post processor can be added to the rake file replacing the current post processor.  The current post processor defined in the rake file is `default_post_processor`:
+ A customized post processor can be added to the rake file, replacing the default post processor.
 
-  ```ruby
-  default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
-  scenario_result = default_post_processor.run
-  scenario_result.save
-  ```
+ <!-- TODO: Why would someone create a custom post-processor? What benefit could they gain? -->
 
-`default_post_processor` is an object of ScenarioDefaultPostProcessor class this class can be customized in the [Scenario Gem](https://github.com/urbanopt/urbanopt-scenario-gem). Advanced users should refer to [scenario documentation](#Advanced-Usage) to learn about the all the methods and classes that are used to aggregate the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
+`default_post_processor` is an object of ScenarioDefaultPostProcessor class. Advanced users should refer to [Scenario documentation](#Advanced-Usage) for customizing all methods and classes used to aggregate the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
 
 #### [Feature reports](#table-of-contents)
 
-This scenario post process require feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
+The scenario post process requires feature reports to aggregate results from feature simulations. A reportig measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
 
 Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. Users should refer to this [reporting measure writing guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/#reporting-measures) to customize the `measure.rb` file in [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports) or create a new reporting measure.
 
