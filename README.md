@@ -175,13 +175,14 @@ Move to the top level directory of the example you just cloned. Run the followin
 
 #### *run_all*
 
-In the Rake file methods are defined to create a Scenario CSV for each scenario, that take as arguments:
+In the `Rakefile` methods are defined to create a Scenario CSV for each scenario, that take as arguments:
 
 - The `geojson` file (for example: `industry_denver.geojson`)
 - `mappers_files_dir` the file path for the `baseline.osw` file and the mapper classes.  
 - `csv` file (for example: `baseline_scenario.csv`)
 
-The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario, passing the scenario method as an argument.
+The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario i.e. the
+*Baseline*, *HighEfficiency* and *Mixed scenario*, passing the scenario method as an argument.
 
 - `run_baseline`, `run_high_efficiency` and `run_mixed` rake tasks can be used for running individual scenarios.
 
@@ -221,7 +222,7 @@ The `mappers` folder contains `baseline.osw` which serves as a simulation input 
 
 - [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation): An URBANopt GeoJSON measure that is used to create geometry for a particular building, accounting for surrounding buildings as shading.
 
-- `create_typical_building_from_model 2`: Added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
+- [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): Added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
 
 - `ReduceElectricEquipmentLoadsByPercentage`: An OpenStudio Measure that is used to reduce the equipment load by a certain amount. The measure is skipped for the baseline scenario. For the high efficiency scenario, the skip measure argument is set to false and the measure is implemented.
 
@@ -233,13 +234,60 @@ Additional measures can be added to the workflow by adding the measure name and 
 
 ### [**Modifying mapper classes**](#table-of-contents)
 
-The Simulation Mapper Class derives from the [SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb) class. It maps the features in the feature file to arguments required as simulation inputs in the `baseline.osw`. Currently, it does so for the *Building* feature_type. When the Scenario is run, a new Simulation Mapper instance is created and the `create_osw` method is implemented for each Feature assigned to the Simulation Mapper Class in the Scenario CSV.
+The Simulation Mapper Class derives from the
+[SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb)
+class. It maps the features in the feature file to arguments required as simulation
+inputs in the `baseline.osw`. 
 
-On adding additional measures to the `baseline.osw` file, the necessary features from the feature files must be mapped to measure arguments in the Simulation Mapper Class.
+A feature refers to a single object in a district energy
+analysis such as a building, district, system etc. The feature file includes all data for
+all the features and is written by a third part user interface, in this case in the
+GeoJSON format.
+Currently, the Simulation Mapper can be used for mapping the *Building* feature_type.
+
+The URBANopt GeoJSON Example Project includes a default
+Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model.
+ The `HighEfficiency` mapper class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
+
+
+When the Scenario is run, a new Simulation Mapper instance is created and the
+`create_osw` method is implemented for each Feature assigned to the Simulation Mapper
+Class in the Scenario CSV.
+
+The default Simulation Mapper Class can be used directly, extended or modified or a
+completely different Simulation Mapper Class can be created.
+
+On adding additional measures to the `baseline.osw` file, the Simulation Mapper Class
+would need to be modified by adding necessary features from the feature files and mapping
+them to measure arguments.
 
 The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the feature file as simulation input, passing the measure and argument name and the corresponding feature from the feature file as arguments.
 
-The `HighEfficiency` class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
+To add custom measures, or measures that lie outside of the ruby gems specified in the
+Gemfile, `@@osw[:measure_paths] << File.join(File.dirname(__FILE__),
+'../new_measure_folder/')` can added in the Mapper Class, specifying the file path of the
+new measures. This adds the `measure_path` in the
+`baseline.osw`. 
+
+
+To create a new mapper class: 
+
+- The new mapper class ruby file should be created in the Mappers folder, since the
+  `mapper_files_dir` in the `Rakefile` is directed here. The default Simulation Mapper
+  Class can be used as template, and the `osw_path`
+  would need to be
+  updated as per the name of the new `osw` file.
+- A new scenario CSV should be created in the root folder, and the mapper class name should be updated
+  within the mapper class column. The existing scenario csv's can be used as reference. 
+- OpenStudio Measures can be added to the new `osw` file by adding the measure directory
+  and measure arguments, and adding the features from the feature file and mapping them to the
+  corresponding arguments in the Mapper Class.
+- A new method can be created in the `Rakefile` to call the Mapper Class. The
+  `mapper_files_dir` and `csv_file paths` should correspond to the newly created Mapper Class and csv file
+  paths respectively.
+- New Rake tasks can be created and to `.clear`, create a `ScenarioRunnerOSW` as well as `.run`
+  and create a `ScenarioDefaultPostProcessor` as well as `.run` the new method.  
+  
 
 ### [**Adding a custom post processor**](#table-of-contents)
 
