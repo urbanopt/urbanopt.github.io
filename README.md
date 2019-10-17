@@ -22,11 +22,10 @@ The URBANopt SDK can aid in the design of districts where the interactions betwe
 
 For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system (see Figure 2 from the [URBANopt project website](https://www.nrel.gov/buildings/urbanopt.html) for an example).
 
-Currently URBANopt includes 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. The logical structure of the connection between classes within a gem is described in JSON schemas located in the schema folders for each module. These modules are combined to run an example project generating scenario level and feature level results.
-
 ## Table of Contents
 
-- [Introduction](#welcome-to-urbanopt)
+- [Welcome](#welcome-to-urbanopt)
+- [Introduction](#introduction)
 - [Mac installation](#mac-installation)
 - [Windows installation](#windows-installation)
 - [Linux installation](#linux-installation)
@@ -39,6 +38,27 @@ Currently URBANopt includes 3 main modules: urbanopt-core-gem, urbanopt-scenario
 - [Adding a custom post processor](#adding-a-custom-post-processor)
 - [Advanced documentation & source code](#advanced-usage)
 
+## [Introduction](#table-of-contents)
+
+URBANopt includes 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. Source code and detailed information about the connection schema and all methods in all classes are available in the [advanced documentation](#advanced-usage) for each module.
+
+The **Core** gem does not do anything beside acting as a central point for all other gems to interact with. This means any gem you create does not have to interact with anything except the core gem.
+
+The **GeoJSON** gem takes a GeoJSON file describing the site and translates it into an OpenStudio input file. Generically this is called a feature file, as in it holds information about the features (buildings, transformers, district systems) that URBANopt will model ([example feature file](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/industry_denver.geojson)). Other gems may be created to translate other types of feature files (for instance, CityGML, or XML) to be read by OpenStudio.
+
+The **Scenario** gem does the heavy lifting in URBANopt. It takes the scenario you want to examine (for instance, [this example scenario](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/baseline_scenario.csv)), then [runs](#rake-tasks) OpenStudio with the given feature file and reports results. [Post-processing](#rake-tasks) can be done to aggregate feature reports into a report that covers the whole scenario - all buildings, transformers, and district systems URBANopt is modeling. Reports for each scenario and for each feature within each scenario will be in a folder called `run` created in your example project.
+
+This README will
+
+- Walk you through installation of the required pieces of the SDK
+- Set up and run default tasks in an example project
+- Describe adding your own measures. Examples of what you could create:
+  - An Energy Conservation Measure (ECM)
+  - Changing from individual hvac to a district system
+  - Creating a new reporting measure to be used by post processing
+- Illustrate modifying a mapper class (for example, to adjust what ECM's you're considering, or to use new measures you've created)
+- Introduce creating a custom post-processor to enhance scenario and feature reports for your custom needs.
+
 ## [Mac installation](#table-of-contents)
 
 Install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installation)  
@@ -49,7 +69,7 @@ Install Bundler version 1.17:
 gem install bundler -v 1.17
 ```
 
-If it doesn't already exist, create a `.gemrc` file in your home directory that contains:
+- If you have a secure firewall that prevents **bundler** from installing properly, create a `.gemrc` file in your home directory that contains:
 
 ```yml
 :backtrace: false
@@ -58,6 +78,12 @@ If it doesn't already exist, create a `.gemrc` file in your home directory that 
 - http://rubygems.org
 :update_sources: true
 :verbose: true
+```
+
+- Now install **bundler**:
+
+```terminal
+gem install bundler -v 1.17
 ```
 
 Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
@@ -76,20 +102,17 @@ Install Bundler version 1.17:
 gem install bundler -v 1.17
 ```
 
-If you have a secure firewall that prevents **bundler** from installing properly, type into the command line:
-
-- `gem sources -c`
-- `gem sources -a http://rubygems.org/`
-
-You will need to accept the reduced security of `http` compared to `https`
-
-If it doesn't already exist, create a `.gemrc` file in your home directory by typing:
+- If you have a secure firewall that prevents **bundler** from installing properly, type into the command line:
+  - `gem sources -c`
+  - `gem sources -a http://rubygems.org/`
+- You will need to accept the reduced security of `http` compared to `https`
+- If installing bundler **still** doesn't work, create a `.gemrc` file in your home directory:
 
 ```terminal
 type nul > C:\Users\<user_name>\.gemrc
 ```
 
-Edit the new `.gemrc` file to contain:
+- Edit the new `.gemrc` file to contain:
 
 ```yml
 :backtrace: false
@@ -100,7 +123,7 @@ Edit the new `.gemrc` file to contain:
 :verbose: true
 ```
 
-Now install **bundler**:
+- Now install **bundler**:
 
 ```terminal
 gem install bundler -v 1.17
@@ -113,7 +136,7 @@ Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edi
 require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
 ```
 
-Verify your OpenStudio and Ruby configuration by typing into your command line:
+Verify your OpenStudio and Ruby configuration:
 
 ```terminal
 ruby -e "require 'openstudio'" -e "puts OpenStudio::Model::Model.new"
@@ -160,7 +183,7 @@ Clone your fork down to your local machine
 Need to allow long path names in git:
 
 ```terminal
-git config --system core.longpaths true
+git config --global core.longpaths true
 ```
 
 ### [**Run example project**](#table-of-contents)
@@ -250,8 +273,7 @@ inputs in the `baseline.osw`.
 A feature refers to a single object in a district energy
 analysis such as a building, district, system etc. The feature file includes all data for
 all the features and is written by a third part user interface, in this case in the
-GeoJSON format.
-Currently, the Simulation Mapper can be used for mapping the *Building* feature_type.
+GeoJSON format. In version 0.1.0, the Simulation Mapper only supports mapping the *Building* feature_type.
 
 The URBANopt GeoJSON Example Project includes a default
 Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model.
@@ -295,6 +317,8 @@ To create a new mapper class:
   and create a `ScenarioDefaultPostProcessor` as well as `.run` the new method.  
   
 ### [**Adding a custom post processor**](#table-of-contents)
+
+ To add a custom post processor, clone the scenario-gem repository to your local machine.
 
  A customized post processor can be added to the rake file, replacing the default post processor.
 
