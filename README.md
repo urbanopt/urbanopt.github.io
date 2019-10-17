@@ -173,12 +173,20 @@ Move to the top level directory of the example you just cloned. Run the followin
 
 ### [**Rake tasks**](#table-of-contents)
 
+To list all available tasks in the Rakefile:
+
+```terminal
+bundle exec rake -T
+```
+
+Details about individual tasks:
+
 #### *run_all*
 
-In the `Rakefile` methods are defined to create a Scenario CSV for each scenario, that take as arguments:
+Rake methods are defined to create a Scenario CSV for each scenario, that take as arguments:
 
 - The `geojson` file (for example: `industry_denver.geojson`)
-- `mappers_files_dir` the file path for the `baseline.osw` file and the mapper classes.  
+- `mappers_files_dir`: the file path for the `baseline.osw` file and the mapper classes.  
 - `csv` file (for example: `baseline_scenario.csv`)
 
 The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario i.e. the
