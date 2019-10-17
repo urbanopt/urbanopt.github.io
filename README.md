@@ -245,7 +245,7 @@ Additional measures can be added to the workflow by adding the measure name and 
 The Simulation Mapper Class derives from the
 [SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb)
 class. It maps the features in the feature file to arguments required as simulation
-inputs in the `baseline.osw`. 
+inputs in the `baseline.osw`.
 
 A feature refers to a single object in a district energy
 analysis such as a building, district, system etc. The feature file includes all data for
@@ -256,7 +256,6 @@ Currently, the Simulation Mapper can be used for mapping the *Building* feature_
 The URBANopt GeoJSON Example Project includes a default
 Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model.
  The `HighEfficiency` mapper class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
-
 
 When the Scenario is run, a new Simulation Mapper instance is created and the
 `create_osw` method is implemented for each Feature assigned to the Simulation Mapper
@@ -275,10 +274,9 @@ To add custom measures, or measures that lie outside of the ruby gems specified 
 Gemfile, `@@osw[:measure_paths] << File.join(File.dirname(__FILE__),
 '../new_measure_folder/')` can added in the Mapper Class, specifying the file path of the
 new measures. This adds the `measure_path` in the
-`baseline.osw`. 
+`baseline.osw`.
 
-
-To create a new mapper class: 
+To create a new mapper class:
 
 - The new mapper class ruby file should be created in the Mappers folder, since the
   `mapper_files_dir` in the `Rakefile` is directed here. The default Simulation Mapper
@@ -286,7 +284,7 @@ To create a new mapper class:
   would need to be
   updated as per the name of the new `osw` file.
 - A new scenario CSV should be created in the root folder, and the mapper class name should be updated
-  within the mapper class column. The existing scenario csv's can be used as reference. 
+  within the mapper class column. The existing scenario csv's can be used as reference.
 - OpenStudio Measures can be added to the new `osw` file by adding the measure directory
   and measure arguments, and adding the features from the feature file and mapping them to the
   corresponding arguments in the Mapper Class.
@@ -296,12 +294,11 @@ To create a new mapper class:
 - New Rake tasks can be created and to `.clear`, create a `ScenarioRunnerOSW` as well as `.run`
   and create a `ScenarioDefaultPostProcessor` as well as `.run` the new method.  
   
-
 ### [**Adding a custom post processor**](#table-of-contents)
 
  A customized post processor can be added to the rake file, replacing the default post processor.
 
- <!-- TODO: Why would someone create a custom post-processor? What benefit could they gain? -->
+ <!-- TODO: Why would someone create a custom post-processor? What is the benefit to the user? -->
 
 `default_post_processor` is an object of ScenarioDefaultPostProcessor class. Advanced users should refer to [Scenario documentation](#Advanced-Usage) for customizing all methods and classes used to aggregate the properties that describe a feature report (reporting_periods, construction_cost, program, etc.). Users can edit these methods or add new methods that extend or customize the post processor functionality.
 
