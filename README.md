@@ -9,16 +9,16 @@ A high-level introduction to the intent and purpose of URBANopt can be found [he
 
 URBANopt initially focuses on enabling three types of use cases:
 
-- Design of low energy campuses and districts.
-- Design and optimization of grid-interactive efficient buildings (GEBs) at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems.
-- Detailed design of next-generation district thermal systems.
+- Design of low energy campuses and districts
+- Design and optimization of grid-interactive efficient buildings (GEBs) at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems
+- Detailed design of next-generation district thermal systems
 
 The URBANopt SDK can aid in the design of districts where the interactions between individual buildings, district energy systems, distributed energy resources, and electrical system designs are considered. Including these interactions allows URBANopt to address important questions in low energy, grid aware, future thinking urban districts such as:
 
 - Tradeoffs between building height and photovoltaic (PV) production
 - Investments in building efficiency vs. renewable generation
 - Coordination of multiple buildings to optimize grid metrics
-- Performance gains of shared thermal district systems vs conventional single building systems.
+- Performance gains of shared thermal district systems vs conventional single building systems
 
 For example, load diversity between commercial and residential buildings may allow for system time sharing or even complementary heat transfer between buildings using a district thermal energy system (see Figure 2 from the [URBANopt project website](https://www.nrel.gov/buildings/urbanopt.html) for an example).
 
@@ -57,7 +57,7 @@ This README will
   - Changing from individual hvac to a district system
   - Creating a new reporting measure to be used by post processing
 - Illustrate modifying a mapper class (for example, to adjust what ECM's you're considering, or to use new measures you've created)
-- Introduce creating a custom post-processor to enhance scenario and feature reports for your custom needs.
+- Introduce creating a custom post-processor to enhance scenario and feature reports for your custom needs
 
 ## [Mac installation](#table-of-contents)
 
@@ -209,11 +209,10 @@ Details about individual tasks:
 Rake methods are defined to create a Scenario CSV for each scenario, that take as arguments:
 
 - The `geojson` file (for example: `industry_denver.geojson`)
-- `mappers_files_dir`: the file path for the `baseline.osw` file and the mapper classes.  
+- `mappers_files_dir`: the file path for the `baseline.osw` file and the mapper classes
 - `csv` file (for example: `baseline_scenario.csv`)
 
-The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario i.e. the
-*Baseline*, *HighEfficiency* and *Mixed scenario*, passing the scenario method as an argument.
+The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario i.e. the *Baseline*, *HighEfficiency* and *Mixed scenario*, passing the scenario method as an argument.
 
 - `run_baseline`, `run_high_efficiency` and `run_mixed` rake tasks can be used for running individual scenarios.
 
@@ -265,56 +264,29 @@ Additional measures can be added to the workflow by adding the measure name and 
 
 ### [**Modifying mapper classes**](#table-of-contents)
 
-The Simulation Mapper Class derives from the
-[SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb)
-class. It maps the features in the feature file to arguments required as simulation
-inputs in the `baseline.osw`.
+The Simulation Mapper Class derives from the [SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb) class. It maps the features in the feature file to arguments required as simulation inputs in the `baseline.osw`.
 
-A feature refers to a single object in a district energy
-analysis such as a building, district, system etc. The feature file includes all data for
-all the features and is written by a third part user interface, in this case in the
-GeoJSON format. In version 0.1.0, the Simulation Mapper only supports mapping the *Building* feature_type.
+A feature refers to a single object in a district energy analysis such as a building, district, system etc. The feature file includes all data for all the features and is written by a third part user interface, in this case in the GeoJSON format. In version 0.1.0, the Simulation Mapper only supports mapping the *Building* feature_type.
 
-The URBANopt GeoJSON Example Project includes a default
-Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model.
- The `HighEfficiency` mapper class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
+The URBANopt GeoJSON Example Project includes a default Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model. The `HighEfficiency` mapper class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
 
-When the Scenario is run, a new Simulation Mapper instance is created and the
-`create_osw` method is implemented for each Feature assigned to the Simulation Mapper
-Class in the Scenario CSV.
+When the Scenario is run, a new Simulation Mapper instance is created and the `create_osw` method is implemented for each Feature assigned to the Simulation Mapper Class in the Scenario CSV.
 
-The default Simulation Mapper Class can be used directly, extended or modified or a
-completely different Simulation Mapper Class can be created.
+The default Simulation Mapper Class can be used directly, extended or modified or a completely different Simulation Mapper Class can be created.
 
-On adding additional measures to the `baseline.osw` file, the Simulation Mapper Class
-would need to be modified by adding necessary features from the feature files and mapping
-them to measure arguments.
+On adding additional measures to the `baseline.osw` file, the Simulation Mapper Class would need to be modified by adding necessary features from the feature files and mapping them to measure arguments.
 
 The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the feature file as simulation input, passing the measure and argument name and the corresponding feature from the feature file as arguments.
 
-To add custom measures, or measures that lie outside of the ruby gems specified in the
-Gemfile, `@@osw[:measure_paths] << File.join(File.dirname(__FILE__),
-'../new_measure_folder/')` can added in the Mapper Class, specifying the file path of the
-new measures. This adds the `measure_path` in the
-`baseline.osw`.
+To add custom measures, or measures that lie outside of the ruby gems specified in the Gemfile, `@@osw[:measure_paths] << File.join(File.dirname(__FILE__), '../new_measure_folder/')` can be added in the Mapper Class, specifying the file path of the new measures. This adds the `measure_path` in the `baseline.osw`.
 
 To create a new mapper class:
 
-- The new mapper class ruby file should be created in the Mappers folder, since the
-  `mapper_files_dir` in the `Rakefile` is directed here. The default Simulation Mapper
-  Class can be used as template, and the `osw_path`
-  would need to be
-  updated as per the name of the new `osw` file.
-- A new scenario CSV should be created in the root folder, and the mapper class name should be updated
-  within the mapper class column. The existing scenario csv's can be used as reference.
-- OpenStudio Measures can be added to the new `osw` file by adding the measure directory
-  and measure arguments, and adding the features from the feature file and mapping them to the
-  corresponding arguments in the Mapper Class.
-- A new method can be created in the `Rakefile` to call the Mapper Class. The
-  `mapper_files_dir` and `csv_file paths` should correspond to the newly created Mapper Class and csv file
-  paths respectively.
-- New Rake tasks can be created and to `.clear`, create a `ScenarioRunnerOSW` as well as `.run`
-  and create a `ScenarioDefaultPostProcessor` as well as `.run` the new method.  
+- The new mapper class ruby file should be created in the Mappers folder, since the   `mapper_files_dir` in the `Rakefile` is directed here. The default Simulation Mapper Class can be used as template, and the `osw_path` would need to be updated as per the name of the new `osw` file.
+- A new scenario CSV should be created in the root folder, and the mapper class name should be updated within the mapper class column. The existing scenario csv's can be used as reference.
+- OpenStudio Measures can be added to the new `osw` file by adding the measure directory and measure arguments, and adding the features from the feature file and mapping them to the corresponding arguments in the Mapper Class.
+- A new method can be created in the `Rakefile` to call the Mapper Class. The `mapper_files_dir` and `csv_file paths` should correspond to the newly created Mapper Class and csv file paths respectively.
+- New Rake tasks can be created and to `.clear`, create a `ScenarioRunnerOSW` as well as `.run` and create a `ScenarioDefaultPostProcessor` as well as `.run` the new method.
   
 ### [**Adding a custom post processor**](#table-of-contents)
 
@@ -332,8 +304,7 @@ The scenario post process requires feature reports to aggregate results from fea
 
 Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs. Users should refer to this [reporting measure writing guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/#reporting-measures) to customize the `measure.rb` file in [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports) or create a new reporting measure.
 
-User can then add any new reporting measure to the openstudio `.osw` file, as described [here](#Adding-your-own-measures), and re-run the simulation.
-The current measure added to the baseline.osw is the `default_feature_reports`:
+User can then add any new reporting measure to the openstudio `.osw` file, as described [here](#Adding-your-own-measures), and re-run the simulation. The current measure added to the baseline.osw is the `default_feature_reports`:
 
 ```json
 {
