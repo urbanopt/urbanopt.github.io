@@ -438,6 +438,20 @@ Below is the steps for this process:
 
 - clone the scenario-gem repository to your local machine
 - open the schema file and append the new property "number of occupants" to the properties inside the program component.
+
+```JSON
+"Program": {
+  "type": "object",
+  "properties": {
+    .....
+    "number_of_occupants": {
+    "type": "number"
+    }
+    ....
+  }
+}
+```
+
 - go to the [program](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/default_reports/program.rb) class in the [default_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/urbanopt/scenario/default_reports) and add the following:
 
 1. add number_of_occupants to the attribute accesor.
@@ -466,7 +480,9 @@ Below is the steps for this process:
     return hash
   end
 ```
+
 4. Add number_of_occupants to the to_hash method.
+
 ```ruby
 def to_hash
   result = {}
