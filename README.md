@@ -327,9 +327,9 @@ To create a new mapper class:
   
 ## [**Adding a custom post processor**](#table-of-contents)
 
-Scenario PostProcessor aggregates results from indivisual Feature simulations. They require specific OpenStudio Reporting Measures be run for each Feature to generate required simulation level reports (e.g. timeseries CSV data for specific outputs, specific metrics). Creating a new reporting measure to generate the Feature reports is described [here](#Feature-Reports). These individual simulation results should be aligned with the final desired aggregated results. For example, if users decide to customize the reporting measure to report 15min timestep results; additional methods should be developed to allow the post processors to aggregate data at this coarser timesteps.
+Scenario PostProcessor aggregate results from each Feature simulations. They require specific OpenStudio Reporting Measures be run for each Feature to generate required simulation level reports (e.g. timeseries CSV data for specific outputs, specific metrics). Creating a new reporting measure to generate the Feature reports is described [here](#Feature-Reports). These individual simulation results should be aligned with the final desired aggregated results. For example, if users decide to customize the reporting measure to report 15min timestep results; additional methods should be developed to allow the post processors to aggregate data at this coarser timestep.
 
-Currently the default Scenario Post Processors and its corresponding OpenStudio Reporting Measures is implemented in the **Scenario Gem**.  Additional Scenario Post Processors and OpenStudio Reporting Measures can be implemented in other OpenStudio Extension Gems. Users can use this gem as a guide to develop their own Post processors or maybe just customize this Gem to report and post process new results of their interest. The current Scenario Processor which is used in this example project rake file is the `default_post_processor`, which is an is an object of ScenarioDefaultPostProcessor class.
+Currently, the default Scenario Post Processors and its corresponding OpenStudio Reporting Measures are implemented in the **Scenario Gem**.  Additional Scenario Post Processors and OpenStudio Reporting Measures can be implemented in other OpenStudio Extension Gems. Users can use this gem as a guide to developing their own Post Processors or maybe just customize this Gem to report and post-process new results of their interest. The current Scenario Processor which is used in this example project rake file is the `default_post_processor`, which is an object of ScenarioDefaultPostProcessor class.
 
 ```ruby
 default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
@@ -337,17 +337,17 @@ scenario_result = default_post_processor.run
 scenario_result.save
 ```
 
-This defaults_post_processor aggregaet feature reports in to scenario level results by leveraging methods of the default_reports file [add link to this ruby file]. This file include classes that are developed in the default_reports [folder](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/urbanopt/scenario/default_reports). Each of these classes corresponds to a component in the deffault_reports [schema](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/default_reports/schema/scenario_schema.json). This schema describe all the main commponents of the default reports (reporting_period, program, constructon_cost, etc.) and their attributes.  Therefore, advanced users should refer to [Scenario documentation](#Advanced-Usage) for customizing all methods and classes used to aggregate the properties that described in the schema.
+This defaults_post_processor aggregate feature reports into scenario level results by leveraging methods of the default_reports file [add link to this ruby file]. This file includes classes that are developed in the default_reports [folder](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/urbanopt/scenario/default_reports). Each of these classes corresponds to a component in the deffault_reports [schema](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/default_reports/schema/scenario_schema.json). This schema describes all the main components of the default reports (reporting_period, program, constructon_cost, etc.) and their attributes.  Therefore, advanced users should refer to [Scenario documentation](#Advanced-Usage) for customizing all methods and classes used to aggregate the properties described in the schema.
 
-Therefore, advanced users should refer to [Scenario documentation](#Advanced-Usage) which include the schema and Rdocs descriping all methods and calsses used to aggregate the properties that are described in the schema. Users can edit these methods or add new methods that extend or customize the post processor functionality(e.g. reporting and aggregating new propertise of interest).
+Therefore, advanced users should refer to [Scenario documentation](#Advanced-Usage) which include the schema and Rdocs describing all methods and classes used to aggregate the properties that are described in the schema. Users can edit these methods or add new methods that extend or customize the Post Processor functionality(e.g. reporting and aggregating new properties of interest).
 
 ### Feature Reports
 
-The scenario post process requires feature reports to aggregate results from feature simulations. A reportig measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
+The Scenario Post Processor requires feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
 
 Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs.  Users should refer to the current reporting measure and this [reporting measure writing guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/#reporting-measures) to customize the current `measure.rb` file in [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports) or create a new reporting measure.
 
-In this default reporting measure a feature report object is instantiated and properties are retrieved from the Openstudio model and stored in this `feature_report`:
+In this default reporting measure, a feature report object is instantiated and properties are retrieved from the Openstudio model and stored in this `feature_report`:
 
 ````ruby
 feature_report = URBANopt::Scenario::DefaultReports::FeatureReport.new
@@ -359,7 +359,7 @@ feature_report.timesteps_per_hour = model.getTimestep.numberOfTimestepsPerHour
 feature_report.simulation_status = 'Complete'
 ````
 
-Methods to query results from the output EnergyPlus sql file are also created and used to retrieve and add results to the corresponding properties in the `feature_report`. In the below example the sql_query method and convert_units method are used to query total_site_energy, convert it units to kBtu and then assign it to the total_site_energy attribute in the feature report:
+Methods to query results from the output EnergyPlus sql file are also created and used to retrieve and add results to the corresponding properties in the `feature_report`. In the below example the sql_query method and convert_units method are used to query total_site_energy, convert its units to kBtu and then assign it to the total_site_energy attribute in the feature report:
 
 ```ruby
 # sql_query method
@@ -396,7 +396,7 @@ total_site_energy = sql_query(runner, sql_file, 'AnnualBuildingUtilityPerformanc
 feature_report.reporting_periods[0].total_site_energy = convert_units(total_site_energy, 'GJ', 'kBtu')
 ```
 
-After assigning all the rquired reults to their feature report attributes, the feature_report is coverted to a a hash using the `to_hash` and saved as `default_feature_reports.json` file. This JSON file is saved in a deafult_feature_reort folder whithin the run directoroy for a feature.
+After assigning all the required results to their feature report attributes, the feature_report is converted to a hash using the `to_hash` method and saved as `default_feature_reports.json` file. This JSON file is saved in a deafult_feature_reort folder within the run directory for a feature.
 
 ```ruby
 # Converts to a Hash equivalent for JSON serialization
@@ -414,7 +414,7 @@ File.open('default_feature_reports.json', 'w') do |f|
 end
 ```
 
-User can then add any new reporting measure to the openstudio `.osw` file, as described [here](#Adding-your-own-measures), and re-run the simulation.
+User can then add any new reporting measure to the OpenStudio `.osw` file, as described [here](#Adding-your-own-measures), and re-run the simulation.
 The current measure added to the baseline.osw is the `default_feature_reports`:
 
 ```json
@@ -430,11 +430,11 @@ The current measure added to the baseline.osw is the `default_feature_reports`:
 
 The `DefaultPostProcessor` reads these feature reports and aggregates them to create a `ScenarioReport`.
 
-#### Example _ post processing an added feature report attribute :
+### Example _ post processing an added feature report attribute :
 
-Lets now try a short example where a new attribute "number of ocuppant" is to be added to the feature_report and also to the post_processor.
+Lets now try a short example where a new attribute "number of ocuppants" is to be added to the feature_report and also to the post_processor.
 
-Below is the steps for this process:
+Below are the steps for this process:
 
 - clone the scenario-gem repository to your local machine
 - open the schema file and append the new property "number of occupants" to the properties inside the program component.
@@ -460,7 +460,7 @@ Below is the steps for this process:
   attr_accessor :site_area,......., :number_of_occupants
 ```
 
-2. initalize an instance variable number_of_occupants by adding it to the initialize methoid.
+2. initialize an instance variable number_of_occupants by adding it to the initialize method.
 
 ```ruby
   def initialize(hash = {})
@@ -492,7 +492,7 @@ def to_hash
 end
 ```
 
-5. Finally add number_of_occupant to the add_program method that is used by the post procesor to aggregate the program attributes values.
+5. Finally, add number_of_occupant to the add_program method that is used by the post processor to aggregate the program attributes values.
 
 ```ruby
 def add_program(other)
@@ -500,7 +500,7 @@ def add_program(other)
 end
 ```
 
-- Now lets go to the reporting measure and request the number of occupants from the OpenStudio model and store it in thr feature_report. number of occupants should be requested in the `run` method and after intializing feature_report:
+- Now let's go to the reporting measure and request the number of occupants from the OpenStudio model and store it in the feature_report. `number of occupants` should be requested in the `run` method and after intializing feature_report:
 
 ``` ruby
 def run(runner, user_arguments)
