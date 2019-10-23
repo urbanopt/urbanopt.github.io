@@ -220,7 +220,9 @@ The `mappers` folder contains `baseline.osw` which serves as a simulation input 
 
 - [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/blended_space_type_from_model): An OpenStudio Model Articulation Measure that used is used to create a single space type that represents the loads and schedules of a collection of space types. It removes all previous space type assignments and hard assigns internal loads from spaces included in the building floor area. A blended space type will be created from the original internal loads and assigned at the building level.
 
-- [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation): An URBANopt GeoJSON measure that is used to create geometry for a particular building, accounting for surrounding buildings as shading.
+- [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation):
+  An URBANopt GeoJSON measure that is used to create geometry along with spaces for a particular building,
+  accounting for surrounding buildings as shading. 
 
 - [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): Added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
 
@@ -237,18 +239,37 @@ Additional measures can be added to the workflow by adding the measure name and 
 The Simulation Mapper Class derives from the
 [SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb)
 class. It maps the features in the feature file to arguments required as simulation
-inputs in the `baseline.osw`. 
+inputs in the `baseline.osw`.
 
 A feature refers to a single object in a district energy
 analysis such as a building, district, system etc. The feature file includes all data for
 all the features and is written by a third part user interface, in this case in the
 GeoJSON format.
-Currently, the Simulation Mapper can be used for mapping the *Building* feature_type.
+Currently, the Simulation Mapper can be used for mapping the [*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/building.rb) feature_type. It
+has the capability to
+supports the mapping of the following building
+types
+from the
+[building_properties](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/building_properties.json)
+schema in the GeoJSON Gem: 
+
+- Multifamily (5 or more units)
+- Multifamily (2 to 4 units)
+- Single-Family
+- Office
+- Outpatient health care
+- Inpatient health care
+- Lodging
+- Food service
+- Strip shopping mall
+- Retail other than mall
+- Education
+- Nursing
+- Mixed use
 
 The URBANopt GeoJSON Example Project includes a default
 Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model.
  The `HighEfficiency` mapper class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
-
 
 When the Scenario is run, a new Simulation Mapper instance is created and the
 `create_osw` method is implemented for each Feature assigned to the Simulation Mapper
@@ -261,7 +282,19 @@ On adding additional measures to the `baseline.osw` file, the Simulation Mapper 
 would need to be modified by adding necessary features from the feature files and mapping
 them to measure arguments.
 
-The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the feature file as simulation input, passing the measure and argument name and the corresponding feature from the feature file as arguments.
+The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the
+feature file as simulation input, passing the measure and argument name and the
+corresponding feature property from the feature file as arguments.
+
+For example, 
+
+```
+OpenStudio::Extension.set_measure_argument(osw, 'urban_geometry_creation', 'feature_id', feature_id)
+```
+
+Where, 
+`'urban_geometry_creation'` is the measure name, `'feature_id'` is the argument name and
+the `feature_id` is the feature property from the feature file. 
 
 To add custom measures, or measures that lie outside of the ruby gems specified in the
 Gemfile, `@@osw[:measure_paths] << File.join(File.dirname(__FILE__),
@@ -277,7 +310,8 @@ To create a new mapper class:
   Class can be used as template, and the `osw_path`
   would need to be
   updated as per the name of the new `osw` file.
-- A new scenario CSV should be created in the root folder, and the mapper class name should be updated
+- A new scenario CSV should be created in the root folder, and the mapper class name
+  should be updated with the name of the new mapper class, 
   within the mapper class column. The existing scenario csv's can be used as reference. 
 - OpenStudio Measures can be added to the new `osw` file by adding the measure directory
   and measure arguments, and adding the features from the feature file and mapping them to the
@@ -285,9 +319,8 @@ To create a new mapper class:
 - A new method can be created in the `Rakefile` to call the Mapper Class. The
   `mapper_files_dir` and `csv_file paths` should correspond to the newly created Mapper Class and csv file
   paths respectively.
-- New Rake tasks can be created and to `.clear`, create a `ScenarioRunnerOSW` as well as `.run`
-  and create a `ScenarioDefaultPostProcessor` as well as `.run` the new method.  
-  
+- To implement the mapper class, a new Rake tasks can be created that creates `ScenarioRunnerOSW` and runs it passing the
+  new method as the argument. 
 
 ### [**Adding a custom post processor**](#table-of-contents)
 
