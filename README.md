@@ -48,7 +48,7 @@ Scenario : Multiple features (buildings) in a given efficiency level
 
 URBANopt currently includes 3 main modules: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`. [Detailed documentation](#advanced-usage) are available for each module.
 
-![image info](./Core_Gem_Functionality_f.jpg)
+![image info](doc_files/core_gem_functionality.jpg)
 
 The **Core** gem defines a FeatureFile class. The feature file can be in any format (CityGML, GeoJSON, etc.) and describes properties of each `feature`, such as location, floor area, number of stories, building type, cooling source, etc. This Core gem in the SDK architecture allows the development of new modules that are independent of other modules.
 
