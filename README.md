@@ -3,8 +3,8 @@
 URBANopt (Urban Renewable Building And Neighborhood optimization) is an EnergyPlus and OpenStudio-based simulation platform aimed at district- and campus-scale thermal and electrical analysis.
 
 The URBANopt project website can be found [here](https://www.nrel.gov/buildings/urbanopt.html).  
-A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.energy.gov/eere/buildings/urbanopt).
-<!-- TODO - A sentence to refer to design docs with a link - TODO -->
+A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.energy.gov/eere/buildings/urbanopt).  
+The design overview for URBANopt is [here](doc_files/design_doc.md).
 
 **_URBANopt is not a standalone program for end users._** URBANopt Software Development Kit (SDK) is a package of modules that can be used to build a user-friendly tool. Developers can use existing URBANopt modules, customize URBANopt modules, and create new modules to implement the desired workflows for their tools. Other users of the SDK could include researchers looking to create customized workflows to perform a specific environmental design task.
 
@@ -39,33 +39,22 @@ For example, load diversity between commercial and residential buildings may all
 - [Adding a custom post processor](#adding-a-custom-post-processor)
 - [Advanced documentation & source code](#advanced-usage)
 
-# Definitions (*refer to design documents*)
- what is a feature : buildings, district systems , tranformes (but now we just have buildings)
- what is a scenario : include a number of features(buildings) assigned to a mapper class that describe the efficiency levels of the feature ( then describe that efficiency levels are by assig).
+## [Definitions](#table-of-contents)
+
+Feature : Building, district system, transformer  
+Scenario : Multiple features (buildings) in a given efficiency level
 
 ## [Introduction](#table-of-contents)
 
-URBANopt includes 3 main modules: urbanopt-core-gem, urbanopt-scenario-gem, and urbanopt-geojson-gem. Source code and detailed information about the connection schema and all methods in all classes are available in the [advanced documentation](#advanced-usage) for each module.
+URBANopt currently includes 3 main modules: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`. [Detailed documentation](#advanced-usage) are available for each module.
 
 ![image info](./Core_Gem_Functionality_f.jpg)
 
-The **Core** gem defines a Feature and a FeatureFile class. A FeatureFile include multiple features. This FeatureFile can be in any format (CityGML, GeoJSON, etc.). This file includes geometric properties that describe each feature such as ( building footpring shape, floor area , number of stories ,etc.). Also none geometric information can be included such as building type and cooling source. A module should be developed to translate the properties included in this FeatureFile in to an energy model.  In this example project, the FeatureFile is a geoJSON format. A specific module(GeoJSON gem) was developed to translate the the properties of the geoJSON file to an OPENSTUDIO model (.osm file). This Core gem introduce felxibility for in the SDK architecture allowing the development of new modules that are independent of other modules. All developed modules does not have to interact with anything except the core gem.
-The figure below illustrates the functionality on the Core Gem(**TODO** add diagram)
+The **Core** gem defines a FeatureFile class. The feature file can be in any format (CityGML, GeoJSON, etc.) and describes properties of each `feature`, such as location, floor area, number of stories, building type, cooling source, etc. This Core gem in the SDK architecture allows the development of new modules that are independent of other modules.
 
-The **GeoJSON** gem is an OpenStudio Extension gem with the functionality to translate a GeoJSON file into a Openstudio model inputs. Additional OpenStudio Extension Gems can be developed to read and write other formats of a feature file (such as CityGML) in the future. A feature file can inlcude geometric and non-geoetric properties for buildings, district systems andd transformers. A JSON schema for the GeoJSON format is available in the [GeoJSON documentation](#Advanced-Usage). The currents cuurent gem create an OSM model for a GeoJSON feature of type “Building”. In this example project the GeoJSON gem reads  the geospatial coordinates of each feature in the [feature file](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/industry_denver.geojson) and convert it to regular cartesian coordinates. Perform auto-zoning to establish perimeter and core zones as needed.  Extrude geometry from 2D footprints to 3D surfaces.  Translate properties in the feature to OSM model inputs leveraging methods in the OpenStudio Model Articulation Gem and OpenStudio Standards Gem. Methods to translate district systems and tansformers into model inputs will be added in the next release. The workflow of the GeoJSON gem is illustrated in the figure below (**TODO** add diagram).
+The **GeoJSON** gem is an OpenStudio Extension gem that translates a GeoJSON feature file into Openstudio model inputs. The GeoJSON gem reads each feature (currently _**buildings are the only supported feature**_) from the feature file (such as this [example feature file](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/industry_denver.geojson)), converts geospatial coordinates to cartesian coordinates, performs auto-zoning to establish perimeter and core zones as needed, and extrudes geometry from 2D footprints to 3D surfaces. These properties from each feature are translated to *.osm model inputs leveraging methods in the OpenStudio Model Articulation Gem and OpenStudio Standards Gem. _Methods to translate district systems and transformers into model inputs will be added in a future release._
 
-The **Scenario** gem does the heavy lifting in URBANopt.  It takes the scenario you want to examine (for instance, [this example scenario](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/baseline_scenario.csv)). Then translates the features in the scenario to OpenStudio Workflow (OSW) files via a Simulation Mapper. Then [runs](#rake-tasks) all the OSW files to report results for each feature. These reported results are defined by the default_feature_report measure described [here](#Feature-Reports).   [Post-processing](#rake-tasks) can be executed afterwards to aggregate feature reports into a scenario level report(e.g. total aggregate energy use, aggregated building program information). Scenarios `run` directory will be created  in your example project directory after running the simulations. Feature level results will be stored in a deafult_feature_reort folder whithin the run directoroy for each feature. While the Scenario level results are writen at the top level of the Scenario’s `run` folder. A JSON schema for the Scenario report and the feature reports is available in the [Scenario documentation](#Advanced-Usage). This schema describe all the main commponents of the reports (reporting_period, program, constructon_cost, etc.) and their corresponding attributes. Based on this schema classes where developed in the Scenario gem. These classes have methods that are leveraged by postprocessor to aggreate feature report into scenario level results. The workflow of the Scenario gem is illustrated in the figure below (**TODO** add diagram).
-
-This README will
-
-- Walk you through installation of the required pieces of the SDK
-- Set up and run default tasks in an example project
-- Describe adding your own measures. Examples of what you could create:
-  - An Energy Conservation Measure (ECM)
-  - Changing from individual hvac to a district system
-  - Creating a new reporting measure to be used by post processing
-- Illustrate modifying a mapper class (for example, to adjust what ECM's you're considering, or to use new measures you've created)
-- Introduce creating a custom post-processor to enhance scenario and feature reports for your custom needs
+The **Scenario** gem does the heavy lifting in URBANopt.  It takes the `scenario` you want to examine (such as [this example scenario](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/baseline_scenario.csv)), [runs](#rake-tasks) the FeatureFile (translated by the GeoJSON gem) through OpenStudio building energy simulation, and reports results for each feature. These reported results are defined by the [default_feature_report](#Feature-Reports) measure.  A `run` directory gets created in your example project directory with folders for each scenario and each `feature_id` within each scenario. Feature level results will be stored in a `default_feature_report` folder within the run directory for each feature. [Post-processing](#rake-tasks) may then be executed to aggregate all feature reports of a scenario into a scenario level report (e.g. aggregate energy use, aggregated building program information) that is written at the top level of each scenario folder, inside the `run` folder.
 
 ## [Mac installation](#table-of-contents)
 
@@ -278,7 +267,7 @@ The `mappers` folder contains `baseline.osw` which serves as a simulation input 
 
 - [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation):
   An URBANopt GeoJSON measure that is used to create geometry along with spaces for a particular building,
-  accounting for surrounding buildings as shading. 
+  accounting for surrounding buildings as shading.
 
 - [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): Added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
 
@@ -292,22 +281,9 @@ Additional measures can be added to the workflow by adding the measure name and 
 
 ## [**Modifying mapper classes**](#table-of-contents)
 
-The Simulation Mapper Class derives from the
-[SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb)
-class. It maps the features in the feature file to arguments required as simulation
-inputs in the `baseline.osw`.
+The Simulation Mapper Class derives from the [SimulationMapperBase](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/simulation_mapper_base.rb) class. It maps the features in the feature file to arguments required as simulation inputs in the `baseline.osw`.
 
-A feature refers to a single object in a district energy
-analysis such as a building, district, system etc. The feature file includes all data for
-all the features and is written by a third part user interface, in this case in the
-GeoJSON format.
-Currently, the Simulation Mapper can be used for mapping the [*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/building.rb) feature_type. It
-has the capability to
-supports the mapping of the following building
-types
-from the
-[building_properties](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/building_properties.json)
-schema in the GeoJSON Gem: 
+Recall that a feature refers to a single object in a district energy analysis, such as a building, district system, or transformer. The feature file includes all data for all the features and is written by a third party user interface; for our example we use the GeoJSON format. Currently, the Simulation Mapper only supports mapping the [*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/building.rb) feature_type. It has the capability to support the mapping of the following building types from the  [building_properties](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/building_properties.json) schema in the GeoJSON Gem:
 
 - Multifamily (5 or more units)
 - Multifamily (2 to 4 units)
@@ -327,46 +303,31 @@ The URBANopt GeoJSON Example Project includes a default Simulation Mapper Class 
 
 When the Scenario is run, a new Simulation Mapper instance is created and the `create_osw` method is implemented for each Feature assigned to the Simulation Mapper Class in the Scenario CSV.
 
-The default Simulation Mapper Class can be used directly, extended or modified or a completely different Simulation Mapper Class can be created.
+The default Simulation Mapper Class can be used directly, extended or modified, or a completely different Simulation Mapper Class can be created.
 
 On adding additional measures to the `baseline.osw` file, the Simulation Mapper Class would need to be modified by adding necessary features from the feature files and mapping them to measure arguments.
 
-The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the
-feature file as simulation input, passing the measure and argument name and the
-corresponding feature property from the feature file as arguments.
+The *`OpenStudio::Extension.set_measure_argument`* method sets the feature from the feature file as simulation input, passing the measure and argument name and the corresponding feature property from the feature file as arguments.
 
-For example, 
+For example:
 
-```
+```ruby
 OpenStudio::Extension.set_measure_argument(osw, 'urban_geometry_creation', 'feature_id', feature_id)
 ```
 
-Where, 
-`'urban_geometry_creation'` is the measure name, `'feature_id'` is the argument name and
-the `feature_id` is the feature property from the feature file. 
+Where `'urban_geometry_creation'` is the measure name, `'feature_id'` is the argument name and `feature_id` is the feature property from the feature file.
 
 To add custom measures, or measures that lie outside of the ruby gems specified in the Gemfile, `@@osw[:measure_paths] << File.join(File.dirname(__FILE__), '../new_measure_folder/')` can be added in the Mapper Class, specifying the file path of the new measures. This adds the `measure_path` in the `baseline.osw`.
 
 To create a new mapper class:
 
-- The new mapper class ruby file should be created in the Mappers folder, since the
-  `mapper_files_dir` in the `Rakefile` is directed here. The default Simulation Mapper
-  Class can be used as template, and the `osw_path`
-  would need to be
-  updated as per the name of the new `osw` file.
-- A new scenario CSV should be created in the root folder, and the mapper class name
-  should be updated with the name of the new mapper class, 
-  within the mapper class column. The existing scenario csv's can be used as reference. 
-- OpenStudio Measures can be added to the new `osw` file by adding the measure directory
-  and measure arguments, and adding the features from the feature file and mapping them to the
-  corresponding arguments in the Mapper Class.
-- A new method can be created in the `Rakefile` to call the Mapper Class. The
-  `mapper_files_dir` and `csv_file paths` should correspond to the newly created Mapper Class and csv file
-  paths respectively.
-- To implement the mapper class, a new Rake tasks can be created that creates `ScenarioRunnerOSW` and runs it passing the
-  new method as the argument. 
+- The new mapper class ruby file should be created in the Mappers folder, since the `mapper_files_dir` in the `Rakefile` is directed here. The default Simulation Mapper Class can be used as template, and the `osw_path` would need to be updated as per the name of the new `osw` file.
+- A new scenario CSV should be created in the root folder, and the mapper class name should be updated with the name of the new mapper class,  within the mapper class column. The existing scenario csv's can be used as reference.
+- OpenStudio Measures can be added to the new `osw` file by adding the measure directory and measure arguments, and adding the features from the feature file and mapping them to the corresponding arguments in the Mapper Class.
+- A new method can be created in the `Rakefile` to call the Mapper Class. The `mapper_files_dir` and `csv_file paths` should correspond to the newly created Mapper Class and csv file paths respectively.
+- To implement the mapper class, a new Rake tasks can be created that creates `ScenarioRunnerOSW` and runs it passing the new method as the argument.
 
-Scenario PostProcessor aggregate results from each Feature simulation. They require specific OpenStudio Reporting Measures be run for each Feature to generate required simulation reports (e.g. timeseries CSV data for specific outputs, specific metrics). Creating a new reporting measure to generate the Feature reports is described [here](#Feature-Reports). These individual simulation results should be aligned with the final desired aggregated results. For example, if users decide to customize the reporting measure to report 15min timestep results; additional methods should be developed to allow the post processors to aggregate data at this coarser timestep.
+The Scenario PostProcessor aggregates results from each Feature simulation. They require specific OpenStudio Reporting Measures be run for each Feature to generate required simulation reports (e.g. timeseries CSV data for specific outputs, specific metrics). Creating a new reporting measure to generate the Feature reports is described [here](#Feature-Reports). These individual simulation results should be aligned with the final desired aggregated results. For example, if users decide to customize the reporting measure to report 15min timestep results, additional methods should be developed to allow the post processors to aggregate data at this timestep.
 
 Currently, the default Scenario Post Processors and its corresponding OpenStudio Reporting Measures are implemented in the **Scenario Gem**.  Additional Scenario Post Processors and OpenStudio Reporting Measures can be implemented in other OpenStudio Extension Gems. Users can use this gem as a guide to developing their own Post Processors or just customize this Gem to report and post-process new results of their interest. The current Scenario Processor which is used in this example project rake file is the `default_post_processor`, which is an object of ScenarioDefaultPostProcessor class.
 
@@ -461,16 +422,17 @@ The current measure added to the baseline.osw is the `default_feature_reports`:
       }
 }
 ```
+
 The `DefaultPostProcessor` reads these feature reports and aggregates them to create a `ScenarioReport`.
 
-### Example _ post processing an added feature report attribute :
+### Example: post-processing an added feature report attribute
 
 Lets now try a short example where a new attribute "number of ocuppants" is to be added to the feature_report and to the post_processor.
 
 Below are the steps for this process:
 
 - clone the scenario-gem repository to your local machine
-- open the schema file and append the new property "number of occupants" to the properties inside the program component.
+- open the [schema](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/default_reports/schema/scenario_schema.json) file and append the new property "number of occupants" to the properties inside the program component.
 
 ```JSON
 "Program": {
@@ -485,13 +447,13 @@ Below are the steps for this process:
 
 - go to the [program](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/default_reports/program.rb) class in the [default_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/urbanopt/scenario/default_reports) and add the following:
 
-1. add `number_of_occupants` to the attribute accesor.
+1. Add `number_of_occupants` to the attribute accesor.
 
 ```ruby
   attr_accessor :site_area,......., :number_of_occupants
 ```
 
-2. initialize an instance variable `number_of_occupants` by adding it to the initialize method.
+2. Initialize an instance variable `number_of_occupants` by adding it to the initialize method.
 
 ```ruby
   def initialize(hash = {})
@@ -531,13 +493,13 @@ def add_program(other)
 end
 ```
 
-- Now let's go to the reporting measure and request the number of occupants from the OpenStudio model and store it in the feature_report. `number of occupants` should be implemented in the `run` method and after the intialization of feature_report:
+- Now let's go to the reporting measure and request the number of occupants from the OpenStudio model and store it in the feature_report. `number of occupants` should be implemented in the `run` method, after the intialization of feature_report:
 
 ``` ruby
 def run(runner, user_arguments)
   super(runner, user_arguments)
   ....
-  # number of occupants. Note:'building' is an object retrieved from openstudio model
+  # number of occupants. Note: 'building' is an object retrieved from openstudio model
   num_occupants = building.numberOfPeople
   feature_report.program.number_of_occupants = num_occupants
 ```
@@ -551,7 +513,7 @@ To customize or develop URBANopt, please use the following documentation and sou
 - [GeoJSON documentation](https://urbanopt.github.io/urbanopt-geojson-gem/)
 - [Scenario documentation](https://urbanopt.github.io/urbanopt-scenario-gem/)
 
-<!-- lets add a paragraph here to describe what can users find in the documentations  for example "RDOCS"  each method is explaine and clickable ...schema is ther as well ..etcthe -->
+<!-- lets add a paragraph here to describe what can users find in the documentations  for example "RDOCS"  each method is explained and clickable ...schema is ther as well ..etc -->
 
 The repositories that developers can clone are found here:
 
