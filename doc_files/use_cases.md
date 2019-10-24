@@ -1,3 +1,8 @@
+---
+layout: default
+title: Use Cases
+nav_exclude: true
+---
 # Analysis-Scale Requirements
 
 Identifying the target scale for URBANopt analyses is important to differentiate URBANopt from other energy modeling applications.
