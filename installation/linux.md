@@ -5,12 +5,10 @@ parent: Installation
 nav_order: 3
 ---
 
-## Linux installation
-
 **_Linux installation/operation has not been tested exhaustively. Please submit an issue if you find something that doesn't work_**
 
-Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
-Manually install [libpng12](https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html)  
+- Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
+- Manually install [libpng12](https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html)  
 If you get gdbm libs errors like this:
 
 ```terminal

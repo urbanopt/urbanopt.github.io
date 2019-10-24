@@ -5,17 +5,15 @@ parent: Installation
 nav_order: 1
 ---
 
-## Mac Installation
-
-Install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installation)  
+- We recommend using `rbenv` to install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installation)  
 (URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released)  
-Install Bundler version 1.17:
+- Install Bundler version 1.17:
 
 ```terminal
 gem install bundler -v 1.17
 ```
 
-- If you have a secure firewall that prevents **bundler** from installing properly, create a `.gemrc` file in your home directory that contains:
+If you have a secure firewall that prevents **bundler** from installing properly, create a `.gemrc` file in your home directory that contains:
 
 ```yml
 :backtrace: false
@@ -26,11 +24,11 @@ gem install bundler -v 1.17
 :verbose: true
 ```
 
-- Now install **bundler**:
+Now install **bundler**:
 
 ```terminal
 gem install bundler -v 1.17
 ```
 
-Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
+- Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
 Add path to Ruby in the new OpenStudio folder by pasting into your `.bash_profile` or similar file: `export RUBYLIB=/Applications/OpenStudio-2.8.1/Ruby`
