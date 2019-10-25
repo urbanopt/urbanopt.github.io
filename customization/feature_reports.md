@@ -2,15 +2,14 @@
 layout: default
 title: Feature Reports
 parent: Customization
-nav_order: 4
+nav_order: 5
 ---
-## Feature Reports
 
-The Scenario Post Processor requires feature reports to aggregate results from feature simulations. A reporting measure is used to query and report specific output data from an Openstudio simulation of each feature. The current default reporting measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This measure writes a `default_feature_reports.json` file containing information on all features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the features.
+The Scenario Post-Processor requires Feature reports to aggregate results from Feature simulations. A reporting Measure is used to query and report specific output data from an Openstudio simulation of each Feature. The current default reporting Measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports). This Measure writes a `default_feature_reports.json` file containing information on all Features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the Features.
 
-Users can create their own OpenStudio reporting measure to generate customized simulation reports. For example, users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs.  Users should refer to the current reporting measure and this [reporting measure writing guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/#reporting-measures) to customize the current `measure.rb` file in [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports) or create a new reporting measure.
+Users can create their own OpenStudio reporting Measure to generate customized simulation reports. Users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects; e.g. reporting specific construction costs.  Users should refer to the current reporting Measure and this [reporting measure writing guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/#reporting-measures) to customize the current `measure.rb` file in [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports) or create a new reporting Measure.
 
-In this default reporting measure, a feature report object is instantiated. Then information is retrieved from the Openstudio model and stored in this `feature_report`:
+In this default reporting Measure, a Feature report object is instantiated. Then information is retrieved from the Openstudio model and stored in this `feature_report`:
 
 ````ruby
 feature_report = URBANopt::Scenario::DefaultReports::FeatureReport.new
@@ -19,7 +18,7 @@ feature_report.feature_type = feature_type
 feature_report.timesteps_per_hour = model.getTimestep.numberOfTimestepsPerHour
 ````
 
-Methods to query results from the output EnergyPlus sql file are also created and used to retrieve results and add them to the corresponding properties in the `feature_report`. In the below example the sql_query method and convert_units method are used to query total_site_energy, convert its units to kBtu and then assign it to the total_site_energy attribute in the feature report:
+Methods to query results from the output EnergyPlus sql file are also created and used to retrieve results and add them to the corresponding properties in the `feature_report`. In the example below, the `sql_query` and `convert_units` methods are used to query total_site_energy, convert units to kBtu and assign it to the total_site_energy attribute in the Feature report:
 
 ```ruby
 # sql_query method
@@ -56,7 +55,7 @@ total_site_energy = sql_query(runner, sql_file, 'AnnualBuildingUtilityPerformanc
 feature_report.reporting_periods[0].total_site_energy = convert_units(total_site_energy, 'GJ', 'kBtu')
 ```
 
-After assigning all the required results to their feature report attributes, the feature_report is converted to a hash using the `to_hash` method and saved as `default_feature_reports.json` file. This JSON file is saved in a deafult_feature_reort folder within the run directory for a feature.
+After assigning all the required results to their Feature report attributes, the feature_report is converted to a hash using the `to_hash` method and saved as `default_feature_reports.json` file. This JSON file is saved in a deafult_feature_reort folder within the run directory for a feature.
 
 ```ruby
 # Converts to a Hash equivalent for JSON serialization
@@ -74,8 +73,7 @@ File.open('default_feature_reports.json', 'w') do |f|
 end
 ```
 
-User can then add any new reporting Measure to the OpenStudio workflow file, as described in [Adding your own Measures](#Adding-your-own-measures), and re-run the simulation.
-The current Measure added to the baseline.osw is the `default_feature_reports`:
+Users can then add any new reporting Measure to the OpenStudio workflow file, as described in the [Adding your own Measures](adding_own_measure.md) section, and re-run the simulation. The current Measure added to the `base_workflow.osw` is the `default_feature_reports`:
 
 ```json
 {

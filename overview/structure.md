@@ -7,7 +7,7 @@ nav_order: 2
 
 The URBANopt SDK is implemented in Ruby and consists of 3 main modules: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`.
 
-![image info](../doc_files/core_gem_functionality.jpg)
+![image info](../doc_files/URBANopt_arch_development_v2.jpg)
 
 The **Core** gem defines a FeatureFile class. The feature file can be in any format (CityGML, GeoJSON, etc.) and describes properties of each `Feature`, such as location, floor area, number of stories, building type, cooling source, etc. This Core gem in the SDK architecture allows the development of new modules that are independent of other modules.
 
@@ -15,4 +15,4 @@ The **GeoJSON** gem is an OpenStudio Extension gem that translates a GeoJSON fea
 
 The **Scenario** gem does the heavy lifting in URBANopt.  It takes the `Scenario` you want to examine (such as [this example Scenario](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/baseline_scenario.csv)), [runs](../usage/rake_tasks.md) the FeatureFile (translated by the GeoJSON gem) through OpenStudio building energy simulation, and reports results for each feature. These reported results are defined by the [default_feature_report](../customization/feature_reports.md) Measure. A `run` directory gets created in your example project directory with folders for each Scenario and each `feature_id` within each Scenario. Feature level results will be stored in a `default_feature_report` folder within the run directory for each Feature. [Post-Processing](../usage/rake_tasks.md) may then be executed to aggregate all Feature reports of a Scenario into a Scenario level report (e.g. aggregate energy use, aggregated building program information) that is written at the top level of each Scenario folder, inside the `run` folder.
 
-![workflow_diagram](../doc_files/workflow_diagram.jpg)
+![workflow_diagram](../doc_files/workflow_diagram2.jpg)

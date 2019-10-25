@@ -12,9 +12,7 @@ Rake tasks are created to run and Post-Process each of the defined Scenarios. Fo
 - `feature_file_path`: The  path for the `geojson` file (for example: `industry_denver.geojson`)
 <!-- TODO: Change this example file when new one is prepared-->
 - `csv_file`: `csv` file (for example: `baseline_scenario.csv`)
-- `mappers_files_dir`: the file path for the `baseline.osw`
-<!-- TODO: change name of baseline.osw file and the mapper classes. -->
-<!-- TODO: change all references to the old "baseline.osw" file -->
+- `mappers_files_dir`: the file path for the `base_workflow.osw`
 
 ````ruby
 def baseline_scenario
@@ -73,3 +71,5 @@ This runs the `update_all` rake task.
 This rake task clears (deletes) the Scenario results from any previous runs.
 
 - `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for individual Scenarios.
+
+![scenario_mapper](../doc_files/scenario_mapper.jpg)

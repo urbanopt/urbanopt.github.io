@@ -12,3 +12,5 @@ Move to the top-level directory of the example project you just cloned. Run the 
 1. `bundle exec rake openstudio:runner:init`  
 This command creates a `runner.conf` file that can be used to configure URBANopt. We recommend setting `num_parallel` to the smaller of the number of Features you have or cores in your CPU.
 1. `bundle exec rake <rake task>` to execute Rake tasks
+
+![example_site_layout](../doc_files/building types_ISO.jpg)

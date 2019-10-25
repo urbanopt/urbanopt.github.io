@@ -4,8 +4,6 @@ title: Advanced Documentation
 nav_order: 5
 ---
 
-## Advanced Documentation
-
 To customize or extend URBANopt, we have provided the following documentation and source code to aid you. Schema for each gem are available in Schema. Every method is described in detail in Rdocs; click through for source code of each method.
 
 - [GeoJSON documentation](https://urbanopt.github.io/urbanopt-geojson-gem/)
