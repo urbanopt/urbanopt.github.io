@@ -25,7 +25,7 @@ Recall that a feature refers to a single object in a district energy analysis, s
 - Nursing
 - Mixed use*
 
-*Note- The Mixed use building type, requires specifying 4 building  types and their
+**Note- The Mixed use building type, requires specifying 4 building  types and their
 corresponding fractions of total area. In case number the building  types is less than 4, the
 fraction of total area for the remaining building use types can be entered as 0.*
 
