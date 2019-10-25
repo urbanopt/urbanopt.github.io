@@ -23,11 +23,20 @@ The `mappers` folder contains `baseline.osw` which serves as a simulation input 
   An URBANopt GeoJSON measure that is used to create geometry along with spaces for a particular building,
   accounting for surrounding buildings as shading.
 
-- [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): Added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
+- [`create_typical_building_from_model
+  2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model):
+  Added in the workflow after urban geometry creation and the `add_hvac` argument is now
+  set to `true`, to add HVAC system for the blended space types. The rest of the
+  arguments for adding constructions, space type, loads, etc. are set to `false`.
 
-- `ReduceElectricEquipmentLoadsByPercentage`: An OpenStudio Measure that is used to reduce the equipment load by a certain amount. The measure is skipped for the baseline scenario. For the high efficiency scenario, the skip measure argument is set to false and the measure is implemented.
+- `IncreaseInsulationRValueforExteriorWalls`: An OpenStudio measure that is used to
+  increase the R-Value of insulation for exterior walls by a specific value. This measure
+  is skipped in the baseline scenario and is added for all `MidRiseApartment` OpenStudio
+  building types in the high efficiency scenario.
 
-- `ReduceLightingLoadsByPercentage`: An OpenStudio Measure that is used to reduce the lighting load by a certain amount. The measure is skipped for the baseline scenario. For the high efficiency scenario, the skip measure argument is set to false and the measure is implemented.
+- [`ReduceElectricEquipmentLoadsByPercentage`](https://bcl.nrel.gov/node/84682): An OpenStudio Measure that is used to reduce the equipment load by a certain amount. The measure is skipped for the baseline scenario. For the high efficiency scenario, the skip measure argument is set to false and the measure is implemented.
+
+- [`ReduceLightingLoadsByPercentage`](https://bcl.nrel.gov/node/84683): An OpenStudio Measure that is used to reduce the lighting load by a certain amount. The measure is skipped for the baseline scenario. For the high efficiency scenario, the skip measure argument is set to false and the measure is implemented.
 
 - [`default_feature_reports`](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/measures/default_feature_reports): An URBANopt Scenario Measure that creates a `default_feature_reports.json` used by URBANopt Scenario Default Post Processor.
 
