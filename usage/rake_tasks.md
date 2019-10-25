@@ -5,15 +5,16 @@ parent: Usage
 nav_order: 2
 ---
 
-### Rake tasks
+Rake tasks are created to run and Post-Process each of the defined Scenarios. For each Scenario a ScenarioCSV object is instantiated. Below is an example of defining a `baseline_scenario` using the following inputs:
 
-Rake tasks are created to run and post process each of the defined scenarios. For each scenario a ScenarioCSV object is instantiated. Below is an example of defining a baseline_scenario using te following inputs:
-
-- `name` : name of the scenario
-- `run_dir`: the director to run and save results
+- `name` : name of the Scenario
+- `run_dir`: the directory to run and save results
 - `feature_file_path`: The  path for the `geojson` file (for example: `industry_denver.geojson`)
+<!-- TODO: Change this example file when new one is prepared-->
 - `csv_file`: `csv` file (for example: `baseline_scenario.csv`)
-- `mappers_files_dir`: the file path for the `baseline.osw`**TODO-change name of baseline.osw** file and the mapper classes.
+- `mappers_files_dir`: the file path for the `baseline.osw`
+<!-- TODO: change name of baseline.osw file and the mapper classes. -->
+<!-- TODO: change all references to the old "baseline.osw" file -->
 
 ````ruby
 def baseline_scenario
@@ -30,42 +31,45 @@ def baseline_scenario
 end
 ````
 
-To list all available tasks in the Rakefile:
+The following tasks are available in the Rakefile. To list all available tasks in the Rakefile:
 
 ```terminal
 bundle exec rake -T
 ```
 
-Details about individual tasks:
-
 #### *run_all*
+
 {: .no-toc }
 
-The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each scenario i.e. the
-*Baseline*, *HighEfficiency* and *Mixed scenario*, passing the scenario method as an argument.
+The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each Scenario i.e. the
+*Baseline*, *HighEfficiency*, and *Mixed* Scenarios, passing the Scenario method as an argument.
 
-- `run_baseline`, `run_high_efficiency` and `run_mixed` rake tasks can be used for running individual scenarios.
+- `run_baseline`, `run_high_efficiency` and `run_mixed` rake tasks can be used for running individual Scenarios.
 
 #### *post_process_all*
+
 {: .no-toc }
 
-The default "post-process" of a scenario aggregates the [Feature reports](#Feature-reports) into results across the whole scenario. This rake task creates and runs `ScenarioDefaultPostProcessor` for each scenario and saves the results.
+This task "post-processes" a Scenario by aggregating the [Feature reports](#Feature-reports) into results across the whole Scenario. This rake task creates and runs `ScenarioDefaultPostProcessor` for each Scenario and saves the results.
 
-- `post_process_baseline`, `post_process_high_efficiency`, `post_process_mixed` rake tasks are pre-built and can be used for those individual scenarios.
+- `post_process_baseline`, `post_process_high_efficiency`, `post_process_mixed` rake tasks are pre-built and can be used for those individual Scenarios.
 
 #### *update_all*
+
 {: .no-toc }
 
 This rake task combines the `run_all` and `post_process_all` tasks.
 
 #### *default*
+
 {: .no-toc }
 
 This runs the `update_all` rake task.
 
 #### *clear_all*
+
 {: .no-toc }
 
-This rake task clears the scenario results from any previous runs.
+This rake task clears (deletes) the Scenario results from any previous runs.
 
-- `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for individual scenarios.
+- `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for individual Scenarios.
