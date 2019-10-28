@@ -5,7 +5,7 @@ parent: Usage
 nav_order: 1
 ---
 
-We have created a *hypothetical project* that you can experiment with to demonstrate example URBANopt functionality. This project is intended to showcase the URBANopt version 0.1.0 capabilities, not represent a realistic development.
+The URBANopt example project is a *hypothetical project only*, that was created to demonstrate various capabilities of the URBANopt SDK in version 0.1.0 (e.g., modeling of various building types and heights in one district). An actual location for the hypothetical project was needed to demonstrate geospatial aspects of the URBANopt SDK. The hypothetical example project’s location is within the boundary of an actual district project that is a participant in the U.S. Department of Energy Zero Energy District Accelerator. See [this file](https://www.nrel.gov/docs/fy18osti/71841.pdf) for a description of the actual project and note that the design in the hypothetical URBANopt example project has no relation to the designs and site requirements of the actual development project.
 
 To prepare URBANopt, move to the top-level directory of the [example project](https://github.com/urbanopt/urbanopt-example-geojson-project) you just forked and cloned in the previous step. Run the following commands to set up the Rake tasks defined in the Rakefile of the current working directory.
 
