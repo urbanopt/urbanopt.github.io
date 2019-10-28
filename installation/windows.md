@@ -5,63 +5,58 @@ parent: Installation
 nav_order: 2
 ---
 
-- Install [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
-(URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released)  
-- Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
-Include path to Ruby by adding to your environment variables path: `C:\Ruby22-x64\bin`  
-Create a new environment variable `HOME` and set the variable value to: `C:\Users\<user_name>`  
-- Install Bundler version 1.17:
+# Windows Installation Instructions
 
-```terminal
-gem install bundler -v 1.17
-```
+## Dependencies
 
-If you have a secure firewall that prevents **bundler** from installing properly, type into the command line:
+1. Install [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
+**Note**: URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released
 
-`gem sources -c`  
-`gem sources -a http://rubygems.org/`
+1. Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
+1. Include path to Ruby by adding the following to your environment variables path: 
 
-You will need to accept the reduced security of `http` compared to `https`  
-If installing bundler **still** doesn't work, create a `.gemrc` file in your home directory:
+	`C:\Ruby22-x64\bin`
+1. Create a new environment variable `HOME` and set the variable value to the following: 
 
-```terminal
-type nul > C:\Users\<user_name>\.gemrc
-```
+	`C:\Users\<user_name>`
+1. Install Bundler version 1.17:
 
-Edit the new `.gemrc` file to contain:
+	```terminal
+	gem install bundler -v 1.17
+	```
 
-```yml
-:backtrace: false
-:bulk_threshold: 1000
-:sources:
-- http://rubygems.org
-:update_sources: true
-:verbose: true
-```
+1. Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
+1. Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain:
 
-- Now install **bundler**:
+	```ruby
+	require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
+	```
 
-```terminal
-gem install bundler -v 1.17
-```
+1. Verify your OpenStudio and Ruby configuration:
 
-- Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
-Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain:
+	```terminal
+	ruby -e "require 'openstudio'" -e "puts OpenStudio::Model::Model.new"
+	```
 
-```ruby
-require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
-```
+	Expected output:
 
-Verify your OpenStudio and Ruby configuration:
+	```terminal
+	OS:Version,
+	 {<long-uuid>},                          !- Handle
+	 2.8.1;                                  !- Version Identifier`
+	 ```
 
-```terminal
-ruby -e "require 'openstudio'" -e "puts OpenStudio::Model::Model.new"
-```
+1. Install [Git](https://git-scm.com/) if not already installed.  NREL provides a list of [optional git GUIs] [(https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub), along with some help using git with OpenStudio. 
 
-Expected output:
+1. Configure git to allow long path names in git:
 
-```terminal
-OS:Version,
- {<long-uuid>},                          !- Handle
- 2.8.1;                                  !- Version Identifier`
- ```
+	```terminal
+	git config --global core.longpaths true
+	```
+
+## Basic Set-up
+
+1. Fork the [URBANopt example project](https://github.com/urbanopt/urbanopt-example-geojson-project)
+1. Clone the forked repo down to your local machine  
+
+1. Follow the instructions in the [Example Project](../usage/run_example) section to install the URBANopt example project.  This will install the URBANopt SDK.
