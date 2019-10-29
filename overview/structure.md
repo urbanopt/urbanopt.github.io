@@ -11,7 +11,7 @@ figure below: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojso
 ![image info](../doc_files/URBANopt_arch_development_v2.jpg)
 
 The **Core** gem defines a FeatureFile class. The feature file format currently supported
-is GeoJSON and describes properties of each `Feature`,
+is GeoJSON, other formats can be supported in the future as more workflows are integrated in the SDK. The FeatureFile describes properties of each `Feature`,
 such as location, floor area, number of stories, building type, cooling source, etc. This
 Core gem in the SDK architecture allows the development of new modules that are
 independent of other modules.
