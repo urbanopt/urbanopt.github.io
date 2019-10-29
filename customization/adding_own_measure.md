@@ -5,7 +5,7 @@ parent: Customization
 nav_order: 1
 ---
 
-The `mappers` folder contains `base_workflow.osw` which serves as a simulation input for URBANopt. It is an OpenStudio workflow file that contains URBANopt Measures and dictates the sequence of running these Measures. Measures are added to create building models and test different energy conservation Measures for different Scenarios.
+The `mappers` folder contains `base_workflow.osw` which serves as a simulation input for URBANopt. It is an OpenStudio workflow file that contains URBANopt Measures and dictates the sequence of running these Measures. Measures are added to create building models and apply different energy conservation Measures for different Scenarios.
 
 - `set_run_period`: An OpenStudio Measure used to define the number of timesteps per hour and specify the begin and end date for running the simulation.
 
@@ -19,7 +19,7 @@ The `mappers` folder contains `base_workflow.osw` which serves as a simulation i
 
 - [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/measures/urban_geometry_creation): An URBANopt GeoJSON measure that is used to create geometry along with spaces for a particular building, accounting for shading from surrounding buildings.
 
-- [`create_typical_building_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): A second instance of this Measure, which is added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
+- [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_typical_building_from_model): A second instance of this Measure, which is added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
 
 - `IncreaseInsulationRValueforExteriorWalls`: An OpenStudio measure that is used to increase the R-Value of insulation for exterior walls by a specific value. This measure is skipped in the baseline Scenario and is added for all `MidRiseApartment` OpenStudio building types in the high efficiency Scenario.
 

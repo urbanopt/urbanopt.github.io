@@ -46,7 +46,10 @@ nav_order: 2
 	 2.8.1;                                  !- Version Identifier`
 	 ```
 
-1. Install [Git](https://git-scm.com/) if not already installed.  NREL provides a list of [optional git GUIs] [(https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub), along with some help using git with OpenStudio. 
+1. Install [Git](https://git-scm.com/) if not already installed. A list of [optional git
+   GUIs](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHcub) can
+  be found here,
+   along with some help using git with OpenStudio. 
 
 1. Configure git to allow long path names in git:
 

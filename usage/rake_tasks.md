@@ -5,11 +5,11 @@ parent: Usage
 nav_order: 2
 ---
 
-Rake tasks are created to run and Post-Process each of the defined Scenarios. For each Scenario a ScenarioCSV object is instantiated. Below is an example of defining a `baseline_scenario` using the following inputs:
+Rake tasks are created to run and post-process each of the defined Scenarios. For each Scenario a ScenarioCSV object is instantiated. Below is an example of defining a `baseline_scenario` using the following inputs:
 
 - `name` : name of the Scenario
 - `run_dir`: the directory to run and save results
-- `feature_file_path`: The  path for the `geojson` file (for example: `industry_denver.geojson`)
+- `feature_file_path`: the  path for the `geojson` file (for example: `example_project.json`)
 <!-- TODO: Change this example file when new one is prepared-->
 - `csv_file`: `csv` file (for example: `baseline_scenario.csv`)
 - `mappers_files_dir`: the file path for the `base_workflow.osw`
@@ -18,7 +18,7 @@ Rake tasks are created to run and Post-Process each of the defined Scenarios. Fo
 def baseline_scenario
   name = 'Baseline Scenario'
   run_dir = File.join(File.dirname(__FILE__), 'run/baseline_scenario/')
-  feature_file_path = File.join(File.dirname(__FILE__), 'industry_denver.geojson')
+  feature_file_path = File.join(File.dirname(__FILE__), 'example_project.json')
   csv_file = File.join(File.dirname(__FILE__), 'baseline_scenario.csv')
   mapper_files_dir = File.join(File.dirname(__FILE__), 'mappers/')
   num_header_rows = 1
@@ -29,7 +29,7 @@ def baseline_scenario
 end
 ````
 
-The following tasks are available in the Rakefile. To list all available tasks in the Rakefile:
+The tasks described below are in the Rakefile. To list all available tasks in the Rakefile:
 
 ```terminal
 bundle exec rake -T
@@ -39,7 +39,7 @@ bundle exec rake -T
 
 {: .no-toc }
 
-The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each Scenario i.e. the
+The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each Scenario e.g. the
 *Baseline*, *HighEfficiency*, and *Mixed* Scenarios, passing the Scenario method as an argument.
 
 - `run_baseline`, `run_high_efficiency` and `run_mixed` rake tasks can be used for running individual Scenarios.
@@ -70,6 +70,15 @@ This runs the `update_all` rake task.
 
 This rake task clears (deletes) the Scenario results from any previous runs.
 
-- `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for individual Scenarios.
+- `clear_baseline`, `clear_high_efficiency`, `clear_mixed` rake tasks can be used for
+  individual Scenarios.
+
+The figure below describes the workflow that takes place on  implementing the *run* and *post_process* rake tasks.
+
+![workflow_diagram](../doc_files/workflow-diagram2.jpg)
+
+
+The figure below represents how Simulation Mapper Classes can be assigned to different
+Features from the FeatureFile in the Scenario CSV.
 
 ![scenario_mapper](../doc_files/scenario_mapper.jpg)

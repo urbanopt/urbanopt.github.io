@@ -9,7 +9,7 @@ The Simulation Mapper Class maps the Features in the FeatureFile to arguments re
 
 Recall that a Feature refers to a single object in a district energy analysis, such as a
 building, district system, or transformer. The FeatureFile includes all data for all
-Features and is written by a third party user interface; for our example we use the
+Features and could be written by a third party application or user interface; for our example we use the
 GeoJSON format. The input GeoJSON file must be valid and must meet the additional requirements for data supported or required by the appropriate URBANopt GeoJSON Gem [sub-schema](https://github.com/urbanopt/urbanopt-geojson-gem/tree/develop/lib/urbanopt/geojson/schema). In version 0.1.0, the Simulation Mapper only supports mapping the
 [*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/building.rb)
 feature_type and has the capability to support mapping the following building types from
@@ -31,10 +31,15 @@ schema in the GeoJSON Gem:
 - Nursing
 - Mixed use*
 
-**Note - The Mixed use building type can accomodate up to 4 building types and their corresponding fractions of total area. If the number of building types is less than 4, non-existent building use types must be added but the fraction of total area can be entered as 0.*
+**Note - The Mixed use building type can accommodate up to 4 building types and their
+corresponding fractions of total floor area. If the number of building types is fewer than 4,
+additional building use types must be added but the fraction of total area can be
+entered as 0.*
 
 Within the Mapper Classes, functionality can be added to
-apply measures based on the Feature properties. For example, Measures can be implemented only for certain building type, or can be implemented only if the number of floors is greater than a particular number, etc.
+apply measures based on the Feature properties. For example, Measures can be implemented
+only for a certain building type, or can be implemented only if the number of floors is
+greater than a particular number, etc.
 
 The URBANopt GeoJSON Example Project includes a default Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model. The `HighEfficiency` mapper class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
 
