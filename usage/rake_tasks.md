@@ -78,7 +78,7 @@ The figure below describes the workflow that takes place on  implementing the *r
 ![workflow_diagram](../doc_files/workflow-diagram2.jpg)
 
 
-The figure below represents how Simulation Mapper Classes can be assigned to different
+The following figure represents how Simulation Mapper Classes can be assigned to different
 Features from the FeatureFile in the Scenario CSV.
 
 ![scenario_mapper](../doc_files/scenario_mapper.jpg)
