@@ -10,9 +10,10 @@ nav_order: 1
 
 URBANopt (Urban Renewable Building And Neighborhood optimization) is an EnergyPlus and OpenStudio-based simulation platform aimed at district- and campus-scale thermal and electrical analysis.
 
-The URBANopt project website can be found [here](https://www.nrel.gov/buildings/urbanopt.html).  
-A high-level introduction to the intent and purpose of URBANopt can be found [here](https://www.energy.gov/eere/buildings/urbanopt).  
-The design overview for URBANopt can be found [here](doc_files/design_doc.md).
+Use the following links to find out more about the URBANopt project:
+- [High-level introduction](https://www.nrel.gov/buildings/urbanopt.html) to the intent and purpose of URBANopt
+- [URBANopt project website](https://www.energy.gov/eere/buildings/urbanopt) 
+- [URBANopt Design overview](doc_files/design_doc.md)
 
 **_URBANopt is not a standalone program for end users._** URBANopt Software Development Kit (SDK) is a package of modules that can be used to build user-friendly tools. Developers can use existing URBANopt modules, customize URBANopt modules, and create new modules to implement the desired workflows for their tools. Other users of the SDK could include researchers looking to create customized workflows to perform specific environmental design tasks.
 
