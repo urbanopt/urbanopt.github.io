@@ -8,7 +8,7 @@ nav_order: 1
 The URBANopt example project is a ***<u>hypothetical</u> project only*** that was created
 to demonstrate various capabilities of the URBANopt SDK in version 0.1.0 (e.g. modeling
 of various building types and heights in one district). An actual location for the
-*hypothetical* project was needed to demonstrate geospatial aspects of the URBANopt SDK.
+<u>hypothetical</u> project was needed to demonstrate geospatial aspects of the URBANopt SDK.
 The <u>hypothetical</u> example project’s location is within the boundary of an actual
 district project that is a participant in the U.S. Department of Energy Zero Energy
 District Accelerator. See “Western New York Manufacturing Zero Energy District” in [this
