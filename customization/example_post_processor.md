@@ -5,7 +5,7 @@ parent: Customization
 nav_order: 6
 ---
 
-Here is a short example where a new attribute "number of occupants" is added to the Feature report and the Post-Processor.
+The following section is a short example where a new attribute "number of occupants" is added to the Feature report and the Post-Processor.
 
 Below are the steps for this process:
 
@@ -63,7 +63,7 @@ def to_hash
 end
 ```
 
-5) Finally, add `number_of_occupant` to the add_program method that is used by the Post-Processor to aggregate the program attributes values.
+5) Finally, add `number_of_occupants` to the add_program method that is used by the Post-Processor to aggregate the program attributes values.
 
 ```ruby
 def add_program(other)
@@ -71,7 +71,7 @@ def add_program(other)
 end
 ```
 
-- Now let's go to the reporting Measure and request the number of occupants from the OpenStudio model and store it in the `feature_report`. `number_of_occupants` should be implemented in the `run` method, *after* the intialization of feature_report:
+- Next, go to the reporting Measure and request the number of occupants from the OpenStudio model and store it in the `feature_report`. `number_of_occupants` should be implemented in the `run` method, *after* the initialization of feature_report:
 
 ``` ruby
 def run(runner, user_arguments)
@@ -82,6 +82,6 @@ def run(runner, user_arguments)
   feature_report.program.number_of_occupants = num_occupants
 ```
 
-- Run the new example project using the modified Scenario gem reposiory
+- Run the new example project using the modified Scenario gem repository
   - Edit the Gemfile in your example project by setting `allow_local` to `true`
   - This will enable using the local files in the urbanopt-scenario-gem repo that you have been editing
