@@ -28,4 +28,4 @@ To run URBANopt, move to the top-level directory of the [example project](https:
    your CPU.
 1. `bundle exec rake <rake task>` to execute [Rake tasks](rake_tasks.md) as described in the next section.
 
-![example_project_layout](../doc_files/building types_ISO.jpg)
+![example_project_layout](../doc_files/building_types_ISO.jpg)
