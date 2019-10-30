@@ -7,9 +7,9 @@ nav_order: 1
 
 The `mappers` folder contains `base_workflow.osw` which serves as a simulation input for URBANopt. It is an OpenStudio workflow file that contains URBANopt Measures and dictates the sequence of running these Measures. Measures are added to create building models and apply different energy conservation Measures for different Scenarios.
 
-- `set_run_period`: An OpenStudio Measure used to define the number of timesteps per hour and specify the begin and end date for running the simulation.
+- [`set_run_period`](https://github.com/NREL/openstudio-common-measures-gem/tree/develop/lib/measures/set_run_period): An OpenStudio Measure used to define the number of timesteps per hour and specify the begin and end date for running the simulation.
 
-- `ChangeBuildingLocation`: An OpenStudio Measure used to specify and load the EPW file.
+- [`ChangeBuildingLocation`](https://github.com/NREL/openstudio-common-measures-gem/tree/develop/lib/measures/ChangeBuildingLocation): An OpenStudio Measure used to specify and load the EPW file.
 
 - [`create_bar_from_building_type_ratios`](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_bar_from_building_type_ratios): An OpenStudio Model Articulation Measure used to create a core and perimeter bar sliced by space type. It takes in one or more building types as user arguments to create space type collections.
 
