@@ -123,7 +123,7 @@ To run specific rake tasks:
 
 In the Rake file methods are defined to create a Scenario CSV for each scenario, that take as arguments:
 
-- the `geojson` file (for example: `industry_denver.geojson`)
+- the `geojson` file (for example: `example_project.json`)
 - `mappers` folder (for example: `mappers`)
 - `csv` file (for example: `baseline_scenario.csv`)
 

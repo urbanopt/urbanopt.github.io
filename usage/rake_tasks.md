@@ -10,7 +10,6 @@ Rake tasks are created to run and post-process each of the defined Scenarios. Fo
 - `name` : name of the Scenario
 - `run_dir`: the directory to run and save results
 - `feature_file_path`: the  path for the `geojson` file (for example: `example_project.json`)
-<!-- TODO: Change this example file when new one is prepared-->
 - `csv_file`: `csv` file (for example: `baseline_scenario.csv`)
 - `mappers_files_dir`: the file path for the `base_workflow.osw`
 

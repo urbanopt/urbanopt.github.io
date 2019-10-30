@@ -10,7 +10,7 @@ The following section is a short example where a new attribute "number of occupa
 Below are the steps for this process:
 
 - Clone the scenario-gem repository to your local machine.
-- Open the [schema](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/default_reports/schema/scenario_schema.json) file and append the new property `number_of_occupants` to the properties inside the `program` component.
+- Open the [schema](https://github.com/urbanopt/urbanopt-scenario-gem/blob/master/lib/urbanopt/scenario/default_reports/schema/scenario_schema.json) file and append the new property `number_of_occupants` to the properties inside the `program` component.
 
 ```JSON
 "Program": {
@@ -23,7 +23,7 @@ Below are the steps for this process:
 }
 ```
 
-- go to the [program](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/lib/urbanopt/scenario/default_reports/program.rb) class in the [default_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/develop/lib/urbanopt/scenario/default_reports) and modify as follows:
+- go to the [program](https://github.com/urbanopt/urbanopt-scenario-gem/blob/master/lib/urbanopt/scenario/default_reports/program.rb) class in the [default_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/master/lib/urbanopt/scenario/default_reports) and modify as follows:
 
 1) Add `number_of_occupants` to the attribute accessor.
 
@@ -83,5 +83,6 @@ def run(runner, user_arguments)
 ```
 
 - Run the new example project using the modified Scenario gem repository
-  - Edit the Gemfile in your example project by setting `allow_local` to `true`
+  - Adjust the `allow_local` in the Gemfile, following instructions to allow the use of
+    local gems.
   - This will enable using the local files in the urbanopt-scenario-gem repo that you have been editing
