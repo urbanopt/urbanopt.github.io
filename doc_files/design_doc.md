@@ -86,4 +86,4 @@ All of the project specific data, including the GeoJSON file with potentially no
 
 In general, URBANopt modules will be packaged and distributed as [Ruby Gems](https://guides.rubygems.org/what-is-a-gem/) or [Python Modules](https://docs.python.org/3/tutorial/modules.html).  Functionality that will be used by OpenStudio Measures should be developed in Ruby and packaged as OpenStudio Extension Gems. URBANopt modules distributed as OpenStudio Extension Gems can be executed using OpenStudio Command Line Interface (CLI) to integrate with Python-driven workflows. URBANopt modules will be developed under the URBANopt GitHub organization to encourage collaboration with other organizations that might be hesitant to upload code to the NREL Github organization.  Documentation, testing, and continuous integration (CI) will also be developed for these example projects.  Users can leverage these example projects as starting points for their individual projects.
 
-[Back to main documentation](../README.md#welcome-to-urbanopt)
+[Back to main documentation](../index.md)
