@@ -18,14 +18,13 @@ to the designs and site requirements of the actual development project.
 
 The example project design and building typologies are shown in the figure below.
 
-To run URBANopt, move to the top-level directory of the [example project](https://github.com/urbanopt/urbanopt-example-geojson-project) you just forked and cloned in the previous step. Run the following commands to set up the Rake tasks defined in the Rakefile of the current working directory.
+To run URBANopt, use the [URBANopt Command Line Interface (CLI)](https://github.com/urbanopt/uo-cli). Help for the CLI is always available by typing `uo -h` from the command line.
 
-1. `bundle install` to ensure all dependencies in your [Gemfile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/master/Gemfile) are available
-1. `bundle update` to update your gems to the latest available versions
-1. `bundle exec rake openstudio:runner:init`  
-   This command creates a `runner.conf` file that can be used to configure URBANopt. We
-   recommend setting `num_parallel` based on the number of the number of Features you have or cores in
-   your CPU.
-1. `bundle exec rake <rake task>` to execute [Rake tasks](rake_tasks.md) as described in the next section.
+1. Create a project folder using `uo -p`
+1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created.
+1. Create a [ScenarioFile](../overview/definitions.md) using `uo -m`
+    - This assumes the FeatureFile you provided describes a baseline, or a "before" version of your district.
+1. Simulate energy usage of each feature in your FeatureFile by using `uo -r -f -s`
+1. Aggregate all those features into a [Scenario](../overview/definitions.md) by using `uo -a -f -s`
 
 ![example_project_layout](../doc_files/building_types_ISO.jpg)
