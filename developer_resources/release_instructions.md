@@ -23,4 +23,5 @@ We recommend releasing gems **in order from the base to most dependent**. For ea
     - Ensure all tests pass before merging
 1. Locally - from the master branch, run `rake release`
 1. On GitHub, go to the releases page and update the latest release tag. Name it “Version x.y.z” and copy the CHANGELOG entry into the text box.
+    - Link to relevant documentation URLs in release tags. You did [update the documentation](https://github.com/urbanopt/urbanopt.github.io) with detailed usage and helpful examples, right?
 1. Update [Compatibility Matrix](compatibility_matrix.md) as appropriate
