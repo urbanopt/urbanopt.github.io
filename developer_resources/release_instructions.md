@@ -13,7 +13,7 @@ The modular nature of URBANopt allows for freedom in developing and using only t
 
 We recommend releasing gems **in order from the base to most dependent**. For each gem being improved, follow these steps:
 
-1. Increment version (if needed) in /lib/*/version.rb
+1. Increment version (if needed) in `/lib/*/version.rb`
 1. Run `rake rubocop:auto_correct`
 1. Run lib/change_log.rb
     - Copy/Paste output to CHANGELOG.md
