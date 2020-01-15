@@ -177,4 +177,4 @@ The figure below describes the workflow that takes place on  implementing the *r
 The following figure represents how Simulation Mapper Classes can be assigned to different
 Features from the FeatureFile in the Scenario CSV.
 
-![scenario_mapper](../doc_files/reopt-scenario_mapper.png)
+![scenario_mapper](../doc_files/reopt-scenario-mapper.png)
