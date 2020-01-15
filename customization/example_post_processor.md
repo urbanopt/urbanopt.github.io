@@ -13,11 +13,13 @@ Below are the steps for this process:
 - Open the [schema](https://github.com/urbanopt/urbanopt-scenario-gem/blob/master/lib/urbanopt/scenario/default_reports/schema/scenario_schema.json) file and append the new property `number_of_occupants` to the properties inside the `program` component.
 
 ```JSON
-"Program": {
-  "type": "object",
-  "properties": {
-    "number_of_occupants": {
-    "type": "number"
+{
+  "Program": {
+    "type": "object",
+    "properties": {
+      "number_of_occupants": {
+        "type": "number"
+      }
     }
   }
 }
