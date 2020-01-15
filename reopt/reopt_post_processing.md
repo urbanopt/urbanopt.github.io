@@ -59,7 +59,7 @@ The `run_all` Rake task creates and runs a `ScenarioRunnerOSW` for each Scenario
 
 - `run_baseline`, `run_high_efficiency` and `run_mixed` rake tasks can be used for running individual Scenarios.
 
-Note, this only runs the intial OpenStudio simulation. It does not run the REopt Lite analysis.
+Note, this only runs the initial OpenStudio simulation. It does not run the REopt Lite analysis.
 
 #### *post_process_all*
 
@@ -133,7 +133,7 @@ The following shows how to post-process a ScenarioReport in aggregate. This is s
   
 ````
 
-Alternatively, the following shows how to post-process a ScenarioReport in for each of its Feature Reports before aggregating into a summary in the Scenatio Report.
+Alternatively, the following shows how to post-process a Scenario Report in for each of its Feature Reports before aggregating into a summary in the Scenario Report.
 
 ````ruby
   puts 'Post Processing Baseline Scenario...'
