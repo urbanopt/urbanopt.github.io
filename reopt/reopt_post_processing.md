@@ -8,14 +8,6 @@ nav_order: 2
 
 Rake tasks are used to run and post-process each scenario a user defines. **REopt Lite** optimization happens during the post-processing of each scenario, and is facilitated using a _**REoptPostProcessor**_ that can be run on a _**FeatureReport**_, a collection of _**Feature Reports**_, or a _**Scenario Report**_ (either on the aggregate load or on each _**FeatureReport**_ load profile before aggregation). **REopt Lite** non-default assumptions (i.e. utility rate, capital costs) are specified in JSON files that are either loaded from input CSV's for _**FeatureReports**,_ by a  _**URBANopt::Scenario::REoptScenarioCSV**_, or specified within the scenario Rake task (as shown below). 
 
-### Before you begin!
-
-To run a project you will need an internet connection so the REopt Gem can access the REopt Lite API.
-
-You'll also need an API key from the [NREL Developer Network](https://developer.nrel.gov/]). Copy and paste your key in to the _developer_nrel_key_._rb_ file in root directory of the urbanopt-example-reopt-project repo, then save the file:
-
-    DEVELOPER_NREL_KEY = '<insert your key here>'
-
 ## Workflow
 
 The first code block below creates and runs a `baseline_scenario` parser for OpenStudio results. It also integrates REopt Lite settings for analysis during post processing. The example is set up so that the **REopt Lite** analysis will use assumptions defined in a `reopt/base_assumptions.json` file for a scenario level analysis, as well as for subsequent individual site analyses at the feature level. 
@@ -179,10 +171,10 @@ This rake task clears (deletes) the Scenario results from any previous runs.
 
 The figure below describes the workflow that takes place on  implementing the *run* and *post_process* rake tasks.
 
-![workflow_diagram](../doc_files/reopt-workflow-diagram.jpg)
+![workflow_diagram](../doc_files/reopt-workflow-diagram.png)
 
 
 The following figure represents how Simulation Mapper Classes can be assigned to different
 Features from the FeatureFile in the Scenario CSV.
 
-![scenario_mapper](../doc_files/reopt-scenario_mapper.jpg)
+![scenario_mapper](../doc_files/reopt-scenario_mapper.png)
