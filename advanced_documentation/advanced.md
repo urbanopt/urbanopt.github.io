@@ -10,6 +10,7 @@ Rdocs; click through for source code of each method.
 
 - [GeoJSON Gem documentation](https://urbanopt.github.io/urbanopt-geojson-gem/)
 - [Scenario Gem documentation](https://urbanopt.github.io/urbanopt-scenario-gem/)
+- [REopt Gem documentation](https://urbanopt.github.io/urbanopt-reopt-gem/)
 
 The repositories that developers can clone are found here:
 

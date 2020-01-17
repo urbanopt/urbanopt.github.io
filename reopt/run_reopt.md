@@ -5,8 +5,6 @@ parent: REopt
 nav_order: 1
 ---
 
-[REopt Lite](https://reopt.nrel.gov/tool) is a technoeconomic decision making model for distributed energy resource (DER) deployment. Given a set of inputs it leverages mixed-integer linear programming to select the optimal design and dispatch of solar PV, storage, wind and diesel generator technologies - it also provides key economic metrics for the system. Integration of this model with URBANopt allows individual buildings (i.e Feature Reports) and collections of buildings (i.e. Scenario Reports) to be assessed for cost-optimal DER solutions. 
-
 ## Before you begin!
 
 To run a project you will need an internet connection so the REopt Gem can access the REopt Lite API.
