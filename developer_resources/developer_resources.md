@@ -38,16 +38,4 @@ Follow these steps to generate rdocs for now and existing SDK gems:
 
 Rdoc options are controlled with this [config file](https://github.com/urbanopt/urbanopt-scenario-gem/blob/develop/.rdoc_options).
 
-# Release Instructions
-To make a release do the following:
-1. Increment the version in `version.rb` file
-1. Merge pull requests to the `develop` branch
-1. Run the `changelog.rb` script and add the changes to the CHANGELOG.md file for the range of time between last release and this release. Only add the Closed Issues. Also make sure that all the pull requests have a related Issue in order to be included in the change log.
-	```
-	ruby lib/change_log.py –k GITHUB_API_TOKEN –s 2020-01-01 –e 2020-03-31
-	```
-Paste the results (remove unneeded Accepted Pull Requests) into the CHANGELOG.md. Make sure to cleanup the formatting.
-1. Once all tests on the develop branch pass, create a new PR from develop to master.
-1. Draft new Release on Github. Include list of changes since previous release (i.e. the content in the CHANGELOG.md)
-1. Release gem to RubyGems 
 
