@@ -25,7 +25,7 @@ nav_order: 1
 		export RUBYLIB=/Applications/OpenStudio-2.8.1/Ruby
 	```
 
-1. Install [Git](https://git-scm.com/) if not already installed. A list of [optional git
+1. Install [Git](https://git-scm.com/) if not already installed (unlikely). A list of [optional git
    GUIs](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub)
    can be found here,
    along with some help using git with OpenStudio.
