@@ -18,39 +18,45 @@ to the designs and site requirements of the actual development project.
 
 The <u>hypothetical</u> example project design and building typologies are shown in the figure below.
 
-To run URBANopt and try out the example project, use the [URBANopt Command Line Interface (CLI)](https://github.com/urbanopt/uo-cli). Help for the CLI is always available by typing `uo -h` from the command line.
+To run URBANopt and try out the example project, install the [URBANopt Command Line Interface](../installation/installation.md) using:
 
-1. Create a project folder using
+```terminal
+gem install uo_cli
+```
+
+Once the CLI is install, help is available by typing `uo -h` from the command line.
+
+1. Create a project folder in your current directory using:
 
     ```terminal
     uo -p <FOLDERNAME>
     ```
 
-1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the example.
-1. Create [ScenarioFiles](../overview/definitions.md) based off the `mappers` using
+1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
+1. Create [ScenarioFiles](../overview/definitions.md) based off the example _mappers_ using:
 
     ```terminal
-    uo -m <FEATUREFILE>
+    uo -m -f <FEATUREFILE>
     ```
 
-    Write your own mapper file for your own specific use case as needed
+    You may write your own mapper file for your own specific use case as needed
 
-1. Simulate energy usage of each feature in your FeatureFile by using 
+1. Simulate energy usage of each feature in your FeatureFile by using:
 
     ```terminal
     uo -r -f <FEATUREFILE> -s <SCENARIOFILE>
     ```
 
-1. Aggregate all those features into a [Scenario](../overview/definitions.md) by using
+1. Aggregate simulated features into a [Scenario](../overview/definitions.md) by using:
 
     ```terminal
     uo -a -f <FEATUREFILE> -s <SCENARIOFILE
     ```
 
-1. Delete an outdated [Scenario](../overview/definitions.md) by using 
+1. Delete an outdated [Scenario](../overview/definitions.md) by using:
 
     ```terminal
-    uo -d <SCENARIOFILE>
+    uo -d -s <SCENARIOFILE>
     ```
 
 ![example_project_layout](../doc_files/building_types_ISO.jpg)
