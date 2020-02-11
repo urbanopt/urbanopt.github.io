@@ -24,8 +24,8 @@ To run URBANopt, move to the top-level directory of the [example project](https:
 1. `bundle update` to update your gems to the latest available versions
 1. `bundle exec rake openstudio:runner:init`  
    This command creates a `runner.conf` file that can be used to configure URBANopt. We
-   recommend setting `num_parallel` based on the number of the number of Features you have or cores in
-   your CPU.
+   recommend setting `num_parallel` based on the number of Features you have or cores in
+   your CPU. The `Verbose: false` setting prevents excess text from being displayed on your screen while simulations are being run.
 1. `bundle exec rake <rake task>` to execute [Rake tasks](rake_tasks.md) as described in the next section.
 
 ![example_project_layout](../doc_files/building_types_ISO.jpg)
