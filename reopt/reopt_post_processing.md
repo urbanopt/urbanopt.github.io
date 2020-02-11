@@ -24,7 +24,7 @@ The inputs to this rake task are defined as follows:
   | 1          | Mixed_use 1  | URBANopt::Scenario::BaselineMapper | base_assumptions.json | 
 
 - `mappers_files_dir`: the file path for the `base_workflow.osw`
-- `reopt_files_dir`: the file path for a folder containing .json files for defining non-default **REopt Lite** analysis assumptions. All assumption files must be saved in this folder. Note this folder is optional; if base assumptions are not provided for a feature, then defaults will be used as defined in (https://developer.nrel.gov/docs/energy-optimization/reopt-v1/)[https://developer.nrel.gov/docs/energy-optimization/reopt-v1/].  If default assumptions are used utility charges will consist of $0.13/kWh without demand charges.
+- `reopt_files_dir`: the file path for a folder containing .json files for defining non-default **REopt Lite** analysis assumptions. All assumption files must be saved in this folder. Note this folder is optional; if base assumptions are not provided for a feature, then defaults will be used as defined in [https://developer.nrel.gov/docs/energy-optimization/reopt-v1/](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/). If default assumptions are used utility charges will consist of $0.13/kWh without demand charges.
 - `scenario_reopt_assumptions_file_name`: the base **REopt Lite** assumption .json file within the _reopt_files_dir_ folder to use if running an optimization for an aggregated scenario.
 
 ````ruby
