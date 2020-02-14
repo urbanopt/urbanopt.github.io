@@ -74,7 +74,7 @@ This rake task clears (deletes) the Scenario results from any previous runs.
 
 The figure below describes the workflow that takes place on  implementing the *run* and *post_process* rake tasks.
 
-![workflow_diagram](../doc_files/workflow-diagram2.jpg)
+![workflow_diagram](../doc_files/workflow-diagram_3.jpg)
 
 
 The following figure represents how Simulation Mapper Classes can be assigned to different

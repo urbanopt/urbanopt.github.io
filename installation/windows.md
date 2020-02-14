@@ -10,7 +10,7 @@ nav_order: 2
 ## Dependencies
 
 1. Install [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
-**Note**: URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released
+**Note**: URBANopt will update to a newer Ruby version when OpenStudio 3.0 is released
 
 1. Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
 1. Include path to Ruby by adding the following to your environment variables path: 
