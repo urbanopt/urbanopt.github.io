@@ -49,7 +49,7 @@ If you get gdbm libs errors like the following, you need to create symlinks to t
 1. Install the URBANopt Command Line Interface (CLI):
 
     ```terminal
-    gem install uo_cli
+    gem install urbanopt-cli
     ```
 
 1. View available CLI commands with:

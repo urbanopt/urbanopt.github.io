@@ -62,7 +62,7 @@ nav_order: 2
 1. Install the URBANopt Command Line Interface (CLI):
 
     ```terminal
-    gem install uo_cli
+    gem install urbanopt-cli
     ```
 
 1. View available CLI commands with:

@@ -21,7 +21,7 @@ The <u>hypothetical</u> example project design and building typologies are shown
 To run URBANopt and try out the example project, install the [URBANopt Command Line Interface](../installation/installation.md) using:
 
 ```terminal
-gem install uo_cli
+gem install urbanopt-cli
 ```
 
 Once the CLI is install, help is available by typing `uo -h` from the command line.
