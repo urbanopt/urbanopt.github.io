@@ -85,6 +85,5 @@ def run(runner, user_arguments)
 ```
 
 - Run the new example project using the modified Scenario gem repository
-  - Adjust the `allow_local` in the Gemfile, following instructions to allow the use of
-    local gems.
+  - Adjust the `allow_local` in the Gemfile located in your project's directory, following instructions to allow the use of local gems.
   - This will enable using the local files in the urbanopt-scenario-gem repo that you have been editing
