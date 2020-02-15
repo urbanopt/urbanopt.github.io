@@ -5,8 +5,7 @@ parent: Overview
 nav_order: 2
 ---
 
-The URBANopt SDK is implemented in Ruby and consists of 3 main modules as seen in the
-figure below: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`.
+The URBANopt SDK is implemented in Ruby and consists of 3 main modules: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`.  These modules are accessed via the Command Line Interface (`urbanopt-cli`).
 
 ![image info](../doc_files/URBANopt_arch_development_v2.jpg)
 
@@ -32,3 +31,5 @@ is created in your example project directory with folders for each Scenario and 
 reports of a Scenario into a Scenario level report (e.g. aggregated energy use,
 aggregated building program information) that is written at the top level of each
 Scenario folder, inside the `run` folder.
+
+The **Command Line Interface** is used to run a project with the URBANopt SDK.
