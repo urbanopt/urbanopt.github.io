@@ -32,7 +32,16 @@ nav_order: 1
 
 ## Basic Set-up
 
-1. Fork the [URBANopt example project](https://github.com/urbanopt/urbanopt-example-geojson-project)
-1. Clone the forked repo down to your local machine  
+1. Install the URBANopt Command Line Interface (CLI):
 
-1. Follow the instructions in the [Example Project](../usage/run_example) section to install the URBANopt example project.  This will install the URBANopt SDK.
+    ```terminal
+    gem install urbanopt-cli
+    ```
+
+1. View available CLI commands with:
+
+    ```terminal
+    uo -h
+    ```
+
+1. For detailed instructions, see our [example instructions](../usage/run_example.md)
