@@ -71,4 +71,4 @@ nav_order: 2
     uo -h
     ```
 
-1. For detailed instructions, see our [example instructions](../usage/run_example.md)
+1. For detailed instructions, see our [example instructions](../usage/run_project.md)
