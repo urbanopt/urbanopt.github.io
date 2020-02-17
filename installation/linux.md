@@ -58,4 +58,4 @@ If you get gdbm libs errors like the following, you need to create symlinks to t
     uo -h
     ```
 
-1. For detailed instructions, see our [example instructions](../usage/run_example.md)
+1. For detailed instructions, see our [example instructions](../usage/run_project.md)
