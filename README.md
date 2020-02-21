@@ -6,7 +6,7 @@ nav_exclude: true
 
 # URBANopt Docs README
 
-This repo contains documentation for the gems that make up the URBANopt SDK as well as example project repos.
+This repo contains documentation for the gems that make up the URBANopt SDK.
 
 ## Local Development
 
