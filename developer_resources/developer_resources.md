@@ -42,11 +42,13 @@ Rdoc options are controlled with this [config file](https://github.com/urbanopt/
 
 When developing locally on URBANopt core gems and testing new functionality and dependencies via the CLI, it may be necessary to install local versions of core gems.  
 
-For local development, you will want to set the environment variable *FAVOR_LOCAL_GEMS* to 1. This enables local copies of gems in the Gemfile.  There are 2 Gemfiles of interest:
+For local development, you will want to set the environment variable *FAVOR_LOCAL_GEMS* to 1. This enables local copies of gems in the Gemfile.  Note that setting *FAVOR_LOCAL_GEMS* to 0 will not undo local gems functionality: you will have to either remove the *FAVOR_LOCAL_GEMS* environment variable, set it to *nil* or *false* (not 0), or open a new terminal window to turn it off.  
 
-1. When testing a new measure that will run in the OpenStudio workflow OSW file, enable the gem that contains the measure in the Gemfile of the project you are testing. You may have to modify the path or branch referenced to match what you are testing.
+There are 2 Gemfiles of interest:
 
-1. When testing new functionality in the URBANOPT workflow (a new scenario post-processor, for example), enable the gem in the Gemfile of the URBANopt-cli local checkout. You may have to modify the path or branch referenced to match what you are testing.
+1. When testing a new measure that will run in the OpenStudio workflow OSW file, enable the gem that contains the measure in the Gemfile of the project you are testing by uncommenting the appropriate block of code. You may have to modify the path or branch referenced to match what you are testing.
+
+1. When testing new functionality in the URBANOPT workflow (a new scenario post-processor, for example), enable the gem in the Gemfile of the URBANopt-cli local directory by uncommenting the appropriate block of code. You may have to modify the path or branch referenced to match what you are testing.
 
 Follow these steps when testing local gems via the CLI:
 
@@ -56,6 +58,6 @@ Follow these steps when testing local gems via the CLI:
 
 ## Example Project Development
 
-1. Develop new functionality in the example project repo.  
+1. Develop new functionality in the example project directory.  
 1. When the functionality is ready and all tests are passing, update the example project files in the urbanopt-cli repo.
 
