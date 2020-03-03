@@ -14,9 +14,7 @@ _A clear and concise description of what you expected to happen._
 
 _A clear and concise description of what actually happens._
 
-### To Reproduce
-
-Steps to reproduce the behavior:
+### Steps to reproduce the behavior:
 
 1. Go to '...'
 1. Enter '...'
