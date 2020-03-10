@@ -17,9 +17,6 @@ the
 [building_properties](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/schema/building_properties.json)
 schema in the GeoJSON Gem:
 
-- Multifamily (5 or more units)
-- Multifamily (2 to 4 units)
-- Single-Family
 - Office
 - Outpatient health care
 - Inpatient health care
@@ -59,5 +56,16 @@ OpenStudio::Extension.set_measure_argument(osw, 'urban_geometry_creation', 'feat
 
 Where `'urban_geometry_creation'` is the measure name, `'feature_id'` is the argument name and `feature_id` is the Feature property from the FeatureFile.
 
-To add custom Measures, or Measures that lie outside of the ruby gems specified in the Gemfile, add the following line (which specifies the file path of the new Measures) to the Mapper Class: `@@osw[:measure_paths] << File.join(File.dirname(__FILE__), '../new_measure_folder/')`  
+In case the user wants to use an existing OpenStudio Model of a Feature in the simulation, the name
+of the OpenStudio model should be added in the 
+`detailed_model_filename` property of the Building Feature in the Feature File. The OpenStudio model should
+be added to the detailed_osms folder in the project directory.This OpenStudio model is loaded as a
+seed model for the Feature during simulation and measures such as
+`create_typical_building_from_model` and `urban_geometry_creation` are skipped for the Feature.
+
+The user can choose to use OpenStudio Models for some Features and  the `urban_geometry_creation` for
+other Features. In this case, Features with OpenStudio Models should include the `id` , `name`, 
+`detailed_model_filename` and `number_of_stories` properties in the FeatureFile.
+
+To add custom Measures, or Measures that lie outside of the ruby gems specified in the Gemfile, add the following line (which specifies the file path of the new Measures) to the Mapper Class: `osw[:measure_paths] << File.join(File.dirname(__FILE__), '../new_measure_folder/')`  
 This adds the `measure_path` to the OpenStudio workflow file.
