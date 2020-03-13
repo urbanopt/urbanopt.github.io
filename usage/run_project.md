@@ -11,22 +11,20 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
 
 1. Create a project folder in your current directory using:
 
-    ```bash
+    ```terminal
     uo -p <FOLDERNAME>
     ```
 
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
-1. Create [ScenarioFiles](../overview/definitions.md) for all Features in the FeatureFile based off
-   the example _mappers_ using:
+1. Create [ScenarioFiles](../overview/definitions.md) for all Features in the FeatureFile based off the example _mappers_ using:
 
-    ```bash
+    ```terminal
     uo -m -f <FEATUREFILE>
     ```
 
-    Or create ScenarioFiles for a single [Feature](../overview/definitions.md) by specifying the
-    Feature ID in the arguments.
+    Or create ScenarioFiles for a single [Feature](../overview/definitions.md) by specifying the Feature ID in the arguments.
 
-    ```bash
+    ```terminal
     uo -m -f <FEATUREFILE> -i <FEATURE ID>
     ```
 
@@ -37,19 +35,19 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
 1. Simulate energy usage of each feature or for a single Feature by specifying the appropriate
    ScenarioFile by using:
 
-    ```bash
+    ```terminal
     uo -r -f <FEATUREFILE> -s <SCENARIOFILE>
     ```
 
 1. Aggregate simulated features into a [Scenario](../overview/definitions.md) report by using:
 
-    ```bash
+    ```terminal
     uo -a -f <FEATUREFILE> -s <SCENARIOFILE>
     ```
 
 1. Delete an outdated [Scenario](../overview/definitions.md) run by using:
 
-    ```bash
+    ```terminal
     uo -d -s <SCENARIOFILE>
     ```
 
@@ -60,7 +58,6 @@ The figure below describes the workflow that takes place for the *run* and *post
 ![workflow_diagram](../doc_files/workflow-diagram_3.jpg)
 
 
-The following figure represents how Simulation Mapper Classes can be assigned to different
-Features from the FeatureFile in the Scenario CSV.
+The following figure represents how Simulation Mapper Classes can be assigned to different Features from the FeatureFile in the Scenario CSV.
 
 ![scenario_mapper](../doc_files/scenario_mapper.jpg)
