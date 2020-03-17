@@ -14,7 +14,15 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     ```terminal
     uo -p <FOLDERNAME>
     ```
+    This creates a project folder with an example FeatureFile, and downloads weather files to the
+    Weather folder for the sample FeatureFile.
 
+    Alternatively, create an empty base project folder by using: 
+    ```terminal
+    uo -e -p <FOLDERNAME>
+    ```
+    This creates project folder without an example FeatureFile and an empty weather folder. You can
+    download weather files and add to this folder from energyplus.net/weather.
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
 1. For all following commands you must be _inside the project directory_ you created in step 1.
 1. Create [ScenarioFiles](../overview/definitions.md) for all Features in the FeatureFile based off the example _mappers_ using:
