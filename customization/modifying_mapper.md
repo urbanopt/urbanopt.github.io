@@ -63,6 +63,8 @@ be added to the detailed_osms folder in the project directory.This OpenStudio mo
 seed model for the Feature during simulation and measures such as
 `create_typical_building_from_model` and `urban_geometry_creation` are skipped for the Feature.
 
+Alternatively, the absolute path of the OpenStudio Model can be added to the `detailed_model_filename` property of the Building Feature in the Feature File.
+
 The user can choose to use OpenStudio Models for some Features and  the `urban_geometry_creation` for
 other Features. In this case, Features with OpenStudio Models should include the `id` , `name`, 
 `detailed_model_filename` and `number_of_stories` properties in the FeatureFile.
