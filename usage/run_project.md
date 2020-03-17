@@ -57,7 +57,7 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
 
 The figure below describes the workflow that takes place for the *run* and *post_process* calls.
 
-![workflow_diagram](../doc_files/workflow-diagram_3.jpg)
+![workflow_diagram](../doc_files/CLI_workflow_diagram.jpg)
 
 
 The following figure represents how Simulation Mapper Classes can be assigned to different
