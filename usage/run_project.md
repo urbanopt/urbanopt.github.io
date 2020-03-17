@@ -16,6 +16,7 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     ```
 
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
+1. For all following commands you must be _inside the project directory_ you created in step 1.
 1. Create [ScenarioFiles](../overview/definitions.md) for all Features in the FeatureFile based off the example _mappers_ using:
 
     ```terminal
@@ -27,8 +28,6 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     ```terminal
     uo -m -f <FEATUREFILE> -i <FEATURE ID>
     ```
-
-    *Note* : You must be inside the project folder to run these commands.
 
     You may write your own mapper file for your own specific use case as needed, as well as make your own ScenarioFile by hand.  You may also make edits to the ScenarioFiles to mix and match mappers.
 
