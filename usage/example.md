@@ -11,4 +11,4 @@ The <u>hypothetical</u> example project’s location is within the boundary of a
 
 The <u>hypothetical</u> example project design and building typologies are shown in the figure below.
 
-![example_project_layout](../doc_files/building_types_ISO.jpg)
+![example_project_layout](../doc_files/building_types_ISO_no_res.jpg)
