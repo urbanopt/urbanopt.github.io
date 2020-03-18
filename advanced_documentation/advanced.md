@@ -17,3 +17,4 @@ The repositories that developers can clone are found here:
 - [GeoJSON Github](https://github.com/urbanopt/urbanopt-geojson-gem)
 - [Scenario Github](https://github.com/urbanopt/urbanopt-scenario-gem)
 - [Core Github](https://github.com/urbanopt/urbanopt-core-gem)
+- [CLI Github](https://github.com/urbanopt/urbanopt-cli)
