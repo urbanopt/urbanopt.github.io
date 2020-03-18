@@ -2,7 +2,7 @@
 layout: default
 title: Adding a custom Post-Processor
 parent: Customization
-nav_order: 4
+nav_order: 5
 ---
 
 The Scenario Post-Processor aggregates results from each Feature simulation. This process requires specific OpenStudio Reporting Measure be run for each Feature to generate required simulation reports (e.g. timeseries CSV data for specific outputs, specific metrics). Instructions for creating a new reporting measure to generate the Feature reports can be found in the [Feature report](feature_reports.md) section. These individual simulation results should be aligned with the final desired aggregated results. For example, if users decide to customize the reporting measure to report 15-minute timestep results, additional methods should be developed to allow the Post-Processor to aggregate data at this timestep.

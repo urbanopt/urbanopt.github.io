@@ -2,7 +2,7 @@
 layout: default
 title: Creating new Mapper Classes
 parent: Customization
-nav_order: 3
+nav_order: 4
 ---
 
 A new mapper class can be created to inherit from the existing `BaselineMapper`. For example, a `MediumEfficiency` mapper class can be created to override some of the measure arguments from the `BaselineMapper` in the `create_osw` method.  
