@@ -33,7 +33,7 @@ If you get gdbm libs errors like the following, you need to create symlinks to t
 	```
 
 
-1. Add the `RUBYLIB` environment variable path pointing to OpenStudio Ruby location by pasting the following line into your `bash_profile`, `.zshenv` or similar file: 
+1. Add the `RUBYLIB` environment variable path pointing to OpenStudio Ruby location by pasting the following line into your `.bash_profile`, `.zshenv` or similar file: 
 
 	```terminal
 		export RUBYLIB=/usr/local/openstudio-X.X.X/Ruby
