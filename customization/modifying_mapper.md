@@ -28,15 +28,9 @@ schema in the GeoJSON Gem:
 - Nursing
 - Mixed use*
 
-**Note - The Mixed use building type can accommodate up to 4 building types and their
-corresponding fractions of total floor area. If the number of building types is fewer than 4,
-additional building use types must be added but the fraction of total area can be
-entered as 0.*
+**Note - The Mixed use building type can accommodate up to 4 building types and their corresponding fractions of total floor area. If the number of building types is fewer than 4, additional building use types must be added but the fraction of total area can be entered as 0.*
 
-Within the Mapper Classes, functionality can be added to
-apply measures based on the Feature properties. For example, Measures can be implemented
-only for a certain building type, or can be implemented only if the number of floors is
-greater than a particular number, etc.
+Within the Mapper Classes, functionality can be added to apply measures based on the Feature properties. For example, Measures can be implemented only for a certain building type, or can be implemented only if the number of floors is greater than a particular number, etc.
 
 The URBANopt GeoJSON Example Project includes a default Simulation Mapper Class to translate an URBANopt GeoJSON Feature to an OpenStudio Model. The `HighEfficiency` mapper class inherits from the `BaselineMapper` class and can override measures that were skipped in the `BaselineMapper`.
 
