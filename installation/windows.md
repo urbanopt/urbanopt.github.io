@@ -25,11 +25,11 @@ nav_order: 2
 	gem install bundler -v 1.17
 	```
 
-1. Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
+1. Install [OpenStudio 2.9.1](https://github.com/NREL/OpenStudio/releases/tag/v2.9.1)  
 1. Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain:
 
 	```ruby
-	require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
+	require 'C:\openstudio-2.9.1\Ruby\openstudio.rb'
 	```
 
 1. Verify your OpenStudio and Ruby configuration:
