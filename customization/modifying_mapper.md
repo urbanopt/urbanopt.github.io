@@ -7,7 +7,15 @@ nav_order: 3
 
 The Simulation Mapper Class maps the Features in the FeatureFile to arguments required as simulation inputs in the OpenStudio workflow files (OSW).
 
-Recall that a Feature refers to a single object in a district energy analysis, such as a building, district system, or transformer. The FeatureFile includes all data for all Features and could be written by a third party application or user interface; for our example we use the GeoJSON format. The input GeoJSON file must be valid and must meet the additional requirements for data supported or required by the appropriate URBANopt GeoJSON Gem [sub-schema](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/urbanopt/geojson/schema). In version 0.1.0, the Simulation Mapper only supports mapping the [*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/building.rb) feature_type and has the capability to support mapping the following building types from the [building_properties](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/schema/building_properties.json) schema in the GeoJSON Gem:
+Recall that a Feature refers to a single object in a district energy analysis, such as a
+building, district system, or transformer. The FeatureFile includes all data for all
+Features and could be written by a third party application or user interface; for our example we use the
+GeoJSON format. The input GeoJSON file must be valid and must meet the additional requirements for data supported or required by the appropriate URBANopt GeoJSON Gem [sub-schema](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/urbanopt/geojson/schema). The Simulation Mapper only supports mapping the
+[*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/building.rb)
+feature_type and has the capability to support mapping the following building types from
+the
+[building_properties](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/schema/building_properties.json)
+schema in the GeoJSON Gem:
 
 - Office
 - Outpatient health care
@@ -30,23 +38,15 @@ When the Scenario is run, a new Simulation Mapper instance is created and the `c
 
 The default Simulation Mapper Class can be used directly, extended, or modified. Alternatively, a completely different Simulation Mapper Class [can be created](new_mapper_class.md).
 
-When adding additional Measures to the OpenStudio workflow file, the Simulation Mapper Class would need to be modified to add any necessary Feature properties from the FeatureFiles and mapping them to new Measure arguments.
-
-The *`OpenStudio::Extension.set_measure_argument`* method sets the Feature property from the FeatureFile as simulation input, passing the Measure and argument name and the corresponding Feature property from the FeatureFile as arguments.
-
-For example:
-
-```ruby
-OpenStudio::Extension.set_measure_argument(osw, 'urban_geometry_creation', 'feature_id', feature_id)
-```
-
-Where `'urban_geometry_creation'` is the measure name, `'feature_id'` is the argument name and `feature_id` is the Feature property from the FeatureFile.
-
-In case the user wants to use an existing OpenStudio Model of a Feature in the simulation, the name of the OpenStudio model should be added in the  `detailed_model_filename` property of the Building Feature in the Feature File. The OpenStudio model should be added to the detailed_osms folder in the project directory.This OpenStudio model is loaded as a seed model for the Feature during simulation and measures such as `create_typical_building_from_model` and `urban_geometry_creation` are skipped for the Feature.
+In case the user wants to use an existing OpenStudio Model of a Feature in the simulation, the name
+of the OpenStudio model should be added in the 
+`detailed_model_filename` property of the Building Feature in the Feature File. The OpenStudio model should
+be added to the detailed_osms folder in the project directory.This OpenStudio model is loaded as a
+seed model for the Feature during simulation and measures such as
+`create_typical_building_from_model` and `urban_geometry_creation` are skipped for the Feature.
 
 Alternatively, the absolute path of the OpenStudio Model can be added to the `detailed_model_filename` property of the Building Feature in the Feature File.
 
-The user can choose to use OpenStudio Models for some Features and  the `urban_geometry_creation` for other Features. In this case, Features with OpenStudio Models should include the `id` , `name`,  `detailed_model_filename` and `number_of_stories` properties in the FeatureFile.
-
-To add custom Measures, or Measures that lie outside of the ruby gems specified in the Gemfile, add the following line (which specifies the file path of the new Measures) to the Mapper Class: `osw[:measure_paths] << File.join(File.dirname(__FILE__), '../new_measure_folder/')`  
-This adds the `measure_path` to the OpenStudio workflow file.
+The user can choose to use OpenStudio Models for some Features and  the `urban_geometry_creation` for
+other Features. In this case, Features with OpenStudio Models should include the `id` , `name`, 
+`detailed_model_filename` and `number_of_stories` properties in the FeatureFile.
