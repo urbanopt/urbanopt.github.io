@@ -14,8 +14,7 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     ```terminal
     uo -p <FOLDERNAME>
     ```
-    This creates a project folder with an example FeatureFile, and downloads weather files to the
-    Weather folder for the sample FeatureFile.
+    This creates a project folder containing the [example project](example.md), and downloads related weather files and detailed models to the appropriate folders.
 
     Alternatively, create an empty base project folder by using: 
     ```terminal
