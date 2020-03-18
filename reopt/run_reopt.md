@@ -24,4 +24,4 @@ To run an example project incorporating REopt Lite functionality, clone the [exa
    your CPU.
 4. `bundle exec rake` to execute [Rake tasks](reopt_post_processing.md) as described in the next section.
 
-![example_project_layout](../doc_files/building_types_ISO.jpg)
+![example_project_layout](../doc_files/building_types_ISO_no_res.jpg)
