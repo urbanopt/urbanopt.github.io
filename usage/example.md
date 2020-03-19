@@ -13,14 +13,18 @@ The <u>hypothetical</u> example project design and building typologies are shown
 
 ![example_project_layout](../doc_files/building_types_ISO_no_res.jpg)
 
-You may install this example project using the Command Line Interface as described in [the next page](run_project.md).
+The example project can be installed via the Command Line Interface with the following command. For more information, visit the [Running a Project](run_project.md) page.
+
+```terminal
+uo -p <PROJECT_DIRECTORY_NAME>
+```
 
 Working with the example project, you'll be able to:
 
-1. Experiment with 2 pre-built example scenarios: a 'baseline' scenario that creates the geometry and a ‘high-efficiency’ scenario that applies energy efficiency measures.
+1. Experiment with two pre-built example scenarios: a *baseline* scenario that creates the geometry, and a *high-efficiency* scenario that also applies energy efficiency measures.
 
 1. Use the urbanopt geometry creation measures found in the 'base_workflow.osw'.  For a description of the measures found in the base URBANopt workflow, visit the [base workflow](../customization/base_workflow.md) page.
 
 1. Specify an existing detailed model (and bypass the urbanopt geometry creation measures).
 
-1. Use site-level data (such as climate zone, weather filename, etc.) to set building measure arguments (in BaselineMapper)
+1. Use site-level data (such as climate zone, weather filename, etc.) to set building measure arguments (in the BaselineMapper.rb file)
