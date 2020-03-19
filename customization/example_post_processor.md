@@ -2,7 +2,7 @@
 layout: default
 title: Example change to Post-Processor
 parent: Customization
-nav_order: 6
+nav_order: 7
 ---
 
 The following section is a short example where a new attribute "number of occupants" is added to the Feature report and the Post-Processor.
@@ -85,6 +85,5 @@ def run(runner, user_arguments)
 ```
 
 - Run the new example project using the modified Scenario gem repository
-  - Adjust the `allow_local` in the Gemfile, following instructions to allow the use of
-    local gems.
+  - Adjust the `allow_local` in the Gemfile located in your project's directory, following instructions to allow the use of local gems.
   - This will enable using the local files in the urbanopt-scenario-gem repo that you have been editing

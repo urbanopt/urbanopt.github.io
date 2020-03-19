@@ -2,31 +2,78 @@
 layout: default
 title: Adding your own Measures
 parent: Customization
-nav_order: 1
+nav_order: 2
 ---
 
-The `mappers` folder contains `base_workflow.osw` which serves as a simulation input for URBANopt. It is an OpenStudio workflow file that contains URBANopt Measures and dictates the sequence of running these Measures. Measures are added to create building models and apply different energy conservation Measures for different Scenarios.
+Additional measures can be added to the [base workflow OSW](base_workflow.md) file as follows:
 
-- [`set_run_period`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/set_run_period): An OpenStudio Measure used to define the number of timesteps per hour and specify the begin and end date for running the simulation.
+* Add the measure directory along with the measure arguments to the base workflow OSW. For example, 
 
-- [`ChangeBuildingLocation`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ChangeBuildingLocation): An OpenStudio Measure used to specify and load the EPW file.
+	```terminal
+    {
+      "measure_dir_name":
+      "IncreaseInsulationRValueForExteriorWalls",
+      "arguments": {
+        "__SKIP__": true,
+        "r_value": 10
+      }
+    }
+	```
+    Note that the order of the measures as they appear in the base workflow OSW, dictates how they
+    are run in the project.  OpenStudio measures should be listed first, followed by EnergyPlus measures, and then Reporting measures.
 
-- [`create_bar_from_building_type_ratios`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_bar_from_building_type_ratios): An OpenStudio Model Articulation Measure used to create a core and perimeter bar sliced by space type. It takes in one or more building types as user arguments to create space type collections.
+*  If you'd like to skip measures found in the base workflow OSW in the [Baseline
+   Mapper](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/master/mappers/Baseline.rb),
+   default the `__SKIP__` argument to `true` in the measure, othervise default to `false`. If you
+   would like to add this measure in a different mapper, you can set `__SKIP__` to false in the
+   mapper as follows:
 
-- [`create_typical_building_from_model 1`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model): An OpenStudio Model Articulation Measure that creates a custom prototype building with user-defined geometry and assigns constructions, schedules, internal loads, HVAC and other loads such as exterior lights and service water heating based on the space and sub space types. The `add_hvac` is set to `false` by default.
+	```terminal
+    OpenStudio::Extension.set_measure_argument(osw,'IncreaseInsulationRValueForExteriorWalls', '__SKIP__',false)
+	```
 
-- [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/blended_space_type_from_model): An OpenStudio Model Articulation Measure that is used to create a single space type that represents the loads and schedules of a collection of space types. It removes all previous space type assignments and hard assigns internal loads from spaces included in the building floor area. A blended space type will be created from the original internal loads and assigned at the building level.
+*  When adding measures located in any of the URBANopt core gems (in blue), no other change
+   is needed.
 
-- [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/measures/urban_geometry_creation): An URBANopt GeoJSON measure that is used to create geometry along with spaces for a particular building, accounting for shading from surrounding buildings.
+   ![uo_architecture_example](../doc_files/uo_architecture_example.jpg)
+   
+   *Figure 1: Software Architecture for an Example URBANopt Project*
 
-- [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model): A second instance of this Measure, which is added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
+*  When the measure resides in a gem other than the URBANopt core gems, the gem must be included
+   in the project
+   [Gemfile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/master/Gemfile). 
+   Note that you may need to delete the Gemfile.lock file and .bundle directory from your project folder in order to regenerate the bundle to include the new gem.
 
-- [`IncreaseInsulationRValueforExteriorWalls`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/IncreaseInsulationRValueForExteriorWalls): An OpenStudio measure that is used to increase the R-Value of insulation for exterior walls by a specific value. This measure is skipped in the baseline Scenario and is added for all `MidRiseApartment` OpenStudio building types in the high efficiency Scenario.
+*  If the measure is new, or just not in a gem, add the following line (which specifies the file path of the new measure) to the Mapper Class: 
+ 
 
-- [`ReduceElectricEquipmentLoadsByPercentage`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ReduceElectricEquipmentLoadsByPercentage): An OpenStudio Measure that is used to reduce the equipment load by a certain amount. The Measure is skipped for the baseline Scenario. For the high efficiency Scenario, the `skip_measure` argument is set to false and the measure is implemented.
+    ```terminal
+    osw[:measure_paths] << File.join(File.dirname(__FILE__), '../new_measure_folder/')
+    ```
 
-- [`ReduceLightingLoadsByPercentage`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ReduceLightingLoadsByPercentage): An OpenStudio Measure that is used to reduce the lighting load by a certain amount. The measure is skipped for the baseline Scenario. For the high efficiency Scenario, the `skip_measure` argument is set to false and the measure is implemented.
+    This adds the measure_path to the base workflow OSW.
 
-- [`default_feature_reports`](https://github.com/urbanopt/urbanopt-scenario-gem/tree/master/lib/measures/default_feature_reports): An URBANopt Scenario Measure that creates a `default_feature_reports.json` used by URBANopt Scenario Default Post-Processor.
+*  It may be necessary to modify default measure arguments by mapping specific Feature properties from the [FeatureFile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/master/example_project.json) to the arguments in the Simulation Mapper Class.
 
-Additional Measures can be added to the workflow by adding the Measure name and directory name along with the Measure arguments.
+   For example, the `urban_geometry_creation` measure in the base workflow OSW: 
+
+   ```terminal
+     {
+      "measure_dir_name": "urban_geometry_creation",
+      "arguments": {
+        "__SKIP__": true,
+        "geojson_file": "example_project.json",
+        "feature_id": "5",
+        "surrounding_buildings": "None"
+        }
+     }
+
+   ```
+
+   The *`OpenStudio::Extension.set_measure_argument`* method is added in the Simulation Mapper Class
+   to sets the Feature property  `feature_id` from the FeatureFile and map it to the `'feature_id'` argument in
+   the measure as follows: 
+
+   ```terminal
+   OpenStudio::Extension.set_measure_argument(osw, 'urban_geometry_creation', 'feature_id', feature_id)
+   ```

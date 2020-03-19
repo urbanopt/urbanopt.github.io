@@ -25,11 +25,11 @@ nav_order: 2
 	gem install bundler -v 1.17
 	```
 
-1. Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
-1. Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain:
+1. Install [OpenStudio 2.9.1](https://github.com/NREL/OpenStudio/releases/tag/v2.9.1)  
+1. Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
 
 	```ruby
-	require 'C:\openstudio-2.8.1\Ruby\openstudio.rb'
+	require 'C:\openstudio-X.X.X\Ruby\openstudio.rb'
 	```
 
 1. Verify your OpenStudio and Ruby configuration:
@@ -46,7 +46,7 @@ nav_order: 2
 	 2.8.1;                                  !- Version Identifier`
 	 ```
 
-1. Install [Git](https://git-scm.com/) if not already installed. A list of [optional git
+<!-- 1. Install [Git](https://git-scm.com/) if not already installed. A list of [optional git
    GUIs](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHcub) can
   be found here,
    along with some help using git with OpenStudio. 
@@ -55,11 +55,20 @@ nav_order: 2
 
 	```terminal
 	git config --global core.longpaths true
-	```
+	``` -->
 
 ## Basic Set-up
 
-1. Fork the [URBANopt example project](https://github.com/urbanopt/urbanopt-example-geojson-project)
-1. Clone the forked repo down to your local machine  
+1. Install the URBANopt Command Line Interface (CLI):
 
-1. Follow the instructions in the [Example Project](../usage/run_example) section to install the URBANopt example project.  This will install the URBANopt SDK.
+    ```terminal
+    gem install urbanopt-cli
+    ```
+
+1. View available CLI commands with:
+
+    ```terminal
+    uo -h
+    ```
+
+1. For detailed instructions, see our [example instructions](../usage/run_project.md)
