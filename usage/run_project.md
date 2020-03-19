@@ -46,6 +46,7 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     ```terminal
     uo -r -f <FEATUREFILE> -s <SCENARIOFILE>
     ```
+    Note that there is a *runner.conf* file automatically created in the project folder.  This file is used to configure the number of features to process in parallel as well as a few other parameters.  Make edits to this file prior to running the above command.
 
 1. Aggregate simulated features into a [Scenario](../overview/definitions.md) report by using:
 

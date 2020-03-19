@@ -25,6 +25,6 @@ Working with the example project, you'll be able to:
 
 1. Use the urbanopt geometry creation measures found in the 'base_workflow.osw'.  For a description of the measures found in the base URBANopt workflow, visit the [base workflow](../customization/base_workflow.md) page.
 
-1. Specify an existing detailed model (and bypass the urbanopt geometry creation measures).
+1. Specify an existing detailed model for a feature by setting the *detailed_model_filename* property in the Feature file, which will bypass the urbanopt geometry creation measures.
 
 1. Use site-level data (such as climate zone, weather filename, etc.) to set building measure arguments (in the BaselineMapper.rb file)
