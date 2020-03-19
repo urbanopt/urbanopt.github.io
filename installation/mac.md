@@ -18,17 +18,12 @@ nav_order: 1
 	gem install bundler -v 1.17
 	```
 
-1. Install [OpenStudio 2.8.1](https://github.com/NREL/OpenStudio/releases/tag/v2.8.1)  
+1. Install [OpenStudio 2.9.1](https://github.com/NREL/OpenStudio/releases/tag/v2.9.1)  
 1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
     1. Type the following in the terminal: `nano ~/.bash_profile` (or `nano ~/.zshenv`)
-    1. Copy and paste `export RUBYLIB=/Applications/OpenStudio-2.8.1/Ruby` at the top of the file
+    1. Copy and paste `export RUBYLIB=/Applications/OpenStudio-X.X.X/Ruby` (where X.X.X is the OpenStudio version installed) at the top of the file
     1. Press `control-x` to exit, then `y` to save the changes, and the `return` key to go back to the terminal
-
-1. Install [Git](https://git-scm.com/) if not already installed (unlikely). A list of [optional git
-   GUIs](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHub)
-   can be found here,
-   along with some help using git with OpenStudio.
 
 ## Basic Set-up
 

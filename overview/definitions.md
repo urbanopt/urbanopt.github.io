@@ -5,7 +5,7 @@ parent: Overview
 nav_order: 1
 ---
 
-**Feature:** A Feature is a single object in a district-scale energy analysis such as a building, district system, or transformer.  Each Feature has an associated geometry definition of some type (e.g. position, 2D footprint, 3D mass).  Each Feature has an associated Feature ID and Feature Type (e.g. Building, District System) as well as other properties related to the Feature Type (e.g. District System Type, Building Type, Number of Stories, Square Footage, etc.). *`Building` is the only Feature Type implemented in version 0.1.0.*
+**Feature:** A Feature is a single object in a district-scale energy analysis such as a building, district system, or transformer.  Each Feature has an associated geometry definition of some type (e.g. position, 2D footprint, 3D mass).  Each Feature has an associated Feature ID and Feature Type (e.g. Building, District System) as well as other properties related to the Feature Type (e.g. District System Type, Building Type, Number of Stories, Square Footage, etc.).
 
 **Feature File:** A FeatureFile includes data for all Features in a given Scenario. The same FeatureFile may be used by multiple Scenarios, but a FeatureFile does not include information about multiple Scenarios. The FeatureFile could be written by a third-party application or user interface. URBANopt will initially support GeoJSON format via the urbanopt-geojson-gem.
 
