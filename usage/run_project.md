@@ -48,11 +48,16 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     ```
     Note that there is a *runner.conf* file automatically created in the project folder.  This file is used to configure the number of features to process in parallel as well as a few other parameters.  Make edits to this file prior to running the above command.
 
+    Once the simulations completes, the results can be found in the ```run/<SCENARIO_NAME>/<FEATURE_NAME>/default_feature_reports``` directory. The JSON file contains high-level results of the simulation, and the CSV file contains timeseries results.  All timeseries results are in SI units, except for gas timeseries which are in kBtu.
+
 1. Aggregate simulated features into a [Scenario](../overview/definitions.md) report by using:
 
     ```terminal
     uo -a -f <FEATUREFILE> -s <SCENARIOFILE>
     ```
+
+    The aggregated scenario results can then be found in the ```run/<SCENARIO_NAME>``` directory.  The default_scenario_report JSON file contains high-level aggregated results and the CSV file contains aggregated timeseries results.
+
 
 1. Delete an outdated [Scenario](../overview/definitions.md) run by using:
 
