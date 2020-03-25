@@ -1,0 +1,46 @@
+body {
+	color: #185A7D;
+}
+
+$link-color: #6BC4E8;
+
+$btn-primary-color: #6BC4E8;
+$body-heading-color: #185A7D;
+
+
+.side-bar {
+	background-color: rgba(24, 90, 125, 0.1);
+}
+
+a {
+	color: #6BC4E8;
+}
+
+a:not([class]):hover {
+	background-image: linear-gradient(rgba(24, 90, 125, 0.45) 0%, rgba(24, 90, 125, 0.45) 100%);
+}
+
+.page-content .anchor-heading svg {
+	fill: #6BC4E8;
+}
+
+::selection {
+  color: $white;
+  background-color: #6BC4E8;
+}
+
+.page-content h1, .page-content h2, .page-content h3, .page-content h3, .page-content h4, .page-content h5, .page-content h6 {
+	color: #185A7D;
+}
+
+.navigation-list-link.active, .navigation-list-child-list .navigation-list-link {
+	color: #185A7D;
+}
+
+.search-input:focus + .search-icon {
+	fill: #6BC4E8;
+}
+
+.search-result-highlight {
+	color: #185A7D;
+}
