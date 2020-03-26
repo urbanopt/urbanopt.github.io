@@ -14,7 +14,11 @@ The modular nature of URBANopt allows for freedom in developing and using only t
 We recommend releasing gems **in order from the base to most dependent**. For each gem being improved, follow these steps:
 
 1. Increment version (if needed) in `/lib/*/version.rb`
+1. For gems with measures in them, run the following rake tasks and commit the changes:
+	1. rake openstudio:test_with_openstudio
+	1. rake openstudio:update_measures
 1. Run `rake rubocop:auto_correct` on all PRs before merging to `develop`
+1. Remove .DS_Store files if any are in the repo
 1. Run the `changelog.rb` script and add the changes to the CHANGELOG.md file for the range of time between last release and this release. Only add the Closed Issues. Also make sure that all the pull requests have a related Issue in order to be included in the change log.
 	```
 	ruby lib/change_log.rb –t <GITHUB_API_TOKEN> –s <START_DATE> –e <END_DATE>
