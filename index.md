@@ -6,7 +6,9 @@ has_toc: false
 nav_order: 1
 ---
 
-# URBANopt SDK Documentation
+![URBANOPT](doc_files/URBANopt-Logo-Stacked-2Color.png)
+
+# Documentation
 
 URBANopt (Urban Renewable Building And Neighborhood optimization) is an EnergyPlus<sup>&trade;</sup>- and OpenStudio<sup>&copy;</sup>-based simulation platform aimed at district- and campus-scale thermal and electrical analysis.
 
