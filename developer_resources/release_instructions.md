@@ -17,7 +17,7 @@ We recommend releasing gems **in order from the base to most dependent**. For ea
 1. Run `rake rubocop:auto_correct` on all PRs before merging to `develop`
 1. Run the `changelog.rb` script and add the changes to the CHANGELOG.md file for the range of time between last release and this release. Only add the Closed Issues. Also make sure that all the pull requests have a related Issue in order to be included in the change log.
 	```
-	ruby lib/change_log.py –k GITHUB_API_TOKEN –s 2020-01-01 –e 2020-03-31
+	ruby lib/change_log.rb –t <GITHUB_API_TOKEN> –s <START_DATE> –e <END_DATE>
 	```
 Paste the results (remove unneeded Accepted Pull Requests) into the CHANGELOG.md. Make sure to cleanup the formatting.
 1. Merge pull requests to the `develop` branch
