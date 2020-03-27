@@ -60,6 +60,19 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     uo -d -s <SCENARIOFILE>
     ```
 
+
+1. Overwrite an existing project folder and replace with a new project folder using:
+
+    ```terminal
+    uo -o -p <EXISTING_PROJECT_DIRECTORY_NAME>
+    ```
+
+    Or overwrite an existing project folder and replace with a new empty project folder using: 
+
+    ```terminal
+    uo -o -e -p <EXISTING_PROJECT_DIRECTORY_NAME>
+    ```
+
 # Workflow Details
 
 The figure below describes the workflow that takes place for the *run* and *post_process* calls.
