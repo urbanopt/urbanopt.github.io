@@ -19,6 +19,8 @@ nav_order: 2
 1. Create a new environment variable `HOME` and set the variable value to the following: 
 
 	`C:\Users\<user_name>`
+
+	Detailed instructions for [creating environment variables](https://helpdeskgeek.com/how-to/create-custom-environment-variables-in-windows/) can be found online.
 1. Install Bundler version 1.17:
 
 	```terminal
