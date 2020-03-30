@@ -32,7 +32,7 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     uo -o -p <PROJECT_DIRECTORY_NAME>
     ```
 
-    This deletes anything in the named folder and creates a fresh project directory. Can be combined with `-o` if desired.
+    This deletes anything in the named folder and creates a fresh project directory. Can be combined with `-e` to overwrite a directory with a new empty URBANopt project directory.
 
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
 1. For all following commands you must be _inside the project directory_ you created in step 1.
