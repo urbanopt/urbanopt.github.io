@@ -26,7 +26,7 @@ Once the CLI is installed, help is available by typing `uo -h` from the command 
     This creates project folder without an example FeatureFile and an empty weather folder. You can
     download weather files and add to this folder from energyplus.net/weather.
 
-    Overwrite an existing folder by usoing:
+    Overwrite an existing folder by using:
 
     ```terminal
     uo -o -p <PROJECT_DIRECTORY_NAME>
