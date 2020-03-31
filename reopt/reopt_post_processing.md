@@ -55,7 +55,7 @@ To establish unique parameter sets for each building, or groups of buildings, cr
 ###### Multiple PV Analysis
  Note: **REopt Lite** accepts either a single set of PV assumptions or a list of assumptions in the Scenario>Site>PV parameter. If you choose to enter a list (i.e. separate PV's for roof vs solar, and/or roof aspects) then you can give each PV setting a _pv_name_ and restrict it to either site level "roof" or "ground" area restrictions. By default a PV is constrained by both roof and land area if these site level attributes are available.
 
-For a example of an assumptions file making use of multiple PV systems, see the (REopt Example Project)[https://github.com/urbanopt/urbanopt-example-reopt-project/blob/master/reopt/base_assumptions.json#L49].
+For a example of an assumptions file making use of multiple PV systems, see the (REopt Example Project)[https://github.com/urbanopt/urbanopt-example-reopt-project/blob/52d9e237053d3b9bc818b407c808948dd139b8b6/reopt/multiPV_assumptions.json#L49].
 
 #### Running a scenario and post processing with REopt Lite
 
