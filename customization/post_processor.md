@@ -25,23 +25,23 @@ This `default_post_processor` aggregates Feature reports into Scenario-level res
 
 **OpenDSSPostProcessor:**
 
-In parallel to the scenario-gem, OpenDSS modules are developed to run OpenDSS models and compute electrical metrics of the network. OpenDSS run will generate an results directory `opendss` within the project scenario run directory. This `opendss` directory will include output reports for each building, line and transformer, as well as other OpenDSS related results. 
+In parallel to the scenario gem, OpenDSS modules have been developed to run OpenDSS models and compute metrics of the electrical network. OpenDSS runs will generate a results directory named `opendss` within the project scenario run directory. This `opendss` directory will include output reports for each building, line and transformer, as well as other OpenDSS-related results. 
 
-In order to integrate important selected results from this directory into the initial URBANopt reports, an OpenDSS postprocessor is developed. This postprocessor parse specific results from opendss results directory and add them to URBANopt existing scenario and feature reports. User can customize or extend this postprocessor to add more results to the scenario and feature reports from the `opendss` directory.
+An OpenDSS postprocessor has been developed to integrate selected OpenDSS results into the default URBANopt reports. The postprocessor parses specific results from the `opendss` results directory and adds them to the URBANopt scenario and feature reports. Users can customize or extend this postprocessor to add more OpenDSS results to the scenario and feature reports.
 
-Initially, `OpenDSSPostProcessor` include the following methods.
+The `OpenDSSPostProcessor` currently include the following methods:
 
-*To add OpenDSS results to existing CSV reports:*
+*Adding OpenDSS results to existing CSV reports:*
 - `load_opendss_data` : Users can extend this method to select other results of interest from `opendss` results directory and load them.
-- `load_feature_report_data` : This method can be used to reload existing feature reports. Users can develop this method load any other existing reports.
+- `load_feature_report_data` : This method can be used to reload existing feature reports. Users can adapt this method to load any other existing reports.
 - `merge_data` : This method is used to merge the loaded opendss data with the existing feature reports that are loaded.
 - `save_csv` : This method saves the updated CSV reports.
 
-*To save transformer results reports:*
-- `save_transformers_reports` : This method is developed to add transformer results to the scenario run directory.
+*Saving transformer results to reports:*
+- `save_transformers_reports` : This method was developed to add transformer results to the scenario run directory.
 
-*To generate summarize results and add them to the reports:*
-- `add_summary_results` : This method generates important summary results and add them to the reports (e.g. the total number of hours that were an over voltage issue occurred). User can extend this method to generate other summarized results of their interest.
+*Generating summary results and adding them to the reports:*
+- `add_summary_results` : This method generates important summary results and adds them to the scenario reports (e.g. the total number of hours where an over-voltage issue occurred). Users can extend this method to generate other summary results of interest.
 
-*To run OpenDSS postprocessor:*
-- `run` : This method wraps all the developed postprocessing methods. The run method should be ready to be called externally to integrated OpenDSS results back into URBANopt scenario and feature reports.
+*Running OpenDSS postprocessor:*
+- `run` : This method wraps all the developed postprocessing methods. It is used to integrate OpenDSS results back into URBANopt scenario and feature reports.
