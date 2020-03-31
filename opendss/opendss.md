@@ -9,7 +9,7 @@ nav_order: 5
 OpenDSS is an open-source tool that is popular for simulating electrical distribution systems. It captures several important components of the electrical infrastructure which connects substations to customers; including power lines, electrical nodes, loads, transformers, PV systems, capacitors and regulators among others. OpenDSS simulates powerflow through an electrical network for steady-state loading conditions. The simulations can then be used to determine infrastructure shortcomings that might arise from redesigning a district system. The URBANopt framework focuses on four key metrics; transformer overloads, line overloads, over-voltages and under-voltages. Simulated electrical behavior outside of industry standards will be used to flag impractical district system designs and inform the changes required to guarantee reliable electrical operations.
 
 ## DiTTo Conversion Tool
-There are several popular modelling tools for representing electrical distribution networks, each of which represents the system in a different way. Some popular open source and commercial solvers include; OpenDSS, GridLAB-D, CYME, Syneri, DEW, PowerFactory among others. Converting between the formats used by these  can be a time-intensive and fraught process. The **DI**stribution **T**ransormation **TO**ol (DiTTo) is an open-source and many-to-many conversion tool written in python that has been developed by NREL to simplify converting data between distribution models, and is available [here](https://github.com/NREL/ditto/).
+There are several popular modelling tools for representing electrical distribution networks, each of which represents the system in a different way. Some popular open source and commercial solvers include; OpenDSS, GridLAB-D, CYME, Syneri, DEW, PowerFactory among others. Converting between the formats used by these  can be a time-intensive and fraught process. The **DI**stribution **T**ransormation **TO**ol (DiTTo) is an open-source and many-to-many conversion tool written in python that has been developed by NREL to simplify converting data between distribution models, and is available [on GitHub](https://github.com/NREL/ditto/).
 
 ![ditto-diagram](../doc_files/opendss-ditto-diagram.png)
 
@@ -37,9 +37,9 @@ If REopt is used to re-evaluate building designs and consumptions, a separate fi
 
 The [urbanopt-ditto-reader](https://github.com/urbanopt/urbanopt-ditto-reader) contains three pieces:
 
- - Sample data needed to convert an URBANopt scenario into OpenDSS located [here](https://github.com/urbanopt/urbanopt-ditto-reader/tree/master/example) 
- - The DiTTo module to read the URBANopt format located [here](https://github.com/urbanopt/urbanopt-ditto-reader/tree/master/reader)
- - A file to call the DiTTo modules to perform the conversion, and run OpenDSS with the outputs located [here](https://github.com/urbanopt/urbanopt-ditto-reader/blob/master/convert.py)
+ - [Sample data](https://github.com/urbanopt/urbanopt-ditto-reader/tree/master/example) needed to convert an URBANopt scenario into OpenDSS
+ - The [DiTTo module](https://github.com/urbanopt/urbanopt-ditto-reader/tree/master/reader) to read the URBANopt format
+ - A [script](https://github.com/urbanopt/urbanopt-ditto-reader/blob/master/convert.py) to call the DiTTo modules to perform the conversion, and run OpenDSS with the outputs
 
 Once the [DiTTo](https://github.com/NREL/ditto/) repository has been cloned, a conversion can be run using the `convert.py` script. A config file is used as an input argument for the conversion script and specifies the location of the timeseries load data, equipment file, where the opendss output will be written to, the geojson input file, the location of the DiTTo repository and whether REopt outputs will be used over the default URBANopt timeseries data. An example is shown below
 ```
