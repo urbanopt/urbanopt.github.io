@@ -8,7 +8,7 @@ nav_order: 2
 
 CLI commands are used to run and post-process each scenario. Onscreen help is always availabe with `uo -h`
 
-**REopt Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the entire district being simulated, and _feature-level_, which optimizes each building individually. It is possible, although unlikely, for the two types to provide identical optimization outputs.
+**REopt Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the entire district being simulated, and _feature-level_, which optimizes each building individually.
 
 ## Workflow
 
@@ -20,7 +20,7 @@ This command allows you to post-process a ScenarioReport in aggregate. This is s
   uo -g -t reopt-scenario -s baseline_scenario.csv -f example_project.json  
 ```
 
-Alternatively, this command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This optimizes each building individually, not necessarily for the entire site. 
+Alternatively, this command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This runs REopt optimization on each building individually.
 
 ```terminal
   uo -g -t reopt-feature -s baseline_scenario.csv -f example_project.json  
@@ -86,7 +86,7 @@ Moreover, the following optimal dispatch fields are added to its `timeseries CSV
 
 The figure below describes the workflow that takes place on implementing the `run` and `gather` CLI commands.
 
-![workflow_diagram](../doc_files/cli_workflow_diagram.jpg)
+![workflow_diagram](../doc_files/CLI_reopt.jpg)
 
 The following figure represents how Simulation Mapper Classes can be assigned to different
 Features from the FeatureFile in the Scenario CSV.
