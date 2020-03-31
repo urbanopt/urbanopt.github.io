@@ -10,6 +10,7 @@ Rake tasks are used to run and post-process each scenario a user defines. **REop
 
 ## Workflow
 
+#### Setting up a new scenario
 The first code block below creates and runs a `baseline_scenario` parser for OpenStudio results. It also integrates REopt Lite settings for analysis during post processing. The example is set up so that the **REopt Lite** analysis will use assumptions defined in a `reopt/base_assumptions.json` file for a scenario level analysis, as well as for subsequent individual site analyses at the feature level. 
 
 The inputs to this rake task are defined as follows:
@@ -41,8 +42,22 @@ def baseline_scenario
   feature_file = URBANopt::GeoJSON::GeoFile.from_file(feature_file_path)
   scenario = URBANopt::Scenario::REoptScenarioCSV.new(name, root_dir, run_dir, feature_file, mapper_files_dir, csv_file, num_header_rows, reopt_files_dir, scenario_reopt_assumptions_file_name)
   return scenario
+
 end
 ````
+
+##### Assumptions JSON Files
+
+Assumption files are they key to customizing your distributed energy resource sizing assumptions. If all buildings have the same techno-economic assumptions (i.e. utility rate tariff, solar array type and orientation, capital costs) you may choose to associate the same assumptions file with all buildings.
+
+To establish unique parameter sets for each building, or groups of buildings, create multiple assumptions files then associate them with the features in the CSV file as described above.
+
+###### Multiple PV Analysis
+ Note: **REopt Lite** accepts either a single set of PV assumptions or a list of assumptions in the Scenario>Site>PV parameter. If you choose to enter a list (i.e. separate PV's for roof vs solar, and/or roof aspects) then you can give each PV setting a _pv_name_ and restrict it to either site level "roof" or "ground" area restrictions. By default a PV is constrained by both roof and land area if these site level attributes are available.
+
+For a example of an assumptions file making use of multiple PV systems, see the (REopt Example Project)[https://github.com/urbanopt/urbanopt-example-reopt-project/blob/52d9e237053d3b9bc818b407c808948dd139b8b6/reopt/multiPV_assumptions.json#L49].
+
+#### Running a scenario and post processing with REopt Lite
 
 The tasks described below are in the Rakefile. To list all available tasks in the Rakefile:
 
@@ -77,74 +92,81 @@ When **REopt Lite** is run on a _**ScenarioReport**_ or _**FeatureReport**_ the 
         "year_one_demand_cost_us_dollars": 3000000.0,
         "year_one_bill_us_dollars": 10000000.0,
         "total_energy_cost_us_dollars": 70000000.0,
-        "solar_pv": {
+        "total_solar_pv_kw": 30000.0,
+        "total_wind_kw": 0.0,
+        "total_generator_kw": 0.0,
+        "total_storage_kw": 2000.0,
+        "total_storage_kwh": 5000.0,
+        "solar_pv": [{
           "size_kw": 30000.0
-        },
-        "wind": {
+        }],
+        "wind": [{
           "size_kw": 0.0
-        },
-        "generator": {
+        }],
+        "generator": [{
           "size_kw": 0.0
-        },
-        "storage": {
+        }],
+        "storage": [{
           "size_kw": 2000.0,
           "size_kwh": 5000.0
-        }
+        }]
       }
 ```
 
 Moreover, the following optimal dispatch fields are added to its `timeseries CSV`.
 
-|            new column name               |  unit   |
-| -----------------------------------------| ------- |
-| ElectricityProduced:Total                | kWh     |
-| Electricity:Load:Total                   | kWh     |
-| Electricity:Grid:ToLoad                  | kWh     |
-| Electricity:Grid:ToBattery               | kWh     |
-| Electricity:Storage:ToLoad               | kWh     |
-| Electricity:Storage:ToGrid               | kWh     |
-| Electricity:Storage:StateOfCharge        | kWh     |
-| ElectricityProduced:Generator:Total      | kWh     |
-| ElectricityProduced:Generator:ToBattery  | kWh     |
-| ElectricityProduced:Generator:ToLoad     | kWh     |
-| ElectricityProduced:Generator:ToGrid     | kWh     |
-| ElectricityProduced:PV:Total             | kWh     |
-| ElectricityProduced:PV:ToBattery         | kWh     |
-| ElectricityProduced:PV:ToLoad            | kWh     |
-| ElectricityProduced:PV:ToGrid            | kWh     |
-| ElectricityProduced:Wind:Total           | kWh     |
-| ElectricityProduced:Wind:ToBattery       | kWh     |
-| ElectricityProduced:Wind:ToLoad          | kWh     |
-| ElectricityProduced:Wind:ToGrid          | kWh     |
+|            new column name                        |  unit  |
+| --------------------------------------------------| ------ |
+| REopt:ElectricityProduced:Total(kW)               | kW     |
+| REopt:Electricity:Load:Total(kW)                  | kW     |
+| REopt:Electricity:Grid:ToLoad(kW)                 | kW     |
+| REopt:Electricity:Grid:ToBattery(kW)              | kW     |
+| REopt:Electricity:Storage:ToLoad(kW)              | kW     |
+| REopt:Electricity:Storage:ToGrid(kW)              | kW     |
+| REopt:Electricity:Storage:StateOfCharge(kW)       | kW     |
+| REopt:ElectricityProduced:Generator:Total(kW)     | kW     |
+| REopt:ElectricityProduced:Generator:ToBattery(kW) | kW     |
+| REopt:ElectricityProduced:Generator:ToLoad(kW)    | kW     |
+| REopt:ElectricityProduced:Generator:ToGrid(kW)    | kW     |
+| REopt:ElectricityProduced:PV:Total(kW)            | kW     |
+| REopt:ElectricityProduced:PV:ToBattery(kW)        | kW     |
+| REopt:ElectricityProduced:PV:ToLoad(kW)           | kW     |
+| REopt:ElectricityProduced:PV:ToGrid(kW)           | kW     |
+| REopt:ElectricityProduced:Wind:Total(kW)          | kW     |
+| REopt:ElectricityProduced:Wind:ToBattery(kW)      | kW     |
+| REopt:ElectricityProduced:Wind:ToLoad(kW)         | kW     |
+| REopt:ElectricityProduced:Wind:ToGrid(kW)         | kW     |
+
+
+**NOTE**: A REopt Lite solution may contain multiple PV systems. In this case the aggregate generation from all PV systems will be reported in the PV columns.
 
 
 The following shows how to post-process a ScenarioReport in aggregate. This is suitable for community-scale optimizations. 
 
 ````ruby
   puts 'Post Processing Baseline Scenario...'
-  default_reopt_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario) 
-  scenario_report = default_reopt_post_processor.run
+  default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
+  scenario_report = default_post_processor.run
+  scenario_report.save
+  scenario_base = default_post_processor.scenario_base
+  reopt_post_processor = URBANopt::REopt::REoptPostProcessor.new(scenario_report, scenario_base.scenario_reopt_assumptions_file, scenario_base.reopt_feature_assumptions, DEVELOPER_NREL_KEY)
 
-  reopt_post_processor = URBANopt::REopt::REoptPostProcessor.new(scenario_report,baseline_scenario.scenario_reopt_assumptions_file, baseline_scenario.reopt_feature_assumptions, DEVELOPER_NREL_KEY) 
-  
-  #Run Aggregate Scenario
-  scenario_report = reopt_post_processor.run_scenario_report(scenario_report, reopt_post_processor.scenario_reopt_default_assumptions_hash, reopt_post_processor.scenario_reopt_default_output_file, reopt_post_processor.scenario_timeseries_default_output_file)
-  scenario_report.save('baseline_scenario_level')
-  
+  # Run Aggregate Scenario
+  scenario_report_scenario = reopt_post_processor.run_scenario_report(scenario_report: scenario_report, save_name: 'baseline_global_optimization')
 ````
 
 Alternatively, the following shows how to post-process a Scenario Report in for each of its Feature Reports before aggregating into a summary in the Scenario Report.
 
 ````ruby
   puts 'Post Processing Baseline Scenario...'
-  default_reopt_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario) 
-  scenario_report = default_reopt_post_processor.run
+  default_post_processor = URBANopt::Scenario::ScenarioDefaultPostProcessor.new(baseline_scenario)
+  scenario_report = default_post_processor.run
+  scenario_report.save
+  scenario_base = default_post_processor.scenario_base
+  reopt_post_processor = URBANopt::REopt::REoptPostProcessor.new(scenario_report, scenario_base.scenario_reopt_assumptions_file, scenario_base.reopt_feature_assumptions, DEVELOPER_NREL_KEY)
 
-  reopt_post_processor = URBANopt::REopt::REoptPostProcessor.new(scenario_report,baseline_scenario.scenario_reopt_assumptions_file, baseline_scenario.reopt_feature_assumptions, DEVELOPER_NREL_KEY) 
-  
-  #Run features individually  
-  scenario_report = reopt_post_processor.run_scenario_report_features(scenario_report, reopt_post_processor.feature_reports_reopt_default_assumption_hashes, reopt_post_processor.feature_reports_reopt_default_output_files, reopt_post_processor.feature_reports_timeseries_default_output_files)
-  scenario_report.save('baseline_feature_level')
+  # Run features individually - this is an alternative approach to the previous step, in your analysis depending on project ojectives you maye only need to run one
+  scenario_report_features = reopt_post_processor.run_scenario_report_features(scenario_report: scenario_report, save_names_feature_reports: ['baseline_local_optimization']*scenario_report.feature_reports.length, save_name_scenario_report: 'baseline_local_optimization')
 ````
 
 

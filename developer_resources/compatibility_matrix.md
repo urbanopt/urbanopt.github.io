@@ -13,4 +13,4 @@ URBANopt depends on various other components to function. Ensure you have the pr
 |:--------------:|:----------:|:--------:|:---:|:----------------------------------------------------------------------------------------|
 |**0.1.0**       |N/A         |2.8       |2.2.4|Core Gem v0.1.0  <br/> GeoJSON Gem v0.1.0 <br/> Scenario Gem v0.1.0 <br/> REopt Gem N/A  |
 |**0.1.1**       |0.1.0       |2.8       |2.2.4|Core Gem v0.1.0 <br/> GeoJSON Gem v0.1.0 <br/> Scenario Gem v0.1.1 <br/> REopt Gem v0.1.0|
-|**0.2.0**       |0.2.0       |2.9       |2.2.4|Core Gem v0.2.0 <br/> GeoJSON Gem v0.2.0 <br/> Scenario Gem v0.2.0 <br/> REopt Gem v0.2.0|
+|**0.2.0**       |0.2.1       |2.9       |2.2.4|Core Gem v0.2.0 <br/> GeoJSON Gem v0.2.0 <br/> Scenario Gem v0.2.0 <br/> REopt Gem v0.2.0 <br/> DiTTo Reader v0.1.1|
