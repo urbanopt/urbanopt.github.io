@@ -2,7 +2,7 @@
 layout: default
 title: Developer Resources
 has_children: true
-nav_order: 6
+nav_order: 8
 has_toc: false
 ---
 
