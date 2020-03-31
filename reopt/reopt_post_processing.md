@@ -6,17 +6,27 @@ nav_order: 2
 ---
 ## Intro
 
-Rake tasks are used to run and post-process each scenario a user defines. **REopt Lite** optimization happens during the post-processing of each scenario, and is facilitated using a _**REoptPostProcessor**_ that can be run on a _**FeatureReport**_, a collection of _**Feature Reports**_, or a _**Scenario Report**_ (either on the aggregate load or on each _**FeatureReport**_ load profile before aggregation). **REopt Lite** non-default assumptions (i.e. utility rate, capital costs) are specified in JSON files that are either loaded from input CSV's for _**FeatureReports**,_ by a  _**URBANopt::Scenario::REoptScenarioCSV**_, or specified within the scenario Rake task (as shown below). 
+CLI commands are used to run and post-process each scenario. Onscreen help is always availabe with `uo -h`
+
+**REopt Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the entire district being simulated, and _feature-level_, which optimizes each building individually. It is possible, although unlikely, for the two types to provide identical optimization outputs.
 
 ## Workflow
 
-#### `uo -g`
+The `type` of reopt optimization is specified in the CLI call:
 
-{: .no-toc }
+This command allows you to post-process a ScenarioReport in aggregate. This is suitable for community-scale optimizations.
 
-This command "post-processes" a scenario by `gathering` the _**Feature reports**_ into results summarizing the whole scenario, then runs **REopt Lite** post-processing.
+```terminal
+  uo -g -t reopt-scenario -s baseline_scenario.csv -f example_project.json  
+```
 
-When **REopt Lite** is run on a _**ScenarioReport**_ or _**FeatureReport**_ the object's `distributed_generation` attributes (including system financial and sizing attributes) are updated as shown in an example below. 
+Alternatively, this command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This optimizes each building individually, not necessarily for the entire site. 
+
+```terminal
+  uo -g -t reopt-feature -s baseline_scenario.csv -f example_project.json  
+```
+
+Depending on the `type` of optimization chosen, **REopt Lite** runs on a _**ScenarioReport**_ or _**FeatureReport**_. The resulting `distributed_generation` attributes (including system financial and sizing attributes) are updated as shown in an example below. 
 
 ```json
   "distributed_generation": {
@@ -65,19 +75,6 @@ Moreover, the following optimal dispatch fields are added to its `timeseries CSV
 | ElectricityProduced:Wind:ToBattery       | kWh     |
 | ElectricityProduced:Wind:ToLoad          | kWh     |
 | ElectricityProduced:Wind:ToGrid          | kWh     |
-
-
-This command allows you to post-process a ScenarioReport in aggregate. This is suitable for community-scale optimizations.
-
-```terminal
-  uo -g -t reopt-scenario -s baseline_scenario.csv -f example_project.json  
-```
-
-Alternatively, this command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This optimizes each building individually, not necessarily for the entire site.
-
-```terminal
-  uo -g -t reopt-feature -s baseline_scenario.csv -f example_project.json  
-```
 
 The figure below describes the workflow that takes place on implementing the `run` and `gather` CLI commands.
 
