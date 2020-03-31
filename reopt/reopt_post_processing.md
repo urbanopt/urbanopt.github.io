@@ -36,45 +36,53 @@ Depending on the `type` of optimization chosen, **REopt Lite** runs on a _**Scen
         "year_one_demand_cost_us_dollars": 3000000.0,
         "year_one_bill_us_dollars": 10000000.0,
         "total_energy_cost_us_dollars": 70000000.0,
-        "solar_pv": {
+        "total_solar_pv_kw": 30000.0,
+        "total_wind_kw": 0.0,
+        "total_generator_kw": 0.0,
+        "total_storage_kw": 2000.0,
+        "total_storage_kwh": 5000.0,
+        "solar_pv": [{
           "size_kw": 30000.0
-        },
-        "wind": {
+        }],
+        "wind": [{
           "size_kw": 0.0
-        },
-        "generator": {
+        }],
+        "generator": [{
           "size_kw": 0.0
-        },
-        "storage": {
+        }],
+        "storage": [{
           "size_kw": 2000.0,
           "size_kwh": 5000.0
-        }
+        }]
       }
 ```
 
 Moreover, the following optimal dispatch fields are added to its `timeseries CSV`.
 
-|            new column name               |  unit   |
-| -----------------------------------------| ------- |
-| ElectricityProduced:Total                | kWh     |
-| Electricity:Load:Total                   | kWh     |
-| Electricity:Grid:ToLoad                  | kWh     |
-| Electricity:Grid:ToBattery               | kWh     |
-| Electricity:Storage:ToLoad               | kWh     |
-| Electricity:Storage:ToGrid               | kWh     |
-| Electricity:Storage:StateOfCharge        | kWh     |
-| ElectricityProduced:Generator:Total      | kWh     |
-| ElectricityProduced:Generator:ToBattery  | kWh     |
-| ElectricityProduced:Generator:ToLoad     | kWh     |
-| ElectricityProduced:Generator:ToGrid     | kWh     |
-| ElectricityProduced:PV:Total             | kWh     |
-| ElectricityProduced:PV:ToBattery         | kWh     |
-| ElectricityProduced:PV:ToLoad            | kWh     |
-| ElectricityProduced:PV:ToGrid            | kWh     |
-| ElectricityProduced:Wind:Total           | kWh     |
-| ElectricityProduced:Wind:ToBattery       | kWh     |
-| ElectricityProduced:Wind:ToLoad          | kWh     |
-| ElectricityProduced:Wind:ToGrid          | kWh     |
+|            new column name                        |  unit  |
+| --------------------------------------------------| ------ |
+| REopt:ElectricityProduced:Total(kW)               | kW     |
+| REopt:Electricity:Load:Total(kW)                  | kW     |
+| REopt:Electricity:Grid:ToLoad(kW)                 | kW     |
+| REopt:Electricity:Grid:ToBattery(kW)              | kW     |
+| REopt:Electricity:Storage:ToLoad(kW)              | kW     |
+| REopt:Electricity:Storage:ToGrid(kW)              | kW     |
+| REopt:Electricity:Storage:StateOfCharge(kW)       | kW     |
+| REopt:ElectricityProduced:Generator:Total(kW)     | kW     |
+| REopt:ElectricityProduced:Generator:ToBattery(kW) | kW     |
+| REopt:ElectricityProduced:Generator:ToLoad(kW)    | kW     |
+| REopt:ElectricityProduced:Generator:ToGrid(kW)    | kW     |
+| REopt:ElectricityProduced:PV:Total(kW)            | kW     |
+| REopt:ElectricityProduced:PV:ToBattery(kW)        | kW     |
+| REopt:ElectricityProduced:PV:ToLoad(kW)           | kW     |
+| REopt:ElectricityProduced:PV:ToGrid(kW)           | kW     |
+| REopt:ElectricityProduced:Wind:Total(kW)          | kW     |
+| REopt:ElectricityProduced:Wind:ToBattery(kW)      | kW     |
+| REopt:ElectricityProduced:Wind:ToLoad(kW)         | kW     |
+| REopt:ElectricityProduced:Wind:ToGrid(kW)         | kW     |
+
+
+**NOTE**: A REopt Lite solution may contain multiple PV systems. In this case the aggregate generation from all PV systems will be reported in the PV columns.
 
 The figure below describes the workflow that takes place on implementing the `run` and `gather` CLI commands.
 

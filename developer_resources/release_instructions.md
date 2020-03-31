@@ -19,6 +19,7 @@ We recommend releasing gems **in order from the base to most dependent**. For ea
 	1. rake openstudio:update_measures
 1. Run `rake rubocop:auto_correct` on all PRs before merging to `develop`
 1. Remove .DS_Store files if any are in the repo
+1. If the gem has rdoc documentation, [regenerate the rdocs](../developer_resources/developer_resources.md#generating-rdoc-documentation)
 1. Run the `changelog.rb` script and add the changes to the CHANGELOG.md file for the range of time between last release and this release. Only add the Closed Issues. Also make sure that all the pull requests have a related Issue in order to be included in the change log.
 	```
 	ruby lib/change_log.rb –t <GITHUB_API_TOKEN> –s <START_DATE> –e <END_DATE>
