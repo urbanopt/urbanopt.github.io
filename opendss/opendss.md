@@ -50,7 +50,7 @@ Once the [DiTTo](https://github.com/NREL/ditto/) repository has been cloned, a c
     "equipment_file": "example/electrical_database.json",
     "opendss_folder": "example/baseline_scenario/opendss",
     "geojson_file": "example/urbanopt_example.json",
-    "ditto_folder":"../ditto",
+    "ditto_folder":"ditto",
     "use_reopt": true
 }
 ```
