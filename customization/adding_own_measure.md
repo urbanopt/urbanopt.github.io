@@ -35,7 +35,7 @@ Additional measures can be added to the [base workflow OSW](base_workflow.md) fi
 *  When adding measures located in any of the URBANopt core gems (in blue), no other change
    is needed.
 
-   ![uo_architecture_example](../doc_files/uo_architecture_example.jpg)
+   ![uo_architecture_example](../doc_files/uo_platform_diagram_f.jpg)
    
    *Figure 1: Software Architecture for an Example URBANopt Project*
 
