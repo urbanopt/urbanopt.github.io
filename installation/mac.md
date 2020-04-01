@@ -19,7 +19,7 @@ nav_order: 1
 	```
 
 1. Install [OpenStudio 2.9.1](https://github.com/NREL/OpenStudio/releases/tag/v2.9.1)  
-1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
+1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as TextEdit, Sublime Text, vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
     1. Type the following in the terminal: `nano ~/.bash_profile` (or `nano ~/.zshenv`)
     1. Copy and paste `export RUBYLIB=/Applications/OpenStudio-X.X.X/Ruby` (where X.X.X is the OpenStudio version installed) at the top of the file
