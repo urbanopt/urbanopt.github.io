@@ -9,9 +9,10 @@ nav_order: 3
 
 ### Version 0.2.0
 
-1.	New example project files: The URBANopt SDK version 0.2.0 release comes with new files for the example project (new mappers and a new base_workflow.osw file).  For compatibility purposes and to use all new features, you may want to update any existing projects with these new files.  The example project can be installed via the CLI with the following command:  
+1.	New example project files: The URBANopt SDK version 0.2.0 release comes with new files for the example project (new mappers and a new base_workflow.osw file).  For compatibility purposes and to use all new features, you may want to update any existing projects with these new files.  The example project can be installed via the CLI with the following command:
+
 ```bash
-	uo -p <PROJECT DIR> 
+	uo -p <path/to/PROJECT DIR> 
 ```
 
 1.	Project filepath length issue: Users (windows users especially) may run into an error while running URBANopt.  The error will be encountered either when running ‘bundle install’ in the project directory or in the in.osw.log file of a specific feature simulation and will look like this:
@@ -23,3 +24,5 @@ This will occur during installation of either the openstudio-standards gem or th
  1. URBANopt CLI users may see 2 lines of warning regarding `DEVELOPER_NREL_KEY`. This does not affect operation in any way. A future patch will remove the warning.
 
  1. Some users may experience issues with running the CLI from within the project directory. Try moving to a higher directory and using absolute paths to the feature_file (-f) and scenario CSV (-s).
+
+ 1. Many warnings get printed to the terminal when calling the URBANopt CLI from inside your project directory. The work-around to avoid these warnings is to move outside the project directory and use absolute paths when calling URBANopt commands. A hypothetical example: `uo -r -s ~/user/uo-project-directory/baseline_scenario.csv -f ~/user/uo-project-directory/example_project.json`
