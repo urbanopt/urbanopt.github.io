@@ -16,7 +16,7 @@ The <u>hypothetical</u> example project design and building typologies are shown
 The example project can be installed via the Command Line Interface with the following command. For more information, visit the [Running a Project](run_project.md) page.
 
 ```terminal
-uo -p <PROJECT_DIRECTORY_NAME>
+uo -p <path/to/PROJECT_DIRECTORY_NAME>
 ```
 
 Working with the example project, you'll be able to:
