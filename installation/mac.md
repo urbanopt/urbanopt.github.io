@@ -9,8 +9,15 @@ nav_order: 1
 
 ## Dependencies
 
-1. Install Ruby 2.2.4.  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installing-ruby-versions)  
- **Note**: URBANopt will update to a newer Ruby version when OpenStudio 3.0 is released
+1. Install Ruby 2.2.4.  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installing-ruby-versions)
+    - `brew install rbenv`
+    - `rbenv install 2.2.4`
+    - Do not forget the `rbenv init` step of rbenv installation
+    - Once installed, you may check which versions of Ruby have been installed and which one is active with: `rbenv versions`
+    - Set your current directory to use Ruby 2.2.4 with: `rbenv local 2.2.4`
+    - Full documentation for rbenv can be found at the [rbenv github site](https://github.com/rbenv/rbenv#command-reference)
+
+    **Note**: URBANopt will update to a newer Ruby version when OpenStudio 3.0 is released
 
 1. Install Bundler version 1.17:
 
