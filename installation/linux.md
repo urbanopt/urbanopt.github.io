@@ -9,7 +9,7 @@ nav_order: 3
 
 ## Dependencies
 
-**_Linux installation has not been tested exhaustively. Please submit an issue if you run into installation errors_**
+**_Linux installation has not been tested exhaustively. Please submit a bug report via the Github issue page if you run into installation errors_**
 
 1. Install Ruby 2.2.4.  We recommend using `rbenv` to manage and install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installation)  
  **Note**: URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released
@@ -52,7 +52,7 @@ If you get gdbm libs errors like the following, you need to create symlinks to t
 1. View available CLI commands with:
 
     ```terminal
-    uo -h
+    uo --help
     ```
 
 1. For detailed instructions, see our [example instructions](../usage/run_project.md)

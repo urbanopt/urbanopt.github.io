@@ -70,7 +70,7 @@ nav_order: 2
 1. View available CLI commands with:
 
     ```terminal
-    uo -h
+    uo --help
     ```
 
 1. For detailed instructions, see our [example instructions](../usage/run_project.md)
