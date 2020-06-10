@@ -36,5 +36,5 @@ Edit the new `.gemrc` file to contain:
 - Now install **bundler**:
 
 ```terminal
-gem install bundler -v 1.17
+gem install bundler -v 2.1
 ```
