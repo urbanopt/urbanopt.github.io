@@ -35,7 +35,7 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
     This deletes anything in the named folder and creates a fresh project directory. Can be combined with `-e` to overwrite a directory with a new empty URBANopt project directory.
 
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
-1. We recommend calling all URBANopt commands from _outside_ the project folder you created, using absolute paths to the relevant files.
+1. **We recommend calling all URBANopt commands from _outside_ the project folder you created, using relative or absolute paths to the relevant files.**
 1. Create [ScenarioFiles](../overview/definitions.md) for all Features in the FeatureFile based off the example _mappers_ using:
 
     ```terminal
