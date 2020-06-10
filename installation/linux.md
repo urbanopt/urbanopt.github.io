@@ -11,25 +11,25 @@ nav_order: 3
 
 **_Linux installation has not been tested exhaustively. Please submit a bug report via the Github issue page if you run into installation errors_**
 
-1. Install Ruby 2.2.4.  We recommend using `rbenv` to manage and install [Ruby 2.2.4](https://github.com/rbenv/rbenv#installation)  
- **Note**: URBANopt will update to Ruby 2.5 when OpenStudio 3.0 is released
- 1. Install Bundler version 1.17:
+1. Install Ruby 2.5 (anything in the 2.5.x range will work).  We recommend using `rbenv` to manage and install [Ruby 2.5](https://github.com/rbenv/rbenv#installation)  
+ 
+ 1. Install Bundler version 2.1:
 
 	```terminal
-	gem install bundler -v 1.17
+	gem install bundler -v 2.1
 	```
-1. Install [OpenStudio 2.9.1](https://github.com/NREL/OpenStudio/releases/tag/v2.9.1)  
+1. Install [OpenStudio 3.0](https://github.com/NREL/OpenStudio/releases/tag/v3.0.0)  
 1. Manually install [libpng12](https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html)  
 If you get gdbm libs errors like the following, you need to create symlinks to the appropriate version (`libgdbm.so.5` and `libgdbm_compat.so.4`):
 
 	```terminal
-	/usr/local/openstudio-2.9.1/bin/openstudio: error while loading shared libraries: libgdbm.so.3: cannot open shared object file: No such file or directory
+	/usr/local/openstudio-3.0.0/bin/openstudio: error while loading shared libraries: libgdbm.so.3: cannot open shared object file: No such file or directory
 	```
 
 	or:
 
 	```terminal
-	/usr/local/openstudio-2.9.1/bin/openstudio: error while loading shared libraries: libgdbm_compat.so.3: cannot open shared object file: No such file or directory
+	/usr/local/openstudio-3.0.0/bin/openstudio: error while loading shared libraries: libgdbm_compat.so.3: cannot open shared object file: No such file or directory
 	```
 
 

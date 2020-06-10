@@ -9,26 +9,25 @@ nav_order: 2
 
 ## Dependencies
 
-1. Install [Ruby 2.2.4 (x64)](https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.4-x64.exe)  
-**Note**: URBANopt will update to a newer Ruby version when OpenStudio 3.0 is released
+1. Install [Ruby 2.5 (x64) with Devkit](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.8-1/rubyinstaller-devkit-2.5.8-1-x86.exe)  
 
-1. Install Devkit using the [mingw64](https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe) installer  
+
 1. Include path to Ruby by adding the following to your environment variables path: 
 
-	`C:\Ruby22-x64\bin`
+	`C:\Ruby25-x64\bin`
 1. Create a new environment variable `HOME` and set the variable value to the following: 
 
 	`C:\Users\<user_name>`
 
 	Detailed instructions for [creating environment variables](https://helpdeskgeek.com/how-to/create-custom-environment-variables-in-windows/) can be found online.
-1. Install Bundler version 1.17:
+1. Install Bundler version 2.1:
 
 	```terminal
-	gem install bundler -v 1.17
+	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 2.9.1](https://github.com/NREL/OpenStudio/releases/tag/v2.9.1)  
-1. Create file `C:\ruby-2.2.4-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
+1. Install [OpenStudio 3.0](https://github.com/NREL/OpenStudio/releases/tag/v3.0.0)  
+1. Create file `C:\ruby-2.5.8-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
 
 	```ruby
 	require 'C:\openstudio-X.X.X\Ruby\openstudio.rb'
@@ -45,7 +44,7 @@ nav_order: 2
 	```terminal
 	OS:Version,
 	 {<long-uuid>},                          !- Handle
-	 2.8.1;                                  !- Version Identifier`
+	 3.0.0;                                  !- Version Identifier`
 	 ```
 
 <!-- 1. Install [Git](https://git-scm.com/) if not already installed. A list of [optional git
