@@ -25,4 +25,4 @@ This will occur during installation of either the openstudio-standards gem or th
 
  1. Some users may experience issues with running the CLI from within the project directory. Try moving to a higher directory and using absolute paths to the feature_file (-f) and scenario CSV (-s).
 
- 1. Many warnings get printed to the terminal when calling the URBANopt CLI from inside your project directory. The work-around to avoid these warnings is to move outside the project directory and use absolute paths when calling URBANopt commands. A hypothetical example: `uo -r -s ~/user/uo-project-directory/baseline_scenario.csv -f ~/user/uo-project-directory/example_project.json`
+ 1. Many warnings get printed to the terminal when calling the URBANopt CLI from inside your project directory. The work-around to avoid these warnings is to move outside the project directory and use absolute paths when calling URBANopt commands. A hypothetical example: `uo run -s ~/user/uo-project-directory/baseline_scenario.csv -f ~/user/uo-project-directory/example_project.json`
