@@ -132,8 +132,5 @@ venv.bak/
 _site
 doc_files/_site
 
-# Jekyll documentation (html translation of doc files)
-_site
-
 # mypy
 .mypy_cache/
