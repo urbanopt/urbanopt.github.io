@@ -6,7 +6,7 @@ nav_order: 2
 ---
 ## Intro
 
-CLI commands are used to run and post-process each scenario. Onscreen help is always availabe with `uo -h`
+CLI commands are used to run and post-process each scenario. Onscreen help is always availabe with `uo --help`
 
 **REopt Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the entire district being simulated, and _feature-level_, which optimizes each building individually.
 
@@ -17,13 +17,13 @@ The `type` of reopt optimization is specified in the CLI call:
 This command allows you to post-process a ScenarioReport in aggregate. This is suitable for community-scale optimizations.
 
 ```terminal
-  uo -g -t reopt-scenario -s baseline_scenario.csv -f example_project.json  
+  uo process reopt-scenario --scenario baseline_scenario.csv --feature example_project.json  
 ```
 
 Alternatively, this command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This runs REopt optimization on each building individually.
 
 ```terminal
-  uo -g -t reopt-feature -s baseline_scenario.csv -f example_project.json  
+  uo process reopt-feature --scenario baseline_scenario.csv --feature example_project.json  
 ```
 
 Depending on the `type` of optimization chosen, **REopt Lite** runs on a _**ScenarioReport**_ or _**FeatureReport**_. The resulting `distributed_generation` attributes (including system financial and sizing attributes) are updated as shown in an example below. 
@@ -84,7 +84,7 @@ Moreover, the following optimal dispatch fields are added to its `timeseries CSV
 
 **NOTE**: A REopt Lite solution may contain multiple PV systems. In this case the aggregate generation from all PV systems will be reported in the PV columns.
 
-The figure below describes the workflow that takes place on implementing the `run` and `gather` CLI commands.
+The figure below describes the workflow that takes place on implementing the `run` and `process` CLI commands.
 
 ![workflow_diagram](../doc_files/CLI_reopt.jpg)
 
