@@ -17,7 +17,6 @@ nav_order: 1
     - Set your current directory to use Ruby 2.5.x with: `rbenv local 2.5.x`
     - Full documentation for rbenv can be found at the [rbenv github site](https://github.com/rbenv/rbenv#command-reference)
 
-
 1. Install Bundler version 2.1:
 
 	```terminal
