@@ -62,13 +62,13 @@ module URBANopt
 
   You're now all set updating the `distributed_generation` schema.
 
-4. Let's next update **URBANopt REopt Gem** to load lifecycle costs from the **REopt Lite API** responses into the Feature and Scenario Report `distributed_generation` schema's `lcc_us_dollars` attribute.
+(4) Let's next update **URBANopt REopt Gem** to load lifecycle costs from the **REopt Lite API** responses into the Feature and Scenario Report `distributed_generation` schema's `lcc_us_dollars` attribute.
   
 a. First, in `urbanopt-reopt-gem/Gemfile` make sure that the `urbanopt-scenario` gem is loaded as follows:
     
 `gem 'urbanopt-scenario', path: '../urbanopt-scenario-gem'`
 
-This will ensure that the `urbanopt-sceanrio` gem that the `urbanopt-reopt` gem uses includes the modified schema. 
+This will ensure that the `urbanopt-sceanrio` gem that the `urbanopt-reopt` gem uses includes the schema we just modified. 
 
 _Note:_ You can alternatively specify a gem from a branch on github as follows:
 
@@ -89,12 +89,12 @@ _Note:_ You can alternatively specify a gem from a branch on github as follows:
     # Update distributed generation sizing and financials
     scenario_report.distributed_generation.lcc_us_dollars = reopt_output['outputs']['Scenario']['Site']['Financial']['lcc_us_dollars'] || 0
  ```
- 
+
   d. You are now ready to navigate to the `urbanopt-reopt-gem` folder and run:
 
  ```bash
   $ bundle install
-  $ bundle update`
+  $ bundle update
 ```
 
-5. Now, when you reference this modified `urbanopt-reopt` implementation you can access the lifecycle costs from `feature_report.distributed_generation.lcc_us_dollars` or `scenario_report.distributed_generation.lcc_us_dollars`. The lifecycle costs will also be included when a Feature or Scenario Report is saved. 
+(5) Now, when you reference this modified `urbanopt-reopt` implementation you can access the lifecycle costs from `feature_report.distributed_generation.lcc_us_dollars` or `scenario_report.distributed_generation.lcc_us_dollars`. The lifecycle costs will also be included when a Feature or Scenario Report is saved. 
