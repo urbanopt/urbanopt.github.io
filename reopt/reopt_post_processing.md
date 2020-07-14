@@ -8,7 +8,7 @@ nav_order: 2
 
 CLI commands are used to run and post-process each scenario. Onscreen help is always availabe with `uo --help`
 
-**REopt Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the entire district being simulated, and _feature-level_, which optimizes each building individually.
+**REopt Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the aggregate load of the entire district being simulated, and _feature-level_, which optimizes each building's load individually.
 
 ## Workflow
 
@@ -26,34 +26,45 @@ Alternatively, this command allows you to post-process a Scenario for each of it
   uo process reopt-feature --scenario baseline_scenario.csv --feature example_project.json  
 ```
 
-Depending on the `type` of optimization chosen, **REopt Lite** runs on a _**ScenarioReport**_ or _**FeatureReport**_. The resulting `distributed_generation` attributes (including system financial and sizing attributes) are updated as shown in an example below. 
+Depending on the `type` of optimization chosen, **REopt Lite** runs on a _**ScenarioReport**_ or _**FeatureReport**_. The resulting `distributed_generation` attributes of that report (including system financial and sizing attributes) are updated as shown in an example below. 
 
 ```json
   "distributed_generation": {
-        "lcc_us_dollars": 100000000.0,
-        "npv_us_dollars": 10000000.0,
-        "year_one_energy_cost_us_dollars": 7000000.0,
-        "year_one_demand_cost_us_dollars": 3000000.0,
-        "year_one_bill_us_dollars": 10000000.0,
-        "total_energy_cost_us_dollars": 70000000.0,
-        "total_solar_pv_kw": 30000.0,
-        "total_wind_kw": 0.0,
-        "total_generator_kw": 0.0,
-        "total_storage_kw": 2000.0,
-        "total_storage_kwh": 5000.0,
-        "solar_pv": [{
-          "size_kw": 30000.0
-        }],
-        "wind": [{
-          "size_kw": 0.0
-        }],
-        "generator": [{
-          "size_kw": 0.0
-        }],
-        "storage": [{
-          "size_kw": 2000.0,
-          "size_kwh": 5000.0
-        }]
+      "lcc_us_dollars": 30943,
+      "lcc_bau_us_dollars": 40040.0,
+      "npv_us_dollars": 9097.0,
+      "year_one_energy_cost_us_dollars": 750.3,
+      "year_one_demand_cost_us_dollars": 0.0,
+      "year_one_bill_us_dollars": 1521.66,
+      "total_demand_cost_us_dollars": 0.0,
+      "total_energy_cost_us_dollars": 7189.5,
+      "year_one_energy_cost_bau_us_dollars": 3407.27,
+      "year_one_demand_cost_bau_us_dollars": 0.0,
+      "year_one_bill_bau_us_dollars": 4178.63,
+      "total_energy_cost_bau_us_dollars": 32649.02,
+      "total_demand_cost_bau_us_dollars": 2189.75,
+      "total_solar_pv_kw": 0.0,
+      "resilience_hours_min": 3.0,
+      "resilience_hours_max": 6116.0,
+      "resilience_hours_avg": 0.0,
+      "probs_of_surviving": [ 0.0027, 0.0027,],
+      "probs_of_surviving_by_month": [
+        [0.0164,],[0.0164,],[0.0164,],[0.0],[0.0],[0.0],
+        [0.0],[0.0],[0.0],[0.0],[0.0],[0.0]],
+      "probs_of_surviving_by_hour_of_the_day": [
+        [0.0],[0.0],[0.0],[0.0],[0.0],[0.0],
+        [0.0],[0.0],[0.0],[0.0],[0.0],[0.0],
+        [0.0],[0.0],[0.0],[0.0],[0.0],[0.0],
+        [0.0],[0.0],[0.0],[0.0],[0.0],[0.0]],
+      "solar_pv": [
+        {"size_kw": 8.0124}
+      ],
+      "wind": [],
+      "generator": [],
+      "storage": [
+        {"size_kw":2.1848, "size_kwh":4619}
+      ]
+    },
       }
 ```
 
