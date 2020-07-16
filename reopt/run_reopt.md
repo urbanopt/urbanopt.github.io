@@ -19,7 +19,7 @@ We provide examples of running an URBANopt workflow that integrates **REopt Lite
 
 ![example_project_layout](../doc_files/building_types_ISO_no_res.jpg)
 
-To run an simple example project, first see [URBANopt Command Line Interface](../usage/run_project.md) (CLI). Then, refer to [REopt Post-Processing](reopt_post_processing.md) for how to optimize DER's at the example site. 
+To run an simple example project, first see [Running a Project](../usage/run_project.md) (CLI) to set up a project and run  energy use simulations. Then, refer to [REopt Post-Processing](reopt_post_processing.md) for how to optimize DER's based on baseline energy use. 
 
 Alternatively, we provide an [example project](https://github.com/urbanopt/urbanopt-example-reopt-project) that exposes code that can be run and customized from your local machine.
 

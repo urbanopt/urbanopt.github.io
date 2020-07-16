@@ -18,7 +18,7 @@ You may chose to optimize by one or both of these approaches according to your p
 
 ## Workflow
 
-### REopt Lite Optimization Assumptions
+### REopt Lite Optimization Assumption Files
 
 In your URBANopt project directory, by default you should see two example **REopt Lite** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt Lite API**.
 
@@ -26,27 +26,39 @@ In particular, you will want to make sure that the `urdb_label` in the assumptio
 
 Also note that the `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once. 
 
+### Mapping REopt Lite Assumption Files to Features
+
+In your Scenario File enabled for **REopt Lite** you will see a `REopt Assumptions` column. Before post-processing ensure that each feature has the appropriate assumtions file specified in this CSV file.
+
+The following figure represents how Simulation Mapper Classes can be assigned to different
+Features from the FeatureFile in the Scenario CSV.
+
+![scenario_mapper](../doc_files/reopt-scenario-mapper.png)
+
+
 ### Running REopt Lite 
 
 The `type` of optimization is specified in the CLI call:
 
-This command allows you to post-process a ScenarioReport in aggregate. This is suitable for community-scale optimizations.
+The `--reopt-scenario` command allows you to post-process a ScenarioReport in aggregate. This is suitable for community-scale optimizations.
 
 ```terminal
-  uo process reopt-scenario --scenario baseline_scenario.csv --feature example_project.json  
+  uo process --reopt-scenario --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
 ```
 
-Alternatively, this command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This runs REopt optimization on each building individually.
+Alternatively, The `--reopt-feature` command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This runs REopt optimization on each building individually.
 
 ```terminal
-  uo process reopt-feature --scenario baseline_scenario.csv --feature example_project.json  
+  uo process --reopt-feature --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
 ```
 
-After **REopt Lite** runs on a _**ScenarioReport**_ or _**FeatureReport**_, regardless of the optimization type, the resulting `distributed_generation` attributes of that report (including system financial and sizing attributes) are updated as shown in an example below. 
+### Understanding REopt Lite Results
 
-Note that the `solar_pv`, `wind`, `generator` and `storage` arrays will contain lists of all economic technologies. For example, if solar PV is economic for two _Feature Reports_ then the `solar_pv` array will contain these two capacities. Moreover, the total capacity of both systems will be recorded in the _total_solar_pv_kw_ attribute. 
+After **REopt Lite** post-processing, you will find that the new ScenarioReport contains updated `distributed_generation` and `timeseries_CSV` attributes. 
 
-Also, note that the `_bau` denotes the business as usual case, and is used for comparison purposes against the optimal solution.
+#### Distributed Generation Updates
+
+The following provides an example of `distributed_generation` attributes that have been updated by post-processing with **REopt Lite**.
 
 ```json
   "distributed_generation": {
@@ -109,7 +121,11 @@ Also, note that the `_bau` denotes the business as usual case, and is used for c
       }
 ```
 
-Moreover, the following optimal dispatch fields are added to its `timeseries CSV`.
+Note that the `solar_pv`, `wind`, `generator` and `storage` arrays will contain lists of all economic technologies across all features. For example, if solar PV is economic for two _Feature Reports_ then the `solar_pv` array will contain these two capacities. Moreover, the total capacity of both systems will be recorded in the _total_solar_pv_kw_ attribute. Also, note that the attributes in `distributed_generation` containing "bau" in the name are _business as usual_ metrics that can be used to understand the relative effectiveness of the optimal solution.
+
+#### Timeseries CSV Updates
+
+After **REopt Lite** post-processing, you will also find that ScenarioReport `timeseries_CSV` contains the following new optimal dispatch fields:
 
 |            new column name                        |  unit  |
 | --------------------------------------------------| ------ |
@@ -133,14 +149,17 @@ Moreover, the following optimal dispatch fields are added to its `timeseries CSV
 | REopt:ElectricityProduced:Wind:ToLoad(kW)         | kW     |
 | REopt:ElectricityProduced:Wind:ToGrid(kW)         | kW     |
 
-
 **NOTE**: A REopt Lite solution may contain multiple PV systems. In this case the aggregate generation from all PV systems will be reported in the PV columns.
+
+
+### Additional Outputs
+
+**REopt Lite** API responses are saved in `reopt` folders. This information may be helpful in interpreting results or debugging errors (i.e. identifying if API rate-limits have been reached).
+
+If you post-processed with `--reopt-scenario` the `reopt` folder will be at the top level of scenerio in the `run` (i.e. `run\reopt_scenario\reopt`). Otherwise, if you run with `--reopt-feature` each feature will have its own `reopt` folder (i.e. `run\reopt_scenario\1\reopt`). 
+
+### Additional Information
 
 The figure below describes the workflow that takes place on implementing the `run` and `process` CLI commands.
 
 ![workflow_diagram](../doc_files/CLI_reopt.jpg)
-
-The following figure represents how Simulation Mapper Classes can be assigned to different
-Features from the FeatureFile in the Scenario CSV.
-
-![scenario_mapper](../doc_files/reopt-scenario-mapper.png)

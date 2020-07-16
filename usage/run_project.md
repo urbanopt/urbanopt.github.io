@@ -39,19 +39,19 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
 1. Create [ScenarioFiles](../overview/definitions.md) for all Features in the FeatureFile based off the example _mappers_ using:
 
     ```terminal
-    uo create --scenario-file <path/to/FEATUREFILE>
+    uo create --scenario-file <path/to/FEATUREFILE.json>
     ```
 
     Or create a ScenarioFile for a single [Feature](../overview/definitions.md) by specifying the Feature_ID in the arguments.
 
     ```terminal
-    uo create --scenario-file <path/to/FEATUREFILE> --single-feature <FEATURE_ID>
+    uo create --scenario-file <path/to/FEATUREFILE.json> --single-feature <FEATURE_ID>
     ```
 
-    Or create a ScenarioFile with additional REopt information to enable running and post-processing with REopt data.
+    Or create a ScenarioFile with additional **REopt Lite** information to enable running and post-processing with **REopt Lite** data.
 
     ```terminal
-    uo create --reopt-scenario-file <path/to/EXISTING_SCENARIO_FILE>
+    uo create --reopt-scenario-file <path/to/EXISTING_SCENARIO_FILE.csv>
     ```
 
     You may write your own mapper file for your own specific use case as needed, as well as make your own ScenarioFile by hand.  You may also make edits to the ScenarioFiles to mix and match mappers.
@@ -60,13 +60,13 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
    ScenarioFile by using:
 
     ```terminal
-    uo run --feature <path/to/FEATUREFILE> --scenario <path/to/SCENARIOFILE>
+    uo run --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
     ```
 
-1. Simulate energy usage for a scenario with additional REopt capability. Run this simulation to enable REopt post-processing (see below for details).
+    Or simulate energy usage for a scenario with additional **REopt Lite** capability. Run this simulation to enable REopt post-processing (see below for details).
 
     ```terminal
-    uo run --reopt --feature <path/to/FEATUREFILE> --scenario <path/to/SCENARIOFILE>
+    uo run --reopt --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
     ```
 
     Note that there is a *runner.conf* file automatically created in the project folder.  This file is used to configure the number of features to process in parallel as well as a few other parameters.  Make edits to this file prior to running the above command.
@@ -74,10 +74,12 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
 1. Post-process simulated features into a [Scenario](../overview/definitions.md) report by using:
 
     ```terminal
-    uo process --<TYPE> --feature <path/to/FEATUREFILE> --scenario <path/to/SCENARIOFILE>
+    uo process --<TYPE> --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
     ```
 
     Valid `TYPE`s are: `default`, `opendss`, `reopt-scenario`, `reopt-feature`
+
+    If you intent to post process with **REopt Lite** (i.e. using `reopt-scenario`, `reopt-feature`), please now refer to the instructions outlined in [REopt Post Processing](../reopt/reopt_post_processing.md).
 
 1. Delete an outdated [Scenario](../overview/definitions.md) run by using:
 
