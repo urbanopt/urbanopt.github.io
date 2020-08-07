@@ -24,7 +24,7 @@ In your URBANopt project directory, by default you should see two example **REop
 
 In particular, you will want to make sure that the `urdb_label` in the assumptions file maps to a suitable utility rate _label_ from the [URDB](https://openei.org/apps/IURDB/). The _label_ is the last term of the URL of a utility rate detail page (i.e. the _label_ for the rate at [https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305](https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305) is 5b0d83af5457a3f276733305).
 
-Also note that the `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once. 
+Also note that the example `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once. 
 
 ### Mapping REopt Lite Assumption Files to Features
 
@@ -121,7 +121,7 @@ The following provides an example of `distributed_generation` attributes that ha
       }
 ```
 
-Note that the `solar_pv`, `wind`, `generator` and `storage` arrays will contain lists of all economic technologies across all features. For example, if solar PV is economic for two _Feature Reports_ then the `solar_pv` array will contain these two capacities. Moreover, the total capacity of both systems will be recorded in the _total_solar_pv_kw_ attribute. Also, note that the attributes in `distributed_generation` containing "bau" in the name are _business as usual_ metrics that can be used to understand the relative effectiveness of the optimal solution.
+Note that the `solar_pv`, `wind`, `generator` and `storage` arrays will contain lists of all economic technologies across all features. For example, if solar PV is economic for two _Feature Reports_ then the `solar_pv` array will contain these two capacities. Moreover, the total capacity of both systems will be recorded in the _total_solar_pv_kw_ attribute. Also, note that the attributes in `distributed_generation` containing "bau" in the name are _business as usual_ metrics that can be used to understand the relative economic attactiveness of the optimal solution.
 
 #### Timeseries CSV Updates
 
