@@ -78,6 +78,7 @@ Configuring the following environment variables may help if you are having issue
 		LIBPYTHON = C:\Users\<username>\AppData\Local\Programs\Python\Python37\python37.dll
 ```
 
+Once you have made these changes, **close and reopen your Terminal/GitBash window** for these changes to take effect.
 
 ## Usage
 
