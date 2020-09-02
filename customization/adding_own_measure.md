@@ -2,7 +2,7 @@
 layout: default
 title: Adding your own Measures
 parent: Customization
-nav_order: 2
+nav_order: 3
 ---
 
 Additional measures can be added to the [base workflow OSW](base_workflow.md) file as follows:

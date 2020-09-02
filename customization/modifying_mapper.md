@@ -2,7 +2,7 @@
 layout: default
 title: Modifying Mapper Classes
 parent: Customization
-nav_order: 3
+nav_order: 4
 ---
 
 The Simulation Mapper Class maps the Features in the FeatureFile to arguments required as simulation inputs in the OpenStudio workflow files (OSW).

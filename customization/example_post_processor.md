@@ -2,7 +2,7 @@
 layout: default
 title: Example change to Post-Processor
 parent: Customization
-nav_order: 7
+nav_order: 8
 ---
 
 The following section is a short example where a new attribute "number of occupants" is added to the Feature report and the Post-Processor.

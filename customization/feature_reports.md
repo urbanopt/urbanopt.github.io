@@ -2,7 +2,7 @@
 layout: default
 title: Feature Reports
 parent: Customization
-nav_order: 6
+nav_order: 7
 ---
 
 The Scenario Post-Processor requires Feature reports to aggregate results from Feature simulations. A reporting Measure is used to query and report specific output data from an Openstudio simulation of each Feature. The current default reporting Measure is the [default_feature_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/master/lib/measures/default_feature_reports). This Measure writes a `default_feature_reports.json` file containing information on all Features in the simulation. It also writes a `default_feature_reports.csv` containing timeseries data for all the Features.
