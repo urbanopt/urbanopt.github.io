@@ -1,21 +1,21 @@
 ---
 layout: default
-title: DiTTo Reader Installation
+title: OpenDSS Installation
 parent: Installation
 nav_order: 4
 ---
 
-# URBANopt DiTTo Reader
+# OpenDSS Installation for use in CLI
 
-The URBANopt DiTTo Reader
+OpenDSS functionality is available through the URBANopt DiTTo Reader, which:
 
 - converts URBANopt output files for a scenario into OpenDSS input files
 - runs the OpenDSS workflow
-- stores OpenDSS results into the URBANopt scenario folder
+- stores OpenDSS results into the URBANopt scenario directory
 
 ## Requirements
 
-While most of the URBANopt SDK uses Ruby, the DiTTo Reader is implemented in Python and has a different set of dependencies that must be installed in order to use it.  
+While most of the URBANopt SDK uses Ruby, the OpenDSS part of the workflow is implemented in Python, and as such, has a different set of dependencies that must be installed:
 
 - Git
 - Python 3.7 or higher
@@ -41,9 +41,8 @@ While most of the URBANopt SDK uses Ruby, the DiTTo Reader is implemented in Pyt
 	git clone https://github.com/urbanopt/urbanopt-ditto-reader.git
 ```
 
-1. Open a terminal from the cloned ditto-reader directory and install the ditto-reader dependencies:
+1. Open a terminal in the cloned ditto-reader directory and install the ditto-reader dependencies:
 ```bash
-	cd urbanopt-ditto-reader
 	pip install -e .
 ```
 This command will also automatically clone the [ditto repository](https://github.com/NREL/ditto) to the following location: ```urbanopt-ditto-reader/ditto```.
@@ -80,13 +79,16 @@ Configuring the following environment variables may help if you are having issue
 
 Once you have made these changes, **close and reopen your Terminal/GitBash window** for these changes to take effect.
 
+Note that if you are not able to run the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
+
+
 ## Usage
 
-The DiTTo-Reader workflow is available via the ```opendss``` URBANopt CLI command. 
+The DiTTo-Reader/OpenDSS workflow is available via the ```opendss``` URBANopt CLI command. 
 
 
 ### Notes
-- The ```run``` and ```process``` commands must be run on a scenario to generate the input files required by OpenDSS. 
+- The ```run``` and ```process``` commands must first be run on a scenario to generate the input files required by OpenDSS. 
 - The feature file should contain Electrical Connectors and Junctions for a successful OpenDSS run.
 - The location of ditto is assumed to be found at ```urbanopt-ditto-reader/ditto```.
 - The equipment file is assumed to be at ```urbanopt-ditto-reader/example/electrical-database.json``` unless otherwise specified with the --equipment flag when issuing the command
