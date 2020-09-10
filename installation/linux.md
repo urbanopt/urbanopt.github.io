@@ -50,3 +50,9 @@ nav_order: 3
     ```
 
 1. For detailed instructions, see our [example instructions](../usage/run_project.md)
+
+## OpenDSS and DiTTo Reader Set-up
+
+As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.  
+
+If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.
