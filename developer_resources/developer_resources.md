@@ -40,7 +40,7 @@ Rdoc options are controlled with this [config file](https://github.com/urbanopt/
 
 ## Developing with the CLI
 
-When developing locally on URBANopt core gems and testing new functionality and dependencies via the CLI, it may be necessary to install local versions of core gems.  
+When developing locally on URBANopt<sup>&trade;</sup> core gems and testing new functionality and dependencies via the CLI, it may be necessary to install local versions of core gems.  
 
 For local development, you will want to set the environment variable *FAVOR_LOCAL_GEMS* to 1. This enables local copies of gems in the Gemfile.  Note that setting *FAVOR_LOCAL_GEMS* to 0 will not undo local gems functionality: you will have to either remove the *FAVOR_LOCAL_GEMS* environment variable, set it to *nil* or *false* (not 0), and open a new terminal window to turn it off.  
 

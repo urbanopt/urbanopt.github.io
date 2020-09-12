@@ -8,7 +8,7 @@ nav_order: 3
 ## Known Issues and Notes
 
 ### Version 0.4.0
-1. URBANopt SDK version 0.4.0 includes OpenDSS support via the URBANopt CLI.  Windows users may experience errors detecting python and urbanopt-ditto-reader when using the `opendss` CLI command.  If you are not able to run OpenDSS through the CLI, the functionality is also available manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
+1. URBANopt<sup>&trade;</sup> SDK version 0.4.0 includes OpenDSS support via the URBANopt CLI.  Windows users may experience errors detecting python and urbanopt-ditto-reader when using the `opendss` CLI command.  If you are not able to run OpenDSS through the CLI, the functionality is also available manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
 
 1. SQLITE/WINDOWS issues: The sqlite3 gem contains native extensions and sometimes causes installation errors for WINDOWS users.  To resolve, ensure your ruby version is installed with "MSYS2 and MINGW development toolchain" (option 3 during installation) and that the following command succeeds before installing the CLI:
 

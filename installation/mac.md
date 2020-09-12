@@ -32,7 +32,7 @@ nav_order: 1
 
 ## Basic Set-up
 
-1. Install the URBANopt Command Line Interface (CLI):
+1. Install the URBANopt<sup>&trade;</sup> Command Line Interface (CLI):
 
     ```terminal
     gem install urbanopt-cli

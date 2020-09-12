@@ -14,6 +14,6 @@ You'll also need an API key from the [NREL Developer Network](https://developer.
     GEM_DEVELOPER_KEY = '<insert your NREL developer key here>'
 
 ## Example Project    
-To run an example project incorporating REopt Lite functionality, use the [URBANopt Command Line Interface](../usage/run_project.md) (CLI).
+To run an example project incorporating REopt Lite functionality, use the [URBANopt<sup>&trade;</sup> Command Line Interface](../usage/run_project.md) (CLI).
 
 ![example_project_layout](../doc_files/building_types_ISO_no_res.jpg)
