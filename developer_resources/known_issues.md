@@ -9,7 +9,7 @@ nav_order: 3
 
 ### Version 0.2.0
 
-1.	New example project files: The URBANopt SDK version 0.2.0 release comes with new files for the example project (new mappers and a new base_workflow.osw file).  For compatibility purposes and to use all new features, you may want to update any existing projects with these new files.  The example project can be installed via the CLI with the following command:
+1.	New example project files: The URBANopt™ SDK version 0.2.0 release comes with new files for the example project (new mappers and a new base_workflow.osw file).  For compatibility purposes and to use all new features, you may want to update any existing projects with these new files.  The example project can be installed via the CLI with the following command:
 
 ```bash
 	uo create --project-folder <path/to/PROJECT DIR> 

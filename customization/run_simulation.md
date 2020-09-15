@@ -7,7 +7,7 @@ nav_order: 8
 
 To modify or build your own gem that generates OpenStudio energy simulation results, here are the details of our code.
 
-The first code block below creates and runs a `baseline_scenario` parser for OpenStudio results. It also integrates REopt Lite settings for analysis during post processing. The example is set up so that the **REopt Lite** analysis will use assumptions defined in a `reopt/base_assumptions.json` file for a scenario level analysis, as well as for subsequent individual site analyses at the feature level. 
+The first code block below creates and runs a `baseline_scenario` parser for OpenStudio results. It also integrates REopt Lite settings for analysis during post processing. The example is set up so that the **REopt™ Lite** analysis will use assumptions defined in a `reopt/base_assumptions.json` file for a scenario level analysis, as well as for subsequent individual site analyses at the feature level. 
 
 Inputs to this function are defined as follows:
 
