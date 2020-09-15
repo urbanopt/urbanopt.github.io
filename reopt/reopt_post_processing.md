@@ -8,11 +8,11 @@ nav_order: 2
 
 CLI commands are used to run and post-process each scenario. Onscreen help is always availabe with `uo --help`
 
-**REopt Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the entire district being simulated, and _feature-level_, which optimizes each building individually.
+**REopt™ Lite** optimization happens during the post-processing of each scenario. Two types of REopt optimization are available: _scenario-level_, which optimizes for the entire district being simulated, and _feature-level_, which optimizes each building individually.
 
 ## Workflow
 
-The `type` of reopt optimization is specified in the CLI call:
+The `type` of REopt optimization is specified in the CLI call:
 
 This command allows you to post-process a ScenarioReport in aggregate. This is suitable for community-scale optimizations.
 

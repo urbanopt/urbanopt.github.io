@@ -1,6 +1,6 @@
 # URBANopt Docs README
 
-This repo contains documentation for the gems that make up the URBANopt SDK
+This repo contains documentation for the gems that make up the URBANopt™ SDK
 
 ## Local Development
 

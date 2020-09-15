@@ -32,7 +32,7 @@ Additional measures can be added to the [base workflow OSW](base_workflow.md) fi
     OpenStudio::Extension.set_measure_argument(osw,'IncreaseInsulationRValueForExteriorWalls', '__SKIP__',false)
 	```
 
-*  When adding measures located in any of the URBANopt core gems (in blue), no other change
+*  When adding measures located in any of the URBANopt™ core gems (in blue), no other change
    is needed.
 
    ![uo_architecture_example](../doc_files/uo_platform_diagram_f.jpg)

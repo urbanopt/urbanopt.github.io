@@ -5,7 +5,7 @@ parent: Overview
 nav_order: 2
 ---
 
-The URBANopt SDK is implemented in Ruby and consists of 3 main modules: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`.  These modules are accessed via the Command Line Interface (`urbanopt-cli`).
+The URBANopt™ SDK is implemented in Ruby and consists of 3 main modules: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`.  These modules are accessed via the Command Line Interface (`urbanopt-cli`).
 
 ![image info](../doc_files/URBANopt_arch_development_v2.jpg)
 
