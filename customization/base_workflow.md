@@ -5,7 +5,7 @@ parent: Customization
 nav_order: 1
 ---
 
-The `mappers` folder contains `base_workflow.osw` which serves as a simulation input for URBANopt. It is an OpenStudio workflow file that contains URBANopt Measures and dictates the sequence of running these Measures. Measures are added to create building models and apply different energy conservation Measures for different Scenarios.  
+The `mappers` folder contains `base_workflow.osw` which serves as a simulation input for URBANopt™. It is an OpenStudio workflow file that contains URBANopt Measures and dictates the sequence of running these Measures. Measures are added to create building models and apply different energy conservation Measures for different Scenarios.  
 
 The URBANopt GeoJSON Workflow uses building footprints to create building models.  The diagram below contains details on the sequence and purpose of measures used to accomplish this task.
 

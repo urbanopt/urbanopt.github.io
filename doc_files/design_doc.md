@@ -5,7 +5,7 @@ nav_exclude: true
 ---
 # Design Overview
 
-This document presents a general overview of the URBANopt design principles, software
+This document presents a general overview of the URBANopt™ design principles, software
 architecture, and modules. More detailed design documentation is available by following
 links throughout the URBANopt documentation. These design documents are living documents which will be
 continuously referenced, updated, and modified throughout the URBANopt project. We

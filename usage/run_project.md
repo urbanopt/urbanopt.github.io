@@ -5,7 +5,7 @@ parent: Usage
 nav_order: 2
 ---
 
-To run URBANopt, first [install](../installation/installation.md) the project dependencies and the URBANopt Command Line Interface.
+To run URBANopt™, first [install](../installation/installation.md) the project dependencies and the URBANopt Command Line Interface.
 
 Once the CLI is installed, help is available by typing `uo --help` from the command line. Detailed help for each command can be found with `uo <command> --help`
 
