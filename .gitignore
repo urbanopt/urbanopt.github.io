@@ -62,7 +62,7 @@ MANIFEST
 *.manifest
 *.spec
 
-vendor
+vendor/*
 
 # Installer logs
 pip-log.txt
