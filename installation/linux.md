@@ -25,7 +25,7 @@ nav_order: 3
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.0.0](https://github.com/NREL/OpenStudio/releases/tag/v3.0.0) \
+1. Install [OpenStudio 3.0.1](https://github.com/NREL/OpenStudio/releases/tag/v3.0.1) \
 
 	OpenStudio is designed to be used on Ubuntu 18.04. For other Ubuntu versions, see the [troubleshooting](troubleshooting.md) page.
 
