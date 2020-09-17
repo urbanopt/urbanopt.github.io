@@ -5,6 +5,7 @@ has_children: true
 nav_order: 4
 ---
 
+
 <div style="text-align:center"><img src="../doc_files/reopt-lite-logo.png" /></div>
 
 **REopt Lite** is a technoeconomic decision making model for distributed energy resource (DER) design accessible via [web tool](https://reopt.nrel.gov/tool) and [API](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/). Given a set of inputs it leverages mixed-integer linear programming to select the optimal design and hourly annual dispatch of solar PV, storage, wind and diesel generator technologies - it also provides key economic metrics for the system. Integration of this model with URBANopt allows individual buildings (i.e _Feature Reports_) and collections of buildings (i.e. _Scenario Reports_) to be assessed for cost-optimal DER solutions. 
@@ -17,4 +18,3 @@ The [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem) extends
 - Saves responses from the **REopt Lite API** to local files (by default in a `reopt` folder in the Scenario or Feature Report directory)
 - Updates Feature or Scenario Report's `distributed_generation` attributes based on a **REopt Lite API** response
 - Updates a Feature or Scenario Report's `timeseries_csv` based on a **REopt Lite API** response
-

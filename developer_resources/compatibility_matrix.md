@@ -7,7 +7,7 @@ nav_order: 1
 
 ## URBANopt Compatibility Matrix
 
-URBANopt depends on various other components to function. Ensure you have the proper version of each dependency for your installed version of URBANopt for expected operation.
+URBANopt™ depends on various other components to function. Ensure you have the proper version of each dependency for your installed version of URBANopt for expected operation.
 
 |URBANopt version|URBANopt CLI|OpenStudio|Ruby |URBANopt gems                                                                            |
 |:--------------:|:----------:|:--------:|:---:|:----------------------------------------------------------------------------------------|

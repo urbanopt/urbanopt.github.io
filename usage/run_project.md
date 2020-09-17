@@ -5,7 +5,7 @@ parent: Usage
 nav_order: 2
 ---
 
-To run URBANopt, first [install](../installation/installation.md) the project dependencies and the URBANopt Command Line Interface.
+To run URBANopt™, first [install](../installation/installation.md) the project dependencies and the URBANopt Command Line Interface.
 
 Once the CLI is installed, help is available by typing `uo --help` from the command line. Detailed help for each command can be found with `uo <command> --help`
 
@@ -36,6 +36,7 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
 
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
 1. **We recommend calling all URBANopt commands from _outside_ the project folder you created, using relative or absolute paths to the relevant files.**
+
 1. There are two ways to create [ScenarioFiles](../overview/definitions.md). One way, which creates a ScenarioFiles for all Features in the FeatureFile based off the example _mappers_, is to run:
 
     ```terminal
@@ -58,8 +59,7 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
 
     You may write your own mapper file for your own specific use case as needed, as well as make your own ScenarioFile by hand.  You may also make edits to the ScenarioFiles to mix and match mappers.
 
-1. Simulate energy usage of each feature or for a single Feature by specifying the appropriate
-   ScenarioFile by using:
+1. Simulate energy usage of each feature or for a single Feature by specifying the appropriate ScenarioFile by using:
 
     ```terminal
     uo run --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
@@ -73,7 +73,7 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
 
     Also note that there is a *runner.conf* file automatically created in the project folder.  This file is used to configure the number of features to process in parallel as well as a few other parameters.  Make edits to this file prior to running the above command.
 
-1. If you intent to post process with **REopt Lite** (i.e. using `reopt-scenario`, `reopt-feature`), please now refer to the instructions outlined in [REopt Post Processing](../reopt/reopt_post_processing.md). Otherwise, post-process simulated features into a [Scenario](../overview/definitions.md) report by using:
+1. If you intent to post process with **REopt Lite** (i.e. using `reopt-scenario`, `reopt-feature`), please now refer to the instructions outlined in [REopt Post Processing](../reopt/reopt_post_processing.md). Otherwise, post-process simulated features into a [Scenario](../overview/definitions.md) report by using `default` as the `type` :
 
     ```terminal
     uo process --<TYPE> --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
