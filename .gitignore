@@ -62,6 +62,8 @@ MANIFEST
 *.manifest
 *.spec
 
+vendor
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
