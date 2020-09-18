@@ -32,6 +32,7 @@ The URBANopt geojson schema differentiates between sets of required and optional
 
   1. floor_area (i.e., conditioned floor area)
   2. number_of_stories_above_ground
+  3. number_of_stories (includes foundation stories)
   3. number_of_bedrooms
   4. foundation_type: `slab`, `crawlspace - vented`, `crawlspace - unvented`, `basement - unconditioned`, `basement - conditioned`, `ambient`
   5. attic_type: `attic - vented`, `attic - unvented`, `attic - conditioned`, `flat roof`
@@ -55,6 +56,7 @@ An example "Single-Family Detached" building feature snippet is shown below.
     "floor_area": 3000,
     "building_type": "Single-Family Detached",
     "number_of_stories_above_grade": 1,
+    "number_of_stories": 1,
     "number_of_bedrooms": 4,
     "foundation_type": "slab",
     "attic_type": "attic - vented",
