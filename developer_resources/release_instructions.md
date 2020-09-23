@@ -7,7 +7,7 @@ nav_order: 2
 
 ## URBANopt release process
 
-The modular nature of URBANopt allows for freedom in developing and using only the parts relevant to your work. Keep in mind the following dependencies:
+The modular nature of URBANopt<sup>&trade;</sup> allows for freedom in developing and using only the parts relevant to your work. Keep in mind the following dependencies:
 
 ![gem dependency chart](../doc_files/uo_dependency_rank.png)
 

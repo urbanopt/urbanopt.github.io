@@ -9,7 +9,7 @@ nav_order: 4
 
 OpenDSS functionality is available through the URBANopt DiTTo Reader, which:
 
-- converts URBANopt output files for a scenario into OpenDSS input files
+- converts URBANopt<sup>&trade;</sup> output files for a scenario into OpenDSS input files
 - runs the OpenDSS workflow
 - stores OpenDSS results into the URBANopt scenario directory
 
