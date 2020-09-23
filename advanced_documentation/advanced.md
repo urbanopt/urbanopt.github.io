@@ -5,6 +5,7 @@ nav_order: 6
 ---
 
 To customize or extend URBANopt<sup>&trade;</sup>, we have provided the following documentation and source
+
 code. Schema for each gem are available in Schema. Every method is described in detail in
 Rdocs; click through for source code of each method.
 
