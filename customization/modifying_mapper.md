@@ -10,8 +10,8 @@ The Simulation Mapper Class maps the Features in the FeatureFile to arguments re
 Recall that a Feature refers to a single object in a district energy analysis, such as a
 building, district system, or transformer. The FeatureFile includes all data for all
 Features and could be written by a third party application or user interface; for our example we use the
-GeoJSON format. The input GeoJSON file must be valid and must meet the additional requirements for data supported or required by the appropriate URBANopt<sup>&trade;</sup> GeoJSON Gem [sub-schema](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/urbanopt/geojson/schema). The Simulation Mapper only supports mapping the
-[*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/building.rb)
+
+GeoJSON format. The input GeoJSON file must be valid and must meet the additional requirements for data supported or required by the appropriate URBANopt<sup>&trade;</sup> GeoJSON Gem [sub-schema](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/urbanopt/geojson/schema). The Simulation Mapper only supports mapping the [*Building*](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/building.rb)
 feature_type and has the capability to support mapping the following building types from
 the
 [building_properties](https://github.com/urbanopt/urbanopt-geojson-gem/blob/master/lib/urbanopt/geojson/schema/building_properties.json)
