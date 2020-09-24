@@ -2,7 +2,7 @@
 layout: default
 title: REopt
 has_children: true
-nav_order: 4
+nav_order: 5
 ---
 
 <div style="text-align:center"><img src="../doc_files/reopt-lite-logo.png" /></div>
