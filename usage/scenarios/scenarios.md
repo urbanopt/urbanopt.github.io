@@ -14,4 +14,4 @@ For each of our pre-built example scenario, we developed a Mapperclass that defi
 - High-Efficiency Scenario defined by a HighEfficiency MapperClass
 - Thermal Energy Storage Scenario defined by a ThermalStorage MapperClass
 
-The following subsections will describe each scenario and the measures included in their corresponding MapperCLass. For modifying and creating new Mapper Classes please refer to [customization section](../customization.md).
+The following subsections will describe each scenario and the measures included in their corresponding MapperClass. For modifying and creating new Mapper Classes please refer to [customization](../customization.md) section.

@@ -4,9 +4,15 @@ title: Baseline Scenario
 parent: Scenarios
 nav_order: 1
 ---
+# Baseline Scenario
 
 The Baseline MapperClass includes measures that create the basic required inputs for an OpenStudio model and characterize it with baseline energy properties. Below is the list of OpenStudio measures used in this mapper: 
 
+## Scenario
+The Baseline scenario is defined by applying the baseline MapperClass to each of the 13 builindgs in this sceanrio.
+
+## Measures
+The OpenStudio measures used in the Baseline Mapper are as the following: 
 
 - set_run_period: An OpenStudio Measure used to define the number of timesteps per hour and specify the start and end date for running the simulation.
 - ChangeBuildingLocation: An OpenStudio Measure to specify and load the energyPlusWeather file.

@@ -5,11 +5,11 @@ parent: Scenarios
 nav_order: 3
 ---
 
-# URBANopt Thermal Storage Scenario
+# Thermal Storage MapperClass
 
-The URBANopt&trade; example **Thermal [Energy] Storage (TES)** scenario is based on the **High Efficiency** scenario and provides cooling *load flexibility*, in addition to *energy efficiency*, relative to the **Baseline** scenario.
+The URBANopt&trade; example **Thermal [Energy] Storage (TES)** MapperClass is based on the **High Efficiency** MapperClass and provides cooling *load flexibility*, in addition to *energy efficiency*, relative to the **Baseline** Mapperclass.
 
-## TES Scenario
+## Scenario
 
 The TES scenario applies ice storage to each Building Feature in the High Efficiency scenario using either [packaged](#ptes) or [central](#its) ice storage units, as appropriate for each building type.
 
@@ -27,7 +27,7 @@ The TES scenario applies ice storage to each Building Feature in the High Effici
 - Mixed Use 2
 - Mall 1
 
-## TES Measures
+## Measures
 
 The two thermal storage measures used for this scenario are contained in the [openstudio-load-flexibility-measures](https://github.com/NREL/openstudio-load-flexibility-measures-gem "GitHub Repository") gem. The function and available user inputs are briefly described below and links to additional documentation are provided.
 
