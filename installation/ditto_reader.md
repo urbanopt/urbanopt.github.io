@@ -60,7 +60,7 @@ pandas              1.1.0
 pip                 19.2.3
 setuptools          41.2.0
 traitlets           4.3.3
-UrbanoptDittoReader 0.1.0   <path/to/urbanopt-ditto-reader>
+UrbanoptDittoReader 0.2.0   <path/to/urbanopt-ditto-reader>
 ```
 
 ### Troubleshooting for WINDOWS users
