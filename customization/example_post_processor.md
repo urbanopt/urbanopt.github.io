@@ -9,8 +9,8 @@ The following section is a short example where a new attribute "number of occupa
 
 Below are the steps for this process:
 
-- Clone the scenario-gem repository to your local machine.
-- Open the [schema](https://github.com/urbanopt/urbanopt-scenario-gem/blob/master/lib/urbanopt/scenario/default_reports/schema/scenario_schema.json) file and append the new property `number_of_occupants` to the properties inside the `program` component.
+- Clone the urbanopt-reporting-gem repository to your local machine.
+- Open the [schema](https://github.com/urbanopt/urbanopt-reporting-gem/blob/develop/lib/urbanopt/reporting/default_reports/schema/scenario_schema.json) file and append the new property `number_of_occupants` to the properties inside the `program` component.
 
 ```JSON
 {
@@ -25,7 +25,7 @@ Below are the steps for this process:
 }
 ```
 
-- go to the [program](https://github.com/urbanopt/urbanopt-scenario-gem/blob/master/lib/urbanopt/scenario/default_reports/program.rb) class in the [default_reports](https://github.com/urbanopt/urbanopt-scenario-gem/tree/master/lib/urbanopt/scenario/default_reports) and modify as follows:
+- go to the [program](https://github.com/urbanopt/urbanopt-reporting-gem/blob/develop/lib/urbanopt/reporting/default_reports/program.rb) class in the [default_reports](https://github.com/urbanopt/urbanopt-reporting-gem/tree/develop/lib/urbanopt/reporting/default_reports) and modify as follows:
 
 1) Add `number_of_occupants` to the attribute accessor.
 
@@ -73,7 +73,7 @@ def add_program(other)
 end
 ```
 
-- Next, go to the reporting Measure and request the number of occupants from the OpenStudio model and store it in the `feature_report`. `number_of_occupants` should be implemented in the `run` method, *after* the initialization of feature_report:
+- Next, go to the [reporting Measure](https://github.com/urbanopt/urbanopt-reporting-gem/blob/develop/lib/measures/default_feature_reports/measure.rb) and request the number of occupants from the OpenStudio model and store it in the `feature_report`. `number_of_occupants` should be implemented in the `run` method, *after* the initialization of feature_report:
 
 ``` ruby
 def run(runner, user_arguments)
