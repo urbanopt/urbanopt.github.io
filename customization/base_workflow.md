@@ -9,6 +9,7 @@ The `mappers` folder contains `base_workflow.osw` which serves as a simulation i
 
 The URBANopt GeoJSON Workflow uses building footprints to create building models.  The diagram below contains details on the sequence and purpose of measures used to accomplish this task.
 
+<!--- TODO: Update diagram to Urban Geometry Creation Zoning measure -->
 ![urbanopt measure workflow diagram](../doc_files/urbanopt_measure_workflow.png)
 
 All measures contained in the base workflow are listed below:
@@ -25,7 +26,9 @@ All measures contained in the base workflow are listed below:
 
 - [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/blended_space_type_from_model): An OpenStudio Model Articulation Measure that is used to create a single space type that represents the loads and schedules of a collection of space types. It removes all previous space type assignments and hard assigns internal loads from spaces included in the building floor area. A blended space type will be created from the original internal loads and assigned at the building level.
 
-- [`urban_geometry_creation`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/measures/urban_geometry_creation): An URBANopt GeoJSON measure that is used to create geometry along with spaces for a particular building, accounting for shading from surrounding buildings.
+- [`urban_geometry_creation_zoning`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/measures/urban_geometry_creation_zoning):
+  An URBANopt GeoJSON measure that is used to create extruded geometry for buildign features from
+  GeoJSON coordinates with core and perimeter zoning, it can also account for shading from surrounding buildings.
 
 - [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model): A second instance of this Measure, which is added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
 

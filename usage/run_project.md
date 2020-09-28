@@ -15,7 +15,30 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
     uo create --project-folder <path/to/PROJECT_DIRECTORY_NAME>
     ```
 
-    This creates a project folder containing the [example project](example.md), and downloads related weather files and detailed models to the appropriate folders.
+    This creates a project folder containing the [example project](example.md) using the
+    default geometry workflow with `urban-geometry-creation-zoning` measure, and downloads
+    related weather files and detailed models to the appropriate folders.
+
+    Users can add a subcommand to use an alternate geometry creation workflow. The following
+    alternate geometry methods can be used:
+
+   * **createbar** 
+
+    This uses the `create_bar_from_building_type_ratio` measure to create building geometry.
+    ```terminal
+    uo create --project-folder --createbar <path/to/PROJECT_DIRECTORY_NAME>
+    ```
+   
+   * **floorspace** 
+
+    This creates building geometry from floor plans with stub space types drawn using
+    `FloorSpaceJS`.
+    
+    ```terminal
+    uo create --project-folder --floorspace <path/to/PROJECT_DIRECTORY_NAME>
+    ```
+    For more details on these geometry workflows, refer to [geometry_workflows](geometry_workflows.md).
+
 
     Create an empty base project folder by using:
 
@@ -32,7 +55,11 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
     uo create --overwrite --project-folder <path/to/PROJECT_DIRECTORY_NAME>
     ```
 
-    This deletes anything in the named folder and creates a fresh project directory. Can be combined with `-e` to overwrite a directory with a new empty URBANopt project directory.
+    This deletes anything in the named folder and creates a fresh project directory. Can be combined
+    with `-e` to overwrite a directory with a new empty URBANopt project directory.
+    
+    *Note: Keep the length of the path to the project directory short to avoid an error due to long
+    paths, especially while running in Windows. For more information on this error, refer to [known issues](../developer_resources/known_issues.md)*.
 
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
 1. **We recommend calling all URBANopt commands from _outside_ the project folder you created, using relative or absolute paths to the relevant files.**
@@ -80,7 +107,23 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
     ```
 
     Valid `TYPE`s are: `default`, `opendss`, `reopt-scenario`, `reopt-feature`
+1. Visualize the results of post-processing:
 
+    * To visualize and compare the results of post-processing for **all scenarios**:
+
+    ```terminal
+    uo visualize --scenario <path/to/FEATUREFILE>
+    ```
+    The resulting visualizations can be viewed in the `scenario_comparison.html` file in the run folder.
+
+    * To visualize and compare the results of post-processing for **all features** in the scenario:
+
+    ```terminal
+    uo visualize --feature <path/to/SCENARIOFILE>
+    ```
+    The resulting visualizations can be viewed in the `feature_comparison.html` file in the scenario folder.
+
+    *Note : You need to run the `default` post-process command before visualizing the results.* 
 
 1. Delete an outdated [Scenario](../overview/definitions.md) run by using:
 
