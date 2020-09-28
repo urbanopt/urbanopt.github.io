@@ -69,7 +69,7 @@ The communities and urban design space is too large for any tool, SDK, or engine
 In line with the software design principles outlined above, URBANopt projects are assembled from multiple functional modules. Because there is so much variability in district-scale energy analysis, the end user is responsible for combining all of the URBANopt (and other) modules needed to implement the desired workflow for their project.  Multiple example projects will be provided to give users a point of reference when starting out.
 
 Figure 3: Software Architecture for an Example URBANopt Project
-![uo_architecture_example](uo_architecture_example.jpg)
+![uo_architecture_example](uo_platform_diagram_f.jpg)
 
 The example project shown in Figure 3 combines a set of URBANopt modules to implement a
 basic district-scale energy analysis workflow.  Each block shown in Figure 3 represents a
