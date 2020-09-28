@@ -27,7 +27,7 @@ All measures contained in the base workflow are listed below:
 - [`blended_space_type_from_model`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/blended_space_type_from_model): An OpenStudio Model Articulation Measure that is used to create a single space type that represents the loads and schedules of a collection of space types. It removes all previous space type assignments and hard assigns internal loads from spaces included in the building floor area. A blended space type will be created from the original internal loads and assigned at the building level.
 
 - [`urban_geometry_creation_zoning`](https://github.com/urbanopt/urbanopt-geojson-gem/tree/master/lib/measures/urban_geometry_creation_zoning):
-  An URBANopt GeoJSON measure that is used to create extruded geometry for buildign features from
+  An URBANopt GeoJSON measure that is used to create extruded geometry for building features from
   GeoJSON coordinates with core and perimeter zoning, it can also account for shading from surrounding buildings.
 
 - [`create_typical_building_from_model 2`](https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model): A second instance of this Measure, which is added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.

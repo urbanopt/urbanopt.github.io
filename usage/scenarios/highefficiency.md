@@ -10,7 +10,7 @@ nav_order: 2
 The HighEfficiency MapperClass inherits from the Baseline the required input and applies energy efficiency measures. Below is the list of the added OpenStudio measures that define this Mapper: 
 
 ## Scenario
-The High Efficiency scenario is defined by applying the HighEfficiency MapperClass to all of the 13 builindgs in this sceanrio.
+The High Efficiency scenario is defined by applying the HighEfficiency MapperClass to all of the 13 buildings in this scenario.
 
 ## Measures
 The OpenStudio measures used in the HighEfficiency Mapper are as the following: 
