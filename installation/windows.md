@@ -7,7 +7,38 @@ nav_order: 2
 
 # Windows Installation Instructions
 
-## Dependencies
+As of version 0.3.1, an URBANopt installer (64-bit Windows 7 – 10) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.  
+
+For CLI usage examples, see our [example project](../usage/run_project.md)
+
+## Install with the URBANopt installer
+
+1. Download the desired version of the [.exe installer](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/). 
+
+1. Use the GUI installer and choose a directory to install. Once installed, open a terminal (Powershell, Windows CMD and GitBash are supported) and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
+
+
+### Bash (or GitBash for Windows)
+```terminal
+c:/urbanopt-cli-X.X.X/setup-env.sh  
+. ~/.env_uo.sh  
+```
+
+### Powershell
+```terminal
+c:\urbanopt-cli-X.X.X\setup-env.ps1  
+. ~\.env_uo.ps1  
+```
+### Windows Command Prompt
+```terminal
+c:\urbanopt-cli-X.X.X\setup-env.bat  
+%HOMEPATH%\.env_uo.bat  
+```
+
+1. When launching new shell terminals, run the correct environment config to setup the environment. 
+
+
+## Manual Install
 
 1. Install [Ruby 2.5 (x64)](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.5-1/rubyinstaller-2.5.5-1-x64.exe)  
 
@@ -59,13 +90,13 @@ nav_order: 2
 	git config --global core.longpaths true
 	``` -->
 
-## Basic Set-up
-
 1. Install the URBANopt™ Command Line Interface (CLI):
 
     ```terminal
     gem install urbanopt-cli
     ```
+
+## URBANopt CLI Usage
 
 1. View available CLI commands with:
 
@@ -73,4 +104,4 @@ nav_order: 2
     uo --help
     ```
 
-1. For detailed instructions, see our [example instructions](../usage/run_project.md)
+1. For detailed instructions, see our [example project](../usage/run_project.md)

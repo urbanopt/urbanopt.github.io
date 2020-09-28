@@ -7,7 +7,27 @@ nav_order: 3
 
 # Linux Installation Instructions
 
-## Dependencies
+As of version 0.3.1, an URBANopt installer (Ubuntu 18.04) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
+
+For CLI usage examples, see our [example project](../usage/run_project.md)
+
+## Install with the URBANopt Installer
+
+1. Download the desired version of the [.deb package](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/).
+
+1. This will install to ```/usr/local/``` directory.
+e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
+
+1. To run the UrbanOpt CLI, first run the ```setup-env.sh``` script that generates environmental variables and stores these in ```env_uo.sh``` in your home directory.
+
+```bash
+/usr/local/urbanopt-cli-X.X.X/setup-env.sh  
+. ~/.env_uo.sh
+```
+
+1. When launching new shell terminals, run ```. ~/.env_uo.sh``` to setup the environment. 
+
+## Manual Install
 
 **_Linux installation has not been tested exhaustively. Please submit a bug report via the Github issue page if you run into installation errors_**
 
@@ -37,13 +57,13 @@ nav_order: 3
 
 	(where X.X.X is the OpenStudio version installed)
 
-## Basic Set-up
-
 1. Install the URBANopt™ Command Line Interface (CLI):
 
     ```terminal
     gem install urbanopt-cli
     ```
+
+## URBANopt CLI Usage
 
 1. View available CLI commands with:
 
@@ -51,4 +71,4 @@ nav_order: 3
     uo --help
     ```
 
-1. For detailed instructions, see our [example instructions](../usage/run_project.md)
+1. For detailed instructions, see our [example project](../usage/run_project.md)
