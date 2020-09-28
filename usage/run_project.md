@@ -36,48 +36,51 @@ Once the CLI is installed, help is available by typing `uo --help` from the comm
 
 1. Put your [FeatureFile](../overview/definitions.md) in the root of the folder you just created, or use the provided example.
 1. **We recommend calling all URBANopt commands from _outside_ the project folder you created, using relative or absolute paths to the relevant files.**
-1. Create [ScenarioFiles](../overview/definitions.md) for all Features in the FeatureFile based off the example _mappers_ using:
+
+1. There are two ways to create [ScenarioFiles](../overview/definitions.md). One way, which creates a ScenarioFiles for all Features in the FeatureFile based off the example _mappers_, is to run:
 
     ```terminal
-    uo create --scenario-file <path/to/FEATUREFILE>
+    uo create --scenario-file <path/to/FEATUREFILE.json>
     ```
 
-    Or create a ScenarioFile for a single [Feature](../overview/definitions.md) by specifying the Feature_ID in the arguments.
+    Alternatively, to create a ScenarioFile for a single [Feature](../overview/definitions.md), specify the Feature_ID in the arguments as shown here:
 
     ```terminal
-    uo create --scenario-file <path/to/FEATUREFILE> --single-feature <FEATURE_ID>
+    uo create --scenario-file <path/to/FEATUREFILE.json> --single-feature <FEATURE_ID>
     ```
 
-    Or create a ScenarioFile with additional REopt information to enable running and post-processing with REopt data.
+    If you will be post-processing with **REopt Lite** data, you will need to also now convert your scenario CSV file with:
 
     ```terminal
-    uo create --reopt-scenario-file <path/to/EXISTING_SCENARIO_FILE>
+    uo create --reopt-scenario-file <path/to/EXISTING_SCENARIO_FILE.csv>
     ```
+
+    This command will create a new scenario CSV (named REopt_scenario.csv by default) that has an extra column to map assumption files to features. Use this scenario CSV file going forward in future steps.
 
     You may write your own mapper file for your own specific use case as needed, as well as make your own ScenarioFile by hand.  You may also make edits to the ScenarioFiles to mix and match mappers.
 
-1. Simulate energy usage of each feature or for a single Feature by specifying the appropriate
-   ScenarioFile by using:
+1. Simulate energy usage of each feature or for a single Feature by specifying the appropriate ScenarioFile by using:
 
     ```terminal
-    uo run --feature <path/to/FEATUREFILE> --scenario <path/to/SCENARIOFILE>
+    uo run --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
     ```
 
-1. Simulate energy usage for a scenario with additional REopt capability. Run this simulation to enable REopt post-processing (see below for details).
+    **Note:** To simulate energy usage for a scenario that will require additional **REopt Lite** post-processing, run this command instead.
 
     ```terminal
-    uo run --reopt --feature <path/to/FEATUREFILE> --scenario <path/to/SCENARIOFILE>
+    uo run --reopt --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
     ```
 
-    Note that there is a *runner.conf* file automatically created in the project folder.  This file is used to configure the number of features to process in parallel as well as a few other parameters.  Make edits to this file prior to running the above command.
+    Also note that there is a *runner.conf* file automatically created in the project folder.  This file is used to configure the number of features to process in parallel as well as a few other parameters.  Make edits to this file prior to running the above command.
 
-1. Post-process simulated features into a [Scenario](../overview/definitions.md) report by using:
+1. If you intent to post process with **REopt Lite** (i.e. using `reopt-scenario`, `reopt-feature`), please now refer to the instructions outlined in [REopt Post Processing](../reopt/reopt_post_processing.md). Otherwise, post-process simulated features into a [Scenario](../overview/definitions.md) report by using `default` as the `type` :
 
     ```terminal
-    uo process --<TYPE> --feature <path/to/FEATUREFILE> --scenario <path/to/SCENARIOFILE>
+    uo process --<TYPE> --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
     ```
 
     Valid `TYPE`s are: `default`, `opendss`, `reopt-scenario`, `reopt-feature`
+
 
 1. Delete an outdated [Scenario](../overview/definitions.md) run by using:
 
