@@ -25,8 +25,7 @@ A translator measure is then applied to the HPXML file to constuct an OpenStudio
 
 ## Supported Building Types
 
-Currently, *Single-Family Detached* is the only low-rise residential building type supported (mid-rise and high-rise multifamily building prototypes can be found in the commercial building workflows).
-The current plan is for future URBANopt releases to include *Single-Family Attached* and low-rise *Multifamily* capabilities.
+Currently, *Single-Family Detached* is the only low-rise residential building type supported (mid-rise and high-rise multifamily building prototypes can be found in the commercial building workflows).  Additionally, on the *Baseline* Scenario is supported at this time. *Single-Family Attached* and low-rise *Multifamily* capabilities will be included in future releases of the URBANopt SDK.
 
 ### 1. Single-Family Detached
 

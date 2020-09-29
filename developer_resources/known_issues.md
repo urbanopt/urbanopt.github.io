@@ -15,7 +15,7 @@ nav_order: 3
 	```bash
 		gem install sqlite3 -v 1.4.2
 	```
-1. The residential workflows currently only support the *single-family attached* building type and have not been tested exhaustively.  Single-Family detached and Multifamily building types will be added in future releases of the URBANopt SDK. Review the [modeling notes](../usage/residential_workflows.html#modeling-notes) on the residential workflows page. Please submit a bug report via the [URBANopt GitHub Issues Page](https://github.com/urbanopt/urbanopt-cli/issues) if you run into any issues.
+1. The residential workflows currently only support the *Single-Family Detached* building type in the **Baseline** Scenario and have not been tested exhaustively.  *Single-Family Attached* and lowrise *Multifamily* building types will be added in future releases of the URBANopt SDK. Review the [modeling notes](../usage/residential_workflows.html#modeling-notes) on the residential workflows page. Please submit a bug report via the [URBANopt GitHub Issues Page](https://github.com/urbanopt/urbanopt-cli/issues) if you run into any issues.
 
 
 ### Version 0.2.0
