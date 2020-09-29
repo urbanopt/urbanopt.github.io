@@ -17,11 +17,8 @@ features with core and perimeter zoning from GeoJSON footprint coordinates in th
 More details of the measures used in the
 workflow can be found in the [base workflow section](../customization/base_workflow.md).
 
-<div style="text-align:center">
-
 ![urbanopt measure workflow diagram](../doc_files/core_perimeter_zoning.jpg)
 
-</div style="text-align:center">
 
 **Createbar workflow**
 
@@ -48,11 +45,7 @@ bar, surrounded by spaces of another space type. For an example, for a primary s
 This workflow does not take the actual building footprint into account and does not take consider
 the impact of self and context shading.
 
-<div style="text-align:center">
-
 ![urbanopt measure workflow diagram](../doc_files/create_bar.png)
-
-</div style="text-align:center">
 
 
 **FloorspaceJS workflow** 
