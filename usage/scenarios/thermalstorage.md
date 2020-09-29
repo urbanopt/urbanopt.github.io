@@ -87,13 +87,13 @@ Note that the "add_packaged_ice_storage" measure is an EnergyPlus<sup>&trade;</s
 
 Below are figures comparing the **Baseline**, **High Efficiency**, and **Thermal Storage** scenarios over three example summer days, illustrating both efficiency gains and load shifting.
 
-![](electric.png)
+![](../../doc_files/electric.png)
 
-![](cooling.png)
+![](../../doc_files/cooling.png)
 
 On an annual basis, the load duration curves for each scenario show how **High Efficiency** provides a general lowering of the curve; while **Thermal Storage** provides a 'flattening' effect.
 
-![](ld.png)
+![](../../doc_files/ld.png)
 
 ## Definitions
 
