@@ -52,13 +52,13 @@ alternate geometry methods can be used:
 
 * **Residential Buildings**
 
-    As of version 0.4.0, URBANopt support residential building types (single-family detached for now, single-family attached and multifamily will be included in future releases).  To create a project that contains all files required to run the residential workflow, add the ```--residential``` option to the create command:
+    As of version 0.4.0, URBANopt support a workflow that combines commercial building types and residential building types (*Single-family Detached* only for now, *Single-family Attached* and *Multifamily* will be included in a future release).  To create a project that contains all files required to run this combined workflow, add the ```--combined``` option to the create command:
 
     ```terminal
-    uo create --residential --project-folder <path/to/PROJECT_DIRECTORY_NAME>
+    uo create --combined --project-folder <path/to/PROJECT_DIRECTORY_NAME>
     ```
 
-    For more information on residential building support, visit the [residential buildings](../customization/residential_buildings.html) page.
+    For more information on residential building support, visit the [residential buildings](../usage/residential_workflows.html) page.
 
 * **Empty Project** 
 
