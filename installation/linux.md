@@ -29,7 +29,7 @@ e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
 
 ## Manual Install
 
-**_Linux installation has not been tested exhaustively. Please submit a bug report via the Github issue page if you run into installation errors_**
+**_Linux installation has not been tested exhaustively. Please submit a bug report via the [Github issue page](https://github.com/urbanopt/urbanopt-cli/issues) if you run into installation errors_**
 
 1. Install Ruby 2.5 (anything in the 2.5.x range will work).  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby 2.5](https://github.com/rbenv/rbenv#installing-ruby-versions)
     - Install rbenv on your system

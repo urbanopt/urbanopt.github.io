@@ -2,6 +2,7 @@
 layout: default
 title: High Efficiency Scenario
 parent: Scenarios
+grand_parent: Usage
 nav_order: 2
 ---
 
