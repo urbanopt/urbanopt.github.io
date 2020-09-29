@@ -12,19 +12,19 @@ nav_order: 3
 
 1. SQLITE/WINDOWS issues: The sqlite3 gem contains native extensions and sometimes causes installation errors for WINDOWS users.  To resolve, ensure your ruby version is installed with "MSYS2 and MINGW development toolchain" (option 3 during installation) and that the following command succeeds before installing the CLI:
 
-```bash
-	gem install sqlite3 -v 1.4.2
-```
-1. The residential workflows currently only support the *single-family attached* building type and have not been tested exhaustively.  Single-Family detached and Multifamily building types will be added in future releases of the URBANopt SDK. Please submit a bug report via the [URBANopt GitHub Issues Page](https://github.com/urbanopt/urbanopt-cli/issues) if you run into any issues.
+	```bash
+		gem install sqlite3 -v 1.4.2
+	```
+1. The residential workflows currently only support the *single-family attached* building type and have not been tested exhaustively.  Single-Family detached and Multifamily building types will be added in future releases of the URBANopt SDK. Review the [modeling notes](../usage/residential_workflows.html#modeling-notes) on the residential workflows page. Please submit a bug report via the [URBANopt GitHub Issues Page](https://github.com/urbanopt/urbanopt-cli/issues) if you run into any issues.
 
 
 ### Version 0.2.0
 
 1.	New example project files: The URBANopt™ SDK version 0.2.0 release comes with new files for the example project (new mappers and a new base_workflow.osw file).  For compatibility purposes and to use all new features, you may want to update any existing projects with these new files.  The example project can be installed via the CLI with the following command:
 
-```bash
-	uo create --project-folder <path/to/PROJECT DIR> 
-```
+	```bash
+		uo create --project-folder <path/to/PROJECT DIR> 
+	```
 
 1.	Project filepath length issue: Users (windows users especially) may run into an error while running URBANopt.  The error will be encountered either when running ‘bundle install’ in the project directory or in the in.osw.log file of a specific feature simulation and will look like this:
 Errno::ENOENT: No such file or directory @ rb_sysopen –
