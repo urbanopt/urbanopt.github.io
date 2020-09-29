@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Residential Buildings
-parent: Customization
-nav_order: 2
+title: Residential Workflows
+parent: Usage
+nav_order: 4
 ---
 
 Residential building energy models in URBANopt<sup>&trade;</sup> are created using the [OpenStudio-HPXML](https://github.com/NREL/OpenStudio-HPXML) workflow.
@@ -25,18 +25,28 @@ A translator measure is then applied to the HPXML file to constuct an OpenStudio
 
 ## Supported Building Types
 
-Currently, "Single-Family Detached" is the only low-rise residential building type supported (mid-rise and high-rise multifamily building prototypes can be found in the commercial building workflows).
-The current plan is for future URBANopt releases to include "Single-Family Attached" and low-rise "Multifamily" capabilities.
+Currently, *Single-Family Detached* is the only low-rise residential building type supported (mid-rise and high-rise multifamily building prototypes can be found in the commercial building workflows).
+The current plan is for future URBANopt releases to include *Single-Family Attached* and low-rise *Multifamily* capabilities.
 
 ### 1. Single-Family Detached
 
-Building surfaces are stored in HPXML without 3D coordinates. An example geometry rendering for a translated HPXML file is given below.
+The 3D building surfaces stored in HPXML and OSM models represent the area and orientation of ground and exterior exposure of surfaces, but do not represent their position relative to each other. An example geometry rendering for a translated HPXML file is given below. 
 
 ![single_family_detached](../doc_files/single-family-detached.jpg)
 
+
+#### Modeling Notes
+
+- *Single-Family Detached* home models may contain unconditioned non-living spaces that are included as part of the total building area, such as a garage. As a result energy use intensities per area (EUI) for homes will vary based on the unconditioned floor area. EUI's are not currently used as part of the URBANopt reporting.
+- *Single-Family Detached* home models may be heated only, air conditioned only, or both heated and cooled. 
+  - Partial Conditioning: heating and cooling may be applied to just a portion of the living space of the home or to the entire living space. Representation of partial conditioning of the living space of a home is accomplished by adding ideal air load system to heat and cool the un-conditioned portion of the living area. In this situation, district heating or cooling loads may show up in end uses for the home.
+  - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system can't meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate. 
+  - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
+- It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for *Single-Family Detached* home models you should look at district heating and cooling loads.
+
 #### GeoJSON Schema
 
-The URBANopt geojson schema differentiates between sets of required and optional fields for "Single-Family Detached" residential buildings:
+The URBANopt geojson schema differentiates between sets of required and optional fields for *Single-Family Detached* residential buildings:
 
 * Required fields:
 
@@ -55,25 +65,25 @@ The URBANopt geojson schema differentiates between sets of required and optional
 
 An example "Single-Family Detached" building feature snippet is shown below.
 
-```
-{
-  "type": "Feature",
-  "properties": {
-    "id": "1",
-    "geometryType": "Rectangle",
-    "name": "New Building_1",
-    "type": "Building",
-    "floor_area": 3000,
-    "building_type": "Single-Family Detached",
-    "number_of_stories_above_grade": 1,
-    "number_of_stories": 1,
-    "number_of_bedrooms": 4,
-    "foundation_type": "slab",
-    "attic_type": "attic - vented",
-    "system_type": "Residential - furnace and central air conditioner",
-    "heating_system_fuel_type": "natural gas"
-  }
-```
+  ```
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "1",
+      "geometryType": "Rectangle",
+      "name": "New Building_1",
+      "type": "Building",
+      "floor_area": 3000,
+      "building_type": "Single-Family Detached",
+      "number_of_stories_above_grade": 1,
+      "number_of_stories": 1,
+      "number_of_bedrooms": 4,
+      "foundation_type": "slab",
+      "attic_type": "attic - vented",
+      "system_type": "Residential - furnace and central air conditioner",
+      "heating_system_fuel_type": "natural gas"
+    }
+  ```
 
 ### 2. Single-Family Attached 
 

@@ -9,7 +9,7 @@ nav_order: 2
 
 As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (64-bit Windows 7 – 10) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.  
 
-For CLI usage examples, see our [example project](../usage/run_project.md)
+For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 
 ## Install with the URBANopt installer
 
@@ -106,7 +106,7 @@ For CLI usage examples, see our [example project](../usage/run_project.md)
     uo --help
     ```
 
-1. For detailed instructions, see our [example instructions](../usage/run_project.md)
+1. For detailed instructions, see the [usage examples](../usage/run_project.md) page.
 
 ## OpenDSS and DiTTo Reader Set-up
 

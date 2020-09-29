@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Running a Project
+title: Usage Examples
 parent: Usage
 nav_order: 2
 ---
@@ -16,7 +16,7 @@ paths, especially while running on Windows. For more information on this error, 
 
 - We recommend calling all URBANopt commands from _outside_ the project folder you created, using relative or absolute paths to the relevant files.
 
-## URBANopt Project Steps
+## URBANopt CLI Usage Examples
 
 ### 1. Create Project
 

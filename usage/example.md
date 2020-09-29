@@ -13,7 +13,7 @@ The <u>hypothetical</u> example project design and building typologies are shown
 
 ![example_project_layout](../doc_files/building_types_ISO_no_res.jpg)
 
-The example project can be installed via the Command Line Interface with the following command. For more information, visit the [Running a Project](run_project.md) page.
+The example project can be installed via the Command Line Interface with the following command. For more information, visit the [Usage Examples](run_project.md) page.
 
 ```terminal
 uo create --project-folder <path/to/PROJECT_DIRECTORY_NAME>
