@@ -5,20 +5,14 @@ parent: Scenarios
 nav_order: 3
 ---
 
-# Thermal Storage MapperClass
+The Thermal Energy Storage (TES) scenario applies ice storage to each Building Feature defined in the FeatureFile using either [packaged](#ptes) or [central](#its) ice storage units, as appropriate for each building type. The TES MapperClass inherits from the High Efficiency MapperClass and provides cooling *load flexibility*, in addition to *energy efficiency*, relative to the Baseline Mapperclass.
 
-The URBANopt&trade; example **Thermal [Energy] Storage (TES)** MapperClass is based on the **High Efficiency** MapperClass and provides cooling *load flexibility*, in addition to *energy efficiency*, relative to the **Baseline** Mapperclass.
-
-## Scenario
-
-The TES scenario applies ice storage to each Building Feature in the High Efficiency scenario using either [packaged](#ptes) or [central](#its) ice storage units, as appropriate for each building type.
-
-[**Packaged**](#ptes) ice storage units are attached to individual packaged air conditioning or rooftop units. Each packaged unit is individually sized and controlled to provide [full storage](#full) from **12:00-18:00 daily**. Charging is performed overnight beginning at 23:00. For this scenario, packaged ice storage units are added to all the cooling coils in each of the following Building Features:
+[**Packaged**](#ptes) ice storage units are attached to individual packaged air conditioning or rooftop units. Each packaged unit is individually sized and controlled to provide [full storage](#full) from **12:00-18:00 daily**. Charging is performed overnight beginning at 23:00. For this scenario, packaged ice storage units are added to all the cooling coils in each of the following Building Features of the example project:
 
 - All Six Restaurants
 - Hotel 1 (excluding packaged terminal AC units)
 
-[**Central**](#its) ice thermal storage tanks added to large buildings with a central chilled water loop. The chillers are downsized to 80% of the capacities used in the High Efficiency scenario and the ice tanks are sized and controlled to provide [partial storage](#partial) from **08:00-20:00 daily**. A fixed 2&deg;C working fluid temperature difference is maintained across the ice tanks during discharge and all other cooling is met by the chiller(s). Charging is performed overnight beginning at 23:00. For this scenario, central ice storage tanks are added to the plant loops in each of the following Building Features:
+[**Central**](#its) ice thermal storage tanks are added to large buildings with a central chilled water loop. The chillers are downsized to 80% of the capacities used in the High Efficiency scenario and the ice tanks are sized and controlled to provide [partial storage](#partial) from **08:00-20:00 daily**. A fixed 2&deg;C working fluid temperature difference is maintained across the ice tanks during discharge and all other cooling is met by the chiller(s). Charging is performed overnight beginning at 23:00. For this scenario, central ice storage tanks are added to the plant loops in each of the following Building Features of the example project:
 
 - Mixed Use 1
 - Office 1
@@ -31,7 +25,7 @@ The TES scenario applies ice storage to each Building Feature in the High Effici
 
 The two thermal storage measures used for this scenario are contained in the [openstudio-load-flexibility-measures](https://github.com/NREL/openstudio-load-flexibility-measures-gem "GitHub Repository") gem. The function and available user inputs are briefly described below and links to additional documentation are provided.
 
-### <a name="ptes"></a> Measure 1: "add_packaged_ice_storage"
+### <a name="ptes"></a> add_packaged_ice_storage Measure
 
 
 A packaged ice storage device is categorized by the Air-Conditioning, Heating, and Refrigeration Institute as a [unitary thermal storage system](#utss). These systems differ from central ice systems in both size (typically much smaller) and method of ice-production (internal vs. external compressors). Charging is performed by the device's internal ice making equipment and discharging is accomplished through a heat exchanger coil placed into the airstream.
@@ -42,7 +36,7 @@ Users inputs are accepted for cooling coil selection, ice storage capacity, syst
 
 Complete documentation is available [here](https://github.com/NREL/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_packaged_ice_storage).
 
-### <a name="its"></a> Measure 2: "add_central_ice_storage"
+### <a name="its"></a> add_central_ice_storage Measure
 
 This measure applies to buildings with central chilled water plants and allows users to rapidly implement most of the design configurations and control schemes described in the ASHRAE Design Guide for Cool Thermal Storage. Charging is provided by the external chiller and discharging is controlled through temperature setpoints and mixing valves.
 
@@ -87,7 +81,7 @@ Within your .osw file, add the measure and set any common argument values. For e
   }
 ```
 
-Note that the "add_packaged_ice_storage" measure is an EnergyPlus&trade; type measure and must be placed after all OpenStudio&reg; type measures and before reporting measures.
+Note that the "add_packaged_ice_storage" measure is an EnergyPlus<sup>&trade;</sup> type measure and must be placed after all OpenStudio&reg; type measures and before reporting measures.
 
 ## Comparing Scenarios
 

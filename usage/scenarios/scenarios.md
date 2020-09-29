@@ -4,14 +4,15 @@ title: Scenarios
 parent: Usage
 has_children: true
 nav_order: 3
+has_toc: false
 ---
 
-In this section, you can learn more about the pre-built example scenarios and their corresponding mapper classes. Each Feature in a Scenario is assigned with a Simulation Mapper Class. A Mapper Class translates the information in a Feature to simulation input. This Mapper creates a simulation input using a template that bundles a set of OpenStudio Measures. It uses these measures to create an input defining specific energy model characteristics for the Feature.  This gives great control to define custom simulation behavior for a scenario. 
+In this section, you can learn more about the pre-built example scenarios and their corresponding mapper classes. Each Feature in a Scenario is assigned a Simulation Mapper Class. A Mapper Class translates the feature information compiled in the FeatureFile to create the simulation inputs. The Mapper creates a simulation input using a template OSW that bundles a set of OpenStudio Measures (base_workflow.osw). Different mapper classes can choose to run or skip the measures in the template OSW, as well as set their arguments. The measures are used to create an input defining specific energy model characteristics for each Feature.  This allows for greater control when defining custom simulation behavior for each individual scenario. 
 
-For each of our pre-built example scenario, we developed a Mapperclass that define the efficiency level and properties of the scenario. The developed prebuilt scenarios are as the following: 
+For each pre-built example scenario, we developed a Mapperclass that defines the efficiency level and properties of the scenario. The developed prebuilt scenarios are: 
 
-- Baseline scenario defined by a Baseline MapperClass
-- High-Efficiency Scenario defined by a HighEfficiency MapperClass
-- Thermal Energy Storage Scenario defined by a ThermalStorage MapperClass
+- [Baseline Scenario](baseline.md) defined by a Baseline MapperClass
+- [High-Efficiency Scenario](highefficiency.md) defined by a HighEfficiency MapperClass
+- [Thermal Energy Storage Scenario](thermalstorage.md) defined by a ThermalStorage MapperClass
 
-The following subsections will describe each scenario and the measures included in their corresponding MapperClass. For modifying and creating new Mapper Classes please refer to [customization](../customization.md) section.
+To learn more about modifying and creating new Mapper Classes, refer to the [customization](../customization.md) section.
