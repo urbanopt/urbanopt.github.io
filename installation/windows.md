@@ -7,9 +7,9 @@ nav_order: 2
 
 # Windows Installation Instructions
 
-As of version 0.3.1, an URBANopt installer (64-bit Windows 7 – 10) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.  
+As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (64-bit Windows 7 – 10) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.  
 
-For CLI usage examples, see our [example project](../usage/run_project.md)
+For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 
 ## Install with the URBANopt installer
 
@@ -17,23 +17,22 @@ For CLI usage examples, see our [example project](../usage/run_project.md)
 
 1. Use the GUI installer and choose a directory to install. Once installed, open a terminal (Powershell, Windows CMD and GitBash are supported) and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
 
+	**Bash (or GitBash for Windows)**
+	```terminal
+	c:/urbanopt-cli-X.X.X/setup-env.sh  
+	. ~/.env_uo.sh  
+	```
 
-### Bash (or GitBash for Windows)
-```terminal
-c:/urbanopt-cli-X.X.X/setup-env.sh  
-. ~/.env_uo.sh  
-```
-
-### Powershell
-```terminal
-c:\urbanopt-cli-X.X.X\setup-env.ps1  
-. ~\.env_uo.ps1  
-```
-### Windows Command Prompt
-```terminal
-c:\urbanopt-cli-X.X.X\setup-env.bat  
-%HOMEPATH%\.env_uo.bat  
-```
+	**Powershell**
+	```terminal
+	c:\urbanopt-cli-X.X.X\setup-env.ps1  
+	. ~\.env_uo.ps1  
+	```
+	**Windows Command Prompt**
+	```terminal
+	c:\urbanopt-cli-X.X.X\setup-env.bat  
+	%HOMEPATH%\.env_uo.bat  
+	```
 
 1. When launching new shell terminals, run the correct environment config to setup the environment. 
 
@@ -41,6 +40,9 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 ## Manual Install
 
 1. Install [Ruby 2.5 (x64)](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.5-1/rubyinstaller-2.5.5-1-x64.exe)  
+
+	Make sure that you select option 3: **MSYS2 and MINGW development toolchain** during the installation process:
+	![installer options](../doc_files/ruby_windows.png)
 
 1. Include path to Ruby by adding the following to your environment variables path: 
 
@@ -89,7 +91,7 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 	git config --global core.longpaths true
 	``` -->
 
-1. Install the URBANopt™ Command Line Interface (CLI):
+1. Install the URBANopt Command Line Interface (CLI):
 
     ```terminal
     gem install urbanopt-cli
@@ -103,4 +105,12 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
     uo --help
     ```
 
-1. For detailed instructions, see our [example project](../usage/run_project.md)
+1. For detailed instructions, see the [usage examples](../usage/run_project.md) page.
+
+## OpenDSS and DiTTo Reader Set-up
+
+As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.  
+
+If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.  
+
+Note that Windows users may experience some difficulty during the install (particularly with the environment variable setup).  If you are not able to access the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
