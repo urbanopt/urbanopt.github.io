@@ -7,9 +7,9 @@ nav_order: 1
 
 # Mac Installation Instructions
 
-As of version 0.3.1, an URBANopt installer (Mac OSX >= 10.12) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
+As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
 
-For CLI usage examples, see our [example project](../usage/run_project.md)
+For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 
 ## Install with the URBANopt Installer
 
@@ -49,7 +49,7 @@ For CLI usage examples, see our [example project](../usage/run_project.md)
     1. Copy and paste `export RUBYLIB=/Applications/OpenStudio-X.X.X/Ruby` (where X.X.X is the OpenStudio version installed) at the top of the file
     1. Press `control-x` to exit, then `y` to save the changes, and the `return` key to go back to the terminal
 
-1. Install the URBANopt™ Command Line Interface (CLI):
+1. Install the URBANopt Command Line Interface (CLI):
 
     ```terminal
     gem install urbanopt-cli
@@ -63,4 +63,10 @@ For CLI usage examples, see our [example project](../usage/run_project.md)
     uo --help
     ```
 
-1. For detailed usage instructions, see our [example project](../usage/run_project.md)
+1. For detailed instructions, see the [usage examples](../usage/run_project.md) page.
+
+## OpenDSS and DiTTo Reader Set-up
+
+As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.  
+
+If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.
