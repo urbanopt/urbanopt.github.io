@@ -166,10 +166,11 @@ alternate geometry methods can be used:
 
     **SQL output**
 
-    Post-processing also generates a database file of aggregate energy use (all buildings included) at each hour for the named scenario. \
-    DB file schema: \
-    FileName: default_scenario_report.db \
-    TableName: ReportData
+    Post-processing also generates a database file of aggregate energy use (all buildings included) at each hour for the named scenario. 
+
+    The database file is called *default_scenario_report.db* and be found in the scenario directory.
+    The relevant table is named *ReportData*:
+
     |TimeIndex|Year|Month|Day|Hour|Minute|Dst|ReportDataDictionaryIndex   |Value         |
     |:-------:|:--:|:---:|:-:|:--:|:----:|:-:|:--------------------------:|:------------:|
     | Integer |Var |Var  |Var|Var |Var   |Var| Integer                    | Integer      |
