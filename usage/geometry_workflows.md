@@ -2,7 +2,7 @@
 layout: default
 title: Geometry Workflows
 parent: Usage
-nav_order: 2
+nav_order: 3
 ---
 
 The URBANopt<sup>&trade;</sup> project offers different options for creating building geometry to suit various
