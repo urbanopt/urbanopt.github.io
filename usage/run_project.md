@@ -33,14 +33,14 @@ related weather files and detailed models to the appropriate directories.
 Users can add a subcommand to use an alternate geometry creation workflow. The following
 alternate geometry methods can be used:
 
-* **Createbar** 
+* **Createbar**
 
     This uses the `create_bar_from_building_type_ratio` measure to create building geometry.
     ```terminal
     uo create --project-folder --createbar <path/to/PROJECT_DIRECTORY_NAME>
     ```
-   
-* **Floorspace** 
+
+* **Floorspace**
 
     This creates building geometry from floor plans with stub space types drawn using
     `FloorSpaceJS`.
@@ -60,7 +60,7 @@ alternate geometry methods can be used:
 
     For more information on residential building support, visit the [residential buildings](../usage/residential_workflows.html) page.
 
-* **Empty Project** 
+* **Empty Project**
 
     Create an empty base project folder by using:
 
@@ -71,7 +71,7 @@ alternate geometry methods can be used:
     This creates project folder without an example FeatureFile and an empty weather folder. You can
     download weather files and add to this folder from energyplus.net/weather.
 
-* **Overwrite Existing Project** 
+* **Overwrite Existing Project**
 
     By default, the CLI will abort if the project directory being created already exists. To overwrite an existing folder, use the ```--overwrite``` option:
 
@@ -127,7 +127,7 @@ alternate geometry methods can be used:
     ```
 
     **REopt Functionality**
-     
+
      To simulate energy usage for a scenario that will require additional **REopt Lite** post-processing, run this command instead:
 
     ```terminal
@@ -156,13 +156,24 @@ alternate geometry methods can be used:
 
     **OpenDSS Functionality**
 
-    If you intend to post-process **OpenDSS** results, use `opendss` as the type: 
+    If you intend to post-process **OpenDSS** results, use `opendss` as the type:
 
     ```terminal
     uo process --<TYPE> --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
     ```
 
     For more information on the OpenDSS workflow, visit the [OpenDSS](../opendss/opendss.md) page.
+
+    **SQL output**
+
+    Post-processing also generates a database file of aggregate energy use (all buildings included) at each hour for the named scenario. \
+    DB file schema: \
+    FileName: default_scenario_report.db \
+    TableName: ReportData
+    |TimeIndex|Year|Month|Day|Hour|Minute|Dst|ReportDataDictionaryIndex   |Value         |
+    |:-------:|:--:|:---:|:-:|:--:|:----:|:-:|:--------------------------:|:------------:|
+    | Integer |Var |Var  |Var|Var |Var   |Var| Integer                    | Integer      |
+    |         |    |     |   |    |      |   |10 = Electricity  1382 = Gas| Amount (J)   |
 
 
 ### 5. Visualize project
@@ -183,7 +194,7 @@ Once a project has been post-processed, the results can be visualize either at t
     ```
     The resulting visualizations can be viewed in the `feature_comparison.html` file in the scenario folder.
 
-    *Note: You need to run the `default` post-process command before visualizing the results.* 
+    *Note: You need to run the `default` post-process command before visualizing the results.*
 
 1. Delete an outdated [Scenario](../overview/definitions.md) run by using:
 
