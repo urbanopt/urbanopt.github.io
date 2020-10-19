@@ -11,6 +11,7 @@ Rdocs; click through for source code of each method.
 
 - [GeoJSON Gem documentation](https://urbanopt.github.io/urbanopt-geojson-gem/)
 - [Scenario Gem documentation](https://urbanopt.github.io/urbanopt-scenario-gem/)
+- [Reporting Gem documentation](https://urbanopt.github.io/urbanopt-reporting-gem/)
 - [REopt Gem documentation](https://urbanopt.github.io/urbanopt-reopt-gem/)
 - [GeoJSON Modelica Translator documentation](https://urbanopt.github.io/geojson-modelica-translator/)
 
