@@ -15,7 +15,7 @@ Users can create their own OpenStudio reporting Measure to generate customized s
 In this default reporting measure, a feature_report object is instantiated. Then information is retrieved from the Openstudio model and stored in this `feature_report`. In the example below a feature_report is initialized first. Then the openstudio model is acquired from the openstudio runner. Afterwards, the numberof timesteps per huour is retrieved from the openstudio model and assigned to the feature_report attribute (`timestep_per_hour`)
 
 ````ruby
-feature_report = URBANopt::Scenario::DefaultReports::FeatureReport.new
+feature_report = URBANopt::Reporting::DefaultReports::FeatureReport.new
 
 # get the last model
 model = runner.lastOpenStudioModel
@@ -89,7 +89,7 @@ end
 
 **Adding Timeseries results to CSV feature reports:**
 
-Users can also query and add new timeseries results to CSV feature report files. [OpenStudio API](https://openstudio-sdk-documentation.s3.amazonaws.com/cpp/OpenStudio-2.9.0-doc/utilities/html/classopenstudio_1_1_sql_file.html) include methods to query timeseries data from the sql file. These methods are utilized to query timeseries reults of interest. The queried timeseries values are then converted to specified units and saved in the `default_feature_eport.csv` file. Below is a simplified example of this process where two requested timeseries names are added to the csv report (`Electricity:Facility` and `Gas:Facility`). 
+Users can also query and add new timeseries results to CSV feature report files. [OpenStudio API](https://openstudio-sdk-documentation.s3.amazonaws.com/cpp/OpenStudio-2.9.0-doc/utilities/html/classopenstudio_1_1_sql_file.html) include methods to query timeseries data from the sql file. These methods are utilized to query timeseries reults of interest. The queried timeseries values are then converted to specified units and saved in the `default_feature_eport.csv` file. Below is a simplified example of this process where two requested timeseries names are added to the csv report (`Electricity:Facility` and `Gas:Facility`).
 
 
 First, the requested timeseries names are defined. Then the `sql_file.timeSeries` and `.get.values` methods are envoked sequentially to get the timeseires values for each of the requested names (refer to [OpenStudio API](https://openstudio-sdk-documentation.s3.amazonaws.com/cpp/OpenStudio-2.9.0-doc/utilities/html/classopenstudio_1_1_sql_file.html) for further details on these methods).
@@ -108,7 +108,7 @@ key_cnt = 0
 # loop over requested timeseries
 requested_timeseries_names.each_index do |i|
   timeseries_name = requested_timeseries_names[i]
-  
+
   # get the actual timeseries
   ts = sql_file.timeSeries(ann_env_pd.to_s, reporting_frequency.to_s, timeseries_name)
   values[key_cnt] = ts.get.values
