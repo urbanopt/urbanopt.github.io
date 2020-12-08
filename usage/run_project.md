@@ -166,7 +166,7 @@ alternate geometry methods can be used:
 
     **SQL output**
 
-    Post-processing also generates a database file of aggregate energy use (all buildings included) at each hour for the named scenario. 
+    Post-processing also generates a database file of aggregate energy use (all buildings included) at each hour for the named scenario.
 
     The database file is called *default_scenario_report.db* and be found in the scenario directory.
     The relevant table is named *ReportData*:
@@ -184,23 +184,23 @@ Once a project has been post-processed, the results can be visualize either at t
 -  To visualize and compare the post-processing results for **all scenarios**, run the following command:
 
     ```terminal
-    uo visualize --scenario <path/to/FEATUREFILE>
+    uo visualize --scenario <path/to/FEATUREFILE.json>
     ```
     The resulting visualizations can be viewed in the `scenario_comparison.html` file in the run folder.
 
 - To visualize and compare the post-processing results for **all features** in a particular scenario:
 
     ```terminal
-    uo visualize --feature <path/to/SCENARIOFILE>
+    uo visualize --feature <path/to/SCENARIOFILE.csv>
     ```
     The resulting visualizations can be viewed in the `feature_comparison.html` file in the scenario folder.
 
     *Note: You need to run the `default` post-process command before visualizing the results.*
 
-1. Delete an outdated [Scenario](../overview/definitions.md) run by using:
+1. Delete an outdated [Scenario](../overview/definitions.md):
 
     ```terminal
-    uo delete --scenario <path/to/SCENARIOFILE>
+    uo delete --scenario <path/to/SCENARIOFILE.csv>
     ```
 
 ## Workflow Details
