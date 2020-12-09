@@ -15,16 +15,21 @@ We recommend releasing gems **in order from the base to most dependent**. For ea
 
 1. Increment version (if needed) in `/lib/*/version.rb`
 1. For gems with measures in them, run the following rake tasks and commit the changes:
-	1. rake openstudio:test_with_openstudio
-	1. rake openstudio:update_measures
-1. Run `rake rubocop:auto_correct` on all PRs before merging to `develop`
+	```
+	rake openstudio:test_with_openstudio
+	rake openstudio:update_measures
+	```
+1. Run `RuboCop` on all PRs before merging to `develop`
+    ```
+	rake rubocop:auto_correct
+	```
 1. Remove .DS_Store files if any are in the repo
 1. If the gem has rdoc documentation, [regenerate the rdocs](../developer_resources/developer_resources.md#generating-rdoc-documentation)
-1. Run the `changelog.rb` script and add the changes to the CHANGELOG.md file for the range of time between last release and this release. Only add the Closed Issues. Also make sure that all the pull requests have a related Issue in order to be included in the change log.
+1. Run the changelog rake task and add the changes to the CHANGELOG file for the range of time between last release and this release. Also make sure that all pull requests have a related Issue to be included in the change log.
 	```
-	ruby lib/change_log.rb –t <GITHUB_API_TOKEN> –s <START_DATE> –e <END_DATE>
+	rake openstudio:change_log[start_date,end_date,apikey]
 	```
-Paste the results (remove unneeded Accepted Pull Requests) into the CHANGELOG.md. Make sure to cleanup the formatting.
+    No spaces around the commas! Paste the `Closed Issues` into the CHANGELOG, matching formatting as appropriate.
 1. Merge pull requests to the `develop` branch
 1. Create PR to master
     - Ensure all tests pass before merging
