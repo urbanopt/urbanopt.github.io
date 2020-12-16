@@ -9,8 +9,11 @@ nav_order: 1
 
 The URBANopt<sup>&trade;</sup> installer includes Ruby and OpenStudio. The matrix below shows the versions details for each installer version.
 
-|URBANopt version|OpenStudio|Ruby|
+|URBANopt Version|OpenStudio|Ruby|
 |:--------------:|:----------:|:--------:|
+| 0.5.0          | 3.1.0      |2.5    |
+| 0.4.1          | 3.0.1      |2.5    |
+| 0.4.0          | 3.0.1      |2.5    |
 | 0.3.1          | 3.0.1      |2.5    |
 
 
@@ -18,9 +21,10 @@ The URBANopt<sup>&trade;</sup> installer includes Ruby and OpenStudio. The matri
 
 URBANopt<sup>&trade;</sup> depends on various other components to function. Ensure you have the proper version of each dependency for your installed version of URBANopt for expected operation.
 
-|URBANopt version|URBANopt CLI|OpenStudio|Ruby |URBANopt gems                                                                            |
-|:--------------:|:----------:|:--------:|:---:|:---------------------------------------------------------------------------------------|
-|**0.4.1**      |0.4.1       |3.0      |2.5.x|Core Gem v0.4.0 <br/> GeoJSON Gem v0.4.0 <br/> Scenario Gem v0.4.4<br/> Reporting Gem v0.2.1<br/> Reopt Gem v0.4.1 <br/> DiTTo Reader v0.2.0| 
+|URBANopt Version|URBANopt CLI|OpenStudio|Ruby|Gems                                                                           |
+|:--------------:|:----------:|:--------:|:--:|:---------------------------------------------------------------------------------------|
+|**0.5.0**		|0.5.0		 |3.1	   |2.5.x|**URBANopt Gems:** <br/>Core Gem v0.5.1 <br/> GeoJSON Gem v0.5.1 <br/> Scenario Gem v0.5.0<br/>Reporting Gem v0.3.2 <br/> REopt Gem v0.5.0 <br/> DiTTo Reader v0.2.0 <br/>**OpenStudio Gems:**<br/>Extension Gem v0.3.2  <br/> Common Measures v0.3.2 <br/> Model Articulation v0.3.1 <br/> Load Flexibility v0.2.1 <br/> EE Gem v0.3.2 <br/> Calibration Gem v0.3.1 | 
+|**0.4.1**      |0.4.1       |3.0      |2.5.x|**URBANopt Gems:** <br/>Core Gem v0.4.0 <br/> GeoJSON Gem v0.4.0 <br/> Scenario Gem v0.4.4<br/> Reporting Gem v0.2.1<br/> Reopt Gem v0.4.1 <br/> DiTTo Reader v0.2.0 <br/>**OpenStudio Gems:**<br/>Extension Gem v0.2.5 <br/> Common Measures v0.2.0 <br/> Model Articulation v0.2.0 <br/> Load Flexibility v0.1.3 |
 |**0.4.0**      |0.4.0       |3.0      |2.5.x|Core Gem v0.4.0 <br/> GeoJSON Gem v0.4.0 <br/> Scenario Gem v0.4.2 <br/> Reporting Gem v0.2.0<br/> Reopt Gem v0.4.0 <br/> DiTTo Reader v0.2.0| 
 |**0.3.1**       |0.3.1       |3.0       |2.5.x|Core Gem v0.3.0 <br/> GeoJSON Gem v0.3.0 <br/> Scenario Gem v0.3.0 <br/> REopt Gem v0.3.0 <br/> DiTTo Reader v0.1.1|
 |**0.2.1**       |0.2.3       |2.9       |2.2.4|Core Gem v0.2.0 <br/> GeoJSON Gem v0.2.0 <br/> Scenario Gem v0.2.0 <br/> REopt Gem v0.2.1 <br/> DiTTo Reader v0.1.1|
