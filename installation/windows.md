@@ -15,15 +15,18 @@ For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 
 1. Download the desired version of the [.exe installer](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/). 
 
-1. Use the GUI installer and choose a directory to install. Once installed, open a terminal (Powershell, Windows CMD and GitBash are supported) and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
+1. Use the GUI installer and choose a directory to install. Once installed, open a  terminal and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
 
-	**Bash (or GitBash for Windows)**
+**Note: GitBash is recommended**
+
+
+	**GitBash**
 	```terminal
 	c:/urbanopt-cli-X.X.X/setup-env.sh  
 	. ~/.env_uo.sh  
 	```
 
-	**Powershell**
+<!-- 	**Powershell**
 	```terminal
 	c:\urbanopt-cli-X.X.X\setup-env.ps1  
 	. ~\.env_uo.ps1  
@@ -32,7 +35,7 @@ For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 	```terminal
 	c:\urbanopt-cli-X.X.X\setup-env.bat  
 	%HOMEPATH%\.env_uo.bat  
-	```
+	``` -->
 
 1. When launching new shell terminals, run the correct environment config to setup the environment. 
 
@@ -77,7 +80,7 @@ For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 	```terminal
 	OS:Version,
 	 {<long-uuid>},                          !- Handle
-	 3.0.0;                                  !- Version Identifier`
+	 3.1.0;                                  !- Version Identifier`
 	 ```
 
 <!-- 1. Install [Git](https://git-scm.com/) if not already installed. A list of [optional git
@@ -91,7 +94,7 @@ For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 	git config --global core.longpaths true
 	``` -->
 
-1. Install the URBANopt Command Line Interface (CLI):
+1. Install the URBANopt Command Line Interface (CLI). This should not take longer than a few minutes. Visit the [known issues](../developer_resources/known_issues.md) page if the installation stalls.
 
     ```terminal
     gem install urbanopt-cli
