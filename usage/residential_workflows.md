@@ -17,6 +17,7 @@ HPXML files are built based on feature information contained in the geojson file
 * heat_pump.tsv
 * heating_system.tsv
 * mechanical_ventilation.tsv
+* exhaust.tsv
 * refrigerator.tsv
 * water_heater.tsv
 
@@ -111,7 +112,7 @@ Otherwise, argument values will be set according to [these lookup files](https:/
 * enclosure (insulation levels, air leakage, etc.)
 * HVAC systems (heating/cooling types, efficiencies, etc.)
 * appliances (refrigerator, clothes washer, etc.)
-* mechanical ventilation
+* ventilation (mechanical, exhaust)
 * water heater
 
 All argument values for the previous categories may be customized by manually adjusting values in the lookup files.
