@@ -9,6 +9,13 @@ nav_order: 3
 
 ### Version 0.4.0
 
+1. If the CLI installation stalls on the `openstudio-standards` gem: 1) exit out of the installation, 2) install openstudio-standards by itself, 3) rerun the CLI install command:
+
+	```bash
+	gem install openstudio-standards
+	gem install urbanopt-cli
+	```
+
 1. This version contains a known bug related to the feature CSV reports and the scenario-level SQL database.  It is recommended that you upgrade to version 0.4.1.
 
 1. URBANopt<sup>&trade;</sup> SDK version 0.4.0 includes OpenDSS support via the URBANopt CLI.  Windows users may experience errors detecting python and urbanopt-ditto-reader when using the `opendss` CLI command.  If you are not able to run OpenDSS through the CLI, the functionality is also available manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
