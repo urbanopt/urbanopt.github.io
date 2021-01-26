@@ -5,6 +5,9 @@ nav_order: 6
 ---
 # OpenDSS Converter
 
+
+Visit the [OpenDSS Installation page](../installation/ditto_reader.md) to install OpenDSS and URBANopt DiTTo Reader.
+
 ## OpenDSS
 
 OpenDSS is an open-source tool that is popular for simulating electrical distribution systems. It captures several important components of the electrical infrastructure which connects substations to customers; including power lines, electrical nodes, loads, transformers, PV systems, capacitors and regulators among others. OpenDSS simulates powerflow through an electrical network for steady-state loading conditions. The simulations can then be used to determine electrical infrastructure performance and potential shortcomings for different district design scenarios. The URBANopt<sup>&trade;</sup> framework currently focuses on four key metrics; transformer overloads, line overloads, over-voltages and under-voltages. Simulated electrical behavior outside of industry standards is used to flag impractical district system designs and inform the changes required to achieve more reliable electrical operations.
