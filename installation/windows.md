@@ -17,27 +17,28 @@ For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 
 1. Use the GUI installer and choose a directory to install. Once installed, open a  terminal and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
 
-**Note: GitBash is recommended**
+		**Note: GitBash is recommended**
 
+		**GitBash**
+			
+		```terminal
+		c:/urbanopt-cli-X.X.X/setup-env.sh  
+		. ~/.env_uo.sh  
+		```
 
-	**GitBash**
-	```terminal
-	c:/urbanopt-cli-X.X.X/setup-env.sh  
-	. ~/.env_uo.sh  
-	```
+		**Powershell**
+		```terminal
+		c:\urbanopt-cli-X.X.X\setup-env.ps1  
+		. ~\.env_uo.ps1  
+		```
 
-<!-- 	**Powershell**
-	```terminal
-	c:\urbanopt-cli-X.X.X\setup-env.ps1  
-	. ~\.env_uo.ps1  
-	```
-	**Windows Command Prompt**
-	```terminal
-	c:\urbanopt-cli-X.X.X\setup-env.bat  
-	%HOMEPATH%\.env_uo.bat  
-	``` -->
+		**Windows Command Prompt**
+		```terminal
+		c:\urbanopt-cli-X.X.X\setup-env.bat  
+		%HOMEPATH%\.env_uo.bat  
+		``` 
 
-1. When launching new shell terminals, run the correct environment config to setup the environment. 
+1. <span class="label label-red">Important Note</span> Each time you want to work on URBAnopt and you open a new terminal to do so, you will need to run the `setup-env` step from above to configure your terminal session environment. 
 
 
 ## Manual Install
