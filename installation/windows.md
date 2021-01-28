@@ -20,7 +20,6 @@ For CLI usage examples, see our [usage examples page](../usage/run_project.md)
 **Note: GitBash is recommended**
 
 **GitBash**
-	
 ```terminal
 c:/urbanopt-cli-X.X.X/setup-env.sh  
 . ~/.env_uo.sh  
@@ -38,8 +37,24 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 %HOMEPATH%\.env_uo.bat  
 ``` 
 
-<span class="label label-red">Important Note</span> Each time you want to work on URBAnopt and you open a new terminal to do so, you will need to run the `setup-env` step from above to configure your terminal session environment. 
 
+
+<span class="label label-red">Important Note</span> Each time you want to work on URBAnopt and you open a new terminal to do so, you will need to run the `env_uo` script to configure your terminal session environment:
+
+**GitBash**
+```terminal
+. ~/.env_uo.sh  
+```
+
+**Powershell**
+```terminal
+. ~\.env_uo.ps1  
+```
+
+**Windows Command Prompt**
+```terminal
+%HOMEPATH%\.env_uo.bat  
+``` 
 
 ## Manual Install
 
