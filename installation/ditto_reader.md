@@ -88,11 +88,12 @@ The DiTTo-Reader/OpenDSS workflow is available via the ```opendss``` URBANopt CL
 
 
 ### Notes
-- The ```run``` and ```process``` commands must first be run on a scenario to generate the input files required by OpenDSS. 
+- The ```run``` and ```process --default``` (post-process with the default post-processor) commands must first be run on a scenario to generate the input files required by OpenDSS. 
 - The feature file should contain Electrical Connectors and Junctions for a successful OpenDSS run.
 - The location of ditto is assumed to be found at ```urbanopt-ditto-reader/ditto```.
 - The equipment file is assumed to be at ```urbanopt-ditto-reader/example/electrical-database.json``` unless otherwise specified with the --equipment flag when issuing the command
 - If you want to include reopt results as an input to OpenDSS, make sure to specify the --reopt flag when issuing the command
+- Once the ```opendss``` command has been run, the ```process --opendss``` command can then be run to pull the opendss results back into the URBANopt reports.
 
 For usage help:
 ```bash
@@ -100,6 +101,19 @@ uo opendss --help
 ```
 
 An example:
-```bash
-uo opendss --scenario baseline_scenario.csv --feature example_project.json
-```
+1. Create and run your project as you normal would, following the [usage examples](../usage/run_project.html#urbanopt-cli-usage-examples).
+
+1. Post-process using the default post-processor to generate the feature_reports used by the OpenDSS workflow:
+	```bash
+	uo process --default --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
+	```
+
+1. Use the opendss command to run the opendss workflow:
+	```bash
+	uo opendss --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
+	```
+
+1. Post-process using the opendss post-processor to integrate the opendss results into the feature_reports:
+	```bash
+	uo process --opendss --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
+	```
