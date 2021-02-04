@@ -17,7 +17,6 @@ An example 3D rendering of this building model is shown below for the following 
 * flat roof
 * 8 living units
 * double exterior corridor
-* left/right neighbors at 10 ft
 
 ![multifamily](../../doc_files/multifamily-1.jpg)
 
@@ -75,7 +74,7 @@ An example "Low-Rise Multifamily" building feature snippet is shown below.
       "foundation_type": "slab",
       "attic_type": "flat roof",
       "system_type": "Residential - furnace and room air conditioner",
-      "heating_system_fuel_type": "natural gas",
+      "heating_system_fuel_type": "wood",
       "number_of_residential_units": 8,
       "template": "Residential IECC 2015 - Customizable Template Sep 2020"
     }

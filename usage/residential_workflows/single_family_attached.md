@@ -17,7 +17,6 @@ An example 3D rendering of this building model is shown below for the following 
 * vented attic
 * 2 living units
 * no rear units
-* left/right neighbors at 10 ft
 
 ![single_family_attached](../../doc_files/single-family-attached-1.jpg)
 
@@ -73,7 +72,7 @@ An example "Single-Family Attached" building feature snippet is shown below.
       "foundation_type": "slab",
       "attic_type": "attic - vented",
       "system_type": "Residential - furnace and room air conditioner",
-      "heating_system_fuel_type": "natural gas",
+      "heating_system_fuel_type": "fuel oil",
       "number_of_residential_units": 2,
       "template": "Residential IECC 2015 - Customizable Template Sep 2020"
     }
