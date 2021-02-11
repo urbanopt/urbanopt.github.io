@@ -10,7 +10,7 @@ The URBANopt<sup>&trade;</sup> Scenario Post-Processor requires Feature reports 
 Users can create their own OpenStudio reporting Measure to generate customized simulation reports. Users can request results for different reporting frequencies or query and report additional outputs that are important for their own projects(e.g. reporting specific construction costs). Users should refer to the current reporting Measure and this [reporting measure writing guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/#reporting-measures) to customize the current `measure.rb` file in [default_feature_reports](https://github.com/urbanopt/urbanopt-reporting-gem/tree/develop/lib/measures/default_feature_reports) directory or create a new reporting Measure.
 
 
-**Initializing feature_report object and assigning information to its attributes:**
+## Initializing feature_report object and assigning information to its attributes:
 
 In this default reporting measure, a feature_report object is instantiated. Then information is retrieved from the Openstudio model and stored in this `feature_report`. In the example below a feature_report is initialized first. Then the openstudio model is acquired from the openstudio runner. Afterwards, the numberof timesteps per huour is retrieved from the openstudio model and assigned to the feature_report attribute (`timestep_per_hour`)
 
@@ -30,7 +30,7 @@ feature_report.timesteps_per_hour = timesteps_per_hour
 ````
 
 
-**Adding queried results to JSON feature reports:**
+## Adding queried results to JSON feature reports:
 
 Methods to query results from the output EnergyPlus sql file are also created and used to retrieve results and add them to the corresponding properties in the `feature_report`. In the example below, the `sql_query` and `convert_units` methods are used to query total_site_energy, convert units to kBtu and assign it to the total_site_energy attribute in the Feature report:
 
@@ -87,7 +87,7 @@ File.open('default_feature_reports.json', 'w') do |f|
 end
 ```
 
-**Adding Timeseries results to CSV feature reports:**
+## Adding Timeseries results to CSV feature reports:
 
 Users can also query and add new timeseries results to CSV feature report files. [OpenStudio API](https://openstudio-sdk-documentation.s3.amazonaws.com/cpp/OpenStudio-2.9.0-doc/utilities/html/classopenstudio_1_1_sql_file.html) include methods to query timeseries data from the sql file. These methods are utilized to query timeseries reults of interest. The queried timeseries values are then converted to specified units and saved in the `default_feature_eport.csv` file. Below is a simplified example of this process where two requested timeseries names are added to the csv report (`Electricity:Facility` and `Gas:Facility`).
 
@@ -147,7 +147,7 @@ File.open('default_feature_reports.csv', 'w') do |file|
 end
 ```
 
-**Adding the reporting measure to the OSW file:**
+## Adding the reporting measure to the OSW file:
 
 Users can then add any new reporting Measure to the OpenStudio workflow file, as described in the [Adding your own Measures](adding_own_measure.md) section, and re-run the simulation. The current Measure added to the `base_workflow.osw` is the `default_feature_reports`:
 

@@ -8,7 +8,7 @@ nav_order: 3
 The URBANopt<sup>&trade;</sup> project offers different options for creating building geometry to suit various
 modeling requirements. This section gives an overview of these workflows.
 
-**Default workflow**
+## Default workflow
 
 The default workflow in the URBANopt example project uses the `urban-geometry-creation-zoning`
 measure in the [GeoJSON gem](https://urbanopt.github.io/urbanopt-geojson-gem/) to create building
@@ -20,7 +20,7 @@ workflow can be found in the [base workflow section](../customization/base_workf
 ![urbanopt measure workflow diagram](../doc_files/core_perimeter_zoning.jpg)
 
 
-**Createbar workflow**
+## Createbar workflow
 
 This workflow uses the
 [create_bar_from_building_type_ratios](https://github.com/NREL/openstudio-model-articulation-gem/tree/develop/lib/measures/create_bar_from_building_type_ratios)
@@ -46,7 +46,7 @@ the impact of self and context shading.
 ![urbanopt measure workflow diagram](../doc_files/create_bar.png)
 
 
-**FloorspaceJS workflow** 
+## FloorspaceJS workflow
 
 This workflow starts with floor plans and stub space types drawn using FloorSpaceJS. The
 FloorspaceJS file is converted to an OpenStudio model by a measure that merges it with a seed model,

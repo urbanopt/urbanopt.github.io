@@ -5,7 +5,7 @@ parent: Customization
 nav_order: 6
 ---
 
-**ScenarioDefaultPostProcessor:**
+## ScenarioDefaultPostProcessor:
 
 The URBANopt<sup>&trade;</sup> Scenario Post-Processor aggregates results from each Feature simulation. This process requires specific OpenStudio Reporting Measure be run for each Feature to generate required simulation reports (e.g. timeseries CSV data for specific outputs, specific metrics). Instructions for creating a new reporting measure to generate the Feature reports can be found in the [Feature report](feature_reports.md) section. These individual simulation results should be aligned with the final desired aggregated results. For example, if users decide to customize the reporting measure to report new results (e.g. number of occupants), additional methods should be developed to allow the Post-Processor to aggregate the results for the added attribues.
 
@@ -22,9 +22,9 @@ This `default_post_processor` aggregates Feature reports into Scenario-level res
 ![post-processor-code-architecture](../doc_files/PostProcessor_code_architecture.jpg)
 
 
-**OpenDSSPostProcessor:**
+## OpenDSSPostProcessor:
 
-In parallel to the scenario gem, OpenDSS modules have been developed to run OpenDSS models and compute metrics of the electrical network. OpenDSS runs will generate a results directory named `opendss` within the project scenario run directory. This `opendss` directory will include output reports for each building, line and transformer, as well as other OpenDSS-related results. 
+In parallel to the scenario gem, OpenDSS modules have been developed to run OpenDSS models and compute metrics of the electrical network. OpenDSS runs will generate a results directory named `opendss` within the project scenario run directory. This `opendss` directory will include output reports for each building, line and transformer, as well as other OpenDSS-related results.
 
 An OpenDSS postprocessor has been developed to integrate selected OpenDSS results into the default URBANopt reports. The postprocessor parses specific results from the `opendss` results directory and adds them to the URBANopt scenario and feature reports. Users can customize or extend this postprocessor to add more OpenDSS results to the scenario and feature reports.
 

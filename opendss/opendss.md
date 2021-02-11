@@ -12,7 +12,7 @@ Visit the [OpenDSS Installation page](../installation/ditto_reader.md) to instal
 
 Follow these steps to run the OpenDSS workflow via the CLI:
 
-1. Create and run your project as you normal would, following the [usage examples](../usage/run_project.html#urbanopt-cli-usage-examples).
+1. Create and run your project as you normal would, following the [usage examples](../usage/run_project.html#urbanopt-cli-usage-examples). Ensure you use a [feature file](../overview/definitions.md#feature-file) that includes the necessary electrical network configuration (e.g. `example_project_with_electric_network.json`).
 
 1. Post-process using the default post-processor to generate the feature_reports used by the OpenDSS workflow:
 	```bash
@@ -43,7 +43,7 @@ There are a variety of modelling tools for representing electrical distribution 
 
 ![ditto-flowchart](../doc_files/opendss-ditto-workflow.png)
 
-The DiTTo repository contains an OpenDSS reader and writer to import data from OpenDSS files into the API and to export data in the API to OpenDSS, respectively. However, customized readers and writers can be built to pass data formats that are currently not supported in the DiTTo repository. For URBANopt, geojson files are used to describe district-scale energy system layouts and timeseries csv files are used to describe building load and solar generation profiles. The [urbanopt-ditto-reader](https://github.com/urbanopt/urbanopt-ditto-reader/tree/master/reader) repository contains a module to parse the relevant URBANopt data into DiTTo, allowing the OpenDSS files to be written by the OpenDSS writer already supported in DiTTo.  
+The DiTTo repository contains an OpenDSS reader and writer to import data from OpenDSS files into the API and to export data in the API to OpenDSS, respectively. However, customized readers and writers can be built to pass data formats that are currently not supported in the DiTTo repository. For URBANopt, geojson files are used to describe district-scale energy system layouts and timeseries csv files are used to describe building load and solar generation profiles. The [urbanopt-ditto-reader](https://github.com/urbanopt/urbanopt-ditto-reader/tree/master/reader) repository contains a module to parse the relevant URBANopt data into DiTTo, allowing the OpenDSS files to be written by the OpenDSS writer already supported in DiTTo.
 
 ### Conversion Inputs
 #### Geojson data
@@ -52,7 +52,7 @@ The electrical layout of an URBANopt model is represented in the URBANopt geojso
 ![ditto-diagram](../doc_files/opendss-example_system.png)
 ![ditto-diagram](../doc_files/opendss-example_colors.png)
 #### Electrical Database
-The URBANopt geojson file does not contain details of the electrical equipment - only equipment identifiers are included. However, OpenDSS requires detailed electrical characteristics for every component in the network (e.g., wire resistance, phase, ampacity GMR, diameter). Key electrical information for several equipment types has been identified in a preliminary json dataset which is included in the  [urbanopt-ditto-reader](https://github.com/urbanopt/urbanopt-ditto-reader/blob/master/example/electrical_database.json) repository. 
+The URBANopt geojson file does not contain details of the electrical equipment - only equipment identifiers are included. However, OpenDSS requires detailed electrical characteristics for every component in the network (e.g., wire resistance, phase, ampacity GMR, diameter). Key electrical information for several equipment types has been identified in a preliminary json dataset which is included in the  [urbanopt-ditto-reader](https://github.com/urbanopt/urbanopt-ditto-reader/blob/master/example/electrical_database.json) repository.
 
 #### Timeseries Data
 
@@ -79,10 +79,10 @@ Once the [DiTTo](https://github.com/NREL/ditto/) repository has been cloned, a c
     "use_reopt": true
 }
 ```
-The conversion script is then run with 
+The conversion script is then run with
 `python convert.py config.json`
 
-This uses the reader module to convert the URBANopt data into OpenDSS files, which are written in the `opendss_folder` location from in the config file. The subfolder `dss_files` contains the `.dss` files required to run OpenDSS and the subfolder `profiles` contains simplified timeseries data required to run OpenDSS. 
+This uses the reader module to convert the URBANopt data into OpenDSS files, which are written in the `opendss_folder` location from in the config file. The subfolder `dss_files` contains the `.dss` files required to run OpenDSS and the subfolder `profiles` contains simplified timeseries data required to run OpenDSS.
 
 OpenDSS is then run using the python `OpenDSSDirect` module, which runs powerflow for the network created from the input files. The results of the simulation are written the the `results` subfolder of the `opendss_folder` directory.
 
