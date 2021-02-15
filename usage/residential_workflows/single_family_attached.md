@@ -40,25 +40,29 @@ These OSM models are merged into a single OSM model, as shown below.
 
 The URBANopt geojson schema differentiates between sets of required and optional fields for *Single-Family Attached* residential buildings:
 
-* Required fields:
+Required fields:
 
-  1. floor_area (i.e., building total conditioned floor area)
-  2. number_of_stories_above_ground
-  3. number_of_stories (includes foundation stories)
-  4. number_of_residential_units
-  5. number_of_bedrooms
-  6. foundation_type: `slab`, `crawlspace - vented`, `crawlspace - unvented`, `basement - unconditioned`, `basement - conditioned`
-  7. attic_type: `attic - vented`, `attic - unvented`, `attic - conditioned`, `flat roof`
+|             Field             |     Type     |                                                                                             Enums                                                                                             |                                    Notes                                    |
+| ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| floor_area                    | number       |                                                                                                                                                                                               | conditioned floor area                                                      |
+| number_of_stories_above_ground| integer      |                                                                                                                                                                                               |                                                                             |
+| number_of_stories             | integer      |                                                                                                                                                                                               | includes foundations                                                        |
+| number_of_residential_units   | integer      |                                                                                                                                                                                               |                                                                             |
+| number_of_bedrooms            | integer      |                                                                                                                                                                                               |                                                                             |
+| foundation_type               | string       | slab<br>crawlspace - vented<br>crawlspace - unvented<br>basement - unconditioned<br>basement - conditioned                                                                                    |                                                                             |
+| attic_type                    | string       | attic - vented<br>attic - unvented<br>attic - conditioned<br>flat roof                                                                                                                        |                                                                             |
 
-* Optional fields:
+Optional fields:
 
-  1. system_type: combinations of `electric resistance`, `furnace`, `boiler`, `central air conditioner`, `room air conditioner`, `evaporative cooler`, `air-to-air heat pump`, `mini-split heat pump`, `ground-to-air heat pump`
-  2. heating_system_fuel_type: `electricity`, `natural gas`, `fuel oil`, `propane`, `wood`
-  3. template (see below)
+|             Field             |     Type     |                                                                                             Enums                                                                                             |                                    Notes                                    |
+| ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| system_type                   | string       | electric resistance<br>furnace<br>boiler<br>central air conditioner<br>room air conditioner<br>evaporative cooler<br>air-to-air heat pump<br>mini-split heat pump<br>ground-to-air-heat-pump  |                                                                             |
+| heating_system_fuel_type      | string       | electricity<br>natural gas<br>fuel oil<br>propane<br>wood                                                                                                                                     |                                                                             |
+| template                      | string       |                                                                                                                                                                                               | See [Customizable Template](residential_workflows.md#customizable-template) |
 
 An example "Single-Family Attached" building feature snippet is shown below.
 
-  ```
+  ```json
   {
       "id": "17",
       "name": "Residential 4",
