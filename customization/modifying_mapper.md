@@ -39,7 +39,7 @@ When the Scenario is run, a new Simulation Mapper instance is created and the `c
 The default Simulation Mapper Class can be used directly, extended, or modified. Alternatively, a completely different Simulation Mapper Class [can be created](new_mapper_class.md).
 
 In case the user wants to use an existing OpenStudio Model of a Feature in the simulation, the name
-of the OpenStudio model should be added in the 
+of the OpenStudio model should be added in the
 `detailed_model_filename` property of the Building Feature in the Feature File. The OpenStudio model should
 be added to the detailed_osms folder in the project directory.This OpenStudio model is loaded as a
 seed model for the Feature during simulation and measures such as
@@ -48,5 +48,5 @@ seed model for the Feature during simulation and measures such as
 Alternatively, the absolute path of the OpenStudio Model can be added to the `detailed_model_filename` property of the Building Feature in the Feature File.
 
 The user can choose to use OpenStudio Models for some Features and  the `urban_geometry_creation` for
-other Features. In this case, Features with OpenStudio Models should include the `id` , `name`, 
+other Features. In this case, Features with OpenStudio Models should include the `id` , `name`,
 `detailed_model_filename` and `number_of_stories` properties in the FeatureFile.
