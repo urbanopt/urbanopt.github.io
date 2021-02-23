@@ -16,6 +16,8 @@ The DiTTo-Reader/OpenDSS workflow is available via the `opendss` URBANopt CLI co
 - The feature file should contain Electrical Connectors and Junctions for a successful OpenDSS run.
 - If you want to include reopt results as an input to OpenDSS, make sure to include the --reopt flag when issuing the `opendss` command.
 - Once the `opendss` command has been run, the `process --opendss` command can then be run to pull the opendss results back into the URBANopt reports.
+- Refer to the [usage examples](../usage/run_project.html#urbanopt-cli-usage-examples) at any time.
+- Note that if you are not able to run the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
 
 ## Usage
 
@@ -25,7 +27,14 @@ uo opendss --help
 ```
 
 An example:
-1. Create and run your project as you normal would, following the [usage examples](../usage/run_project.html#urbanopt-cli-usage-examples).
+1. Create an electrical project by including the `-l` flag:
+	```bash
+	uo create --project-folder <path/to/electrical/folder> --electric
+	```
+
+1. Run the project as you normally would, being sure you use the electrical feature file, and a scenario file created from it:
+	```bash
+	uo run --feature <path/to/electrical/featurefile.json> --scenario <path/to/SCENARIOFILE.csv>
 
 1. Post-process using the default post-processor to generate the feature_reports used by the OpenDSS workflow:
 	```bash

@@ -73,4 +73,4 @@ Configuring the following environment variables may help if you are having issue
 
 Once you have made these changes, **close and reopen your Terminal/GitBash window** for these changes to take effect.
 
-Note that if you are not able to run the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
+Visit the [OpenDSS page](../opendss/opendss.md#usage) for instructions on how to run the OpenDSS workflow.
