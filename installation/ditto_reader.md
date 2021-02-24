@@ -15,12 +15,9 @@ OpenDSS functionality is available through the URBANopt DiTTo Reader, which:
 
 ## Requirements
 
-While most of the URBANopt SDK uses Ruby, the OpenDSS part of the workflow is implemented in Python, and as such, has a different set of dependencies that must be installed:
+While most of the URBANopt SDK uses Ruby, the OpenDSS part of the workflow is implemented in Python:
 
-- Git
 - Python 3.7 or higher
-- Pip
-- Various python packages (opendssdirect.py, ditto)
 
 ## Installation
 
@@ -36,31 +33,28 @@ While most of the URBANopt SDK uses Ruby, the OpenDSS part of the workflow is im
 	pip --version
 ```
 
-1. Clone the urbanopt-ditto-reader to your local machine.  Example:
+1. Install the URBANopt Ditto Reader package:
 ```bash
-	git clone https://github.com/urbanopt/urbanopt-ditto-reader.git
+	pip install urbanopt-ditto-reader
 ```
 
-1. Open a terminal in the cloned ditto-reader directory and install the ditto-reader dependencies:
-```bash
-	pip install -e .
-```
 This command will also automatically install the [ditto repository](https://github.com/NREL/ditto).
 
-To verify your install, list the packages installed using the ```pip list``` command. The listing of packages installed should include UrbanoptDittoReader.
+To verify your install, list the packages installed using the ```pip list``` command. The listing of packages installed should include urbanopt-ditto-reader.
 
 ```
 $ pip list
-Package             Version Location
-------------------- ------- ------------------------------------------
-networkx            2.4
-numpy               1.19.1
-OpenDSSDirect.py    0.5.0
-pandas              1.1.0
-pip                 19.2.3
-setuptools          41.2.0
-traitlets           4.3.3
-UrbanoptDittoReader 0.2.0   <path/to/urbanopt-ditto-reader>
+Package                 Version Location
+----------------------- ------- ------------------------------------------
+ditto.py				0.2.0
+networkx            	2.5
+numpy               	1.201
+OpenDSSDirect.py    	0.6.0
+pandas              	1.2.2
+pip                 	21.0.1
+setuptools          	53.0.0
+traitlets           	5.0.5
+urbanopt-ditto-reader 	0.3.6
 ```
 
 ### Troubleshooting for WINDOWS users
@@ -79,41 +73,4 @@ Configuring the following environment variables may help if you are having issue
 
 Once you have made these changes, **close and reopen your Terminal/GitBash window** for these changes to take effect.
 
-Note that if you are not able to run the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
-
-
-## Usage
-
-The DiTTo-Reader/OpenDSS workflow is available via the ```opendss``` URBANopt CLI command.
-
-
-### Notes
-- The ```run``` and ```process --default``` (post-process with the default post-processor) commands must first be run on a scenario to generate the input files required by OpenDSS.
-- The feature file should contain Electrical Connectors and Junctions for a successful OpenDSS run.
-- The location of ditto is assumed to be found at ```urbanopt-ditto-reader/ditto```.
-- The equipment file is assumed to be at ```urbanopt-ditto-reader/example/electrical-database.json``` unless otherwise specified with the --equipment flag when issuing the command
-- If you want to include reopt results as an input to OpenDSS, make sure to specify the --reopt flag when issuing the command
-- Once the ```opendss``` command has been run, the ```process --opendss``` command can then be run to pull the opendss results back into the URBANopt reports.
-
-For usage help:
-```bash
-uo opendss --help
-```
-
-An example:
-1. Create and run your project as you normal would, following the [usage examples](../usage/run_project.html#urbanopt-cli-usage-examples).
-
-1. Post-process using the default post-processor to generate the feature_reports used by the OpenDSS workflow:
-	```bash
-	uo process --default --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
-	```
-
-1. Use the opendss command to run the opendss workflow:
-	```bash
-	uo opendss --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
-	```
-
-1. Post-process using the opendss post-processor to integrate the opendss results into the feature_reports:
-	```bash
-	uo process --opendss --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
-	```
+Visit the [OpenDSS page](../opendss/opendss.md#usage) for instructions on how to run the OpenDSS workflow.
