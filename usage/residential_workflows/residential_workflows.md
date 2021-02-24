@@ -11,7 +11,7 @@ has_toc: false
 
 Residential building energy models in URBANopt<sup>&trade;</sup> are created using the [OpenStudio-HPXML](https://github.com/NREL/OpenStudio-HPXML) workflow.
 For every residential building feature found in the geojson file, an [HPXML](https://hpxml.nrel.gov) file is built to represent each living unit of the building.
-In the case of a single-family detached building (which is the only type of low-rise residential building supported at this time), one HPXML file is built to represent the single unit.
+In the case of a single-family detached building, one HPXML file is built to represent the single unit.
 HPXML files are built based on feature information contained in the geojson file as well as on sets of default assumptions contained in the following [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential):
 
 * clothes_dryer.tsv
@@ -55,7 +55,7 @@ Enumerations that are applicable to residential buildings:
 If no template enumeration is specified, argument values will be defaulted according to the [documentation](https://openstudio-hpxml.readthedocs.io/en/latest/hpxml_to_openstudio.html) for the HPXMLtoOpenStudio translator measure.
 In general, these defaults are based on ANSI / RESNET / ICC Std. 301 (2006).
 
-Otherwise, argument values will be set according to [these lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential) that span across the following categories:
+Otherwise, argument values will be set according to these [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential) that span across the following categories:
 
 * enclosure (insulation levels, air leakage, etc.)
 * HVAC systems (heating/cooling types, efficiencies, etc.)
