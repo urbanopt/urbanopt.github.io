@@ -26,6 +26,10 @@ In particular, you will want to make sure that the `urdb_label` in the assumptio
 
 Also note that the example `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once.
 
+### REopt Lite Time Series Resolution
+
+The **REopt Lite** time series resolution is controlled by the **Scenario** `time_steps_per_hour` setting in the assumptions file, and can be different than the Scenario or Feature Report resolution resulting from the OpenStudio simulation (and recorded in the CSV). Note that resolutions that are not evenly divisible by each other (i.e. 7 time steps per hour into 4 per hour) may cause unexpected results or errors due to rounding errors. If a **REopt Lite** resolution is not defined in the assumptions file, the recommended resolution of 1 per hour is used.
+
 ### Mapping REopt Lite Assumption Files to Features
 
 In your Scenario File enabled for **REopt Lite** you will see a `REopt Assumptions` column. Before post-processing ensure that each feature has the appropriate assumtions file specified in this CSV file.
