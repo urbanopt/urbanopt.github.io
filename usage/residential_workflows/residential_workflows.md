@@ -9,9 +9,9 @@ has_toc: false
 
 # Residential Workflows
 
-Residential building energy models in URBANopt<sup>&trade;</sup> are created using the [OpenStudio-HPXML](https://github.com/NREL/OpenStudio-HPXML) workflow.
+Low-rise residential building energy models in URBANopt<sup>&trade;</sup> are created using the [OpenStudio-HPXML](https://github.com/NREL/OpenStudio-HPXML) workflow.
 For every residential building feature found in the geojson file, an [HPXML](https://hpxml.nrel.gov) file is built to represent each living unit of the building.
-In the case of a single-family detached building, one HPXML file is built to represent the single unit.
+For example, in the case of a single-family detached building one HPXML file is built to represent the single unit.
 HPXML files are built based on feature information contained in the geojson file as well as on sets of default assumptions contained in the following [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential):
 
 * clothes_dryer.tsv

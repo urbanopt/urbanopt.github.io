@@ -3,14 +3,16 @@ layout: default
 title: Low-Rise Multifamily
 parent: Residential Workflows
 grand_parent: Usage
-nav_order: 1
+nav_order: 3
 ---
 
 ## Low-Rise Multifamily
 
-For low-rise multifamily buildings, high-level inputs from the geojson are used to construct a simplified building model.
-This building model is used to determine the orientation (i.e., vertical level and horizontal location) of individual living units contained in the building.
-An example 3D rendering of this building model is shown below for the following high-level inputs:
+Consider the following example low-rise multifamily building footprint described within a geojson file.
+
+![multifamily](../../doc_files/multifamily-footprint.jpg)
+
+High-level inputs from the geojson are used to determine the orientation (i.e., horizontal location and vertical level) of individual living units contained in the building:
 
 * 2 stories above ground
 * slab foundation
@@ -18,10 +20,17 @@ An example 3D rendering of this building model is shown below for the following 
 * 8 living units
 * double exterior corridor
 
-![multifamily](../../doc_files/multifamily-1.jpg)
-
-Then, for each unit of the building, an HPXML and OSM model is constructed.
+Example 3D renderings for a single unit from the building is shown below.
 By determining the orientation of individual units relative the whole building, types and boundary conditions of surfaces (e.g., adiabatic, etc.) can be stored in the HPXML.
+This unit is designated as having a horizontal location of "Left" and vertical level of "Top" (when viewing from the front).
+You can see outside boundary conditions of "Outdoors" on the roof and one facade, and "Adiabatic" on the floor and opposite facade.
+
+![multifamily](../../doc_files/multifamily-1-1.jpg)
+![multifamily](../../doc_files/multifamily-1-2.jpg)
+![multifamily](../../doc_files/multifamily-1-3.jpg)
+![multifamily](../../doc_files/multifamily-1-4.jpg)
+
+For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
 
 ![multifamily](../../doc_files/multifamily-2.jpg)
@@ -29,7 +38,7 @@ These OSM models are merged into a single OSM model, as shown below.
 
 ### Modeling Notes
 
-- *Low-Rise Multifamily* home models may be heated only, air conditioned only, or both heated and cooled. 
+- *Low-Rise Multifamily* home models may be heated only, air conditioned only, or both heated and air conditioned. 
   - Partial Conditioning: heating and cooling may be applied to just a portion of the living space of the home or to the entire living space. Representation of partial conditioning of the living space of a home is accomplished by adding ideal air load system to heat and cool the un-conditioned portion of the living area. In this situation, district heating or cooling loads may show up in end uses for the home.
   - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate. 
   - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
