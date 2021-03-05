@@ -58,7 +58,7 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 
 ## Manual Install
 
-1. Install [Ruby 2.5 (x64)](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.5-1/rubyinstaller-2.5.5-1-x64.exe)  
+1. Install [Ruby 2.5 (x64) with DevKit](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.5-1/rubyinstaller-devkit-2.5.5-1-x64.exe)  
 
 	Make sure that you select option 3: **MSYS2 and MINGW development toolchain** during the installation process:
 	![installer options](../doc_files/ruby_windows.png)
