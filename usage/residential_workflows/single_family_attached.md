@@ -8,11 +8,7 @@ nav_order: 2
 
 ## Single-Family Attached 
 
-Consider the following example single-family attached building footprint described within a geojson file.
-
-![single_family_attached](../../doc_files/single-family-attached-footprint.jpg)
-
-High-level inputs from the geojson are used to determine the orientation (i.e., horizontal location) of individual living units contained in the building:
+Consider the highlighted "Single-Family Attached" building footprint with the following high-level geojson inputs:
 
 * 2 stories above ground
 * slab foundation
@@ -20,13 +16,19 @@ High-level inputs from the geojson are used to determine the orientation (i.e., 
 * 4 living units
 * no rear units
 
+![single_family_attached](../../doc_files/single-family-attached-footprint.jpg)
+
+The number of living units are used to determine the position (i.e., horizontal location) of individual living units contained in the building.
+By determining the position of individual units relative the whole building, types and boundary conditions of surfaces (e.g., adiabatic, etc.) can be stored in the HPXML.
+
 Example 3D renderings for a single unit from the building is shown below.
-By determining the orientation of individual units relative the whole building, types and boundary conditions of surfaces (e.g., adiabatic, etc.) can be stored in the HPXML.
-This unit is designated as having a horizontal location of "Right" (when viewing from the front).
+This unit is designated as having a "Right" horizontal location (when viewing from the front).
 You can see outside boundary conditions of "Outdoors" on one facade, and "Adiabatic" on the opposite facade.
 
 ![single_family_attached](../../doc_files/single-family-attached-1-1.jpg)
 ![single_family_attached](../../doc_files/single-family-attached-1-2.jpg)
+
+(Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be.)
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
@@ -36,24 +38,24 @@ These OSM models are merged into a single OSM model, as shown below.
 
 ### Modeling Notes
 
-- *Single-Family Attached* home models may be heated only, air conditioned only, or both heated and air conditioned. 
+- "Single-Family Attached" home models may be heated only, cooled only, or both heated and cooled. 
   - Partial Conditioning: heating and cooling may be applied to just a portion of the living space of the home or to the entire living space. Representation of partial conditioning of the living space of a home is accomplished by adding ideal air load system to heat and cool the un-conditioned portion of the living area. In this situation, district heating or cooling loads may show up in end uses for the home.
   - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate. 
   - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
-- It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for *Single-Family Attached* home models, users should look at district heating and cooling loads.
+- It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for "Single-Family Attached" home models, users should look at district heating and cooling loads.
 
 
 ### GeoJSON Schema
 
-The URBANopt geojson schema differentiates between sets of required and optional fields for *Single-Family Attached* residential buildings:
+The URBANopt geojson schema differentiates between sets of required and optional fields for "Single-Family Attached" residential buildings:
 
 Required fields:
 
 |             Field             |     Type     |                                                                                             Enums                                                                                             |                                    Notes                                    |
 | ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| floor_area                    | number       |                                                                                                                                                                                               | conditioned floor area                                                      |
+| floor_area                    | number       |                                                                                                                                                                                               | Conditioned floor area.                                                     |
 | number_of_stories_above_ground| integer      |                                                                                                                                                                                               |                                                                             |
-| number_of_stories             | integer      |                                                                                                                                                                                               | includes foundations                                                        |
+| number_of_stories             | integer      |                                                                                                                                                                                               | Includes foundations.                                                       |
 | number_of_residential_units   | integer      |                                                                                                                                                                                               |                                                                             |
 | number_of_bedrooms            | integer      |                                                                                                                                                                                               |                                                                             |
 | foundation_type               | string       | slab<br>crawlspace - vented<br>crawlspace - unvented<br>basement - unconditioned<br>basement - conditioned                                                                                    |                                                                             |
