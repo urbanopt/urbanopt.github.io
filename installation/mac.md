@@ -9,7 +9,7 @@ nav_order: 1
 
 As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
 
-For CLI usage examples, see our [usage examples page](../usage/run_project.md)
+For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
 ## Install with the URBANopt Installer
 
@@ -63,7 +63,7 @@ For CLI usage examples, see our [usage examples page](../usage/run_project.md)
     uo --help
     ```
 
-1. For detailed instructions, see the [usage examples](../usage/run_project.md) page.
+1. For detailed instructions, see the [Getting Started page](../getting_started/getting_started.md) page.
 
 ## OpenDSS and DiTTo Reader Set-up
 

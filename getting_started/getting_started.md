@@ -5,7 +5,7 @@ nav_order: 1
 ---
 <div class="row">
 	<div class="col">
-		<p>To run URBANopt&trade;, first follow the <a href="../installation" class="bold">installation instructions</a> to install the URBANopt CLI and all of its dependencies.</p>
+		<p>To run URBANopt&trade;, first follow the <a href="../installation/installation" class="bold">installation instructions</a> to install the URBANopt CLI and all of its dependencies.</p>
 		<p>Once the CLI is installed, help is available by typing uo --help from the command line.  Detailed help for each command can be found with uo command --help. The main CLI commands are: create, run, process, visualize, opendss, and delete.</p>
 		<p>Before you start, think about the types of analyses you are interested in performing and set up your project accordingly.  The best way to start is to use the example project made with the CLI.  Once you are fmaliar wiht the commands you can customize your project.</p> 
 	</div>
@@ -23,11 +23,11 @@ nav_order: 1
 <img src="../doc_files/process-steps.png" alt="UO process steps image">
 <p>Read through each section below for more information on each step of the process&mdash;including CLI command examples&mdash;and for details on the different workflows available.</p> 
 <div class="row blue-section">
-	<div class="col-9">
+	<div class="col-8">
 		<h2 class="white-text" id="step1">1. Create Project</h2>
 		<p>Set up the project directory structure and example files</p>
 	</div>
-	<div class="col-3 my-auto"><img src="../doc_files/started__step1_graphic.png" alt="image of an open directory folder and its contents"></div>
+	<div class="col-4 my-auto"><img src="../doc_files/started__step1_graphic.png" alt="image of an open directory folder and its contents"></div>
 </div>
 <p>Expand the sections below and choose the option that is right for your project. Most of the options will create both a project directory structure and example project files that will allow you to try out the additional commands.  Visit the <a href="documentation/example" class="bold">example project page</a> to learn more about the example project.</p>
 
@@ -94,12 +94,12 @@ nav_order: 1
   </li>
 </ul>
 <div class="row blue-section">
-  <div class="col-9">
+  <div class="col-7">
     <h2 class="white-text" id="step2">2. Set up Scenario</h2>
-    <p>Assign a Scenario Mapper to each feature in FeatureFile <br/>
+    <p>Assign a Scenario Mapper to each feature <br/>
     Configure additional settings</p>
   </div>
-  <div class="col-3 my-auto"><img src="../doc_files/started__step2_graphic.png" alt="image of CSVs being inserted into a directory folder"></div>
+  <div class="col-5 my-auto lr-pad-0"><img src="../doc_files/started__step2_graphic.png" width="100%" alt="image of CSVs being inserted into a directory folder"></div>
 </div>
 <p>If you are not using an example project, ensure that your FeatureFile is in the root of the project directory.  If you are using an example project, an example feature file is provided for you.</p>
 <ul class="jk_accordion">
@@ -233,11 +233,13 @@ nav_order: 1
         <li><strong>feature-level</strong>, which optimizes each building’s load individually.</li>
       </ol>
       <p>You may chose to optimize by one or both of these approaches according to your project objectives.</p>
-      <p><strong>Note&mdash;You will need an internet connection so the REopt™ Gem can access the REopt Lite API.</strong></p>
-      <p>To optimize at the scenario-level, use the <code>--reopt-scenario</code> flag:</p>
+      <div class="important-note"><p>Note&mdash;You will need an internet connection so the REopt™ Gem can access the REopt Lite API.</p></div>
+      <p><strong>To optimize at the scenario-level, use the <code>--reopt-scenario</code> flag:</strong></p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-scenario --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
-      <p>To optimize at the feature-level, use the <code>--reopt-feature</code> flag:</p>
-      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-feature --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
+      <p>The <code>--reopt-scenario-assumptions-file</code> (or <code>-a</code>) option can be used to specify the path to the assumptions file to use for this optimization. If none are specified, the <code>base_assumptions.json</code> file in the <code>reopt</code> folder of the project directory will be used.</p>
+      <p><strong>To optimize at the feature-level, use the <code>--reopt-feature</code> flag:</strong></p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-feature --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/REoptEnabledSCENARIOFILE.csv&gt;</span></code></pre></div>
+      <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file</p>
       <p>Visit the <a href="../additional_documentation/reopt/reopt_post_processing" class="bold">REopt Workflow page</a> for more details on using REopt.</p>
     </div>
   </li>
@@ -277,6 +279,15 @@ nav_order: 1
            <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo opendss --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
           <p>To run the REopt-enabled OpenDSS workflow, include the <code>--reopt</code> flag in the command:</p>
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo opendss --reopt --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
+          <p>In addition to the required `--scenario` and `--feature` options, there are optional options that can be specified, as listed below.  You can also run the CLI help command for more information and examples: `uo opendss -h`</p>
+          <ul class="t">
+            <li class="t"><code>--equipment</code>: Path to custom equipment file. View the <a href="../workflows/opendss">OpenDSS page</a> for more info.</li>
+            <li class="t"><code>--start-time</code>: Beginning of the period for OpenDSS analysis. Defaults to beginning of simulation time Format: "YYYY/MM/DD HH:MM:SS" (use quotes).</li>
+            <li class="t"><code>--end-time</code>: End of the period for OpenDSS analysis. Defaults to end of simulation time. Format "YYYY/MM/DD HH:MM:SS" (use quotes).</li>
+            <li class="t"><code>--timesteps</code>: Number of minutes per timestep in the OpenDSS simulation </li>
+          </ul>
+          <p> Alternatively, a config JSON file can be used to set the OpenDSS options. An <a href="https://github.com/urbanopt/urbanopt-ditto-reader/blob/develop/urbanopt_ditto_reader/example_config.json" target="_blank">example config JSON file</a> is available. Note the key names are slightly different than the CLI option names. This config file can be passed into the CLI command:</p>
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo opendss --config &lt;path/to/config.json&gt;</span></code></pre></div>
         </li>
         <li class="t"><p>Finally, post-process the results with the <code>--opendss</code> post-processor to pull the openDSS results back into the main result files.</p>
        <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process –opendss –feature &lt;path/to/FEATUREFILE.json&gt; –scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
@@ -287,6 +298,16 @@ nav_order: 1
   <li class="acc"><input id="accordion18" type="checkbox" /><label for="accordion18">DES Functionality</label>
     <div class="show">
     <p>Coming Soon!</p>
+    </div>
+  </li>
+  <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate Results</label>
+    <div class="show">
+    <p>URBANopt provides a method to validate the EUI results from your full year simulation against generally used values. This can be used to confirm that your simulation results are within the right ballpark. The schema file is included in the project_dir and can be customized if your buildings are unusual. </p>
+    <p>This functionality requires the <code>--scenario_file</code> and <code>--feature_file</code> options to be specified</p>
+    <p>Currently only supports validating eui, and requires the path to the validation_schema that you are using.  An example validation schema can be found in the project directory.</p>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo validate --eui validation_schema.yaml --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
+    <p>Optionally, you can specify the units to work with.  Valid options are <code>SI</code> and <code>IP</code>; defaults to <code>IP</code> if not specified.</p>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo validate --eui validation_schema.yaml --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt; --units IP</span></code></pre></div>
     </div>
   </li>
 </ul>
@@ -315,9 +336,3 @@ nav_order: 1
   </li>
 </ul>
 <p>Note&mash;You need to run the default post-process command before visualizing the results.</p>
-<div class="row blue-section">
-  <div class="col-12">
-    <h2 class="white-text" id="validate">Validate Results (Optional)</h2>
-    <p>Ensure results are within preset ranges</p>
-  </div>
-</div>

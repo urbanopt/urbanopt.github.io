@@ -6,7 +6,7 @@ parent: Workflows
 nav_order: 1
 ---
 
-<div style="text-align:center"><img src="../doc_files/reopt-lite-logo.png" /></div>
+<div style="text-align:center"><img src="../../doc_files/reopt-lite-logo.png" /></div>
 
 **REopt Lite<sup>TM</sup>** is a technoeconomic decision making model for distributed energy resource (DER) design accessible via [web tool](https://reopt.nrel.gov/tool) and [API](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/). Given a set of inputs it leverages mixed-integer linear programming to select the optimal design and hourly annual dispatch of solar PV, storage, wind and diesel generator technologies - it also provides key economic metrics for the system. Integration of this model with URBANopt allows individual buildings (i.e _Feature Reports_) and collections of buildings (i.e. _Scenario Reports_) to be assessed for cost-optimal DER solutions. 
 

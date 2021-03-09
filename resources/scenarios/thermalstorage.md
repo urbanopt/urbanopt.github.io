@@ -2,7 +2,7 @@
 layout: default
 title: Thermal Energy Storage Scenario
 parent: Scenarios
-grand_parent: Usage
+grand_parent: Resources
 nav_order: 3
 ---
 

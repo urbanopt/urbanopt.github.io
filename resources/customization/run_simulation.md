@@ -2,6 +2,7 @@
 layout: default
 title: Details of a simulation run
 parent: Customization
+grand_parent: Resources
 nav_order: 10
 ---
 

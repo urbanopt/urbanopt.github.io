@@ -16,4 +16,4 @@ For each pre-built example scenario, we developed a Mapperclass that defines the
 - [Thermal Energy Storage Scenario](thermalstorage.md) defined by a ThermalStorage MapperClass
 - [Electric Vehicle Charging Scenario](evcharging.md) defined by an EvCharging MapperClass
 
-To learn more about modifying and creating new Mapper Classes, refer to the [customization](../customization.md) section.
+To learn more about modifying and creating new Mapper Classes, refer to the [customization](../customization/customization.md) section.

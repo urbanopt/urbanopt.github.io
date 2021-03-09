@@ -13,7 +13,7 @@ The <u>hypothetical</u> example project design and building typologies are shown
 
 ![example_project_layout](../doc_files/building_types_ISO_no_res.jpg)
 
-The example project can be installed via the Command Line Interface with the following command. For more information, visit the [Usage Examples](run_project.md) page.
+The example project can be installed via the Command Line Interface with the following command. For more information, visit the [Getting Started](../getting_started/getting_started) page.
 
 ```terminal
 uo create --project-folder <path/to/PROJECT_DIRECTORY_NAME>
@@ -23,7 +23,7 @@ Working with the example project, you'll be able to:
 
 1. Experiment with two pre-built example scenarios: a *baseline* scenario that creates the geometry, and a *high-efficiency* scenario that also applies energy efficiency measures.
 
-1. Use the urbanopt geometry creation measures found in the 'base_workflow.osw'.  For a description of the measures found in the base URBANopt workflow, visit the [base workflow](../customization/base_workflow.md) page.
+1. Use the urbanopt geometry creation measures found in the 'base_workflow.osw'.  For a description of the measures found in the base URBANopt workflow, visit the [base workflow](customization/base_workflow.md) page.
 
 1. Specify an existing detailed model for a feature by setting the *detailed_model_filename* property in the Feature file, which will bypass the urbanopt geometry creation measures.
 

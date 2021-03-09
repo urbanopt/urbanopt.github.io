@@ -2,6 +2,7 @@
 layout: default
 title: Creating new Mapper Classes
 parent: Customization
+grand_parent: Resources
 nav_order: 5
 ---
 

@@ -15,7 +15,7 @@ measure in the [GeoJSON gem](https://urbanopt.github.io/urbanopt-geojson-gem/) t
 features with core and perimeter zoning from GeoJSON footprint coordinates in the Feature File. It has the options to model surrounding buildings as context shading.
 
 More details on the measures used in the
-workflow can be found in the [base workflow section](../customization/base_workflow.md).
+workflow can be found in the [base workflow section](../resources/customization/base_workflow.md).
 
 ![urbanopt measure workflow diagram](../doc_files/core_perimeter_zoning.jpg)
 
@@ -52,7 +52,7 @@ This workflow starts with floor plans and stub space types drawn using FloorSpac
 FloorspaceJS file is converted to an OpenStudio model by a measure that merges it with a seed model,
 which is then passed into the `Create Typical Building from Model` measure. The seed model contains
 the actual space type assignments that correspond to the stub space type names in the FloorSpaceJS
-file and can be taken from the standard space type templates. One of the web tools to create FloorSpaceJS files can be found [here](https://nrel.github.io/floorspace.js/)
+file and can be taken from the standard space type templates. Visit the link for one of the [web tools to create FloorSpaceJS](https://nrel.github.io/floorspace.js/) files. 
 
 The FloorSpaceJS file and the OpenStudio seed model must have the same name, for example
 `feature.js` and `feature.osm` and must be placed in

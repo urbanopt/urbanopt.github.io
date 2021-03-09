@@ -2,7 +2,7 @@
 layout: default
 title: EV charging Scenario
 parent: Scenarios
-grand_parent: Usage
+grand_parent: Resources
 nav_order: 3
 ---
 The EV Charging Scenario adds loads due to [Electric Vehicle (EV)](#ptes) charging associated with Building

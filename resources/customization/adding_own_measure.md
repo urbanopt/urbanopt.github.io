@@ -2,6 +2,7 @@
 layout: default
 title: Adding your own Measures
 parent: Customization
+grand_parent: Resources
 nav_order: 3
 ---
 
@@ -23,7 +24,7 @@ Additional measures can be added to the [base workflow OSW](base_workflow.md) fi
     are run in the project.  OpenStudio measures should be listed first, followed by EnergyPlus measures, and then Reporting measures.
 
 *  If you'd like to skip measures found in the base workflow OSW in the [Baseline
-   Mapper](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/master/mappers/Baseline.rb),
+   Mapper](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/example_project/mappers/Baseline.rb),
    default the `__SKIP__` argument to `true` in the measure, othervise default to `false`. If you
    would like to add this measure in a different mapper, you can set `__SKIP__` to false in the
    mapper as follows:
@@ -35,13 +36,13 @@ Additional measures can be added to the [base workflow OSW](base_workflow.md) fi
 *  When adding measures located in any of the URBANopt<sup>&trade;</sup> core gems (in blue), no other change
    is needed.
 
-   ![uo_architecture_example](../doc_files/uo_platform_diagram_f.jpg)
+   ![uo_architecture_example](../../doc_files/uo_platform_diagram_f.jpg)
    
    *Figure 1: Software Architecture for an Example URBANopt Project*
 
 *  When the measure resides in a gem other than the URBANopt core gems, the gem must be included
    in the project
-   [Gemfile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/master/Gemfile). 
+   [Gemfile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/example_project/Gemfile). 
    Note that you may need to delete the Gemfile.lock file and .bundle directory from your project folder in order to regenerate the bundle to include the new gem.
 
 *  If the measure is new, or just not in a gem, add the following line (which specifies the file path of the new measure) to the Mapper Class: 
@@ -53,7 +54,7 @@ Additional measures can be added to the [base workflow OSW](base_workflow.md) fi
 
     This adds the measure_path to the base workflow OSW.
 
-*  It may be necessary to modify default measure arguments by mapping specific Feature properties from the [FeatureFile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/master/example_project.json) to the arguments in the Simulation Mapper Class.
+*  It may be necessary to modify default measure arguments by mapping specific Feature properties from the [FeatureFile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/example_project/example_project.json) to the arguments in the Simulation Mapper Class.
 
    For example, the `urban_geometry_creation` measure in the base workflow OSW: 
 

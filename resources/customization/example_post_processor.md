@@ -2,6 +2,7 @@
 layout: default
 title: Example change to Post-Processor
 parent: Customization
+grand_parent: Resources
 nav_order: 8
 ---
 

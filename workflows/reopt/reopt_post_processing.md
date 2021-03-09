@@ -2,12 +2,12 @@
 layout: default
 title: REopt Post Processing
 parent: REopt
-grand_parent: Additional Documentation
+grand_parent: Workflows
 nav_order: 2
 ---
 ## Intro
 
-**REopt Lite** optimization happens during the post-processing of each scenario. Refer to [Running a Project](../usage/run_project.md) for instructions on creating and running building energy models.
+**REopt Lite** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
 
 CLI commands are used to run and post-process each scenario, and onscreen help is always availabe with `uo --help`.
 
@@ -37,7 +37,7 @@ In your Scenario File enabled for **REopt Lite** you will see a `REopt Assumptio
 
 The following figure represents how Simulation Mapper Classes can be assigned to different Features from the FeatureFile in the Scenario CSV.
 
-![scenario_mapper](../doc_files/reopt-scenario-mapper.png)
+![scenario_mapper](../../doc_files/reopt-scenario-mapper.png)
 
 
 ### Running REopt Lite
@@ -166,4 +166,4 @@ If you post-processed with `--reopt-scenario` the `reopt` folder will be at the 
 
 The figure below describes the workflow that takes place on implementing the `run` and `process` CLI commands.
 
-![workflow_diagram](../doc_files/CLI_reopt.jpg)
+![workflow_diagram](../../doc_files/CLI_reopt.jpg)

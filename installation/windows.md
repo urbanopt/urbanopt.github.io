@@ -9,7 +9,7 @@ nav_order: 2
 
 As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (64-bit Windows 7 – 10) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.  
 
-For CLI usage examples, see our [usage examples page](../usage/run_project.md)
+For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
 ## Install with the URBANopt installer
 
@@ -99,17 +99,6 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 	 3.1.0;                                  !- Version Identifier`
 	 ```
 
-<!-- 1. Install [Git](https://git-scm.com/) if not already installed. A list of [optional git
-   GUIs](https://github.com/NREL/OpenStudio/wiki/Using-OpenStudio-with-Git-and-GitHcub) can
-  be found here,
-   along with some help using git with OpenStudio. 
-
-1. Configure git to allow long path names in git:
-
-	```terminal
-	git config --global core.longpaths true
-	``` -->
-
 1. Install the URBANopt Command Line Interface (CLI). This should not take longer than a few minutes. Visit the [known issues](../developer_resources/known_issues.md) page if the installation stalls.
 
     ```terminal
@@ -124,7 +113,7 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
     uo --help
     ```
 
-1. For detailed instructions, see the [usage examples](../usage/run_project.md) page.
+1. For detailed instructions, see the [Getting Started page](../getting_started/getting_started.md) page.
 
 ## OpenDSS and DiTTo Reader Set-up
 
@@ -132,4 +121,4 @@ As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since thi
 
 If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.  
 
-Note that Windows users may experience some difficulty during the install (particularly with the environment variable setup).  If you are not able to access the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
+Note that Windows users may experience some difficulty during the install (particularly with the environment variable setup).  If you are not able to access the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../workflows/opendss/opendss.md#converting-and-running-opendss).

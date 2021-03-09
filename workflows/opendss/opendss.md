@@ -17,8 +17,8 @@ The DiTTo-Reader/OpenDSS workflow is available via the `opendss` URBANopt CLI co
 - The feature file should contain Electrical Connectors and Junctions for a successful OpenDSS run.
 - If you want to include reopt results as an input to OpenDSS, make sure to include the --reopt flag when issuing the `opendss` command.
 - Once the `opendss` command has been run, the `process --opendss` command can then be run to pull the opendss results back into the URBANopt reports.
-- Refer to the [usage examples](../usage/run_project.html#urbanopt-cli-usage-examples) at any time.
-- Note that if you are not able to run the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
+- Refer to the [Getting Started page](../getting_started/getting_started) at any time to view usage examples.
+
 
 ## Usage
 
@@ -42,14 +42,39 @@ An example:
 	uo process --default --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
 	```
 
-1. Use the opendss command to run the opendss workflow:
+1. Use the opendss command to run the opendss workflow.  You will need to specify a variety of options, or you can specify the config JSON file where the options are specified. You can access the list of options and guidance with the following command:
+
+	```bash
+	uo opendss -h
+	```
+
+	The CLI options are:
+	- `--scenario` &mdash; Required, Path to scenario csv file
+	- `--feature` &mdash; Required, Path to feature json file
+	- `--equipment` &mdash; Optional, Path to custom equipment file
+	- `--reopt` &mdash; Optional, use to specify a run with additional REopt functionality.
+	- `--start-time` &mdash; Optional, Beginning of the period for OpenDSS analysis. Defaults to beginning of simulation time Format: "YYYY/MM/DD HH:MM:SS" (use quotes).
+	- `--end_time` &mdash; Optional, End of the period for OpenDSS analysis. Defaults to end of simulation time. Format "YYYY/MM/DD HH:MM:SS" (use quotes).
+	- `--timestep` &mdash; Optional, Number of minutes per timestep in the OpenDSS simulation.
+
+	An [example config JSON file](https://github.com/urbanopt/urbanopt-ditto-reader/blob/develop/urbanopt_ditto_reader/example_config.json) is also available. Note the key names are slightly different than the CLI option names.
+
+	Example `opendss` CLI call with options:
 	```bash
 	uo opendss --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
+	```
+
+	An example `opendss` CLI call using a config JSON file:
+	```bash
+	uo opendss --config path/to/config.json
 	```
 
 1. Post-process using the opendss post-processor to integrate the opendss results into the feature_reports:
 	```bash
 	uo process --opendss --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
+	```
+
+Visit the [Getting Started page](../getting_started/getting_started) for detailed usage examples.
 
 ## Additional Information
 ### OpenDSS
@@ -59,11 +84,11 @@ OpenDSS is an open-source tool that is popular for simulating electrical distrib
 ### DiTTo Conversion Tool
 There are a variety of modelling tools for representing electrical distribution networks, each of which represents the system in a different way. Some examples of open source and commercial solvers include; OpenDSS, GridLAB-D, CYME, Syneri, DEW, and PowerFactory, among others. Converting between the formats used by these different tools can be a time-intensive and fraught process. The DIstribution Transformation TOol (DiTTo) is an open source and many-to-many conversion tool written in python that has been developed by NREL to simplify converting data between distribution models, and is available [on GitHub](https://github.com/NREL/ditto/).
 
-![ditto-diagram](../doc_files/opendss-ditto-diagram.png)
+![ditto-diagram](../../doc_files/opendss-ditto-diagram.png)
 
  DiTTo contains an application programming interface (API) that characterizes different electrical equipment types (junctions, lines, transformers etc.) and each of their attributes. It also contains functionality to modify and analyze network data once it has been read into the API. DiTTo also contains reader and writer modules which exchange data with the API. A reader module parses data from a model data file and extracts the important network information into the API. A writer module takes the network information from the API and writes a model data file format, so it can be simulated by that electrical modelling tool. The interactions between the reader, writer, and API are shown below.
 
-![ditto-flowchart](../doc_files/opendss-ditto-workflow.png)
+![ditto-flowchart](../../doc_files/opendss-ditto-workflow.png)
 
 The DiTTo repository contains an OpenDSS reader and writer to import data from OpenDSS files into the API and to export data in the API to OpenDSS, respectively. However, customized readers and writers can be built to pass data formats that are currently not supported in the DiTTo repository. For URBANopt, geojson files are used to describe district-scale energy system layouts and timeseries csv files are used to describe building load and solar generation profiles.
 
@@ -71,8 +96,8 @@ The DiTTo repository contains an OpenDSS reader and writer to import data from O
 #### Geojson data
 The electrical layout of an URBANopt model is represented in the URBANopt geojson file. Electrical data is represented as part of the district-scale energy system. Currently the electrical equipment of wires, junctions, transformers, capacitors and substations are supported through the URBANopt geojson schema. Electrical equipment can be added to an URBANopt geojson file to represent a potential layout of a district’s electrical distribution system. Equipment identifiers can then be added for transformers, capacitors and lines. The labels describe information such as the type of transformer, or the wire types that are used in the line. An example URBANopt geojson with a substation, lines, and transformers is visualized below below and is included in the example project directory created by `uo create --project-folder`.
 
-![ditto-diagram](../doc_files/opendss-example_system.png)
-![ditto-legend](../doc_files/opendss-example_colors.png)
+![ditto-diagram](../../doc_files/opendss-example_system.png)
+![ditto-legend](../../doc_files/opendss-example_colors.png)
 #### Electrical Database
 The URBANopt geojson file does not contain details of the electrical equipment - only equipment identifiers are included. However, OpenDSS requires detailed electrical characteristics for every component in the network (e.g., wire resistance, phase, ampacity GMR, diameter). Key electrical information for several equipment types has been identified in a preliminary json dataset which is included in the  [urbanopt-ditto-reader](https://github.com/urbanopt/urbanopt-ditto-reader/blob/master/example/electrical_database.json) repository.
 

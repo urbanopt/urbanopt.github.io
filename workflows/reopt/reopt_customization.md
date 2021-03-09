@@ -2,12 +2,12 @@
 layout: default
 title: REopt Customization
 parent: REopt
-grand_parent: Additional Documentation
+grand_parent: Workflows
 nav_order: 3
 ---
 ## Customization
 
-Advanced developers may choose to customize the **URBANopt REopt Gem**. For example, more attributes are returned from the **REopt Lite API** and saved to disk than currently can be recorded in a Feature or Scenario Report. In these cases, developers will want to clone the [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem) and possibly the [URBANopt Reporting Gem](https://github.com/urbanopt/urbanopt-reporting-gem) and make modifications to these codebases. Such changes can be made accessible through CLI commands (installed from a cloned URBANopt CLI repo) or a local project. See [Developer Resources](../developer_resources/developer_resources.md) for more information about setting up local gems and installing them through modifications to your project's Gemfile.
+Advanced developers may choose to customize the **URBANopt REopt Gem**. For example, more attributes are returned from the **REopt Lite API** and saved to disk than currently can be recorded in a Feature or Scenario Report. In these cases, developers will want to clone the [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem) and possibly the [URBANopt Reporting Gem](https://github.com/urbanopt/urbanopt-reporting-gem) and make modifications to these codebases. Such changes can be made accessible through CLI commands (installed from a cloned URBANopt CLI repo) or a local project. See [Developer Resources](../../developer_resources/developer_resources#developing-with-the-cli) for more information about setting up local gems and installing them through modifications to your project's Gemfile.
 
 ### Adding additional REopt Lite Responses to your Feature and Scenario Reports
 

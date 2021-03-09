@@ -2,7 +2,7 @@
 layout: default
 title: Baseline Scenario
 parent: Scenarios
-grand_parent: Usage
+grand_parent: Resources
 nav_order: 1
 ---
 
