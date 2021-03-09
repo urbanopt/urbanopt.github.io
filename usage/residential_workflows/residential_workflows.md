@@ -66,3 +66,49 @@ Otherwise, argument values will be set according to these [lookup files](https:/
 All argument values for the previous categories may be customized by manually adjusting values in the lookup files.
 The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
 Note that not all possible assumptions have been aligned with IECC requirements (e.g., see above regarding defaults), but the users can further customize these templates as needed for specific projects.
+
+## Other Assumptions
+
+These are modeling assumptions baked into the baseline mapper. In the future, updates/improvements could be made to expose these as inputs.
+
+### Geometry
+
+#### Corridor
+- geometry_corridor_position = 'Double Exterior'
+
+#### Foundations
+- geometry_foundation_height = 3 ft if geometry_foundation_type is Crawlspace
+- geometry_foundation_height = 8 ft if geometry_foundation_type is Basement
+- geometry_foundation_height = 8 ft if geometry_foundation_type is Ambient
+
+#### Roofs
+- geometry_roof_type = gable if geometry_roof_type != 'flat'
+
+#### Walls
+- geometry_wall_height = 8 ft
+
+#### Neighbors
+- neighbor_front_distance = 0 ft
+- neighbor_back_distance = 0 ft
+- neighbor_left_distance = 0 ft
+- neighbor_right_distance = 0 ft
+
+#### Aspect Ratio
+- geometry_aspect_ratio = 2.0 (FB/LR)
+
+#### Orientation
+- geometry_orientation = 100% South for Single-Family Detached and Single-Family Attached
+- geometry_orientation = 50% South and 50% North for Low-Rise Multifamily
+
+#### Garages
+- geometry_garage_width = 12 ft if geometry_cfa <= 2500 sqft
+- geometry_garage_width = 24 ft if geometry_cfa > 2500 sqft
+
+### Fuel Types
+
+#### Appliances
+- cooking_range_oven_fuel_type = heating_system_fuel
+- clothes_dryer_fuel_type = heating_system_fuel
+
+#### Water Heating
+- water_heater_fuel_type = heating_system_fuel

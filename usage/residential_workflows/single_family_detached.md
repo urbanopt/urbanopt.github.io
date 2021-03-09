@@ -13,6 +13,7 @@ Consider the highlighted "Single-Family Detached" building footprint with the fo
 * 1 story above ground
 * unvented crawlspace foundation
 * vented attic
+* 2 car garage
 
 ![single_family_detached](../../doc_files/single-family-detached-footprint.jpg)
 
@@ -59,6 +60,7 @@ Optional fields:
 | ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | system_type                   | string       | electric resistance<br>furnace<br>boiler<br>central air conditioner<br>room air conditioner<br>evaporative cooler<br>air-to-air heat pump<br>mini-split heat pump<br>ground-to-air-heat-pump  |                                                                             |
 | heating_system_fuel_type      | string       | electricity<br>natural gas<br>fuel oil<br>propane<br>wood                                                                                                                                     |                                                                             |
+| onsite_parking_fraction       | number       | 0<br>1                                                                                                                                                                                        | Protrudes 100%.                                                             |
 | template                      | string       |                                                                                                                                                                                               | See [Customizable Template](residential_workflows.md#customizable-template) |
 
 An example "Single-Family Detached" building feature snippet is shown below.
@@ -80,6 +82,7 @@ An example "Single-Family Detached" building feature snippet is shown below.
       "attic_type": "attic - vented",
       "system_type": "Residential - furnace and central air conditioner",
       "heating_system_fuel_type": "natural gas",
+      "onsite_parking_fraction": 1,
       "template": "Residential IECC 2015 - Customizable Template Sep 2020"
     }
   ```
