@@ -21,6 +21,9 @@ nav_order: 1
 <h1>Steps</h1>
 <p>The overall URBANopt process is shown in the graphic below.
 <img src="../doc_files/process-steps.png" alt="UO process steps image">
+<!-- <div>
+  {#% include_relative ../doc_files/steps_interactive.svg %}
+</div> -->
 <p>Read through each section below for more information on each step of the process&mdash;including CLI command examples&mdash;and for details on the different workflows available.</p> 
 <div class="row blue-section">
 	<div class="col-8">
@@ -192,32 +195,6 @@ nav_order: 1
       <ol>
         <li><strong>JSON </strong>&mdash; a <code>default_scenario_report.json</code> file containing overall results</li>
         <li><strong>CSV Timeseries</strong>&mdash; a <code>default_scenario_report.csv</code> file containing aggregated timeseries data.</li>
-        <li><strong>SQL Timeseries</strong>&mdash; a <code>default_scenario_report.db</code> file containing aggregated energy use.  The relevant data is in the <strong>Report Data</strong> to match the structure of the <code>eplusout.sql</code> file generated for each building by EnergyPlus.
-          <table>
-            <tr>
-              <th>TimeIndex</th>
-              <th>Year</th>
-              <th>Month</th>
-              <th>Day</th>
-              <th>Hour</th>
-              <th>Minute</th>
-              <th>Dst</th>
-              <th>ReportDataDictionaryIndex</th>
-              <th>Value</th>
-            </tr>
-            <tr>
-              <td>Integer</td>
-              <td>Var</td>
-              <td>Var</td>
-              <td>Var</td>
-              <td>Var</td>
-              <td>Var</td>
-              <td>Var</td>
-              <td>Integer <br/> 10 = Electricity; 1382 = Gas</td>
-              <td>Integer <br/> Amount (J)</td>
-            </tr>
-          </table>
-        </li>
       </ol>
     <div class="important-note"><p>If the scenario is consequently post-processed with another option flag (i.e. reopt or opendss, see sections below), the new data will be appended to these existing results files.</p></div>
   </div>
@@ -249,6 +226,38 @@ nav_order: 1
       <p>Note%mdash Run this command <strong>after</strong> you <strong>a)</strong> post-process the general scenario results and <strong>b)</strong> run the opendss workflow as described in the Additional Analyses section below.</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --opendss --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
       <p>For more information on the OpenDSS workflow, visit the <a href="../additional_documentation/opendss/opendss" class="bold">OpenDSS page</a>.</p>
+    </div>
+  </li>
+  <li class="acc"><input id="accordionQ" type="checkbox" /><label for="accordionQ">SQL Database Output File</label>
+    <div class="show">
+      <p>In addition to the JSON and CSV output files, a <strong>SQL Database</strong> file (<code>default_scenario_report.db</code>) containing aggregated energy use across the scenario is also available. The relevant data is in the <strong>ReportData</strong> table to match the structure of the <code>eplusout.sql</code> file generated for each building by EnergyPlus.</p>
+      <p>The ReportData table structure is as follows:</p>
+      <table>
+        <tr>
+          <th>TimeIndex</th>
+          <th>Year</th>
+          <th>Month</th>
+          <th>Day</th>
+          <th>Hour</th>
+          <th>Minute</th>
+          <th>Dst</th>
+          <th>ReportDataDictionaryIndex</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Integer</td>
+          <td>Var</td>
+          <td>Var</td>
+          <td>Var</td>
+          <td>Var</td>
+          <td>Var</td>
+          <td>Var</td>
+          <td>Integer <br/> 10 = Electricity; 1382 = Gas</td>
+          <td>Integer <br/> Amount (J)</td>
+        </tr>
+      </table>
+      <p>Add the <code>--with-database</code> flag to your command to generate this file:
+     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --default --with-database --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
     </div>
   </li>
 </ul>
