@@ -21,9 +21,6 @@ nav_order: 1
 <h1>Steps</h1>
 <p>The overall URBANopt process is shown in the graphic below.
 <img src="../doc_files/process-steps.png" alt="UO process steps image">
-<!-- <div>
-  {#% include_relative ../doc_files/steps_interactive.svg %}
-</div> -->
 <p>Read through each section below for more information on each step of the process&mdash;including CLI command examples&mdash;and for details on the different workflows available.</p> 
 <div class="row blue-section">
 	<div class="col-8">
