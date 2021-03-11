@@ -5,9 +5,9 @@ parent: Resources
 nav_order: 2
 ---
 
-The URBANopt<sup>&trade;</sup> SDK consists of 3 main modules at its core: `urbanopt-core-gem`, `urbanopt-scenario-gem`, and `urbanopt-geojson-gem`.
+The URBANopt<sup>&trade;</sup> SDK consists of 5 main modules at its core: `urbanopt-core-gem`, `urbanopt-scenario-gem`, `urbanopt-reopt-gem`, `urbanopt-geojson-gem`, and `urbanopt-reopt-gem`. The modules are connected together and accessed via the **Command Line Interface** (`urbanopt-cli`). Visit the [Getting Started](../getting_started/getting_started) page for more details on how to run an URBANopt project.
 
-![image info](../doc_files/URBANopt_arch_development.jpg)
+![URBANopt Gems](../doc_files/urbanopt-diagram-to-cli.png)
 
 The **Core** gem defines a FeatureFile class. The feature file format currently supported is GeoJSON, other formats can be supported in the future as more workflows are integrated in the SDK. The FeatureFile describes properties of each `Feature`, such as location, floor area, number of stories, building type, cooling source, etc. This Core gem in the SDK architecture allows the development of new modules that are independent of other modules.
 
@@ -17,9 +17,7 @@ The **Scenario** gem takes the `Scenario` you want to examine (such as [this exa
 
 The **Reporting** gem includes output-writing measures for the OpenStudio simulations. These reported results are defined by the [default_feature_report](customization/feature_reports.md) Measure. Feature level results are stored in a `default_feature_report` folder within the run directory for each Feature. Post-Processing may be executed to aggregate all Feature reports of a Scenario into a Scenario level report (e.g. aggregated energy use, aggregated building program information) that is written at the top level of each Scenario folder, inside the `run` folder.
 
-New developed modules can use the FeatureFile in the Core Gem to test their functionality. All developed modules are accessed via the Command Line Interface (`urbanopt-cli`). The **Command Line Interface** can then be used to connect the gems together and run/test projects.
-
-Visit the [Getting Started](../getting_started/getting_started) page for more details on how to run an URBANopt project.
+The **REopt** gem is a derivative of the Scenario gem and provides the connection to the REopt Lite optimizations.
 
 ## Workflow Details
 
