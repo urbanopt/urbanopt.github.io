@@ -26,7 +26,16 @@ HPXML files are built based on feature information contained in the geojson file
 * refrigerator.tsv
 * water_heater.tsv
 
+Argument values found in these lookup files span across the following categories:
+
+* enclosure (insulation levels, air leakage, etc.)
+* HVAC systems (heating/cooling types, efficiencies, etc.)
+* appliances (refrigerator, clothes washer, etc.)
+* ventilation (mechanical, exhaust)
+* water heater
+
 (See [below](#customizable-template) for more information on controlling how these assumptions are made.)
+
 A translator measure is then applied to the HPXML file to constuct an OpenStudio(R) building model.
 
 ## Supported Building Types
@@ -55,21 +64,29 @@ Enumerations that are applicable to residential buildings:
 If no template enumeration is specified, argument values will be defaulted according to the [documentation](https://openstudio-hpxml.readthedocs.io/en/latest/hpxml_to_openstudio.html) for the HPXMLtoOpenStudio translator measure.
 In general, these defaults are based on ANSI / RESNET / ICC Std. 301 (2006).
 
-Otherwise, argument values will be set according to these [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential) that span across the following categories:
-
-* enclosure (insulation levels, air leakage, etc.)
-* HVAC systems (heating/cooling types, efficiencies, etc.)
-* appliances (refrigerator, clothes washer, etc.)
-* ventilation (mechanical, exhaust)
-* water heater
-
 All argument values for the previous categories may be customized by manually adjusting values in the lookup files.
 The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
 Note that not all possible assumptions have been aligned with IECC requirements (e.g., see above regarding defaults), but the users can further customize these templates as needed for specific projects.
 
+## Stochastic Schedules
+
+Occupant-related schedules are generated on-the-fly, and vary unit-to-unit for a given building.
+They are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
+
+In terms of repeatability, stochastic schedule generation uses a pseudo-random number generator that takes a seed as an argument.
+The seed is determined by multiplying the feature ID by the unit number of the building being simulated.
+If the feature ID is not represented by an integer, the seed will default to a value of 1.
+
 ## Other Assumptions
 
-These are modeling assumptions baked into the baseline mapper. In the future, updates/improvements could be made to expose these as inputs.
+The building footprint drawn and contained in the geojson does not determine the footprint of individual modeled units.
+Floor area is divided by the number of residential units to determine the floor area of each individual unit.
+Individual footprints are determined using this unit floor area and an aspect ratio of 2 (i.e., front/back walls are twice as long as left/right walls).
+
+A summary of modeling assumptions baked into the baseline mapper is given below.
+In the future, updates/improvements could be made to expose these arguments as inputs to the models.
+For example, aspect ratio could be either user-defined or determined from the drawn building footprint.
+Another example is allowing building orientation to be user-defined, or determining it based on the "front" of the building.
 
 ### Geometry
 
@@ -103,6 +120,7 @@ These are modeling assumptions baked into the baseline mapper. In the future, up
 #### Garages
 - geometry_garage_width = 12 ft if geometry_cfa <= 2500 sqft
 - geometry_garage_width = 24 ft if geometry_cfa > 2500 sqft
+- geometry_garage_protrusion = 100%
 
 ### Fuel Types
 

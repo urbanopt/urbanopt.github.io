@@ -21,7 +21,7 @@ An example 3D rendering of the single-family detached building is shown below.
 
 ![single_family_detached](../../doc_files/single-family-detached-1.jpg)
 
-(Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be.)
+(Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.)
 
 The 3D building surfaces stored in HPXML and OSM models represent the area and orientation of ground and exterior exposure of surfaces, but do not represent their position relative to each other.
 An example geometry rendering for a translated HPXML file is given below. 
@@ -60,7 +60,7 @@ Optional fields:
 | ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | system_type                   | string       | electric resistance<br>furnace<br>boiler<br>central air conditioner<br>room air conditioner<br>evaporative cooler<br>air-to-air heat pump<br>mini-split heat pump<br>ground-to-air-heat-pump  |                                                                             |
 | heating_system_fuel_type      | string       | electricity<br>natural gas<br>fuel oil<br>propane<br>wood                                                                                                                                     |                                                                             |
-| onsite_parking_fraction       | number       | 0<br>1                                                                                                                                                                                        | Protrudes 100%.                                                             |
+| onsite_parking_fraction       | number       | 0<br>1                                                                                                                                                                                        |                                                                             |
 | template                      | string       |                                                                                                                                                                                               | See [Customizable Template](residential_workflows.md#customizable-template) |
 
 An example "Single-Family Detached" building feature snippet is shown below.

@@ -30,7 +30,7 @@ You can see outside boundary conditions of "Outdoors" on the roof and one facade
 ![multifamily](../../doc_files/multifamily-1-3.jpg)
 ![multifamily](../../doc_files/multifamily-1-4.jpg)
 
-(Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be.)
+(Note that the footprint of the modeled unit, less the garage, is always rectangular even though the geojson footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.)
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.

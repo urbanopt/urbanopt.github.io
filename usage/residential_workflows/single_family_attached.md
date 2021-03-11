@@ -28,7 +28,7 @@ You can see outside boundary conditions of "Outdoors" on one facade, and "Adiaba
 ![single_family_attached](../../doc_files/single-family-attached-1-1.jpg)
 ![single_family_attached](../../doc_files/single-family-attached-1-2.jpg)
 
-(Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be.)
+(Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.)
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
