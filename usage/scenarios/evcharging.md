@@ -21,9 +21,9 @@ to additional documentation are provided.
 The measure is based on static profiles of power draw  for Peña Station NEXT (PSN) in Denver to reflect
 different potential scenarios for EV charging behavior as described in  *Integrating Electric
 Vehicle Charging Infrastructure into Commercial Buildings and Mixed-Use Communities: Design,
-Modeling, and Control Optimization Opportunities*  ([Pless et al 2020](#ref1)).
+Modeling, and Control Optimization Opportunities*  ([Pless et al. 2020](#ref1)).
 These profiles were created leveraging output from EVI-Pro Tool generated as part of a study of
-projected future EV adoption for the state of California ([Bedir et al. 2018](#ref2)). 
+projected future EV adoption for the state of California ([Bedir et al. 2018](#ref2)).
 
 The profiles are divided into **residential**, **public** and **workplace** charging stations. The vehicle
 population is assumed to be the same as the building occupancy, derived from the occupancy schedules
@@ -189,10 +189,11 @@ before the `add_ems_to_control_ev_charging` measure in the .osw file*
 
 ## References
 
-Bedir, A. Crisostomo, N., Allen, J., Wood, E., and Rames. C. (2018). California Plug-In Electric Vehicle
-Infrastructure Projections: 2017-2025. California Energy Commission. CEC-600-2018-001. Available [online](https://www.nrel.gov/docs/fy18osti/70893.pdf).
-
-Shanti Pless, Amy Allen, Lissa Myers, David Goldwasser, Andrew Meintz, Ben Polly, and Stephen Frank.
+<a name="ref1"></a> Shanti Pless, Amy Allen, Lissa Myers, David Goldwasser, Andrew Meintz, Ben Polly, and Stephen Frank.
 "Integrating Electric Vehicle Charging Infrastructure into Commercial Buildings and Mixed-Use
 Communities: Design, Modeling, and Control Optimization Opportunities". Presented at 2020 ACEEE
-Summer Study on Energy Efficiency in Buildings, August, 2020. Available [online](https://www.nrel.gov/docs/fy20osti/77438.pdf).
+Summer Study on Energy Efficiency in Buildings, August, 2020. Available
+[online](https://www.nrel.gov/docs/fy20osti/77438.pdf).
+
+<a name="ref2"></a> Bedir, A. Crisostomo, N., Allen, J., Wood, E., and Rames. C. (2018). California Plug-In Electric Vehicle
+Infrastructure Projections: 2017-2025. California Energy Commission. CEC-600-2018-001. Available [online](https://www.nrel.gov/docs/fy18osti/70893.pdf).
