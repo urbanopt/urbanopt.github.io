@@ -104,9 +104,7 @@ on-site solar PV. Load shifting occurs only on weekdays, when commercial buildin
 have higher EV charging loads.
 
 Users need to specify the `Curtailment Fraction` argument for the measure. It is a number between 0 and 1 that denotes the fraction by which EV charging
-is curtailed during load shifting events. The default value set in the measure is 0.5. The total delivered energy for EV charging over the day remains the same; 
-only the distribution over time is shifted. It is assumed that vehicles charging at a workplace would be parked there for the duration of the day, and 
-thus that a shifting of the charging load would not interfere with the use of the vehicle.
+is curtailed during load shifting events. The default value set in the measure is 0.5. The total delivered energy for EV charging over the day remains the same;only the distribution over time is shifted. It is assumed that vehicles charging at a workplace would be parked there for the duration of the day, and thus that a shifting of the charging load would not interfere with the use of the vehicle.
 
 The following graph shows the EV charging profile load shifted on applying the
 `add_ems_to_control_ev_charging` measure:
