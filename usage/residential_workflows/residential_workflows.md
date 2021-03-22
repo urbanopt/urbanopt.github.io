@@ -61,7 +61,7 @@ Enumerations that are applicable to residential buildings:
 - `Residential IECC 2015 - Customizable Template Sep 2020`
 - `Residential IECC 2018 - Customizable Template Sep 2020`
 
-If no template enumeration is specified, argument values will be defaulted according to the [documentation](https://openstudio-hpxml.readthedocs.io/en/latest/hpxml_to_openstudio.html) for the HPXMLtoOpenStudio translator measure.
+If no template enumeration is specified, argument values will be defaulted according to the [documentation](https://openstudio-hpxml.readthedocs.io/en/latest/workflow_inputs.html) for the OpenStudio-HPXML workflow.
 In general, these defaults are based on ANSI / RESNET / ICC Std. 301 (2006).
 
 All argument values for the previous categories may be customized by manually adjusting values in the lookup files.
