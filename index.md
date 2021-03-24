@@ -38,7 +38,7 @@ Current capabilities include:
 
 ## Quicklinks
 
-[Getting Started](./getting_started/getting_started){: .btn .btn-uo .white-text} &mdash; Visit the [Getting Started](./getting_started/getting_started) page for detailed instructions on how to use URBANopt in a variety of workflows.  
+[Getting Started](./getting_started/getting_started){: .btn .btn-uo .white-text} &mdash; Visit the [Getting Started page](./getting_started/getting_started) for detailed instructions on how to use URBANopt in a variety of workflows.  
 
 [Workflows](./workflows/workflows){: .btn .btn-uo .white-text} &mdash; For more details about the workflows enabled through URBANopt, visit the [Workflows](./workflows/workflows) section.
 

@@ -2,7 +2,7 @@
 layout: default
 title: Residential Workflows
 parent: Workflows
-nav_order: 3
+nav_order: 4
 ---
 
 Residential building energy models in URBANopt<sup>&trade;</sup> are created using the [OpenStudio-HPXML](https://github.com/NREL/OpenStudio-HPXML) workflow.
