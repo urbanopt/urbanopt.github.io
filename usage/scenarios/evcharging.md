@@ -48,7 +48,7 @@ vehicles for free at those workplaces.
 The following graphs depict the different charging behavior and flexibility scenarios generated for
 the PSN site and used by the measure. They are disaggregated by charging station type,
 for home charging (Level 1 and Level 2), workplace and public charging (Level 1 and Level 2), and DC
-fast charging. ([Pless et al. 2020](#ref1)).
+fast charging ([Pless et al. 2020](#ref1)).
 
 
 ![](../../doc_files/EVChargingProfile1.png)
