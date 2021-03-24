@@ -46,7 +46,9 @@ workplace charging at project site scenario, for people who work elsewhere and c
 vehicles for free at those workplaces.
 
 The following graphs depict the different charging behavior and flexibility scenarios generated for
-the PSN site and used by the measure ([Pless et al. 2020](#ref1)).
+the PSN site and used by the measure. They are disaggregated by charging station type,
+for home charging (Level 1 and Level 2), workplace and public charging (Level 1 and Level 2), and DC
+fast charging. ([Pless et al. 2020](#ref1)).
 
 
 ![](../../doc_files/EVChargingProfile1.png)
@@ -80,7 +82,7 @@ building types.
 ### <a name="its"></a> EV percent
 
 Denotes percentage of vehicles between 0 to 100 that are electric on site. The measure currently
-does not support adding discrete values of EV values directly.
+does not support adding discrete values of Electric Vehicles directly.
 
 ### Assumptions and Limitations
 
