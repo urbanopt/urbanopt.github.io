@@ -46,7 +46,7 @@ workplace charging at project site scenario, for people who work elsewhere and c
 vehicles for free at those workplaces.
 
 The following graphs depict the different charging behavior and flexibility scenarios generated for
-the PSN site and used by the measure.
+the PSN site and used by the measure ([Pless et al. 2020](#ref1)).
 
 
 ![](../../doc_files/EVChargingProfile1.png)
@@ -68,11 +68,14 @@ following scenarios:
 
 Users can select from the following options:
 
-*Typical Home* : Representing Single-Family, Multifamily, Lodging URBANopt<sup>&trade;</sup> building types.
+**Typical Home** : Representing Single-Family, Multifamily, Lodging URBANopt<sup>&trade;</sup>
+building types.
 
-*Typical Work* : Representing URBANopt building types such as Office, Laboratory, Education, Healthcare etc.
+*Note: The measure does not support the Single-Family Detached building type in the URBANopt [residential workflows](../residential_workflows.md).*
 
-*Typical Public* : Representing URBANopt building types such as Retail, Shopping Mall, Food Services etc.
+**Typical Work** : Representing URBANopt building types such as Office, Laboratory, Education, Healthcare etc.
+
+**Typical Public** : Representing URBANopt building types such as Retail, Shopping Mall, Food Services etc.
 
 ### <a name="its"></a> EV percent
 
@@ -107,7 +110,7 @@ Users need to specify the `Curtailment Fraction` argument for the measure. It is
 is curtailed during load shifting events. The default value set in the measure is 0.5.
 
 The following graph shows the EV charging profile load shifted on applying the
-`add_ems_to_control_ev_charging` measure:
+`add_ems_to_control_ev_charging` measure ([Pless et al. 2020](#ref1)):
 
 ![](../../doc_files/EVCurtailment.png)
 
