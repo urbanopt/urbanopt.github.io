@@ -39,6 +39,8 @@ GMT project.
 
 ![GMT functionality](https://raw.githubusercontent.com/urbanopt/geojson-modelica-translator/develop/docs/images/des-connections.png)
 
+The GMT has the ability to swap out load models such as using timeseries data in the form of watts or mass flow rates, using RC models built by TEASER, or running Spawn of EnergyPlus.
+
 ### GeoJSON and System Parameter Files
 
 This module manages the connection to the GeoJSON file including any calculations that are needed. Calculations

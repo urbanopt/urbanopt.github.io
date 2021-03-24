@@ -253,11 +253,12 @@ nav_order: 1
           <td>Integer <br/> Amount (J)</td>
         </tr>
       </table>
-      <p>Add the <code>--with-database</code> flag to your command to generate this file:
+      <p>Add the <code>--with-database</code> flag to your command to generate this file:</p>
      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --default --with-database --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
     </div>
   </li>
 </ul>
+
 <div class="row blue-section">
   <div class="col-12">
     <h2 class="white-text" id="analyses">Additional Analyses (Optional)</h2>

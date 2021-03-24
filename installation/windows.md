@@ -113,12 +113,18 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
     uo --help
     ```
 
-1. For detailed instructions, see the [Getting Started page](../getting_started/getting_started.md) page.
+1. For detailed instructions, see the [Getting Started page](../getting_started/getting_started.md).
 
-## OpenDSS and DiTTo Reader Set-up
+## OpenDSS and DiTTo Reader Installation
 
 As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.  
 
 If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.  
 
 Note that Windows users may experience some difficulty during the install (particularly with the environment variable setup).  If you are not able to access the opendss command via the CLI, you can always access it manually by following the general [OpenDSS instructions](../workflows/opendss/opendss.md#converting-and-running-opendss).
+
+## DES Installation
+
+As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use. 
+
+Follow the [DES Installation Instructions](./des_installation.md) to install these dependencies.

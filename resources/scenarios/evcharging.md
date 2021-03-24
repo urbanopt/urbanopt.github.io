@@ -1,6 +1,6 @@
 ---
 layout: default
-title: EV charging Scenario
+title: EV Charging Scenario
 parent: Scenarios
 grand_parent: Resources
 nav_order: 3
