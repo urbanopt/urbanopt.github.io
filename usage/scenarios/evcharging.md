@@ -18,7 +18,7 @@ to additional documentation are provided.
 
 ### add_ev_load Measure
 
-The measure is based on static profiles of power draw  for Peña Station NEXT (PSN) in Denver to reflect
+The measure is based on static profiles of power draw  for a district in Denver to reflect
 different potential scenarios for EV charging behavior as described in  *Integrating Electric
 Vehicle Charging Infrastructure into Commercial Buildings and Mixed-Use Communities: Design,
 Modeling, and Control Optimization Opportunities*  ([Pless et al. 2020](#ref1)).
@@ -46,7 +46,7 @@ workplace charging at project site scenario, for people who work elsewhere and c
 vehicles for free at those workplaces.
 
 The following graphs depict the different charging behavior and flexibility scenarios generated for
-the PSN site and used by the measure. They are disaggregated by charging station type,
+the Denver district and used by the measure. They are disaggregated by charging station type,
 for home charging (Level 1 and Level 2), workplace and public charging (Level 1 and Level 2), and DC
 fast charging ([Pless et al. 2020](#ref1)).
 
@@ -86,14 +86,15 @@ does not support adding discrete values of Electric Vehicles directly.
 
 ### Assumptions and Limitations
 
-The charging profiles used in the measure are static profiles developed for the Peña Station NEXT (PSN) in
+The charging profiles used in the measure are static profiles developed for a district in
 Denver for three different charging day types (weekday, Saturday and Sunday) and for three charging
-locations at PSN (work, retail and home). These profiles are a result of averaging the charging
-profiles for the work, retail and home building types in PSN and are therefore generalized profiles for those
+locations (work, public and home). These profiles are a result of averaging the charging
+profiles for the work, public and home building types and are therefore generalized profiles for those
 building types.
-The URBANopt building types are  mapped to the these building types within the
-URBANopt project.
-
+The URBANopt building types are  mapped to these building types within the
+URBANopt project. While using the measure for an URBANopt project, it should be noted that the EV
+profiles are generalized to represent work, public and home building types and therefore and may not correspond
+directly to the schedules used in the URBANopt buildings.
 
 
 ### add_ems_to_control_ev_charging Measure
@@ -102,7 +103,7 @@ This measure uses EnergyPlus' EnergyManagementSystem objects to control an elect
 load to better align the charging power draw with expected solar PV power production. The measure is
 intended for use at a 15-minute simulation timestep. *When used, the measure should be run after applying the `Add EV Load
 measure`.* It is structured around the assumption of an office building occupancy schedule, with
-occupants requiring vehicles to be charged by 7pm, and therefore is best suited to be applied to the
+occupants requiring vehicles to be charged by 6pm, and therefore is best suited to be applied to the
 *Typical Work* charging station type. Load shifting events are characterized by
 declining levels of solar radiation, which is used as a proxy for diminishing power output from
 on-site solar PV. Load shifting occurs only on weekdays, when commercial buildings would typically
