@@ -21,7 +21,7 @@ An example 3D rendering of the single-family detached building is shown below.
 
 ![single_family_detached](../../doc_files/single-family-detached-1.jpg)
 
-(Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.)
+(Note that the footprint of the modeled unit, less the garage, is always rectangular even though the geojson footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.)
 
 The 3D building surfaces stored in HPXML and OSM models represent the area and orientation of ground and exterior exposure of surfaces, but do not represent their position relative to each other.
 An example geometry rendering for a translated HPXML file is given below. 

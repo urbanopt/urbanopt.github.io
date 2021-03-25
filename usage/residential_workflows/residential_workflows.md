@@ -9,8 +9,9 @@ has_toc: false
 
 # Residential Workflows
 
-Low-rise residential building energy models in URBANopt<sup>&trade;</sup> are created using the [OpenStudio-HPXML](https://github.com/NREL/OpenStudio-HPXML) workflow.
+Low-rise residential building energy models in URBANopt<sup>&trade;</sup> are created using the [**OpenStudio-HPXML**](https://github.com/NREL/OpenStudio-HPXML) workflow.
 For every residential building feature found in the geojson file, an [HPXML](https://hpxml.nrel.gov) file is built to represent each living unit of the building.
+
 For example, in the case of a single-family detached building one HPXML file is built to represent the single unit.
 HPXML files are built based on feature information contained in the geojson file as well as on sets of default assumptions contained in the following [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential):
 
@@ -34,19 +35,22 @@ Argument values found in these lookup files span across the following categories
 * ventilation (mechanical, exhaust)
 * water heater
 
-(See [below](#customizable-template) for more information on controlling how these assumptions are made.)
+See the [Customizable Template](#customizable-template) section below for more information on controlling how these assumptions are made.
 
-A translator measure is then applied to the HPXML file to constuct an OpenStudio(R) building model.
+A translator measure is then applied to each HPXML file to constuct an OpenStudio(R) building model.
 
 ## Supported Building Types
 
 Currently, the following residential building types are supported:
 
-- [Single-Family Detached](single_family_detached.md)
-- [Single-Family Attached](single_family_attached.md)
-- [Low-Rise Multifamily](multifamily.md)[^1]
+- [**Single-Family Detached**](single_family_detached.md)
+- [**Single-Family Attached**](single_family_attached.md)
+- [**Low-Rise Multifamily**](multifamily.md)[^1]
 
 Only the *Baseline* and *High Efficiency* Scenarios are supported at this time; any additional mappers will need to be updated manually.
+
+It should be noted that modeling capabilities for these building types are currently in **beta** mode.
+This means that testing and development is still in progress, and user feedback is welcome.
 
 [^1]: Mid-Rise and High-Rise Multifamily building prototypes can be found in the commercial building workflows).
 
@@ -62,7 +66,7 @@ Enumerations that are applicable to residential buildings:
 - `Residential IECC 2018 - Customizable Template Sep 2020`
 
 If no template enumeration is specified, argument values will be defaulted according to the [documentation](https://openstudio-hpxml.readthedocs.io/en/latest/workflow_inputs.html) for the OpenStudio-HPXML workflow.
-In general, these defaults are based on ANSI / RESNET / ICC Std. 301 (2006).
+In general, these defaults are based on **ANSI / RESNET / ICC Std. 301 (2006)**.
 
 All argument values for the previous categories may be customized by manually adjusting values in the lookup files.
 The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
