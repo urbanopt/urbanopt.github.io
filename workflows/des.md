@@ -13,7 +13,8 @@ The DES workflow has python and Modelica dependencies that must be installed in 
 
 ## Usage
 
-There are three major steps to running the GeoJSON to Modelica Translator (GMT):
+
+There are three major steps to running the DES workflow:
 
 1. generating the GeoJSON and System Parameter JSON files,
 1. creating of the Modelica package containing the district system, and
@@ -24,22 +25,35 @@ Refer to the [Getting Started page](../getting_started/getting_started.md) to vi
 
 ## Overview
 
+District energy systems have been leveraged for hundreds of years to move energy (typically waste heat from industrial processes) to effectively maintain comfort in neighboring buildings; however, modeling the potential and effectiveness of these systems has been a challenge due to complexity. The URBANopt DES workflow aims to make DES analysis more approachable in hopes of encouraging adoption through better evaluation of new systems or expansions of in situ systems. The URBANopt DES workflow leverages a tool called the GeoJSON to Modelica Translator (GMT) to enable the analysis of DES systems.
+
 The GeoJSON Modelica Translator (GMT) is a one-way trip from GeoJSON in combination with a well-defined instance of the system parameters schema to a Modelica package with multiple buildings loads, energy transfer stations, distribution networks, and central plants. The project will eventually allow multiple paths to build up different district heating and cooling system topologies; however, the initial implementation is limited to 1GDH and 4GDHC.
 
 The project is motivated by the need to easily evaluate district energy systems. The goal is to eventually cover the various generations of heating and cooling systems as shown in the figure below. The need to move towards 5GDHC systems results in higher efficiencies and greater access to additional waste-heat sources.
 
 ![image of DES generations](https://raw.githubusercontent.com/urbanopt/geojson-modelica-translator/develop/docs/images/des-generations.png)
 
-The GMT is designed to enable "easy" swapping of building loads, district systems, and newtork topologies. Some
-of these functionalities are more developed than others, for instance swapping building loads between Spawn and
-RC models (using TEASER) is fleshed out; however, swapping between a first and fifth generation heating system has yet to be fully implemented.
-
 The diagram below is meant to illustrate the future proposed interconnectivity and functionality of the
 GMT project.
 
 ![GMT functionality](https://raw.githubusercontent.com/urbanopt/geojson-modelica-translator/develop/docs/images/des-connections.png)
 
-The GMT has the ability to swap out load models such as using timeseries data in the form of watts or mass flow rates, using RC models built by TEASER, or running Spawn of EnergyPlus.
+As shown in the image, there are multiple building loads that can be deployed with the GMT and are described in the [Building Load Models section](#building-load-models) below. These models, and the associated design parameters, are required to create a fully runnable Modelica model. The GMT leverages two file formats for generating the Modelica project: 1) the GeoJSON feature file and 2) a System Parameter JSON file.
+
+### Building Load Models
+
+The building loads can be defined multiple ways depending on the fidelity of the required models. Each of the building load models are easily replaced using configuration settings within the System Parameters file. The models can have mixed building load models, for example the district system can have 3 time series models, an RC model, and a detail Spawn model. The 4 different building load models include:
+
+1. Time Series in Watts: This building load is the total heating, cooling, and domestic hot water loads represented in a CSV type file (MOS file). The units are Watts and should be reported at an hour interval; however, finer resolution is possible. The load is defined as the load seen by the ETS.
+1. Time Series as mass flow rate and delta temperature: This building load is similar to the other Time Series model but uses the load as seen by the ETS in the form of mass flow rate and delta temperature. The file format is similar to the other Time Series model but the columns are mass flow rate and delta temperature for heating and cooling separately.
+1. RC Model: This model leverages the TEASER framework to generate an RC model with the correct coefficients based on high level parameters that are extracted from the GeoJSON file including building area and building type.
+1. Spawn of EnergyPlus: This model uses EnergyPlus models to represent the thermal zone heat balance portion of the models while using Modelica for the remaining components. Spawn of EnergyPlus is still under development and currently only works on Linux-based systems.
+
+## Architecture Overview
+
+The GMT is designed to enable "easy" swapping of building loads, district systems, and newtork topologies. Some
+of these functionalities are more developed than others, for instance swapping building loads between Spawn and
+RC models (using TEASER) is fleshed out; however, swapping between a first and fifth generation heating system has yet to be fully implemented.
 
 ### GeoJSON and System Parameter Files
 
