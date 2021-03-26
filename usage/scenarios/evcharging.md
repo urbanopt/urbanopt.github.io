@@ -103,7 +103,7 @@ This measure uses EnergyPlus' EnergyManagementSystem objects to control an elect
 load to better align the charging power draw with expected solar PV power production. The measure is
 intended for use at a 15-minute simulation timestep. *When used, the measure should be run after applying the `Add EV Load
 measure`.* It is structured around the assumption of an office building occupancy schedule, with
-occupants requiring vehicles to be charged by 6pm, and therefore is best suited to be applied to the
+occupants requiring vehicles to be charged by 7pm, and therefore is best suited to be applied to the
 *Typical Work* charging station type. Load shifting events are characterized by
 declining levels of solar radiation, which is used as a proxy for diminishing power output from
 on-site solar PV. Load shifting occurs only on weekdays, when commercial buildings would typically
@@ -187,7 +187,7 @@ OpenStudio::Extension.set_measure_argument(osw, 'add_ev_load', 'ev_percent', 50)
 ```
 
 The  steps for adding the `add_ems_to_control_ev_charging` are the same as adding the `add_ev_load`
-measure. 
+measure.
 
 *Note: The `add_ev_load` measure must be run before running the
 `add_ems_to_control_ev_charging` measure. This can be done by adding the `add_ev_load` measure
