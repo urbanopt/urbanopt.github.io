@@ -304,7 +304,20 @@ nav_order: 1
   </li>
   <li class="acc"><input id="accordion18" type="checkbox" /><label for="accordion18">DES Functionality</label>
     <div class="show">
-    <p>Coming Soon!</p>
+      <p><strong>DES functionality is available in URBANopt CLI version 0.5.2 and above.</strong></p>
+      <p>Once a scenario has been run and processed as explained in the sections above, a district thermal simulation can then be run using the output from the SDK. While Additional district energy system simulation capabilities will be added in the future, only timeseries simulations of 4th generation district heating & cooling systems are currently available.</p>
+      <p>Follow the steps below to configure, create, and run your DES simulation:</p>
+      <ol class="t">
+        <li class="t">Build a system parameters JSON config file from the existing URBANopt processed results:
+           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo des_params --sys-param-file &lt;path/to/create/new/sys_params.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt; --feature &lt;path/to/FEATUREFILE.json&gt; --model-type time_series</span></code></pre></div>
+        </li>
+        <li class="t">Create a Modelica model directory and give it a name:
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo des_create --sys-param &lt;path/to/sys_params.json&gt; --feature &lt;path/to/FEATUREFILE.json&gt; --des-name &lt;path/to/create/new/modelica_dir&gt; --model-type time_series</span></code></pre></div>
+        </li>
+        <li class="t"> Run the Modelica simulation:
+           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo des_run --model &lt;path/to/modelica_dir&gt;</span></code></pre></div>
+        </li>
+      </ol>
     </div>
   </li>
   <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate Results</label>
