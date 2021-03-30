@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Compatibility Matrix
-parent: Developer Resources
+parent: For Developers
 nav_order: 1
 ---
 
