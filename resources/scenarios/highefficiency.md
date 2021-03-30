@@ -15,3 +15,4 @@ The OpenStudio measures used in the HighEfficiency Mapper are as the following:
 - **IncreaseInsulationRValueforExteriorWalls**: An OpenStudio measure used to increase the R-Value of insulation for exterior walls by a specific value.
 - **ReduceElectricEquipmentLoadsByPercentage**: An OpenStudio measure used to reduce the electric equipment loads by a specific percentage value.
 - **ReduceLightingLoadsByPercentage**: An OpenStudio measure used to reduce the lighting loads by a specific percentage value.
+- **BuildResidentialModel**: An OpenStudio "meta-measure" that calls measures from the OpenStudio-HPXML workflow. Applies only to the three low-rise residential building types. Increases wall assembly R-value by 20% and reduces usage multipliers by 10%.

@@ -21,3 +21,4 @@ The OpenStudio measures used in the Baseline Mapper are as follows:
   surrounding buildings.
 - **create_typical_building_from_model 2**: A second instance of this Measure, which is added in the workflow after urban geometry creation and the `add_hvac` argument is now set to `true`, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to `false`.
 - **default_feature_reports**: An URBANopt Scenario Measure that generates feature reports (JSON and CSV files that include feature results), which are used by the scenarioDefaultPostProcessor.
+- **BuildResidentialModel**: An OpenStudio "meta-measure" that calls measures from the OpenStudio-HPXML workflow. Applies only to the three low-rise residential building types.
