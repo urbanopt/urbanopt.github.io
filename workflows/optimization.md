@@ -7,11 +7,11 @@ nav_order: 6
 
 # Optimization
 
-URBANopt can now run optimization and sensitivity analysis algorithms by using the [OpenStudio Analysis Framework](https://www.tandfonline.com/doi/full/10.1080/19401493.2020.1778788).  This is facilitated by using the OpenStudio Meta CLI from the [Parametric Analysis Tool (PAT)](https://github.com/NREL/OpenStudio-PAT/releases).
+URBANopt can now run optimization and sensitivity analysis algorithms by using the [OpenStudio&reg; Analysis Framework (OSAF)](https://www.tandfonline.com/doi/full/10.1080/19401493.2020.1778788).  This is facilitated by using the OpenStudio Meta CLI from the [Parametric Analysis Tool (PAT)](https://github.com/NREL/OpenStudio-PAT/releases).
 
 ## Example Optimization
 
-An example file is available to demonstrate the optimization capability. In this example, electricity consumption was optimized over 2 variables: Reduce Electric Equipment Loads by Percentage and Lighting Power Reduction (%)
+An example file is available to demonstrate the optimization capability. In this example, electricity consumption was optimized over two variables: Reduce Electric Equipment Loads by Percentage and Lighting Power Reduction (%).
 
 Follow the steps below to install the necessary dependencies and run the file with the openstudio_meta.
 
@@ -21,23 +21,23 @@ Follow the steps below to install the necessary dependencies and run the file wi
 
 1. Start an OSAF server cluster on AWS, Google or Microsoft using the [Helm](https://github.com/NREL/openstudio-server-helm) charts.  Note the server IP address; you will need it to submit the jobs. 
 
-1. Once the cluster is up and running, open a terminal prompt or powershell in the directory with the UrbanOpt example files:
+1. Once the cluster is up and running, open a terminal prompt or powershell in the directory with the URBANopt example files:
 
-	- [UrbanOpt_NSGA.json](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/UrbanOpt_NSGA.json)
-	- [UrbanOpt_NSGA.zip](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/UrbanOpt_NSGA.zip)
+	- [URBANopt_NSGA.json](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/UrbanOpt_NSGA.json)
+	- [URBANopt_NSGA.zip](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/UrbanOpt_NSGA.zip)
 
-1. The command to run the analysis is as follow.  You will need to replace the values in angle brackets (< >) with your values.
+1. The command to run the analysis is as follows. You will need to replace the values in angle brackets (< >) with your values.
 
 	```bash
-		<path/to/PAT/ruby> <path/to/openstudio-meta> run_analysis --debug --verbose <path/of/UrbanOpt_NSGA.json> <Server IP address> -a nsga_nrel
+		<path/to/PAT/ruby> <path/to/openstudio-meta> run_analysis --debug --verbose <path/of/URBANopt_NSGA.json> <Server IP address> -a nsga_nrel
 	```
 
 	For example:
 	```bash
-	C:\ParametricAnalysisTool-3.1.0\pat\ruby\bin\ruby.exe  C:\ParametricAnalysisTool-3.1.0\pat\OpenStudio-server\bin\openstudio_meta run_analysis --debug --verbose C:\PATProject\UrbanOpt_NSGA.json 10.10.10.10 -a nsga_nrel
+	C:\ParametricAnalysisTool-3.1.0\pat\ruby\bin\ruby.exe  C:\ParametricAnalysisTool-3.1.0\pat\OpenStudio-server\bin\openstudio_meta run_analysis --debug --verbose C:\PATProject\URBANopt_NSGA.json 10.10.10.10 -a nsga_nrel
 	```
 
-Once the job is submitted, you should be able to see the analysis on the Server GUI page:
+Once the job is submitted, you should be able to see the analysis on the Server Web Interface:
 
 ![OSAF server output 1](../doc_files/opt_serveroutput1.png)
 ![OSAF server output 2](../doc_files/opt_serveroutput2.png)
@@ -45,11 +45,11 @@ Once the job is submitted, you should be able to see the analysis on the Server 
 
 ## Customization
 
-The UrbanOpt analysis is defined using the OpenStudio OSA file.  This allows you to define the names of the feature file and scenario file as well as the variables. 
+The URBANopt analysis is defined using the OpenStudio OSA file.  This allows you to define the names of the feature file and scenario file as well as the variables. 
 
 ### Variables
 
-The following variables must be added to the OSA to perform and UrbanOpt analysis:
+The following variables must be added to the OSA to perform and URBANopt analysis:
 
 - `urbanopt` (set to true)
 - `feature_file` (the feature file JSON to use)
@@ -59,8 +59,8 @@ The following variables must be added to the OSA to perform and UrbanOpt analysi
 Here is a snippet of the OSA:
 ![OSA variables for URBANopt analysis](../doc_files/opt_osaconfig.png)
 
-And an example urbanopt variable definition:
-![OSA urbanopt_variables definition](../doc_files/opt_variables.png)
+And an example URBANopt variable definition:
+![OSA URBANopt_variables definition](../doc_files/opt_variables.png)
 
 ### Objective Functions
 
