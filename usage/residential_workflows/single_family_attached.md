@@ -8,7 +8,7 @@ nav_order: 2
 
 ## Single-Family Attached 
 
-Consider the highlighted "Single-Family Attached" building footprint with the following high-level geojson inputs:
+Consider the highlighted "Single-Family Attached" building footprint with the following high-level URBANopt<sup>&trade;</sup> GeoJSON inputs:
 
 * 2 stories above ground
 * slab foundation
@@ -19,7 +19,7 @@ Consider the highlighted "Single-Family Attached" building footprint with the fo
 ![single_family_attached](../../doc_files/single-family-attached-footprint.jpg)
 
 The number of living units are used to determine the position (i.e., horizontal location) of individual living units contained in the building.
-By determining the position of individual units relative the whole building, types and boundary conditions of surfaces (e.g., adiabatic, etc.) can be stored in the HPXML.
+By determining the position of individual units relative the whole building, types and boundary conditions of surfaces (e.g., adiabatic) can be stored in the HPXML.
 
 Example 3D renderings for a single unit from the building is shown below.
 This unit is designated as having a "Right" horizontal location (when viewing from the front).
@@ -28,7 +28,7 @@ You can see outside boundary conditions of "Outdoors" on one facade, and "Adiaba
 ![single_family_attached](../../doc_files/single-family-attached-1-1.jpg)
 ![single_family_attached](../../doc_files/single-family-attached-1-2.jpg)
 
-Note that the footprint of the modeled unit is always rectangular even though the geojson footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.
+Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
@@ -47,7 +47,7 @@ These OSM models are merged into a single OSM model, as shown below.
 
 ### GeoJSON Schema
 
-The URBANopt geojson schema differentiates between sets of required and optional fields for "Single-Family Attached" residential buildings:
+The [URBANopt GeoJSON schema](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/building_properties.json) differentiates between sets of required and optional fields for "Single-Family Attached" residential buildings:
 
 Required fields:
 
@@ -57,7 +57,7 @@ Required fields:
 | number_of_stories_above_ground| integer      |                                                                                                                                                                                                                   |                                                                             |
 | number_of_stories             | integer      |                                                                                                                                                                                                                   | Includes foundations.                                                       |
 | number_of_residential_units   | integer      |                                                                                                                                                                                                                   |                                                                             |
-| number_of_bedrooms            | integer      |                                                                                                                                                                                                                   |                                                                             |
+| number_of_bedrooms            | integer      |                                                                                                                                                                                                                   | Must be > 0.                                                                |
 | foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) basement - unconditioned<br>(5) basement - conditioned                                                                                    | Invalid:<br>(1) ambient                                                     |
 | attic_type                    | string       | (1) attic - vented<br>(2) attic - unvented<br>(3) attic - conditioned<br>(4) flat roof                                                                                                                            | Stories > 1 for conditioned attics.                                         |
 

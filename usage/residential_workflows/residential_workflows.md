@@ -10,10 +10,10 @@ has_toc: false
 # Residential Workflows
 
 Low-rise residential building energy models in URBANopt<sup>&trade;</sup> are created using the [**OpenStudio-HPXML**](https://github.com/NREL/OpenStudio-HPXML) workflow.
-For every residential building feature found in the geojson file, an [HPXML](https://hpxml.nrel.gov) file is built to represent each living unit of the building.
+For every residential building feature found in the GeoJSON file, an [HPXML](https://hpxml.nrel.gov) file is built to represent each living unit of the building.
 
 For example, in the case of a single-family detached building one HPXML file is built to represent the single unit.
-HPXML files are built based on feature information contained in the geojson file as well as on sets of default assumptions contained in the following [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential):
+HPXML files are built based on feature information contained in the GeoJSON file as well as on sets of default assumptions contained in the following [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential):
 
 * clothes_dryer.tsv
 * clothes_washer.tsv
@@ -37,7 +37,7 @@ Argument values found in these lookup files span across the following categories
 
 See the [Customizable Template](#customizable-template) section below for more information on controlling how these assumptions are made.
 
-A translator measure is then applied to each HPXML file to constuct an OpenStudio(R) building model.
+A translator measure is then applied to each HPXML file to constuct an OpenStudio<sup>&copy;</sup> building model.
 
 ## Supported Building Types
 
@@ -49,14 +49,14 @@ Currently, the following residential building types are supported:
 
 Only the *Baseline* and *High Efficiency* Scenarios are supported at this time; any additional mappers will need to be updated manually.
 
-It should be noted that modeling capabilities for these building types are currently in **beta** mode.
+Note that the modeling capabilities for these building types are currently in Beta mode.
 This means that testing and development is still in progress, and user feedback is welcome.
 
 [^1]: Mid-Rise and High-Rise Multifamily building prototypes can be found in the commercial building workflows).
 
 ## Customizable Template
 
-An optional template enumeration may be specified for each feature in the geojson.
+An optional template enumeration may be specified for each feature in the GeoJSON.
 Enumerations that are applicable to residential buildings:
 
 - `Residential IECC 2006 - Customizable Template Sep 2020`
@@ -80,10 +80,11 @@ They are generated using time-inhomogenous Markov chains derived from American T
 In terms of repeatability, stochastic schedule generation uses a pseudo-random number generator that takes a seed as an argument.
 The seed is determined by multiplying the feature ID by the unit number of the building being simulated.
 If the feature ID is not represented by an integer, the seed will default to a value of 1.
+Identical buildings with equivalent seed values will have identical schedules.
 
 ## Other Assumptions
 
-The building footprint drawn and contained in the geojson does not determine the footprint of individual modeled units.
+The building footprint drawn and contained in the GeoJSON does not determine the footprint of individual modeled units.
 Floor area is divided by the number of residential units to determine the floor area of each individual unit.
 Individual footprints are determined using this unit floor area and an aspect ratio of 2 (i.e., front/back walls are twice as long as left/right walls).
 
