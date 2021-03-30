@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Release Notes
-parent: Developer Resources
+parent: For Developers
 nav_order: 3
 ---
 

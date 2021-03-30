@@ -9,7 +9,7 @@ nav_order: 3
 
 As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Ubuntu 18.04) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
 
-For CLI usage examples, see our [usage examples page](../usage/run_project.md)
+For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
 ## Install with the URBANopt Installer
 
@@ -71,10 +71,16 @@ e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
     uo --help
     ```
 
-1. For detailed instructions, see the [usage examples](../usage/run_project.md) page.
+1. For detailed instructions, see the [Getting Started page](../getting_started/getting_started.md).
 
-## OpenDSS and DiTTo Reader Set-up
+## OpenDSS and DiTTo Reader Installation
 
 As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.  
 
 If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.
+
+## DES Installation
+
+As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use. 
+
+Follow the [DES Installation Instructions](./des_installation.md) to install these dependencies.

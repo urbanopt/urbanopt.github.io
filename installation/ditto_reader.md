@@ -73,4 +73,4 @@ Configuring the following environment variables may help if you are having issue
 
 Once you have made these changes, **close and reopen your Terminal/GitBash window** for these changes to take effect.
 
-Visit the [OpenDSS page](../opendss/opendss.md#usage) for instructions on how to run the OpenDSS workflow.
+Visit the [OpenDSS page](../workflows/opendss/opendss.md#usage) for instructions on how to run the OpenDSS workflow.

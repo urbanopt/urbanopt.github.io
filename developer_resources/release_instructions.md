@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Release Instructions
-parent: Developer Resources
+parent: For Developers
 nav_order: 2
 ---
 
