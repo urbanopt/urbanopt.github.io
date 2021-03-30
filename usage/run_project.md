@@ -203,6 +203,28 @@ Once a project has been post-processed, the results can be visualize either at t
     uo delete --scenario <path/to/SCENARIOFILE.csv>
     ```
 
+### Run District Energy System (DES) simulations
+
+Once a project has been run with the URBANopt SDK (following the above documentation), you may run a district thermal simulation using the output from the SDK. In version 0.5.2 only time series simulations of 4th generation district heating & cooling systems are available. Additional district energy system simulation capabilities will be added in the future.
+
+1. Build a system parameters JSON config file from your existing simulations:
+
+    ```terminal
+    uo des_params --sys-param-file path/and/name/of/new/sys_params.json --scenario path/to/baseline_scenario.csv --feature path/to/example_project.json --model-type time_series
+    ```
+
+1. Create a Modelica model directory and give it a name:
+
+    ```terminal
+    uo des_create --sys-param path/to/sys_params.json --feature path/to/example_project.json --des-name path/and/name/of/new/modelica_dir --model-type time_series
+    ```
+
+1. Run the Modelica simulation:
+
+    ```terminal
+    uo des_run --model path/to/modelica_dir
+    ```
+
 ## Workflow Details
 
 The figure below describes the workflow that takes place for the *run* and *post_process* calls.
