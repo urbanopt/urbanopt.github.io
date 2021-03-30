@@ -6,12 +6,12 @@ nav_order: 1
 <div class="row">
 	<div class="col">
 		<p>To run URBANopt&trade;, first follow the <a href="../installation/installation" class="bold">installation instructions</a> to install the URBANopt CLI and all of its dependencies.</p>
-		<p>Once the CLI is installed, help is available by typing uo --help from the command line.  Detailed help for each command can be found with uo command --help. The main CLI commands are: create, run, process, visualize, opendss, and delete.</p>
-		<p>Before you start, think about the types of analyses you are interested in performing and set up your project accordingly.  The best way to start is to use the example project made with the CLI.  Once you are fmaliar wiht the commands you can customize your project.</p> 
+		<p>Once the CLI is installed, help is available by typing <code><span class="code-text">uo --help</span></code> from the command line.  Detailed help for each command can be found with <code><span class="code-text">uo [the command name] --help</span></code>. The main CLI commands are: <code><span class="code-text">create</span></code>, <code><span class="code-text">run</span></code>, <code><span class="code-text">process</span></code>, <code><span class="code-text">visualize</span></code>, <code><span class="code-text">opendss</span></code>, and <code><span class="code-text">delete</span></code>.</p>
+		<p>Before you start, think about the capabilities and analyses you want to utilize and setup your project accordingly. The best way to start is to use the example project made with the CLI.  Once you are familiar with the commands you can customize your project.</p> 
 	</div>
 	<div class="col" style="padding-left:20px;">
 	<h2 style="padding-bottom:20px;">Important Notes</h2>
-	<p>Keep the project directory path short to avoid errors related to long paths, especially when runnign on Windows.  For more information on this error, refer to the <a href="../developer_resources/known_issues" class="bold">known issues section</a>.</p>
+	<p>Keep the project directory path short to avoid errors related to long paths, especially when running on Windows.  For more information on this error, refer to the <a href="../developer_resources/known_issues" class="bold">known issues section</a>.</p>
 	<p>We recommend calling all URBANopt commands from outside of the project you created, using relative or absolute paths to the relevant files.</p>
 	<div style="float:right;padding-top:30px;padding-right:20px;"><a href="../resources/definitions" class="btn btn-uo white-text">Definitions</a></div>
 	</div>
@@ -73,7 +73,7 @@ nav_order: 1
       <p>In order to use the OpenDSS functionality successfully, the FeatureFile should contain Electrical Connectors and Junctions.  Use the command below to create an example project containing a FeatureFile with electrical network defined within it (<code>example_project_with_electric_network.json</code>). You can also use your own Feature File as long as the electrical infrastructure is defined and connected to the buildings accordingly.</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo create --electric --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
       </div>
-      <p>View the <a href="#opendss" class="bold">OpenDSS section</a> under <a href="#analyses" class="bold">Additional Analyses</a> below for more details on the OpenDSS functionality.</p>
+      <p>View the <a href="#opendss" class="bold">OpenDSS section</a> under <a href="#analyses" class="bold">Additional Capabilities</a> below for more details on the OpenDSS functionality.</p>
     </div>
   </li>
 </ul>
@@ -120,11 +120,11 @@ nav_order: 1
         <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-scenario-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
         </li>
         <li><p>Configure your REopt assumptions. Two example <strong>REopt Lite</strong> assumption files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://developer.nrel.gov/docs/energy-optimization/reopt-v1/" target="_blank" class="bold">REopt Lite API documentation</a> and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt Lite API</strong>.</p>
-        <p>In particular, you will want to make sure that the <code>urdb_label</code> in the assumptions file maps to a suitable utility rate <em>label</em> from the <a href="https://openei.org/apps/IURDB/" target="_blank" class="bold">URDB</a>. The <em>label</em> is the last term of the URL of a utility rate detail page (i.e. the <em>label</em> for the rate at <a href="https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305" target="_blank" class="bold">https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305</a> is 5b0d83af5457a3f276733305).</p>
-        <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once.</p>
+        <p>In particular, you will want to make sure that the <code>urdb_label</code> in the assumptions file maps to a suitable utility rate <em>label</em> from the <a href="https://openei.org/apps/IURDB/" target="_blank" class="bold">URDB</a>. The <em>label</em> is the last term of the URL of a utility rate detail page (e.g. the <em>label</em> for the rate at <a href="https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305" target="_blank" class="bold">https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305</a> is 5b0d83af5457a3f276733305).</p>
+        <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once (e.g. rooftop and ground-mount).</p>
         </li>
       </ol>
-      <p>Visit the <a href="../additional_documentation/reopt/reopt" class="bold">REopt page</a> for more details on using REopt in URBANopt.</p>
+      <p>Visit the <a href="../additional_documentation/reopt/reopt" class="bold">REopt page</a> for more details on using REopt with URBANopt.</p>
     </div>
   </li>
 </ul>
@@ -261,11 +261,11 @@ nav_order: 1
 
 <div class="row blue-section">
   <div class="col-12">
-    <h2 class="white-text" id="analyses">Additional Analyses (Optional)</h2>
+    <h2 class="white-text" id="analyses">Additional Capabilities (Optional)</h2>
     <p>Add Electrical Distribution or Distributed Thermal Systems Analysis to your Scenario</p>
   </div>
 </div>
-<p>Expand the sections below to learn more about optional functionality available in URBANopt</p>
+<p>Expand the sections below to learn more about optional capabilities available in URBANopt</p>
 <ul class="jk_accordion">
    <li class="acc" id="opendss"><input id="accordion17" type="checkbox" /><label for="accordion17">OpenDSS Functionality</label>
     <div class="show">
@@ -320,8 +320,8 @@ nav_order: 1
 </ul>
 <div class="row blue-section">
   <div class="col-10">
-    <h2 class="white-text" id="step5">5. Visualize Project</h2>
-    <p>Add Electrical Distribution or Distributed Thermal Systems Analysis to your Scenario</p>
+    <h2 class="white-text" id="step5">5. Plot Results</h2>
+    <p>Generate visualizations at the feature level and scenario level.</p>
   </div>
   <div class="col-2 my-auto"><img src="../doc_files/started__step5_graphic.png" alt="icon of a chart"></div>
 </div>
@@ -342,4 +342,4 @@ nav_order: 1
     </div>
   </li>
 </ul>
-<p>Note&mash;You need to run the default post-process command before visualizing the results.</p>
+<p>Note&mdash;You need to run the default post-process command before visualizing the results.</p>
