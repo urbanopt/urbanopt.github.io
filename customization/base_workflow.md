@@ -14,8 +14,6 @@ The URBANopt GeoJSON Workflow uses building footprints to create building models
 
 All measures contained in the base workflow are listed below:
 
-- [`BuildResidentialModel`](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/build-res-hpxml-v3/example_project/measures/BuildResidentialModel): An OpenStudio (meta) Measure used to call hpxml-based measures in the [OpenStudio-HPXML](https://github.com/NREL/OpenStudio-HPXML) workflow. See the [residential workflows](../usage/residential_workflows.md) page for more information.
-
 - [`set_run_period`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/set_run_period): An OpenStudio Measure used to define the number of timesteps per hour and specify the begin and end date for running the simulation.
 
 - [`ChangeBuildingLocation`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ChangeBuildingLocation): An OpenStudio Measure used to specify and load the EPW file.
@@ -39,3 +37,5 @@ All measures contained in the base workflow are listed below:
 - [`ReduceLightingLoadsByPercentage`](https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ReduceLightingLoadsByPercentage): An OpenStudio Measure that is used to reduce the lighting load by a certain amount. The measure is skipped for the baseline Scenario. For the high efficiency Scenario, the `skip_measure` argument is set to false and the measure is implemented.
 
 - [`default_feature_reports`](https://github.com/urbanopt/urbanopt-scenario-gem/tree/master/lib/measures/default_feature_reports): An URBANopt Scenario Measure that creates a `default_feature_reports.json` used by URBANopt Scenario Default Post-Processor.
+
+- [`BuildResidentialModel`](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/master/example_project/measures/BuildResidentialModel): An OpenStudio "meta-measure" that calls measures from the OpenStudio-HPXML workflow. Applies only to the three low-rise residential building types.

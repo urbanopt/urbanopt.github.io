@@ -94,43 +94,38 @@ Another example is allowing building orientation to be user-defined, or determin
 
 ### Geometry
 
-#### Corridor
-- geometry_corridor_position = 'Double Exterior'
+#### Aspect Ratio
+The aspect ratio of individual units of the building is assumed to be 2.
 
 #### Foundations
-- geometry_foundation_height = 3 ft if geometry_foundation_type is Crawlspace
-- geometry_foundation_height = 8 ft if geometry_foundation_type is Basement
-- geometry_foundation_height = 8 ft if geometry_foundation_type is Ambient
+For buildings with a crawlspace foundation, the height of the foundation is assumed to be 3 ft.
+For buildings with a basement or ambient foundation, the height of the foundation is assumed to be 8 ft.
 
 #### Roofs
-- geometry_roof_type = gable if geometry_roof_type != 'flat'
+For buildings with an attic (i.e., not a flat roof), the roof type is assumed to be a gable roof.
 
 #### Walls
-- geometry_wall_height = 8 ft
+The average height of walls adjacent to living space is 8 ft.
 
 #### Neighbors
-- neighbor_front_distance = 0 ft
-- neighbor_back_distance = 0 ft
-- neighbor_left_distance = 0 ft
-- neighbor_right_distance = 0 ft
-
-#### Aspect Ratio
-- geometry_aspect_ratio = 2.0 (FB/LR)
+It is assumed that buildings have no neighbors.
 
 #### Orientation
-- geometry_orientation = 100% South for Single-Family Detached and Single-Family Attached
-- geometry_orientation = 50% South and 50% North for Low-Rise Multifamily
+For Single-Family Detached and Single-Family Attached buildings, 100% of the building units are oriented to the South.
+For Low-Rise Multifamily buildings, 50% of the building units are oriented to the South while the other 50% are oriented to the North.
 
 #### Garages
-- geometry_garage_width = 12 ft if geometry_cfa <= 2500 sqft
-- geometry_garage_width = 24 ft if geometry_cfa > 2500 sqft
-- geometry_garage_protrusion = 100%
+For Single-Family Detached buildings with garages, the size of the garage depends on the floor area.
+The garage is assumed to be a 1-car (12 ft wide) for buildings 2500 ft<sup>2</sup> or less, and 2-car (24 ft wide) for buildings greater than 2500 ft<sup>2</sup>.
+The garage is also assumed to protrude from the building 100% (i.e., no portion of it is tucked within the building).
+
+#### Corridor
+For Low-Rise Multifamily buildings, the corridor is assumed to be a "Double Exterior" corridor (i.e., entrances to individual units are from the exterior of the building).
 
 ### Fuel Types
 
 #### Appliances
-- cooking_range_oven_fuel_type = heating_system_fuel
-- clothes_dryer_fuel_type = heating_system_fuel
+The fuel type of the cooking range, oven, and clothes dryer is assumed to match the fuel type of the heating system.
 
 #### Water Heating
-- water_heater_fuel_type = heating_system_fuel
+The fuel type of the water heater is assumed to match the fuel type of the heating system.
