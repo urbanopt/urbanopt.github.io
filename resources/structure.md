@@ -7,7 +7,7 @@ nav_order: 2
 
 The URBANopt<sup>&trade;</sup> SDK consists of four main modules at its core: `urbanopt-core-gem`, `urbanopt-scenario-gem`, `urbanopt-reopt-gem`, and`urbanopt-geojson-gem`, as well as three connector modules to enable additional capabilities: `urbanopt-reopt-gem` to access the REopt Lite API, `urbanopt-ditto-reader` and its associated command line interface (CLI) `ditto cli` to access the OpenDSS workflow, and finally `geojson-modelica-translator` and its associated CLI `des cli` to enable the District Energy Systems functionality. The modules are connected together and accessed via the **Command Line Interface** (`urbanopt-cli`). Visit the [Getting Started](../getting_started/getting_started) page for more details on how to run an URBANopt project.
 
-![URBANopt Gems](../doc_files/urbanopt-diagram-to-cli.png)
+![URBANopt Gems](../doc_files/urbanopt-diagrams_gems-to-cli.png)
 
 The **Core** gem defines a FeatureFile class. The feature file format currently supported is GeoJSON, other formats can be supported in the future as more workflows are integrated in the SDK. The FeatureFile describes properties of each `Feature`, such as location, floor area, number of stories, building type, cooling source, etc. This Core gem in the SDK architecture allows the development of new modules that are independent of other modules.
 

@@ -56,7 +56,7 @@ Figure 2: Ecosystem and public/private partnership model
 
 # Software Design Principles
 
-The communities and urban design space is too large for any tool, SDK, or engine to address all of the possible use cases and design decisions of interest.  Rather than building a single monolithic piece of software, the URBANopt project will produce several modules which will operate as part of the larger communities and urban design and modeling ecosystem.  These modules can be shared across the community and combined as needed by tool vendors to save time and effort.  We encourage collaboration with external parties who may want to use URBANopt modules directly, modify URBANopt modules, or build their own modules.  To encourage modular reuse and collaboration, URBANopt software development will adopt the following design principles: 
+The communities and urban design space is too large for any tool, SDK, or engine to address all of the possible use cases and design decisions of interest.  Rather than building a single monolithic piece of software, the URBANopt project is made up of several modules that operate as part of the larger communities and urban design and modeling ecosystem.  These modules can be shared across the community and combined as needed by tool vendors to save time and effort.  We encourage collaboration with external parties who may want to use URBANopt modules directly, modify URBANopt modules, or build their own modules.  To encourage modular reuse and collaboration, URBANopt software development has adopted the following design principles: 
 
 - URBANopt modules have clear inputs and outputs.  Any module can be replaced by another module with the same inputs and outputs. 
 - URBANopt modules are developed in separate, single-purpose repositories with clear ownership, dependencies, licensing, documentation, and testing.
@@ -66,12 +66,19 @@ The communities and urban design space is too large for any tool, SDK, or engine
 
 # Software Architecture
 
-In line with the software design principles outlined above, URBANopt projects are assembled from multiple functional modules. Because there is so much variability in district-scale energy analysis, the end user is responsible for combining all of the URBANopt (and other) modules needed to implement the desired workflow for their project.  Multiple example projects will be provided to give users a point of reference when starting out.
+URBANopt interfaces with multiple software technologies to provide the integration outlined in the [use cases](../index.md#use-cases). Figure 3 shows the core URBANopt modules as well as the modules providing grid-interactivity and district energy system capabilities.
 
-Figure 3: Software Architecture for an Example URBANopt Project
-![uo_architecture_example](uo_platform_diagram_f.jpg)
+Figure 3: URBANopt Modules
+![urbanopt diagram modules structure](urbanopt-diagrams_structure-more-detail.png)
 
-The example project shown in Figure 3 combines a set of URBANopt modules to implement a
+
+In line with the software design principles outlined above, URBANopt projects are assembled from multiple functional modules. A command line interface (CLI) has been developed to aid users in combining the modules needed to implement a desired workflow. Example projects are also available through the CLI for users to test a particular workflow before adapting it to their particular use case.  Because there is so much variability in district-scale energy analysis, the end user may need to customize some of the URBANopt (and other) modules needed to implement the desired workflow for their project. [Customization documentation](../resources/customization/customization.md) is available for users to consult during their particular project development. 
+
+
+Figure 4: Software Architecture for an Example URBANopt Project
+![uo_architecture_example](urbanopt-diagrams_gems-to-cli.png)
+
+The example project shown in Figure 4 combines a set of URBANopt modules to implement a
 basic district-scale energy analysis workflow.  Each block shown in Figure 3 represents a
 different module, each developed and managed in separate source code repositories with
 independent release schedules. The URBANopt GeoJSON Gem module provides functionality to

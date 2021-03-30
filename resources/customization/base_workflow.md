@@ -10,8 +10,8 @@ The `mappers` folder contains `base_workflow.osw` which serves as a simulation i
 
 The URBANopt GeoJSON Workflow uses building footprints to create building models.  The diagram below contains details on the sequence and purpose of measures used to accomplish this task.
 
-<!--- TODO: Update diagram to Urban Geometry Creation Zoning measure -->
-![urbanopt measure workflow diagram](../../doc_files/urbanopt_default_measures_workflow.png)
+
+![urbanopt measure workflow diagram](../../doc_files/urbanopt-diagrams_measures_workflow.png)
 
 All measures contained in the base workflow are listed below:
 

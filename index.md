@@ -29,7 +29,7 @@ The URBANopt project is focused on enabling three primary use cases:
 
 A summary of the capabilities associated with each use case is shown below:
 
-<img src="doc_files/uo_ecosystem.png" width="100%" height="100%" alt="uo ecosystem diagram">
+<img src="doc_files/urbanopt-diagrams_structure-less-detail.png" width="100%" height="100%" alt="uo ecosystem diagram">
 
 Current capabilities include:
 
