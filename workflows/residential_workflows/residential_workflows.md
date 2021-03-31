@@ -78,9 +78,8 @@ Occupant-related schedules are generated on-the-fly, and vary unit-to-unit for a
 They are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
 
 In terms of repeatability, stochastic schedule generation uses a pseudo-random number generator that takes a seed as an argument.
-The seed is determined by multiplying the feature ID by the unit number of the building being simulated.
-If the feature ID is not represented by an integer, the seed will default to a value of 1.
-Identical buildings with equivalent seed values will have identical schedules.
+The seed is determined by treating the leading characters of the feature ID as a string of hexadecimal digits (see https://apidock.com/ruby/String/hex), and then multiplying this value by the unit number of the building.
+Identical buildings with identical feature IDs would result in identical schedules.
 
 ## Other Assumptions
 
