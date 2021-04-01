@@ -25,19 +25,17 @@ The URBANopt project is focused on enabling three primary use cases:
 2.  Design and optimization of grid-interactive efficient buildings (GEBs) at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems
 3. Detailed design of next-generation district thermal systems
 
-<img src="doc_files/use_cases.png" alt="main urbanopt capabilities" width="100%" height="100%">
 
 A summary of the capabilities associated with each use case is shown below:
 
+<!-- <img src="doc_files/use_cases.png" alt="main urbanopt capabilities" width="100%" height="100%"> -->
+<a href="doc_files/3modules-bullet-list-01.png"><img src="doc_files/3modules-bullet-list-01.png" alt="main urbanopt capabilities"></a>
+<center style="padding-bottom:30px;font-size:0.9rem;">click to expand image</center>
+
+A diagram of the technologies needed to enable each capability is shown below:
+
 <img src="doc_files/urbanopt-diagrams_structure-less-detail.png" width="100%" height="100%" alt="uo ecosystem diagram">
 
-Current capabilities include:
-
-- Commercial and Residential Building modeling analyses
-- Grid-Interactivity analyses (via REopt and OpenDSS)
-- District Energy Systems design (via DES)
-- Optimization (OSAF)
-- Electric Vehicle Storage and Thermal Energy Storage
 
 ## Quicklinks
 

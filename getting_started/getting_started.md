@@ -5,7 +5,7 @@ nav_order: 1
 ---
 <div class="row">
 	<div class="col">
-		<p>To run URBANopt&trade;, first follow the <a href="../installation/installation" class="bold">installation instructions</a> to install the URBANopt CLI and all of its dependencies.</p>
+		<p>To run URBANopt&trade;, first follow the <a href="../installation/installation" class="bold">installation instructions</a> to install the URBANopt command line interface (CLI) and all of its dependencies.</p>
 		<p>Once the CLI is installed, help is available by typing <code><span class="code-text">uo --help</span></code> from the command line.  Detailed help for each command can be found with <code><span class="code-text">uo [the command name] --help</span></code>. The main CLI commands are: <code><span class="code-text">create</span></code>, <code><span class="code-text">run</span></code>, <code><span class="code-text">process</span></code>, <code><span class="code-text">visualize</span></code>, <code><span class="code-text">opendss</span></code>, and <code><span class="code-text">delete</span></code>.</p>
 		<p>Before you start, think about the capabilities and analyses you want to utilize and setup your project accordingly. The best way to start is to use the example project made with the CLI.  Once you are familiar with the commands you can customize your project.</p> 
 	</div>
@@ -60,7 +60,7 @@ nav_order: 1
   </div></li>
   <li class="acc"><input id="accordion4" type="checkbox" /><label for="accordion4">Include Residential buildings in your project</label>
   <div class="show">
-    <p>As of version 0.4.0, URBANopt support a workflow that combines commercial building types and residential building types (Single-family Detached only for now, Single-family Attached and Multifamily will be included in a future release).</p>
+    <p>As of version 0.4.0, URBANopt supports a workflow that combines commercial building types and residential building types (Single-family Detached only for now, with beta testing code for Single-family Attached and Low-rise Multifamily).</p>
     <p>To create a project that contains all files required to run this combined workflow, add the <code>--combined</code> option to the create command:</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo create --combined --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
@@ -81,13 +81,13 @@ nav_order: 1
 <ul class="jk_accordion">
   <li class="acc"><input id="accordion5" type="checkbox" /><label for="accordion5">Create an empty project directory structure</label>
     <div class="show">
-    <p>This option creates a project directory structure without an example FeatureFile or weather files. You can download weather files and add to this folder from the <a href="https://energyplus.net/weather" target="_blank" class="bold">EnergyPlus Website</a>.</p>
+    <p>This option creates a project directory structure without an example FeatureFile or weather files. You can download weather files and add to this folder from the <a href="https://energyplus.net/weather" target="_blank" class="bold">EnergyPlus&trade; Website</a>.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --empty --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre></div>
     </div>
   </li>
   <li class="acc"><input id="accordion6" type="checkbox" /><label for="accordion6">Overwrite an existing project</label>
   <div class="show">
-    <p>By default, the CLI will abort if the project directory being created already exists. To overwrite an existing folder, use the <code>--overwrite</code> option. This deletes anything in the named folder and creates a fresh project directory. Can be combined with the <code>-e</code> option to overwrite a directory with a new empty URBANopt project directory.</p>
+    <p>By default, the CLI will abort if the project directory being created already exists. To overwrite an existing folder, use the <code>--overwrite</code> option. This deletes anything in the named folder and creates a fresh project directory. This command can be combined with the <code>-e</code> option to overwrite a directory with a new empty URBANopt project directory.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --overwrite --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
   </div>
@@ -105,11 +105,11 @@ nav_order: 1
 <ul class="jk_accordion">
   <li class="acc"><input id="accordion7" type="checkbox" /><label for="accordion7">Create a Scenario CSV File for each mapper</label>
     <div class="show">
-    <p>The following command will create a ScenarioFile for each mapper contained in the project directory.  The resulting CSV files will map all features in the FeatureFile to the particular scenario mapper. The scenario mappers currently included in URBANopt as listed above. Visit the <a href="../usage/scenarios/scenarios" class="bold">Scenarios page</a> to learn more about each scenario mappers.</p>
+    <p>The following command will create a ScenarioFile for each mapper contained in the project directory.  The resulting CSV files will map all features in the FeatureFile to the particular scenario mapper. The scenario mappers currently included in URBANopt are listed above. Visit the <a href="../usage/scenarios/scenarios" class="bold">Scenarios page</a> to learn more about each scenario mapper.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --scenario-file &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
     </div>
   </li>
-  <li class="acc"><input id="accordion8" type="checkbox" /><label for="accordion8">Enable REopt Functionality</label>
+  <li class="acc"><input id="accordion8" type="checkbox" /><label for="accordion8">Enable REopt&trade; Functionality</label>
     <div class="show">
       <ol>
         <li>To run a REopt scenario you will need an internet connection so the REopt™ Gem can access the REopt Lite API.</li>
@@ -132,13 +132,13 @@ nav_order: 1
 <ul class="jk_accordion">
   <li class="acc"><input id="accordion9" type="checkbox" /><label for="accordion9">Create a scenario CSV File for a single Feature</label>
     <div class="show">
-    <p>If you run into the need to run a single feature through the URBANopt process, you will first need to generate a Scenario CSV File containing only that Feature. To accomplish this, specify the Feature_ID in the arguments as shown here:</p>
+    <p>If you need to run a single feature through the URBANopt process, you will first need to generate a Scenario CSV File containing only that Feature. To accomplish this, specify the Feature_ID in the arguments as shown here:</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo create --scenario-file &lt;path/to/FEATUREFILE.json&gt; --single-feature &lt;FEATURE_ID&gt;</span></code></pre></div>
     </div>
   </li>
   <li class="acc"><input id="accordion10" type="checkbox" /><label for="accordion10">Create a mixed Scenario CSV File</label>
     <div class="show">
-    <p>The default process to create a Scenario CSV File for each mapper assigns the same mapper to all Features in the FeatureFile.  If you wish to customize the scenario so that features are mapped to different mappers, the best course fo action is to first generate the basic Scenario CSV Files for each mapper and then edit them to assign the various mappers.</p>
+    <p>The default process to create a Scenario CSV File for each mapper assigns the same mapper to all Features in the FeatureFile.  If you wish to customize the scenario so that features are mapped to different mappers, the best course of action is to first generate the basic Scenario CSV Files for each mapper and then edit them to assign the various mappers.</p>
     <p>The following figure represents how Simulation Mapper Classes can be assigned to different Features from the FeatureFile in the Scenario CSV.</p>
     <img src="../doc_files/scenario_mapper.jpg" alt="diagram showing assigment of different mapper classes to different features">
     </div>
@@ -156,7 +156,7 @@ nav_order: 1
   </div>
   <div class="col-2 my-auto"><img src="../doc_files/started__step3_graphic.png" alt="image of a run icon"></div>
 </div>
-<p>Expand the sections below to learn more about running a basic scenario and running a reopt-enabled project.</p>
+<p>Expand the sections below to learn more about running a basic scenario and running a REopt-enabled project.</p>
 <div class="important-note"><p><strong>Config File</strong>&mdash;there is a <em>runner.conf</em> file automatically created in the project folder. This file can be used to configure the number of features to process in parallel as well as a few other parameters. Make edits to this file prior to running the project.</p></div>
 <ul class="jk_accordion">
    <li class="acc"><input id="accordion12" type="checkbox" /><label for="accordion12">Run a basic project</label>
@@ -176,24 +176,24 @@ nav_order: 1
 <div class="row blue-section">
   <div class="col-10">
     <h2 class="white-text" id="step4">4. Post-Process Scenario</h2>
-    <p>Simulate Energy Usage of each FeatureFile mapped in the Scenario CSV File</p>
+    <p>Aggregate the results of the simulation across the scenario</p>
   </div>
   <div class="col-2 my-auto"><img src="../doc_files/started__step4_graphic.png" alt="icon of a report file"></div>
 </div>
 <p>Expand the sections below to choose the option that is right for your project.</p>
-<div class="important-note"><p>You must run the default post-processing command before running any additional analyses such as OpenDSS and DES, or post-processing any other information, such was REopt.</p></div>
+<div class="important-note"><p>You must run the default post-processing command before running any additional analyses such as OpenDSS and DES, or running the REopt optimization and post-processing the results.</p></div>
 <ul class="jk_accordion">
   <li class="acc"><input id="accordion14" type="checkbox" /><label for="accordion14">Post-process general results (default post-processor)</label>
     <div class="show">
     <p>To post-process the simulated features into a Scenario report, call the CLI process command using the <code>--default</code> flag:</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --default --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
     <h3>Output Files</h3>
-    <p>The post-process command will aggregated data across all the features in a scenario and generate results files in the scenario results folder: </p>
+    <p>The post-process command will aggregate data across all the features in a scenario and generate results files in the scenario results folder: </p>
       <ol>
         <li><strong>JSON </strong>&mdash; a <code>default_scenario_report.json</code> file containing overall results</li>
         <li><strong>CSV Timeseries</strong>&mdash; a <code>default_scenario_report.csv</code> file containing aggregated timeseries data.</li>
       </ol>
-    <div class="important-note"><p>If the scenario is consequently post-processed with another option flag (i.e. reopt or opendss, see sections below), the new data will be appended to these existing results files.</p></div>
+    <div class="important-note"><p>If the scenario is consequently post-processed with another option flag (i.e. <code>--reopt-scenario</code>, <code>--reopt-feature</code>, or <code>--opendss</code>, see sections below), the new data will be appended to the existing results files.</p></div>
   </div>
   </li>
 </ul>
@@ -203,24 +203,24 @@ nav_order: 1
     <div class="show">
       <p><strong>REopt Lite</strong> optimization happens during the post-processing of each scenario, after the scenario is run. Two types of REopt optimization are available:</p>
       <ol>
-        <li><strong>scenario-level</strong>, which optimizes for the aggregate load of the entire district being simulated, and</li>
-        <li><strong>feature-level</strong>, which optimizes each building’s load individually.</li>
+        <li><strong>scenario-level</strong>, which optimizes for the aggregate load of the entire district being simulated assuming there is one primary utility meter, and</li>
+        <li><strong>feature-level</strong>, which optimizes each building’s load individually assuming each building is individually metered.</li>
       </ol>
       <p>You may chose to optimize by one or both of these approaches according to your project objectives.</p>
       <div class="important-note"><p>Note&mdash;You will need an internet connection so the REopt™ Gem can access the REopt Lite API.</p></div>
       <p><strong>To optimize at the scenario-level, use the <code>--reopt-scenario</code> flag:</strong></p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-scenario --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
-      <p>The <code>--reopt-scenario-assumptions-file</code> (or <code>-a</code>) option can be used to specify the path to the assumptions file to use for this optimization. If none are specified, the <code>base_assumptions.json</code> file in the <code>reopt</code> folder of the project directory will be used.</p>
+      <p>The <code>--reopt-scenario-assumptions-file</code> (or <code>-a</code>) option can be used to specify the path to the assumptions file to use for this optimization. If none is specified, the <code>base_assumptions.json</code> file in the <code>reopt</code> folder of the project directory will be used.</p>
       <p><strong>To optimize at the feature-level, use the <code>--reopt-feature</code> flag:</strong></p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-feature --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/REoptEnabledSCENARIOFILE.csv&gt;</span></code></pre></div>
-      <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file</p>
+      <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file.</p>
       <p>Visit the <a href="../additional_documentation/reopt/reopt_post_processing" class="bold">REopt Workflow page</a> for more details on using REopt.</p>
     </div>
   </li>
   <li class="acc"><input id="accordion16" type="checkbox" /><label for="accordion16">Post-process OpenDSS results</label>
     <div class="show">
       <p>To post-process OpenDSS results back into the main Scenario JSON and CSV results files, use the <code>--opendss</code> flag.</p>
-      <p>Note%mdash Run this command <strong>after</strong> you <strong>a)</strong> post-process the general scenario results and <strong>b)</strong> run the opendss workflow as described in the Additional Analyses section below.</p>
+      <p>Note&mdash; Run this command <strong>after</strong> you <strong>a)</strong> post-process the general scenario results and <strong>b)</strong> run the OpenDSS workflow as described in the Additional Capabilities section below.</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --opendss --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
       <p>For more information on the OpenDSS workflow, visit the <a href="../additional_documentation/opendss/opendss" class="bold">OpenDSS page</a>.</p>
     </div>
@@ -272,15 +272,15 @@ nav_order: 1
       <p><strong>OpenDSS</strong> is an open-source tool that is popular for simulating electrical distribution systems. The <strong>DIstribution Transformation TOol (DiTTo)</strong> is an open source and many-to-many conversion tool that has been developed by NREL to simplify converting data between distribution models. Finally, the <strong>URBANopt DiTTo Reader</strong> package and CLI provide the link between URBANopt and OpenDSS.</p> 
       <p>The entire DiTTo-Reader to OpenDSS workflow is available in URBANopt via the opendss URBANopt CLI command.</p>
       <div class="important-note">
-        <p> Since the DiTTo Reader and OpenDSS functionality is written in python, additional dependencies will need to be installed if you wish to use this workflow. Visit the <a href="../additional_documentation/installation/ditto_reader.md" class="bold">OpenDSS Installation page</a> to install OpenDSS and URBANopt DiTTo Reader.
+        <p> Since the DiTTo Reader and OpenDSS functionality is written in Python, additional dependencies will need to be installed if you wish to use this workflow. Visit the <a href="../additional_documentation/installation/ditto_reader.md" class="bold">OpenDSS Installation page</a> to install OpenDSS and URBANopt DiTTo Reader.
       </p>
       </div>
-      <p>Once you have installed Python and urbanopt-ditto-reader, you can use the <code>opendss</code> CLI command to access the OpenDSS functionality. You can use the <code>opendss</code> CLI command after you have run the scenario (using a FeatureFile that contains a fully-connected electrical network) and post-processed the general results with the <code>--default</code> post-processor.  The OpenDSS workflow will use these results file in the processing.</p>
+      <p>Once you have installed Python and urbanopt-ditto-reader, you can use the <code>opendss</code> CLI command to access the OpenDSS functionality. You can use the <code>opendss</code> CLI command after you have run the scenario (using a FeatureFile that contains a fully-connected electrical network) and post-process the general results with the <code>--default</code> post-processor.  The OpenDSS workflow will use these results files in the processing.</p>
       <h3>Step-by-Step of the entire OpenDSS-enabled workflow:</h3>
       <ol class="t">
         <li class="t">Create an example project with the <code>--electric</code> option or use your own FeatureFile containing electrical network information.</li>
-        <li class="t">Create the Scenario CSV file and run the project as explained above in steps 2 and 3.  You can run the basic project or the REopt-enabled project</li>
-        <li class="t">Post-process the general results with the <code>uo process --default</code> command described above in step 4.  If you have a REopt-enabled project, also post-process the results with the desired REopt post-processor (either <code>--reopt-scenario</code> or <code>--reopt-feature</code>)</li>
+        <li class="t">Create the Scenario CSV file and run the project as explained above in Steps 2 and 3.  You can run the basic project or the REopt-enabled project.</li>
+        <li class="t">Post-process the general results with the <code>uo process --default</code> command described above in Step 4.  If you have a REopt-enabled project, also post-process the results with the desired REopt post-processor (either <code>--reopt-scenario</code> or <code>--reopt-feature</code>).</li>
         <li class="t">Run OpenDSS:
           <p>To run the general OpenDSS workflow, use the following command:</p>
            <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo opendss --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
@@ -291,7 +291,7 @@ nav_order: 1
             <li class="t"><code>--equipment</code>: Path to custom equipment file. View the <a href="../workflows/opendss">OpenDSS page</a> for more info.</li>
             <li class="t"><code>--start-time</code>: Beginning of the period for OpenDSS analysis. Defaults to beginning of simulation time Format: "YYYY/MM/DD HH:MM:SS" (use quotes).</li>
             <li class="t"><code>--end-time</code>: End of the period for OpenDSS analysis. Defaults to end of simulation time. Format "YYYY/MM/DD HH:MM:SS" (use quotes).</li>
-            <li class="t"><code>--timesteps</code>: Number of minutes per timestep in the OpenDSS simulation </li>
+            <li class="t"><code>--timesteps</code>: Number of minutes per timestep in the OpenDSS simulation. </li>
           </ul>
           <p> Alternatively, a config JSON file can be used to set the OpenDSS options. An <a href="https://github.com/urbanopt/urbanopt-ditto-reader/blob/develop/urbanopt_ditto_reader/example_config.json" target="_blank">example config JSON file</a> is available. Note the key names are slightly different than the CLI option names. This config file can be passed into the CLI command:</p>
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo opendss --config &lt;path/to/config.json&gt;</span></code></pre></div>
@@ -305,7 +305,7 @@ nav_order: 1
   <li class="acc"><input id="accordion18" type="checkbox" /><label for="accordion18">DES Functionality</label>
     <div class="show">
       <p><strong>DES functionality is available in URBANopt CLI version 0.5.2 and above.</strong></p>
-      <p>Once a scenario has been run and processed as explained in the sections above, a district thermal simulation can then be run using the output from the SDK. While Additional district energy system simulation capabilities will be added in the future, only timeseries simulations of 4th generation district heating & cooling systems are currently available.</p>
+      <p>Once a scenario has been run and processed as explained in the sections above, a district thermal simulation can then be run using the output from the URBANopt SDK. While Additional district energy system simulation capabilities will be added in the future, only timeseries simulations of 4th generation district heating & cooling systems are currently available.</p>
       <p>Follow the steps below to configure, create, and run your DES simulation:</p>
       <ol class="t">
         <li class="t">Build a system parameters JSON config file from the existing URBANopt processed results:
@@ -320,10 +320,10 @@ nav_order: 1
       </ol>
     </div>
   </li>
-  <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate Results</label>
+  <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate EUI Results</label>
     <div class="show">
-    <p>URBANopt provides a method to validate the EUI results from your full year simulation against generally used values. This can be used to confirm that your simulation results are within the right ballpark. The schema file is included in the project_dir and can be customized if your buildings are unusual. </p>
-    <p>This functionality requires the <code>--scenario_file</code> and <code>--feature_file</code> options to be specified</p>
+    <p>URBANopt provides a method to validate the energy use intensity (EUI) results from your full year simulation against a relatively wide range of potential EUI values. This can be used to confirm that your simulation results are within the right ballpark. Note: this does not guarantee that no errors or inaccuracies are present, it just helps perform an initial check on simulation output results. The schema file is included in the project_dir and can be customized if your buildings are unusual. </p>
+    <p>This functionality requires the <code>--scenario_file</code> and <code>--feature_file</code> options to be specified.</p>
     <p>Currently only supports validating eui, and requires the path to the validation_schema that you are using.  An example validation schema can be found in the project directory.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo validate --eui validation_schema.yaml --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
     <p>Optionally, you can specify the units to work with.  Valid options are <code>SI</code> and <code>IP</code>; defaults to <code>IP</code> if not specified.</p>
