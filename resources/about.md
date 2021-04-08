@@ -19,3 +19,46 @@ Visit the following links for more details on the URBANopt project:
 - [URBANopt Design overview](../doc_files/design_doc.md)
 - [URBANopt GitHub code repositories](https://github.com/urbanopt)
 - [URBANopt SDK core modules overview paper](https://www.nrel.gov/docs/fy21osti/76781.pdf)
+
+## Project Team
+
+### SDK Team 
+
+- Tanushree Charan
+- Tim Coleman
+- Katherine Fleming
+- David Goldwasser
+- Scott Horowitz
+- Rawad El Kontar
+- Nathan Moore
+- Joseph Robertson
+
+### Project Management & Communications
+
+- Lauren Klun
+- Marjorie Schott
+- Christopher Schwing
+
+### GEB Workflows Team
+
+- Dylan Cutler
+- Tarek Elgindy
+- Sammy Houssainy
+- Ted Kwasnik
+- Ben Polly
+
+### District Energy Systems 
+
+- Amy Allen
+- Brian Ball
+- Kyle Benne
+- Hagar Elarga
+- Antoine Gautier (LBNL)
+- Nicholas Long
+- Michael Wetter (LBNL)
+
+View the entire [DES Project Team](../workflows/des.html#project-team).
+
+### Optimization
+
+- Brian Ball
