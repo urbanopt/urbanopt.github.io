@@ -18,10 +18,8 @@ You'll also need an API key from the [NREL Developer Network](https://developer.
 
 We provide examples of running an URBANopt workflow that integrates **REopt Lite** optimization.
 
-![example_project_layout](../../doc_files/building_types_ISO_no_res.jpg)
+![example_project_layout](../../doc_files/building_types_ISO_with_res.jpg)
 
 To run an simple example project, first visit the [Getting Started page](../getting_started/getting_started) to set up a project and run  energy use simulations. Then, refer to [REopt Post-Processing](reopt_post_processing.md) for how to optimize DER's based on baseline energy use. 
 
-Alternatively, we provide an [example project](https://github.com/urbanopt/urbanopt-example-reopt-project) that exposes code that can be run and customized from your local machine.
-
-
+Alternatively, we provide an [example project](https://github.com/urbanopt/urbanopt-example-geojson-project) that exposes code that can be run and customized from your local machine.
