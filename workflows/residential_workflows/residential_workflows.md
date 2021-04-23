@@ -80,6 +80,7 @@ Schedules are generated using time-inhomogenous Markov chains derived from Ameri
 
 In terms of repeatability, stochastic schedule generation uses a pseudo-random number generator that takes a seed as an argument.
 The seed is determined by treating the leading characters of the feature ID as a string of hexadecimal digits (see https://apidock.com/ruby/String/hex), and then multiplying this value by the unit number of the building.
+For schedules that vary by building, the schedules that correspond to the first unit are used for all units of the building.
 Identical buildings with identical feature IDs would result in identical schedules.
 
 ## Other Assumptions
