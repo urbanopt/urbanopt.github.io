@@ -74,11 +74,13 @@ Note that not all possible assumptions have been aligned with IECC requirements 
 
 ## Stochastic Schedules
 
-Occupant-related schedules are generated on-the-fly, and vary unit-to-unit for a given building.
-They are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
+Occupant-related schedules are generated on-the-fly, and vary either by building or unit-to-unit.
+The default behavior is to vary schedules by building (which reduces runtime), but the user has control in the baseline mapper to vary schedules unit-to-unit.
+Schedules are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
 
 In terms of repeatability, stochastic schedule generation uses a pseudo-random number generator that takes a seed as an argument.
 The seed is determined by treating the leading characters of the feature ID as a string of hexadecimal digits (see https://apidock.com/ruby/String/hex), and then multiplying this value by the unit number of the building.
+For schedules that vary by building, the schedules that correspond to the first unit are used for all units of the building.
 Identical buildings with identical feature IDs would result in identical schedules.
 
 ## Other Assumptions
