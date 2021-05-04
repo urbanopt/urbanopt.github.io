@@ -105,26 +105,6 @@ More example projects are available in an accompanying [example repository](http
 
 Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-translator/developer_resources.html) if you are interested in contributing to the GMT project.
 
-## Project Team
-- Nicholas Long, NREL
-- Kyle Benne, NREL
-- Amy Allen, NREL
-- Hagar Elarga, NREL
-- Nathan Moore, NREL
-- Brian Ball, NREL
-- Ted Summer, Devetry
-- Michael Wetter, LBNL
-- Antoine Gautier, LBNL
-- Jianjun Hu, LBNL
-- Baptiste Ravache, LBNL
-- Wangda Zuo, CU Boulder
-- Kathryn Hinkelman, CU Boulder
-- Jing Wang, CU Boulder
-- Mingzhe Liu, CU Boulder
-- Cary Faulkner, CU Boulder
-- Saranya Anbarasu, CU Boulder
-
-
 ## Publications and References
 
 - Long, N., Gautier, A., Elarga, H., Allen, A., Summer, T., Klun, L., Moore, N., Wetter, M.,. (2021). Modeling District Heating and Cooling Systems with Urbanopt, Geojson To Modelica Translator, and the Modelica Buildings Library. Building Simulation 2021, submitte

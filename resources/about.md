@@ -46,18 +46,29 @@ Visit the following links for more details on the URBANopt project:
 - Sammy Houssainy
 - Ted Kwasnik
 - Ben Polly
+- Karl Heine
+- Zahra Fallahi
 
 ### District Energy Systems 
 
-- Amy Allen
-- Brian Ball
-- Kyle Benne
-- Hagar Elarga
-- Antoine Gautier (LBNL)
-- Nicholas Long
-- Michael Wetter (LBNL)
+- Nicholas Long, NREL
+- Kyle Benne, NREL
+- Amy Allen, NREL
+- Hagar Elarga, NREL
+- Nathan Moore, NREL
+- Brian Ball, NREL
+- Ted Summer, Devetry
+- Michael Wetter, LBNL
+- Antoine Gautier, LBNL
+- Jianjun Hu, LBNL
+- Baptiste Ravache, LBNL
+- Wangda Zuo, CU Boulder
+- Kathryn Hinkelman, CU Boulder
+- Jing Wang, CU Boulder
+- Mingzhe Liu, CU Boulder
+- Cary Faulkner, CU Boulder
+- Saranya Anbarasu, CU Boulder
 
-View the entire [DES Project Team](../workflows/des.html#project-team).
 
 ### Optimization
 
