@@ -46,7 +46,7 @@ nav_order: 1
   <li class="acc"><input id="accordion2" type="checkbox" /><label for="accordion2">Use Createbar geometry workflow</label>
   <div class="show">
     <p>This project uses the <code>create_bar_from_building_type_ratio</code> measure to create building geometry.</p>
-    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --project-folder --createbar &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --create-bar --project-folder  &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
     <p>For more details on the various geometry workflows, refer to the <a href="../usage/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
   </div>
@@ -54,7 +54,7 @@ nav_order: 1
   <li class="acc"><input id="accordion3" type="checkbox" /><label for="accordion3">Use Floorspace geometry workflow</label>
   <div class="show">
     <p>This creates building geometry from floor plans with stub space types drawn using FloorSpaceJS.</p>
-    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --project-folder --floorspace &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --floorspace --project-folder  &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
     <p>For more details on the various geometry workflows, refer to the <a href="../usage/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
   </div></li>
