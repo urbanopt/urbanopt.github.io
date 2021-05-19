@@ -72,10 +72,13 @@ All argument values for the previous categories may be customized by manually ad
 The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
 Note that not all possible assumptions have been aligned with IECC requirements (e.g., see above regarding defaults), but the users can further customize these templates as needed for specific projects.
 
-## Stochastic Schedules
+## Schedules
 
-Occupant-related schedules are generated on-the-fly, and vary either by building or unit-to-unit.
-The default behavior is to vary schedules by building (which reduces runtime), but the user has control in the baseline mapper to vary schedules unit-to-unit.
+Schedules can be either "default" or "stochastic".
+TODO: what are default schedules?
+The default behavior is to use "default" schedules.
+Occupant-related schedules are generated on-the-fly, and vary either building-to-building or unit-to-unit.
+The default behavior is to vary schedules unit-to-unit, but the user has control to vary schedules building-to-building (which reduces runtime).
 Schedules are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
 
 In terms of repeatability, stochastic schedule generation uses a pseudo-random number generator that takes a seed as an argument.
