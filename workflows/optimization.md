@@ -23,8 +23,8 @@ Follow the steps below to install the necessary dependencies and run the file wi
 
 1. Once the cluster is up and running, open a terminal prompt or powershell in the directory with the URBANopt example files:
 
-	- [URBANopt_NSGA.json](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/UrbanOpt_NSGA.json)
-	- [URBANopt_NSGA.zip](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/UrbanOpt_NSGA.zip)
+	- [URBANopt_NSGA.json](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.json)
+	- [URBANopt_NSGA.zip](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.zip)
 
 1. The command to run the analysis is as follows. You will need to replace the values in angle brackets (< >) with your values.
 
