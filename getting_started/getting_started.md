@@ -343,14 +343,14 @@ nav_order: 1
   <li class="acc"><input id="accordion19" type="checkbox" /><label for="accordion19">Visualize and compare all Scenarios</label>
     <div class="show">
       <p>Use the following command to visualize and compare the post-processing results for <em>all scenarios</em>:</p>
-      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">   uo visualize --scenario &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">   uo visualize --feature &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
       <p>The resulting visualizations can be viewed in the <code>scenario_comparison.html</code> file in the run folder.</p>
     </div>
   </li>
-  <li class="acc"><input id="accordion19" type="checkbox" /><label for="accordion19">Visualize and compare all Features within a Scenario</label>
+  <li class="acc"><input id="accordion20" type="checkbox" /><label for="accordion20">Visualize and compare all Features within a Scenario</label>
     <div class="show">
       <p>To visualize and compare the post-processing results for <em>all features</em> in a particular scenario:</p>
-      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">   uo visualize --scenario &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">   uo visualize --scenario &lt;path/to/scenario.csv&gt;</span></code></pre></div>
       <p>The resulting visualizations can be viewed in the <code>feature_comparison.html</code> file in the scenario folder.</p>
     </div>
   </li>
