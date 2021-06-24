@@ -74,17 +74,16 @@ Note that not all possible assumptions have been aligned with IECC requirements 
 
 ## Schedules
 
-Schedules can be either "default" or "stochastic".
-TODO: what are default schedules?
-The default behavior is to use "default" schedules.
-Occupant-related schedules are generated on-the-fly, and vary either building-to-building or unit-to-unit.
-The default behavior is to vary schedules unit-to-unit, but the user has control to vary schedules building-to-building (which reduces runtime).
-Schedules are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
+Occupant-related schedules can be either defaulted or stochastically generated, and may vary either building-to-building or unit-to-unit.
+The default behavior is to use stochastically generated schedules that vary unit-to-unit, but the user has control to both use defaulted schedules and vary them building-to-building.
+Note that there are runtime impacts associated with using stochastically generated schedules and for varying schedules unit-to-unit.
 
-In terms of repeatability, stochastic schedule generation uses a pseudo-random number generator that takes a seed as an argument.
-The seed is determined by treating the leading characters of the feature ID as a string of hexadecimal digits (see https://apidock.com/ruby/String/hex), and then multiplying this value by the unit number of the building.
+Stochastic schedules are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
+
+In terms of repeatability, stochastic schedules generation uses a pseudo-random number generator that takes a seed as an argument.
+The seed is determined by the index of a given feature relative to all features in the GeoJSON, and then multiplied by the unit number of the building.
 For schedules that vary by building, the schedules that correspond to the first unit are used for all units of the building.
-Identical buildings with identical feature IDs would result in identical schedules.
+Relocating a feature's position within a GeoJSON would change the seed argument for that building.
 
 ## Other Assumptions
 
