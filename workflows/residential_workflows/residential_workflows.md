@@ -81,7 +81,7 @@ Note that there are runtime impacts associated with using stochastically generat
 Stochastic schedules are generated using time-inhomogenous Markov chains derived from American Time Use Survey data, supplemented with sampling duration and power level from NEEA RBSA data, as well as DHW draw duration and flow rate data from Aquacraft/AWWA data.
 
 In terms of repeatability, stochastic schedules generation uses a pseudo-random number generator that takes a seed as an argument.
-The seed is determined by the index of a given feature relative to all features in the GeoJSON, and then multiplied by the unit number of the building.
+The seed is determined by the index of a given feature relative to all features in the GeoJSON, and then multiplied by the unit number within the building.
 For schedules that vary by building, the schedules that correspond to the first unit are used for all units of the building.
 Relocating a feature's position within a GeoJSON would change the seed argument for that building.
 
