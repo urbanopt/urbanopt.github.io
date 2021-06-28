@@ -29,7 +29,7 @@ nav_order: 1
 	</div>
 	<div class="col-4 my-auto"><img src="../doc_files/started__step1_graphic.png" alt="image of an open directory folder and its contents"></div>
 </div>
-<p>Expand the sections below and choose the option that is right for your project. Most of the options will create both a project directory structure and example project files that will allow you to try out the additional commands.  Visit the <a href="documentation/example" class="bold">example project page</a> to learn more about the example project.</p>
+<p>Expand the sections below and choose the option that is right for your project. Most of the options will create both a project directory structure and example project files that will allow you to try out the additional commands.  Visit the <a href="../resources/example" class="bold">example project page</a> to learn more about the example project.</p>
 
 <ul class="jk_accordion">
   <li class="acc">
@@ -40,7 +40,7 @@ nav_order: 1
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
       </div>
       <p>This creates a project folder containing the example project using the default geometry workflow with <code>urban-geometry-creation-zoning</code> measure, and downloads related weather files and detailed models to the appropriate directories.</p>
-      <p>For more details on the various geometry workflows, refer to the <a href="../usage/geometry_workflows" class="bold">geometry_workflows page</a>.</p>  
+      <p>For more details on the various geometry workflows, refer to the <a href="../workflows/geometry_workflows" class="bold">geometry_workflows page</a>.</p>  
     </div>
   </li>
   <li class="acc"><input id="accordion2" type="checkbox" /><label for="accordion2">Use Createbar geometry workflow</label>
@@ -48,7 +48,7 @@ nav_order: 1
     <p>This project uses the <code>create_bar_from_building_type_ratio</code> measure to create building geometry.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --create-bar --project-folder  &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
-    <p>For more details on the various geometry workflows, refer to the <a href="../usage/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
+    <p>For more details on the various geometry workflows, refer to the <a href="../workflows/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
   </div>
   </li>
   <li class="acc"><input id="accordion3" type="checkbox" /><label for="accordion3">Use Floorspace geometry workflow</label>
@@ -56,7 +56,7 @@ nav_order: 1
     <p>This creates building geometry from floor plans with stub space types drawn using FloorSpaceJS.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --floorspace --project-folder  &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
-    <p>For more details on the various geometry workflows, refer to the <a href="../usage/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
+    <p>For more details on the various geometry workflows, refer to the <a href="../workflows/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
   </div></li>
   <li class="acc"><input id="accordion4" type="checkbox" /><label for="accordion4">Include Residential buildings in your project</label>
   <div class="show">
@@ -65,7 +65,7 @@ nav_order: 1
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo create --combined --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
     <p>The rest of the CLI commands are the same as for the default workflow. Make sure that you use and inspect the <code>example_project_combined.json</code> FeatureFile in your project directory to see an example of a residential feature specification (feature IDs 14, 15, and 16) and the additional fields required for residential building types.</p>
-    <p>Residential building energy models in URBANopt are created using the OpenStudio-HPXML workflow. Visit the <a href="../usage/residential_workflows" class="bold">Residential Workflows page</a> to learn more.</p>
+    <p>Residential building energy models in URBANopt are created using the OpenStudio-HPXML workflow. Visit the <a href="../workflows/residential_workflows/residential_workflows" class="bold">Residential Workflows page</a> to learn more.</p>
   </div>
   </li>
   <li class="acc"><input id="accordionA" type="checkbox" /><label for="accordionA">Include OpenDSS functionality in your project</label>
@@ -105,7 +105,7 @@ nav_order: 1
 <ul class="jk_accordion">
   <li class="acc"><input id="accordion7" type="checkbox" /><label for="accordion7">Create a Scenario CSV File for each mapper</label>
     <div class="show">
-    <p>The following command will create a ScenarioFile for each mapper contained in the project directory.  The resulting CSV files will map all features in the FeatureFile to the particular scenario mapper. The scenario mappers currently included in URBANopt are listed above. Visit the <a href="../usage/scenarios/scenarios" class="bold">Scenarios page</a> to learn more about each scenario mapper.</p>
+    <p>The following command will create a ScenarioFile for each mapper contained in the project directory.  The resulting CSV files will map all features in the FeatureFile to the particular scenario mapper. The scenario mappers currently included in URBANopt are listed above. Visit the <a href="../resources/scenarios/scenarios" class="bold">Scenarios page</a> to learn more about each scenario mapper.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --scenario-file &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
     </div>
   </li>
@@ -124,7 +124,7 @@ nav_order: 1
         <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once (e.g. rooftop and ground-mount).</p>
         </li>
       </ol>
-      <p>Visit the <a href="../additional_documentation/reopt/reopt" class="bold">REopt page</a> for more details on using REopt with URBANopt.</p>
+      <p>Visit the <a href="../workflows/reopt/reopt" class="bold">REopt page</a> for more details on using REopt with URBANopt.</p>
     </div>
   </li>
 </ul>
@@ -145,7 +145,7 @@ nav_order: 1
   </li>
   <li class="acc"><input id="accordion11" type="checkbox" /><label for="accordion11">Customize the mappers</label>
     <div class="show">
-    <p>In addition to Scenario mappers included in the URBANopt CLI, you can write your own mapper file for a specific use case. You can also edit the existing mappers in your project directory.  Visit the <a href="../customization/customization" class="bold">Customizations page</a> to learn about how to customize your URBANopt workflow.</p>
+    <p>In addition to Scenario mappers included in the URBANopt CLI, you can write your own mapper file for a specific use case. You can also edit the existing mappers in your project directory.  Visit the <a href="../resources/customization/customization" class="bold">Customizations page</a> to learn about how to customize your URBANopt workflow.</p>
     </div>
   </li>
 </ul>
@@ -193,7 +193,7 @@ nav_order: 1
         <li><strong>JSON </strong>&mdash; a <code>default_scenario_report.json</code> file containing overall results</li>
         <li><strong>CSV Timeseries</strong>&mdash; a <code>default_scenario_report.csv</code> file containing aggregated timeseries data.</li>
       </ol>
-    <div class="important-note"><p>If the scenario is consequently post-processed with another option flag (i.e. <code>--reopt-scenario</code>, <code>--reopt-feature</code>, or <code>--opendss</code>, see sections below), the new data will be appended to the existing results files.</p></div>
+    <div class="important-note"><p>If the scenario is consequently post-processed with another option flag (i.e. --reopt-scenario, --reopt-feature, or --opendss, see sections below), the new data will be appended to the existing results files.</p></div>
   </div>
   </li>
 </ul>
@@ -214,15 +214,15 @@ nav_order: 1
       <p><strong>To optimize at the feature-level, use the <code>--reopt-feature</code> flag:</strong></p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-feature --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/REoptEnabledSCENARIOFILE.csv&gt;</span></code></pre></div>
       <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file.</p>
-      <p>Visit the <a href="../additional_documentation/reopt/reopt_post_processing" class="bold">REopt Workflow page</a> for more details on using REopt.</p>
+      <p>Visit the <a href="../workflows/reopt/reopt_post_processing" class="bold">REopt Workflow page</a> for more details on using REopt.</p>
     </div>
   </li>
   <li class="acc"><input id="accordion16" type="checkbox" /><label for="accordion16">Post-process OpenDSS results</label>
     <div class="show">
       <p>To post-process OpenDSS results back into the main Scenario JSON and CSV results files, use the <code>--opendss</code> flag.</p>
-      <p>Note&mdash; Run this command <strong>after</strong> you <strong>a)</strong> post-process the general scenario results and <strong>b)</strong> run the OpenDSS workflow as described in the Additional Capabilities section below.</p>
+      <p>Note&mdash; Run this command <strong>after</strong> you <strong>a)</strong> post-process the general scenario results and <strong>b)</strong> run the OpenDSS workflow as described in the <a href="#analyses" class="bold">Additional Capabilities</a> section below.</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --opendss --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
-      <p>For more information on the OpenDSS workflow, visit the <a href="../additional_documentation/opendss/opendss" class="bold">OpenDSS page</a>.</p>
+      <p>For more information on the OpenDSS workflow, visit the <a href="../workflows/opendss/opendss" class="bold">OpenDSS page</a>.</p>
     </div>
   </li>
   <li class="acc"><input id="accordionQ" type="checkbox" /><label for="accordionQ">SQL Database Output File</label>
@@ -272,7 +272,7 @@ nav_order: 1
       <p><strong>OpenDSS</strong> is an open-source tool that is popular for simulating electrical distribution systems. The <strong>DIstribution Transformation TOol (DiTTo)</strong> is an open source and many-to-many conversion tool that has been developed by NREL to simplify converting data between distribution models. Finally, the <strong>URBANopt DiTTo Reader</strong> package and CLI provide the link between URBANopt and OpenDSS.</p> 
       <p>The entire DiTTo-Reader to OpenDSS workflow is available in URBANopt via the opendss URBANopt CLI command.</p>
       <div class="important-note">
-        <p> Since the DiTTo Reader and OpenDSS functionality is written in Python, additional dependencies will need to be installed if you wish to use this workflow. Visit the <a href="../additional_documentation/installation/ditto_reader.md" class="bold">OpenDSS Installation page</a> to install OpenDSS and URBANopt DiTTo Reader.
+        <p> Since the DiTTo Reader and OpenDSS functionality is written in Python, additional dependencies will need to be installed if you wish to use this workflow. Visit the <a href="../installation/ditto_reader.md" class="bold">OpenDSS Installation page</a> to install OpenDSS and URBANopt DiTTo Reader.
       </p>
       </div>
       <p>Once you have installed Python and urbanopt-ditto-reader, you can use the <code>opendss</code> CLI command to access the OpenDSS functionality. You can use the <code>opendss</code> CLI command after you have run the scenario (using a FeatureFile that contains a fully-connected electrical network) and post-process the general results with the <code>--default</code> post-processor.  The OpenDSS workflow will use these results files in the processing.</p>
