@@ -7,7 +7,7 @@ nav_order: 2
 
 # Windows Installation Instructions
 
-As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (64-bit Windows 7 – 10) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.  
+As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (64-bit Windows 7 – 10) is available to install the URBANopt CLI, Ruby, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.  
 
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
@@ -58,14 +58,14 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 
 ## Manual Install
 
-1. Install [Ruby 2.5 (x64) with DevKit](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.5.5-1/rubyinstaller-devkit-2.5.5-1-x64.exe)  
+1. Install [Ruby 2.7.2 (x64) with DevKit](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.2-1/rubyinstaller-devkit-2.7.2-1-x64.exe)  
 
 	Make sure that you select option 3: **MSYS2 and MINGW development toolchain** during the installation process:
 	![installer options](../doc_files/ruby_windows.png)
 
 1. Include path to Ruby by adding the following to your environment variables path: 
 
-	`C:\Ruby25-x64\bin`
+	`C:\Ruby27-x64\bin`
 1. Create a new environment variable `HOME` and set the variable value to the following: 
 
 	`C:\Users\<user_name>`
@@ -77,9 +77,9 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.1.0](https://github.com/NREL/OpenStudio/releases/tag/v3.1.0)  
+1. Install [OpenStudio 3.2.0](https://github.com/NREL/OpenStudio/releases/tag/v3.2.0)  
 
-1. Create file `C:\ruby-2.5.5-1-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
+1. Create file `C:\ruby-2.7.2-1-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
 
 	```ruby
 	require 'C:\openstudio-X.X.X\Ruby\openstudio.rb'

@@ -11,6 +11,8 @@ The URBANopt<sup>&trade;</sup> installer includes Ruby and OpenStudio. The matri
 
 |URBANopt Version|OpenStudio|Ruby|
 |:--------------:|:----------:|:--------:|
+| 0.6.1          | 3.2.0      |2.7    |
+| 0.6.0          | 3.2.0      |2.7    |
 | 0.5.1          | 3.1.0      |2.5    |
 | 0.5.0          | 3.1.0      |2.5    |
 | 0.4.1          | 3.0.1      |2.5    |
@@ -24,7 +26,8 @@ URBANopt<sup>&trade;</sup> depends on various other components to function. Ensu
 
 |URBANopt Version|URBANopt CLI|OpenStudio|Ruby|Gems                                                                           |
 |:--------------:|:----------:|:--------:|:--:|:---------------------------------------------------------------------------------------|
-|**0.6.0**			|0.6.0				|3.2			|2.7.x|**URBANopt Gems:** <br/>Core Gem v0.6.0<br/> GeoJSON Gem v0.6.1 <br/> Scenario Gem v0.6.0<br/> Reporting Gem v0.4.0 <br/> REopt Gem v0.6.0 <br/> DiTTo Reader v0.3.9 <br/> GeoJSON Modelica Translator v0.2.2 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.4.0  <br/> Common Measures v0.4.0 <br/> Model Articulation v0.4.0 <br/> Load Flexibility v0.3.1 <br/> EE Gem v0.4.0 <br/> Calibration Gem v0.4.0 |
+|**0.6.1**			|0.6.1				|3.2			|2.7.x|**URBANopt Gems:** <br/>Core Gem v0.6.1<br/> GeoJSON Gem v0.6.3 <br/> Scenario Gem v0.6.2<br/> Reporting Gem v0.4.1 <br/> REopt Gem v0.6.1 <br/> DiTTo Reader v0.3.9 <br/> GeoJSON Modelica Translator v0.2.2 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.4.3  <br/> Common Measures v0.4.0 <br/> Model Articulation v0.4.0 <br/> Load Flexibility v0.3.2 <br/> EE Gem v0.4.0 <br/> Calibration Gem v0.4.0 |
+|**0.6.0**			|0.6.0				|3.2			|2.7.x|**URBANopt Gems:** <br/>Core Gem v0.6.0<br/> GeoJSON Gem v0.6.1 <br/> Scenario Gem v0.6.0<br/> Reporting Gem v0.4.2 <br/> REopt Gem v0.6.0 <br/> DiTTo Reader v0.3.9 <br/> GeoJSON Modelica Translator v0.2.2 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.4.0  <br/> Common Measures v0.4.0 <br/> Model Articulation v0.4.0 <br/> Load Flexibility v0.3.1 <br/> EE Gem v0.4.0 <br/> Calibration Gem v0.4.0 |
 |**0.5.2**      |0.5.2        |3.1      |2.5.x|**URBANopt Gems:** <br/>Core Gem v0.5.1 <br/> GeoJSON Gem v0.5.3 <br/> Scenario Gem v0.5.1<br/> Reporting Gem v0.3.7 <br/> REopt Gem v0.5.5 <br/> DiTTo Reader v0.3.8 <br/> GeoJSON Modelica Translator v0.2.2 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.3.2  <br/> Common Measures v0.3.2 <br/> Model Articulation v0.3.1 <br/> Load Flexibility v0.2.1 <br/> EE Gem v0.3.2 <br/> Calibration Gem v0.3.1 |
 |**0.5.1**      |0.5.1        |3.1      |2.5.x|**URBANopt Gems:** <br/>Core Gem v0.5.1 <br/> GeoJSON Gem v0.5.2 <br/> Scenario Gem v0.5.1<br/> Reporting Gem v0.3.6 <br/> REopt Gem v0.5.4 <br/> DiTTo Reader v0.3.8 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.3.2  <br/> Common Measures v0.3.2 <br/> Model Articulation v0.3.1 <br/> Load Flexibility v0.2.1 <br/> EE Gem v0.3.2 <br/> Calibration Gem v0.3.1 |
 |**0.5.0**		|0.5.0		 |3.1	   |2.5.x|**URBANopt Gems:** <br/>Core Gem v0.5.1 <br/> GeoJSON Gem v0.5.1 <br/> Scenario Gem v0.5.0<br/>Reporting Gem v0.3.2 <br/> REopt Gem v0.5.0 <br/> DiTTo Reader v0.2.0 <br/>**OpenStudio Gems:**<br/>Extension Gem v0.3.2  <br/> Common Measures v0.3.2 <br/> Model Articulation v0.3.1 <br/> Load Flexibility v0.2.1 <br/> EE Gem v0.3.2 <br/> Calibration Gem v0.3.1 |
