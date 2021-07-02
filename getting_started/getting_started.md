@@ -215,6 +215,14 @@ nav_order: 1
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-feature --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/REoptEnabledSCENARIOFILE.csv&gt;</span></code></pre></div>
       <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file.</p>
       <p>Visit the <a href="../workflows/reopt/reopt_post_processing" class="bold">REopt Workflow page</a> for more details on using REopt.</p>
+      <p><strong>Additional Options:</strong></p>
+      <p>the process command can be used with the following additional REopt-related options:</p>
+      <ol>
+        <li><strong>--reopt-resilience</strong>: adding this option will include resilience reporting in the REopt optimization</li>
+        <li><strong>--reopt-keep-existing</strong>: the REoptLite API rate limit (300 API calls per hour) may be reached when processing projects with a large number of features.  If that is the case, use this option to continue processing the remaining features after the hour has elapsed.</li>
+      </ol>
+      <p>You can run the help command to see the full list of options:</p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --help</span></code></pre></div>
     </div>
   </li>
   <li class="acc"><input id="accordion16" type="checkbox" /><label for="accordion16">Post-process OpenDSS results</label>

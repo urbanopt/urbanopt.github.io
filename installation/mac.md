@@ -7,7 +7,7 @@ nav_order: 1
 
 # Mac Installation Instructions
 
-As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) is available to install the URBANopt CLI, Ruby 2.5.x, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
+As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) is available to install the URBANopt CLI, Ruby, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
 
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
@@ -27,12 +27,12 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
 
 ## Manual Install
 
-1. Install Ruby 2.5 (anything in the 2.5.x range will work).  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby 2.5](https://github.com/rbenv/rbenv#installing-ruby-versions)
+1. Install Ruby 2.7.2 (anything in the 2.7.x range will work).  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby 2.7](https://github.com/rbenv/rbenv#installing-ruby-versions)
     - `brew install rbenv`
-    - `rbenv install 2.5.x`
+    - `rbenv install 2.7.x`
     - Do not forget the `rbenv init` step of rbenv installation
     - Once installed, you may check which versions of Ruby have been installed and which one is active with: `rbenv versions`
-    - Set your current directory to use Ruby 2.5.x with: `rbenv local 2.5.x`
+    - Set your current directory to use Ruby 2.7.x with: `rbenv local 2.7.x`
     - Full documentation for rbenv can be found at the [rbenv github site](https://github.com/rbenv/rbenv#command-reference)
 
 1. Install Bundler version 2.1:
@@ -41,7 +41,7 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.1.0](https://github.com/NREL/OpenStudio/releases/tag/v3.1.0)  
+1. Install [OpenStudio 3.2.0](https://github.com/NREL/OpenStudio/releases/tag/v3.2.0)  
 
 1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as TextEdit, Sublime Text, vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
