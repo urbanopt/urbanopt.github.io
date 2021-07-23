@@ -2,7 +2,7 @@
 layout: default
 title: Optimization Workflows
 parent: Workflows
-nav_order: 6
+nav_order: 7
 ---
 
 # Optimization

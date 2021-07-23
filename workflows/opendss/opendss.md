@@ -6,21 +6,15 @@ parent: Workflows
 ---
 # OpenDSS Converter
 
+OpenDSS simulates powerflow through an electrical network for steady-state loading conditions. The simulations can then be used to determine electrical infrastructure performance and potential shortcomings for different district design scenarios.
+
+## Installation
+
 Visit the [OpenDSS Installation page](../installation/ditto_reader.md) to install OpenDSS and URBANopt DiTTo Reader.
 
 ## Usage
 
 The DiTTo-Reader/OpenDSS workflow is available via the `opendss` URBANopt CLI command.
-
-### Notes
-
-- The feature file should contain Electrical Connectors and Junctions for a successful OpenDSS run.
-- If you want to include reopt results as an input to OpenDSS, make sure to include the --reopt flag when issuing the `opendss` command.
-- Once the `opendss` command has been run, the `process --opendss` command can then be run to pull the opendss results back into the URBANopt reports.
-- Refer to the [Getting Started page](../getting_started/getting_started) at any time to view usage examples.
-
-
-## Usage
 
 For in-terminal help:
 ```bash
@@ -36,7 +30,8 @@ An example:
 1. Run the project as you normally would, being sure you use the electrical feature file, and a scenario file created from it:
 	```bash
 	uo run --feature <path/to/electrical/featurefile.json> --scenario <path/to/SCENARIOFILE.csv>
-
+	```
+	
 1. Post-process using the default post-processor to generate the feature_reports used by the OpenDSS workflow:
 	```bash
 	uo process --default --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
@@ -73,6 +68,14 @@ An example:
 	```bash
 	uo process --opendss --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
 	```
+
+### Notes
+
+- The feature file should contain Electrical Connectors and Junctions for a successful OpenDSS run.
+- If you want to include reopt results as an input to OpenDSS, make sure to include the --reopt flag when issuing the `opendss` command.
+- Once the `opendss` command has been run, the `process --opendss` command can then be run to pull the opendss results back into the URBANopt reports.
+- Refer to the [Getting Started page](../getting_started/getting_started) at any time to view usage examples.
+
 
 Visit the [Getting Started page](../getting_started/getting_started) for detailed usage examples.
 
