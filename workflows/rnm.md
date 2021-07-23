@@ -101,6 +101,17 @@ To include DERs in the analysis, the URBANopt RNM-US Gem parses the DERs informa
 
 Lastly, the URBANopt RNM-US Gem requires as input the “extended_catalog.json” file. This is a JSON file including all the electric equipment and parameters which can be accessed by both the URBANopt RNM-US Gem and URBANopt OpenDSS Gem to plan and model operation of the distribution network. Moreover, each section of this file can be freely modified by the user, according to their specific needs. A [default catalog](https://github.com/urbanopt/urbanopt-rnm-us-gem/blob/develop/catalogs/extended_catalog.json) is included in the RNM-US Gem.
 
+**Additional Simulation Parameters**
+
+Several parameters can be set in the GeoJSON Feature File to modify the RNM simulation. These parameters should be added to the *project* section of the file.
+
+- **underground_cables_ratio**: Ratio of overall cables that are underground vs. overhead in the analysis. Defaults to 0.9.
+
+- **only_lv_consumers**: Set to true to consider only low voltage consumers in the analysis. Defaults to true.
+
+- **max_number_of_lv_nodes_per_building**: Maximum number of low voltage nodes to represent a single building. Defaults to 1.
+
+
 ### URBANopt RNM-US Gem Intermediate Results
 
 The URBANopt outputs discussed above are used by the RNM-US Gem to generate multiple input files in the format that RNM-US can process. In order to create a synthetic distribution network, RNM-US needs as inputs a set of text files representing the street map of the district, the location, voltage connection and consumption/generation power profiles of each consumer/generator, and a CSV file with the electric catalog used by the model to plan the network. In this version of the RNM-US Gem, batteries are modeled as consumer nodes, having positive values when charging and negative when discharging.
