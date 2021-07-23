@@ -76,6 +76,14 @@ nav_order: 1
       <p>View the <a href="#opendss" class="bold">OpenDSS section</a> under <a href="#analyses" class="bold">Additional Capabilities</a> below for more details on the OpenDSS functionality.</p>
     </div>
   </li>
+  <li class="acc"><input id="accordionB" type="checkbox" /><label for="accordionB">Include RNM functionality in your project</label>
+    <div class="show">
+      <p>In order to use the RNM functionality successfully, the FeatureFile should contain streets as well as the location of the primary electrical substation.  Use the command below to create an example project containing a FeatureFile with streets defined within it (<code>example_project_with_streets.json</code>). You can also use your own Feature File that includes streets.</p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo create --streets --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+      </div>
+      <p>View the <a href="#rnm" class="bold">RNM section</a> under <a href="#analyses" class="bold">Additional Capabilities</a> below for more details on the RNM functionality.</p>
+    </div>
+  </li>
 </ul>
 <p>Other Options</p>
 <ul class="jk_accordion">
@@ -326,6 +334,22 @@ nav_order: 1
            <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo des_run --model &lt;path/to/modelica_dir&gt;</span></code></pre></div>
         </li>
       </ol>
+    </div>
+  </li>
+  <li class="acc"><input id="rnm" type="checkbox" /><label for="rnm">RNM Functionality</label>
+    <div class="show">
+      <p><strong>RNM functionality is available in URBANopt CLI version 0.6.2 and above.</strong></p>
+      <p>Once a scenario has been run and processed as explained in the sections above, an RNM simulation can then be run using the output from the URBANopt SDK.</p>
+      <p>To run the RNM workflow, use the following command:</p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo rnm --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
+      <p>The result files <code><span class="code-text">scenario_report_rnm.json</span></code> and <code><span class="code-text">feature_file_rnm.json</span></code> can be found in the scenario directory.  Additonal RNM outputs are in the <code><span class="code-text">rnm-us/results</span></code> directory.</p>
+      <p>Additional options that can be used with the <code><span class="code-text">rnm</span></code> command are:</p>
+            <ul class="t">
+        <li class="t"><code><span class="code-text">--reopt</span></code>: Use this option to use REopt results in the RNM analysis. In order to do so, the scenario must first be post-processed with the REopt feature optimization option (`--reopt-feature`)</li>
+        <li class="t"><code><span class="code-text">--extended-catalog</span></code>: Use this option to specify the path to the extended electrical catalog. If this option is not included, the default catalog will be used</li>
+        <li class="t"><code><span class="code-text">--average-peak-catalog</span></code>: Use this option to specify the path to the average peak catalog. If this option is not included, the default catalog will be used.</li>
+        <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSon file be created.</li>
+      </ul> 
     </div>
   </li>
   <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate EUI Results</label>

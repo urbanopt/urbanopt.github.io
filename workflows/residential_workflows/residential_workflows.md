@@ -3,7 +3,7 @@ layout: default
 title: Residential Workflows
 parent: Workflows
 has_children: true
-nav_order: 4
+nav_order: 5
 has_toc: false
 ---
 
