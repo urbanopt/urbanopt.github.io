@@ -336,7 +336,7 @@ nav_order: 1
       </ol>
     </div>
   </li>
-  <li class="acc"><input id="rnm" type="checkbox" /><label for="rnm">RNM Functionality</label>
+  <li class="acc" id="rnm"><input id="rnm2" type="checkbox" /><label for="rnm2">RNM Functionality</label>
     <div class="show">
       <p><strong>RNM functionality is available in URBANopt CLI version 0.6.2 and above.</strong></p>
       <p>Once a scenario has been run and processed as explained in the sections above, an RNM simulation can then be run using the output from the URBANopt SDK.</p>
