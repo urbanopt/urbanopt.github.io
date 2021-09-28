@@ -9,11 +9,11 @@ nav_order: 2
 
 **REopt Lite** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
 
-CLI commands are used to run and post-process each scenario, and onscreen help is always availabe with `uo --help`.
+CLI commands are used to run and post-process each scenario, and onscreen help is always available with `uo --help`.
 
 Also note that two types of REopt optimization are available:
-- _scenario-level_, which optimizes for the aggregate load of the entire district being simulated, and
-- _feature-level_, which optimizes each building's load individually.
+- **_scenario-level_**, which optimizes for the aggregate load of the entire district being simulated, and
+- **_feature-level_**, which optimizes each building's load individually.
 
 You may chose to optimize by one or both of these approaches according to your project objectives.
 
@@ -21,7 +21,7 @@ You may chose to optimize by one or both of these approaches according to your p
 
 ### REopt Lite Optimization Assumption Files
 
-In your URBANopt project directory, by default you should see two example **REopt Lite** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt Lite API**.
+In your URBANopt project directory, you should see two example **REopt Lite** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a REopt-enabled ScenarioFile with the `uo create --reopt-scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt Lite API**.
 
 In particular, you will want to make sure that the `urdb_label` in the assumptions file maps to a suitable utility rate _label_ from the [URDB](https://openei.org/apps/IURDB/). The _label_ is the last term of the URL of a utility rate detail page (i.e. the _label_ for the rate at [https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305](https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305) is 5b0d83af5457a3f276733305).
 
@@ -49,11 +49,12 @@ The `--reopt-scenario` command allows you to post-process a ScenarioReport in ag
 ```terminal
   uo process --reopt-scenario --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
 ```
+The `--reopt-scenario-assumptions-file` option can be used with this command to specify the assumptions file to use. If omitted, the `base_assumptions.json` file from the `reopt` folder will be used, as described above.
 
-Alternatively, The `--reopt-feature` command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This runs REopt optimization on each building individually.
+Alternatively, The `--reopt-feature` command allows you to post-process a Scenario for each of its Feature Reports before aggregating into a summary in the Scenario Report. This runs REopt optimization on each building individually. The assumptions file to use for each feature should be specified in the REopt-enabled ScenarioCSV file.
 
 ```terminal
-  uo process --reopt-feature --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
+  uo process --reopt-feature --feature <path/to/FEATUREFILE.json> --scenario <path/to/REOPT_SCENARIOFILE.csv>
 ```
 
 ### Understanding REopt Lite Results
