@@ -124,12 +124,13 @@ nav_order: 1
         <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NREL Developer Network</a> to use the <strong>REopt Lite API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NREL developer key here'&gt;</span></code></pre></div>
         </li>
-        <li>Extend the Scenario CSV File with REopt information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File (named REopt_scenario.csv by default) that has an extra column to map assumption files to features. Use this Scenario CSV File going forward in future steps. </p>
+        <li>Extend the Scenario CSV File with REopt information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File (named REopt_scenario.csv by default) that has an extra column to map assumptions files to features. Use this Scenario CSV File going forward in future steps. The assumptions file listed in the Scenario CSV will be used when performing a REopt feature optimization.  By default, this is set to <code>multiPV_assumptions.json</code>. If you'd like to use a different file, open the Scenario CSV file, edit the assumptions file name and save. Your new assumptions file should be saved in the <code>reopt</code> directory within your project directory.</p>
         <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-scenario-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
         </li>
-        <li><p>Configure your REopt assumptions. Two example <strong>REopt Lite</strong> assumption files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://developer.nrel.gov/docs/energy-optimization/reopt-v1/" target="_blank" class="bold">REopt Lite API documentation</a> and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt Lite API</strong>.</p>
+        <li><p>Configure your REopt assumptions. Two example <strong>REopt Lite</strong> assumptions files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://developer.nrel.gov/docs/energy-optimization/reopt-v1/" target="_blank" class="bold">REopt Lite API documentation</a> and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt Lite API</strong>.</p>
         <p>In particular, you will want to make sure that the <code>urdb_label</code> in the assumptions file maps to a suitable utility rate <em>label</em> from the <a href="https://openei.org/apps/IURDB/" target="_blank" class="bold">URDB</a>. The <em>label</em> is the last term of the URL of a utility rate detail page (e.g. the <em>label</em> for the rate at <a href="https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305" target="_blank" class="bold">https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305</a> is 5b0d83af5457a3f276733305).</p>
         <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once (e.g. rooftop and ground-mount).</p>
+        <p><strong>Unless otherwise configured, the <code>multiPV_assumptions.json</code> file will be used inside the REopt-enabled Scenario CSV for feature-level optimizations, and the <code>base_assumptions.json</code> file will be used for scenario-level optimizations. Both of these files can be found in the <code>reopt</code> directory within the project directory.</strong> </p>
         </li>
       </ol>
       <p>Visit the <a href="../workflows/reopt/reopt" class="bold">REopt page</a> for more details on using REopt with URBANopt.</p>
@@ -221,7 +222,7 @@ nav_order: 1
       <p>The <code>--reopt-scenario-assumptions-file</code> (or <code>-a</code>) option can be used to specify the path to the assumptions file to use for this optimization. If none is specified, the <code>base_assumptions.json</code> file in the <code>reopt</code> folder of the project directory will be used.</p>
       <p><strong>To optimize at the feature-level, use the <code>--reopt-feature</code> flag:</strong></p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-feature --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/REoptEnabledSCENARIOFILE.csv&gt;</span></code></pre></div>
-      <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file.</p>
+      <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file, and is defaulted to the <code>multiPV_assumptions.json</code> file in the <code>reopt</code> folder of the project directory.</p>
       <p>Visit the <a href="../workflows/reopt/reopt_post_processing" class="bold">REopt Workflow page</a> for more details on using REopt.</p>
       <p><strong>Additional Options:</strong></p>
       <p>the process command can be used with the following additional REopt-related options:</p>
@@ -231,6 +232,15 @@ nav_order: 1
       </ol>
       <p>You can run the help command to see the full list of options:</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --help</span></code></pre></div>
+      <h3>Output Files</h3>
+      <p>The REopt optimizations will generate results files in the scenario results folder: </p>
+      <ol>
+        <li><strong>JSON </strong>&mdash; a <code>scenario_optimization.json</code> file containing overall scenario optimization results, and/or a <code>feature_optimization.json</code> file containing aggregated feature optimization results.</li>
+        <li><strong>CSV Timeseries</strong>&mdash; a <code>scenario_optimization.csv</code> file containing REopt aggregated timeseries results for the scenario optimization (<code>REopt:ElectricityProduced:Total(kw)</code>, for example) and/or a <code>feature_optimization.csv</code> containing REopt aggregated timeseries results for the feature optimization.</li>
+        <li><strong>Detailed REopt results</strong>&mdash; can be found in the <code>scenario_report_reopt_scenario_reopt_run.json</code> inside the scenario results' inner <code> reopt</code> folder.  Additionally, individual <code>feature_optimization.json</code> and <code>feature_optimization.csv</code> files can be found in each feature's <code>reopt</code> directory inside the feature's results directory.</li>
+      </ol>
+      <p>The figure below illustrates the results directory structure.</p>
+       <div class="p-2"><img src="../doc_files/reopt_results.png" alt="results directory structure"></div>
     </div>
   </li>
   <li class="acc"><input id="accordion16" type="checkbox" /><label for="accordion16">Post-process OpenDSS results</label>
