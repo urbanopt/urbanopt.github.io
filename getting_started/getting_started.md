@@ -68,6 +68,16 @@ nav_order: 1
     <p>Residential building energy models in URBANopt are created using the OpenStudio-HPXML workflow. Visit the <a href="../workflows/residential_workflows/residential_workflows" class="bold">Residential Workflows page</a> to learn more.</p>
   </div>
   </li>
+  <li class="acc"><input id="accordionPVp" type="checkbox" /><label for="accordionPVp">Include PV features in your project</label>
+  <div class="show">
+    <p>As of version 0.6.3, URBANopt supports community photovoltaic and ground mount photovoltaic features.</p>
+    <p>To create a PV-enabled project add the <code>--photovoltaic</code> option to the create command:</p>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo create --photovoltaic --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+    </div>
+    <p>The rest of the CLI commands are the same as for the default workflow. Inspect the <code>example_project_with_PV.json</code> FeatureFile in your project directory to see examples of community photovoltaic and ground mount photovoltaic features.</p>
+    <p>Visit the <a href="../workflows/photovoltaic" class="bold">Photovoltaic Workflows page</a> to learn more.</p>
+  </div>
+  </li>
   <li class="acc"><input id="accordionA" type="checkbox" /><label for="accordionA">Include OpenDSS functionality in your project</label>
     <div class="show">
       <p>In order to use the OpenDSS functionality successfully, the FeatureFile should contain Electrical Connectors and Junctions.  Use the command below to create an example project containing a FeatureFile with electrical network defined within it (<code>example_project_with_electric_network.json</code>). You can also use your own Feature File as long as the electrical infrastructure is defined and connected to the buildings accordingly.</p>
