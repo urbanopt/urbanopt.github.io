@@ -11,7 +11,7 @@ As of version 0.6.3, URBANopt supports community photovoltaic and ground mount p
 
 ## Community Photovoltaic
 
-Community Photovoltaic features can be added to the GeoJSON Feature File as a district system of type "Community Photovoltaic".  View the [district system schema](https://docs.urbanopt.net/urbanopt-geojson-gem/schemas/district-system-properties.html) for more details. The REopt scenario optimization post-processor will use this information in its PV capacity calculations. 
+Community Photovoltaic features can be added to the GeoJSON Feature File as a district system of type "Community Photovoltaic".  View the [district system schema](https://docs.urbanopt.net/urbanopt-geojson-gem/schemas/district-system-properties.html) for more details. The REopt scenario optimization post-processor will use this information in its PV capacity calculations when run with the multi-PV assumptions file. 
 
 ## Ground Mount Photovoltaic 
 
