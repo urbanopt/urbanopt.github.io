@@ -19,6 +19,7 @@ Visit the following links for more details on the URBANopt project:
 - [URBANopt Design overview](../doc_files/design_doc.md)
 - [URBANopt GitHub code repositories](https://github.com/urbanopt)
 - [URBANopt SDK core modules overview paper](https://www.nrel.gov/docs/fy21osti/76781.pdf)
+- [URBANopt/Dragonfly integration and piloting paper](https://www.mdpi.com/1996-1073/14/18/5931)
 
 ## Project Team
 
