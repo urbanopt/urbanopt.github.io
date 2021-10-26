@@ -2,7 +2,7 @@
 layout: default
 title: RNM
 parent: Workflows
-nav_order: 4
+nav_order: 5
 ---
 
 # RNM Analysis
