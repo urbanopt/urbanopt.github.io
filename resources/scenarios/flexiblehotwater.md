@@ -1,18 +1,18 @@
 ---
 layout: default
-title: Flexible Hot Water Scenario
+title: Flexible Water Heating Scenario
 parent: Scenarios
 grand_parent: Resources
 nav_order: 5
 ---
 
-The Flexible Hot Water Scenario enhance the energy efficiency of the modeled Scenario by adding a heat pump water heater, instead of conventional hot water systems, to each building Feature defined in the FeatureFile and allow the users to set its characteristics and control its operation.  
-This MapperClass inherits from the High Efficiency MapperClass and provides the capability to replace the domestic hot water heater with air source heat pump system and allows for the additional of multiple daily flexible control time windows.  The heater/tank system may charge at maximum capacity up to an elevated temperature, or float without any heat addition for a specified timeframe down to a minimum tank temperature.
+The Flexible Water Heating Scenario enhances the energy efficiency of the modeled Scenario by adding a heat pump water heater, instead of conventional hot water systems, to each building Feature defined in the FeatureFile and allows the users to set its characteristics and control its operation to provide electrical demand flexibility. 
+This MapperClass inherits from the High Efficiency MapperClass and provides the capability to replace the domestic water heater with air source heat pump system and allows for the addition of multiple daily flexible control time windows.  The heater/tank system may charge at maximum capacity up to an elevated temperature, or float without any heat addition for a specified timeframe down to a minimum tank temperature.
 
 
 ## Measure
 
-The ```add_hpwh``` measure allows selection between three heat pump water heater modeling approaches in EnergyPlus. The user may select between the pumped-condenser or wrapped-condenser objects. They may also elect to use a simplified calculation which does not use the heat pump objects, but instead used an electric resistance heater and approximates the equivalent electrical input that would be required from a heat pump. This expedites simulation at the expense of accuracy. The flexibility of the system is based on user-defined temperatures and times, which are converted into schedule objects. There are four flexibility options:
+The ```add_hpwh``` measure allows selection between three heat pump water heater modeling approaches in EnergyPlus. The user may select between the pumped-condenser or wrapped-condenser objects. They may also elect to use a simplified calculation which does not use the heat pump objects, but instead uses an electric resistance heater and approximates the equivalent electrical input that would be required from a heat pump. This expedites simulation at the expense of accuracy. The flexibility of the system is based on user-defined temperatures and times, which are converted into schedule objects. There are four flexibility options:
 
 1. None: normal operation of the DHW system at a fixed tank temperature setpoint.
 1. Charge - Heat Pump: the tank is charged to a maximum temperature using only the heat pump. 
