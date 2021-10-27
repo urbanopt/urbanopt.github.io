@@ -7,7 +7,7 @@ nav_order: 2
 
 # Solar Photovoltaics Workflows
 
-As of version 0.6.3, URBANopt&trade; supports community photovoltaic and ground mount photovoltaic workflows. 
+As of version 0.6.3, URBANopt&trade; supports community photovoltaic and ground mount photovoltaic workflows in addition to the rooftop photovoltaic workflow supported by previous versions. 
 
 ## Community Photovoltaics
 
