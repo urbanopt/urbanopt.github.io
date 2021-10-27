@@ -74,7 +74,7 @@ nav_order: 1
     <p>To create a PV-enabled project add the <code>--photovoltaic</code> option to the create command:</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo create --photovoltaic --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
     </div>
-    <p>The rest of the CLI commands are the same as for the default workflow. Inspect the <code>example_project_with_PV.json</code> FeatureFile in your project directory to see examples of community photovoltaic and ground mount photovoltaic features.</p>
+    <p>The rest of the CLI commands are the same as for the default REopt workflow. Inspect the <code>example_project_with_PV.json</code> FeatureFile in your project directory to see examples of community photovoltaic and ground mount photovoltaic features.</p>
     <p>Visit the <a href="../workflows/photovoltaic" class="bold">Photovoltaic Workflows page</a> to learn more.</p>
   </div>
   </li>
