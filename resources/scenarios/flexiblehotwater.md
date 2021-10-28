@@ -62,7 +62,7 @@ Then within your .osw file, add the measure and set any common argument values. 
     }
 ```
 
-Note that the `add_hpwh` measure is an EnergyPlus&trade; measure and must be placed after all OpenStudio&copy; measures and before reporting measures.
+Note that the `add_hpwh` measure is an EnergyPlus&trade; measure and must be placed after all OpenStudio&reg; measures and before reporting measures.
 
 Then specify within the mapper any measure arguments that differ from those set in the .osw file. Users can apply the add_hpwh measure, add a sizing multiplier to the tank capacity to cover flex periods, update maximum tanks and minimum temperature setpoints, and manage water heat charge float periods by building. An example of such arguments is defined in the MapperClass:
 
