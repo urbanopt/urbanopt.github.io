@@ -6,7 +6,7 @@ grand_parent: Resources
 nav_order: 5
 ---
 
-The Flexible Water Heating Scenario enhances the energy efficiency of the modeled Scenario by adding a heat pump water heater, instead of conventional hot water systems, to each building Feature defined in the FeatureFile and allows the users to set its characteristics and control its operation to provide electrical demand flexibility. 
+The Flexible Water Heating Scenario enhances the energy efficiency of the modeled Scenario by adding a heat pump water heater, instead of conventional hot water systems, to each building defined in the FeatureFile with a commercial building type. It also allows the users to set its characteristics and control its operation to provide electrical demand flexibility. 
 This MapperClass inherits from the High Efficiency MapperClass and provides the capability to replace the domestic water heater with air source heat pump system and allows for the addition of multiple daily flexible control time windows.  The heater/tank system may charge at maximum capacity up to an elevated temperature, or float without any heat addition for a specified timeframe down to a minimum tank temperature.
 
 
