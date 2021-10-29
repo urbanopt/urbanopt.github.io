@@ -3,7 +3,7 @@ layout: default
 title: EV Charging Scenario
 parent: Scenarios
 grand_parent: Resources
-nav_order: 3
+nav_order: 4
 ---
 The EV Charging Scenario adds loads due to **Electric Vehicle (EV)** charging associated with Building
 Features in the FeatureFile. The EV Charging MapperClass inherits from the High Efficiency

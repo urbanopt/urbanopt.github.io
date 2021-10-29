@@ -68,6 +68,16 @@ nav_order: 1
     <p>Residential building energy models in URBANopt are created using the OpenStudio-HPXML workflow. Visit the <a href="../workflows/residential_workflows/residential_workflows" class="bold">Residential Workflows page</a> to learn more.</p>
   </div>
   </li>
+  <li class="acc"><input id="accordionPVp" type="checkbox" /><label for="accordionPVp">Include PV features in your project</label>
+  <div class="show">
+    <p>As of version 0.6.3, URBANopt supports community photovoltaic and ground mount photovoltaic features.</p>
+    <p>To create a PV-enabled project add the <code>--photovoltaic</code> option to the create command:</p>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo create --photovoltaic --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+    </div>
+    <p>The rest of the CLI commands are the same as for the default REopt workflow. Inspect the <code>example_project_with_PV.json</code> FeatureFile in your project directory to see examples of community photovoltaic and ground mount photovoltaic features.</p>
+    <p>Visit the <a href="../workflows/photovoltaic" class="bold">Photovoltaic Workflows page</a> to learn more.</p>
+  </div>
+  </li>
   <li class="acc"><input id="accordionA" type="checkbox" /><label for="accordionA">Include OpenDSS functionality in your project</label>
     <div class="show">
       <p>In order to use the OpenDSS functionality successfully, the FeatureFile should contain Electrical Connectors and Junctions.  Use the command below to create an example project containing a FeatureFile with electrical network defined within it (<code>example_project_with_electric_network.json</code>). You can also use your own Feature File as long as the electrical infrastructure is defined and connected to the buildings accordingly.</p>
@@ -117,7 +127,7 @@ nav_order: 1
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --scenario-file &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
     </div>
   </li>
-  <li class="acc"><input id="accordion8" type="checkbox" /><label for="accordion8">Enable REopt&trade; Functionality</label>
+  <li class="acc"><input id="enable-reopt" type="checkbox" /><label for="enable-reopt">Enable REopt&trade; Functionality</label>
     <div class="show">
       <ol>
         <li>To run a REopt scenario you will need an internet connection so the REopt™ Gem can access the REopt Lite API.</li>
@@ -127,10 +137,12 @@ nav_order: 1
         <li>Extend the Scenario CSV File with REopt information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File (named REopt_scenario.csv by default) that has an extra column to map assumptions files to features. Use this Scenario CSV File going forward in future steps. The assumptions file listed in the Scenario CSV will be used when performing a REopt feature optimization.  By default, this is set to <code>multiPV_assumptions.json</code>. If you'd like to use a different file, open the Scenario CSV file, edit the assumptions file name and save. Your new assumptions file should be saved in the <code>reopt</code> directory within your project directory.</p>
         <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-scenario-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
         </li>
-        <li><p>Configure your REopt assumptions. Two example <strong>REopt Lite</strong> assumptions files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://developer.nrel.gov/docs/energy-optimization/reopt-v1/" target="_blank" class="bold">REopt Lite API documentation</a> and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt Lite API</strong>.</p>
+        <li><p>Configure your REopt assumptions. Two example <strong>REopt Lite</strong> assumptions files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://github.com/NREL/REopt-API-Analysis/wiki/Job-Inputs" target="_blank" class="bold">REopt Lite API documentation</a> and can be customized to your specific project needs. Through CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt Lite API</strong>.</p>
         <p>In particular, you will want to make sure that the <code>urdb_label</code> in the assumptions file maps to a suitable utility rate <em>label</em> from the <a href="https://openei.org/apps/IURDB/" target="_blank" class="bold">URDB</a>. The <em>label</em> is the last term of the URL of a utility rate detail page (e.g. the <em>label</em> for the rate at <a href="https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305" target="_blank" class="bold">https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305</a> is 5b0d83af5457a3f276733305).</p>
-        <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once (e.g. rooftop and ground-mount).</p>
-        <p><strong>Unless otherwise configured, the <code>multiPV_assumptions.json</code> file will be used inside the REopt-enabled Scenario CSV for feature-level optimizations, and the <code>base_assumptions.json</code> file will be used for scenario-level optimizations. Both of these files can be found in the <code>reopt</code> directory within the project directory.</strong> </p>
+        <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once (e.g. rooftop PV and ground mount PV).</p>
+        <p><strong>Unless otherwise configured, the <code>multiPV_assumptions.json</code> file will be used inside the REopt-enabled Scenario CSV for feature-level optimizations, and the <code>base_assumptions.json</code> file will be used for scenario-level optimizations. Both of these files can be found in the <code>reopt</code> directory within the project directory.</strong></p> 
+        <p>A complete list of input fields&mdash;including type, description, and acceptable range&mdash;can be retrieved from the REopt Lite API by entering the following URL in your browser:</p>
+        <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">https://developer.nrel.gov/api/reopt/stable/help?API_KEY=&lt;insert your NREL developer key here&gt;</span></code></pre></div>
         </li>
       </ol>
       <p>Visit the <a href="../workflows/reopt/reopt" class="bold">REopt page</a> for more details on using REopt with URBANopt.</p>

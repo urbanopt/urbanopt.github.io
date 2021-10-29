@@ -2,7 +2,7 @@
 layout: default
 title: District Energy Systems (DES)
 parent: Workflows
-nav_order: 3
+nav_order: 4
 ---
 
 # District Energy Systems (DES)
@@ -107,7 +107,7 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 ## Publications and References
 
-- Long, N., Gautier, A., Elarga, H., Allen, A., Summer, T., Klun, L., Moore, N., Wetter, M.,. (2021). Modeling District Heating and Cooling Systems with Urbanopt, Geojson To Modelica Translator, and the Modelica Buildings Library. Building Simulation 2021, submitte
+- Long, N., Gautier, A., Elarga, H., Allen, A., Summer, T., Klun, L., Moore, N., Wetter, M.,. (2021). Modeling District Heating and Cooling Systems with Urbanopt, Geojson To Modelica Translator, and the Modelica Buildings Library. In Building Simulation 2021. Bruges, Brussels.
 
 - Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). URBANopt District Energy Systems HVAC Measures. National Renewable Energy Laboratory. [https://doi.org/10.11578/dc.20210127.1](https://doi.org/10.11578/dc.20210127.1)
 
