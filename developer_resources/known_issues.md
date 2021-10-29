@@ -7,6 +7,20 @@ nav_order: 3
 
 ## Release Notes and Known Issues
 
+### All Versions
+
+1. You may encounter a 'certificate has expired' error when running REopt&trade; optimizations. The error text will look something like this:
+
+	```bash
+	 error from REopt lite API: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)
+	 ```
+	To resolve this issue, run the following command and then try again:
+
+	```bash
+	bundle exec certified-update
+	```
+
+
 ### Version 0.4.0
 
 1. If the CLI installation stalls on the `openstudio-standards` gem: 1) exit out of the installation, 2) install openstudio-standards by itself, 3) rerun the CLI install command:
