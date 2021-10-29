@@ -50,7 +50,15 @@ To specify which files to use depends on the type of reopt optimization post-pro
 
 ### Outputs
 
-PV generation results can be found in the `scenario_optimization` output files in the scenario directory when the `--reopt-scenario` post-processor is run.  Resulst are also found in the `feature_optimization` output files within each feature's individual directory when the `--reopt-feature` post-processor is run.
+PV generation results can be found in the `scenario_optimization` output files in the scenario directory when the `--reopt-scenario` post-processor is run.  Results are also found in the `feature_optimization` output files within each feature's individual directory when the `--reopt-feature` post-processor is run.
+
+The results from the scenario and feature level optimization can also be visualized using the
+instructions provided on the [Getting Started](./getting_started/getting_started) page. 
+
+An example visualization of scenario optimization is shown below, showing the breakdown Electricity
+and Natural Gas consumed and Electricity Produced for the scenario.  
+
+![](../doc_files/visualization_solar.PNG)
 
 
 Visit the [Getting Started](./getting_started/getting_started) page for more information on creating and running an example PV project.
