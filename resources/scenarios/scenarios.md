@@ -15,5 +15,6 @@ For each pre-built example scenario, we developed a Mapperclass that defines the
 - [High-Efficiency Scenario](highefficiency.md) defined by a HighEfficiency MapperClass
 - [Thermal Energy Storage Scenario](thermalstorage.md) defined by a ThermalStorage MapperClass
 - [Electric Vehicle Charging Scenario](evcharging.md) defined by an EvCharging MapperClass
+- [Flexible Hot Water Scenario](flexiblehotwater.md) defined by an FlexibleHotWater MapperClass
 
 To learn more about modifying and creating new Mapper Classes, refer to the [customization](../customization/customization.md) section.
