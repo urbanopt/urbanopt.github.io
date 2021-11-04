@@ -20,6 +20,11 @@ nav_order: 3
 	bundle exec certified-update
 	```
 
+1. Starting with OpenStudio version 3.3.0, major biannual releases of OpenStudio SDK / OpenStudio Analysis Framework (OSAF) will *not* include the URBANopt SDK due to dependency conflicts. URBANopt SDK will be released following the OpenStudio release, and then a patch release of the OSAF will be made that includes the URBANopt dependency.  Visit the [Release Instructions](release_instructions.md#openstudio---urbanopt-release-process) page for more details.
+
+### Version 0.6.3
+
+1. The REopt assumptions files have the `gcr` field set incorrectly to `1` as a default value and will cause REopt optimizations to fail.  The maximum value for this field is `0.99`. This change can be made in the `base_assumptions.json` (1 occurrence) and `multiPV_assumptions.json` (2 occurrences) files found in the `reopt` folder within the project directory.
 
 ### Version 0.4.0
 
