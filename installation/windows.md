@@ -21,7 +21,7 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
 
 **GitBash**
 ```terminal
-c:/urbanopt-cli-X.X.X/setup-env.sh  
+/c/urbanopt-cli-X.X.X/setup-env.sh  
 . ~/.env_uo.sh  
 ```
 
