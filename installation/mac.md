@@ -22,7 +22,7 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
     . ~/.env_uo.sh
     ```
 
-1. When launching new shell terminals, run ```. ~/.env_uo.s``` to setup the environment. 
+1. When launching new shell terminals, run ```. ~/.env_uo.sh``` to setup the environment. 
 
 
 ## Manual Install
