@@ -21,10 +21,6 @@ The REopt optimization post-processors will use this information in their PV cap
 
 Alternatively, ground mount photovoltaics can be considered in the REopt feature optimization without defining district system features and associating them with a building in the GeoJSON file. If no features are defined in the GeoJSON file, REopt return the optimal amount of ground mount PV without any area limitations for each feature that was run with an [assumptions file](#assumptions-files) that contained a PV definition with location = `ground`. More realistically, there will be area limitations and, therefore, district systems defined in the GeoJSON files for those building features where ground mount PV should be considered.  An additional refinement would be to specify different assumptions files for features with ground mount PV and those without. Feature-by-feature assumptions file assignment is done in the scenario CSV file for a particular [reopt-enabled](../getting_started/getting_started.md#step2) scenario. 
 
-### Ground Mount Photovoltaic Features and REopt Assumptions Files
-
-While ground mount photovoltaic features can be
-
 ## Rooftop Photovoltaics
 
 Rooftop photovoltaics can be optimized through the REopt post-processors. The default `base` and `multi-PV` [assumptions files](#assumptions-files) can be used for the feature optimization and scenario optimization post-processors. A `gcr` field representing the ground coverage ratio, or the percentage of the building's available roof area that will be covered by PV, can be specified in the REopt assumptions file, and is defaulted to 1. The building's available roof area is automatically calculated by the default URBANopt post-processor. Ground Mount and Rooftop photovoltaics can be explored simultaneously by using the `multi-PV` assumptions file.
