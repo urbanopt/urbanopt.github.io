@@ -11,7 +11,7 @@ RNM (Reference Network Model) is an electrical distribution system planning tool
 
 ## Usage
 
-The RNM functionality is available via the `opendss` URBANopt CLI command. For in-terminal help:
+The RNM functionality is available via the `rnm` URBANopt CLI command. For in-terminal help:
 ```bash
 uo rnm --help
 ```
