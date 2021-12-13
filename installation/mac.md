@@ -41,7 +41,7 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.2.0](https://github.com/NREL/OpenStudio/releases/tag/v3.2.0)  
+1. Install [OpenStudio 3.3.0](https://github.com/NREL/OpenStudio/releases/tag/v3.3.0)  
 
 1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as TextEdit, Sublime Text, vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
