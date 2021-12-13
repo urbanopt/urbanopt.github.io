@@ -2,7 +2,7 @@
 layout: default
 title: Technical Documentation
 parent: Resources
-nav_order: 7
+nav_order: 8
 ---
 
 To customize or extend URBANopt<sup>&trade;</sup>, we have provided the following documentation and source
@@ -17,9 +17,12 @@ Rdocs; click through for source code of each method.
 
 The repositories that developers can clone are found here:
 
-- [GeoJSON Github](https://github.com/urbanopt/urbanopt-geojson-gem)
-- [Scenario Github](https://github.com/urbanopt/urbanopt-scenario-gem)
-- [Reporting Github](https://github.com/urbanopt/urbanopt-reporting-gem)
 - [Core Github](https://github.com/urbanopt/urbanopt-core-gem)
+- [GeoJSON Github](https://github.com/urbanopt/urbanopt-geojson-gem)
+- [Reporting Github](https://github.com/urbanopt/urbanopt-reporting-gem)
+- [Scenario Github](https://github.com/urbanopt/urbanopt-scenario-gem)
+- [REopt Github](https://github.com/urbanopt/urbanopt-reopt-gem)
+- [RNM-US Github](https://github.com/urbanopt/urbanopt-rnm-us-gem)
 - [CLI Github](https://github.com/urbanopt/urbanopt-cli)
 - [GeoJSON Modelica Translator Github](https://github.com/urbanopt/geojson-modelica-translator)
+- [URBANopt DiTTo Reader](https://github.com/urbanopt/urbanopt-ditto-reader)
