@@ -14,6 +14,7 @@ nav_order: 1
 	<p>Keep the project directory path short to avoid errors related to long paths, especially when running on Windows.  For more information on this error, refer to the <a href="../developer_resources/known_issues" class="bold">known issues section</a>.</p>
 	<p>We recommend calling all URBANopt commands from outside of the project you created, using relative or absolute paths to the relevant files.</p>
 	<div style="float:right;padding-top:30px;padding-right:20px;"><a href="../resources/definitions" class="btn btn-uo white-text">Definitions</a></div>
+  <div style="float:right;padding-top:30px;padding-right:20px;"><a href="../resources/tutorials/tutorials" class="btn btn-uo white-text">Tutorial Videos</a></div>
 	</div>
 </div>
 <hr class="blue-line">
