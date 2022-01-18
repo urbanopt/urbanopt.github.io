@@ -39,7 +39,7 @@ A diagram of the technologies needed to enable each capability is shown below:
 
 ## Quicklinks
 
-[Getting Started](./getting_started/getting_started){: .btn .btn-uo .white-text} &mdash; Visit the [Getting Started page](./getting_started/getting_started) for detailed instructions on how to use URBANopt in a variety of workflows.  
+[Getting Started](./getting_started/getting_started){: .btn .btn-uo .white-text} &mdash; Visit the [Getting Started page](./getting_started/getting_started) for detailed instructions on how to use URBANopt in a variety of workflows. You can also view the [tutorial videos](./resources/tutorials/tutorials) to guide you through various aspects of the URBANopt SDK and its workflows.
 
 [Workflows](./workflows/workflows){: .btn .btn-uo .white-text} &mdash; For more details about the workflows enabled through URBANopt, visit the [Workflows](./workflows/workflows) section.
 
