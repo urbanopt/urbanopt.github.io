@@ -17,7 +17,7 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
 
 1. Use the GUI installer and choose a directory to install. Once installed, open a  terminal and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
 
-**Note: GitBash is recommended**
+**Note: GitBash is recommended** If you are unfamiliar with git or GitBash, you can check out this [video tutorial](https://www.youtube.com/watch?v=iGutIN5t9Mo).
 
 **GitBash**
 ```terminal
