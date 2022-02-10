@@ -11,7 +11,12 @@ As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (64-bit Windows 7 â
 
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
+We also have [tutorial videos](../resources/tutorials/tutorials.md) available to guide you through the installation steps. 
+
 ## Install with the URBANopt installer
+
+Follow the steps below or watch the [Windows Installer Video](https://urbanopt-tutorial.s3.amazonaws.com/videos/01_Windows_Installer.mp4).
+
 
 1. Download the desired version of the [.exe installer](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/). 
 
@@ -57,6 +62,8 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 ``` 
 
 ## Manual Install
+
+Follow the steps below or watch the [Windows Manual Installation Video](https://urbanopt-tutorial.s3.amazonaws.com/videos/03_Windows_Manual_Install.mp4).
 
 1. Install [Ruby 2.7.2 (x64) with DevKit](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.2-1/rubyinstaller-devkit-2.7.2-1-x64.exe)  
 

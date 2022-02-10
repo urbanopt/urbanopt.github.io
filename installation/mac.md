@@ -11,7 +11,11 @@ As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) 
 
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
+We also have [tutorial videos](../resources/tutorials/tutorials.md) available to guide you through the installation steps. 
+
 ## Install with the URBANopt Installer
+
+Follow the steps below or watch the [Mac Installer Video](https://urbanopt-tutorial.s3.amazonaws.com/videos/02_Mac_Installer.mp4).
 
 1. Download the desired version of the  [.dmg package](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/).
 
@@ -26,6 +30,8 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
 
 
 ## Manual Install
+
+Follow the steps below or watch the [Mac Manual Installation Video](https://urbanopt-tutorial.s3.amazonaws.com/videos/04_Mac_Manual_Install.mp4).
 
 1. Install Ruby 2.7.2 (anything in the 2.7.x range will work).  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby 2.7](https://github.com/rbenv/rbenv#installing-ruby-versions)
     - `brew install rbenv`
