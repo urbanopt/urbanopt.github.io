@@ -48,7 +48,7 @@ The command above creates a `reopt` directory within the project directory as we
 1. a `base` assumptions file that can be used for a basic optimization
 2. a `multi-pv` assumptions file that can be used to optimize both rooftop and ground mount PV.  
 
-Feel free to modify these files directly in your project, or create new files. A complete list of input fields&mdash;including type, description, and acceptable range&mdash;can be retrieved from the REopt Lite API by entering the following URL in your browser:
+Feel free to modify these files directly in your project, or create new files. A complete list of input fields&mdash;including type, description, and acceptable range&mdash;can be retrieved from the REopt API by entering the following URL in your browser:
 
 ```bash
 https://developer.nrel.gov/api/reopt/stable/help?API_KEY=<insert your NREL developer key here>
@@ -59,7 +59,7 @@ The method of specifying which assumption file to use in an optimization depends
 - For feature-level optimizations, the assumptions files are listed in the REopt Scenario CSV file.  
 - For scenario-level optimizations, use the `--reopt-scenario-assumptions-file` flag to specify the assumptions file to use when issuing the `uo process --reopt-scenario` command. The `base` assumptions file will be used as a default if the flag is not found.
 
-Through CLI commands, the assumptions files will be updated with basic information from your project's Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the REopt Lite API. Visit the [Getting Started](../getting_started/getting_started) page for more information on creating and running an example PV project.
+Through CLI commands, the assumptions files will be updated with basic information from your project's Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the REopt API. Visit the [Getting Started](../getting_started/getting_started) page for more information on creating and running an example PV project.
 
 ### Outputs
 

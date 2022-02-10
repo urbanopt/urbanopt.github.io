@@ -7,7 +7,7 @@ nav_order: 2
 ---
 ## Intro
 
-**REopt Lite** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
+**REopt** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
 
 CLI commands are used to run and post-process each scenario, and onscreen help is always available with `uo --help`.
 
@@ -19,28 +19,28 @@ You may chose to optimize by one or both of these approaches according to your p
 
 ## Workflow
 
-### REopt Lite Optimization Assumption Files
+### REopt Optimization Assumption Files
 
-In your URBANopt project directory, you should see two example **REopt Lite** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a REopt-enabled ScenarioFile with the `uo create --reopt-scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt Lite API**.
+In your URBANopt project directory, you should see two example **REopt** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a REopt-enabled ScenarioFile with the `uo create --reopt-scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt API**.
 
 In particular, you will want to make sure that the `urdb_label` in the assumptions file maps to a suitable utility rate _label_ from the [URDB](https://openei.org/apps/IURDB/). The _label_ is the last term of the URL of a utility rate detail page (i.e. the _label_ for the rate at [https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305](https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305) is 5b0d83af5457a3f276733305).
 
 Also note that the example `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once.
 
-### REopt Lite Time Series Resolution
+### REopt Time Series Resolution
 
-The **REopt Lite** time series resolution is controlled by the **Scenario** `time_steps_per_hour` setting in the assumptions file, and can be different than the Scenario or Feature Report resolution resulting from the OpenStudio simulation (and recorded in the CSV). Note that resolutions that are not evenly divisible by each other (i.e. 7 time steps per hour into 4 per hour) may cause unexpected results or errors due to rounding errors. If a **REopt Lite** resolution is not defined in the assumptions file, the recommended resolution of 1 per hour is used.
+The **REopt** time series resolution is controlled by the **Scenario** `time_steps_per_hour` setting in the assumptions file, and can be different than the Scenario or Feature Report resolution resulting from the OpenStudio simulation (and recorded in the CSV). Note that resolutions that are not evenly divisible by each other (i.e. 7 time steps per hour into 4 per hour) may cause unexpected results or errors due to rounding errors. If a **REopt** resolution is not defined in the assumptions file, the recommended resolution of 1 per hour is used.
 
-### Mapping REopt Lite Assumption Files to Features
+### Mapping REopt Assumption Files to Features
 
-In your Scenario File enabled for **REopt Lite** you will see a `REopt Assumptions` column. Before post-processing ensure that each feature has the appropriate assumtions file specified in this CSV file.
+In your Scenario File enabled for **REopt** you will see a `REopt Assumptions` column. Before post-processing ensure that each feature has the appropriate assumtions file specified in this CSV file.
 
 The following figure represents how Simulation Mapper Classes can be assigned to different Features from the FeatureFile in the Scenario CSV.
 
 ![scenario_mapper](../../doc_files/reopt-scenario-mapper.png)
 
 
-### Running REopt Lite
+### Running REopt
 
 The `type` of optimization is specified in the CLI call:
 
@@ -57,13 +57,13 @@ Alternatively, The `--reopt-feature` command allows you to post-process a Scenar
   uo process --reopt-feature --feature <path/to/FEATUREFILE.json> --scenario <path/to/REOPT_SCENARIOFILE.csv>
 ```
 
-### Understanding REopt Lite Results
+### Understanding REopt Results
 
-After **REopt Lite** post-processing, you will find that the new ScenarioReport contains updated `distributed_generation` and `timeseries_CSV` attributes.
+After **REopt** post-processing, you will find that the new ScenarioReport contains updated `distributed_generation` and `timeseries_CSV` attributes.
 
 #### Distributed Generation Updates
 
-The following provides an example of `distributed_generation` attributes that have been updated by post-processing with **REopt Lite**.
+The following provides an example of `distributed_generation` attributes that have been updated by post-processing with **REopt**.
 
 ```json
   "distributed_generation": {
@@ -130,7 +130,7 @@ Note that the `solar_pv`, `wind`, `generator` and `storage` arrays will contain 
 
 #### Timeseries CSV Updates
 
-After **REopt Lite** post-processing, you will also find that ScenarioReport `timeseries_CSV` contains the following new optimal dispatch fields:
+After **REopt** post-processing, you will also find that ScenarioReport `timeseries_CSV` contains the following new optimal dispatch fields:
 
 |            new column name                        |  unit  |
 | --------------------------------------------------| ------ |
@@ -154,12 +154,12 @@ After **REopt Lite** post-processing, you will also find that ScenarioReport `ti
 | REopt:ElectricityProduced:Wind:ToLoad(kW)         | kW     |
 | REopt:ElectricityProduced:Wind:ToGrid(kW)         | kW     |
 
-**NOTE**: A REopt Lite solution may contain multiple PV systems. In this case the aggregate generation from all PV systems will be reported in the PV columns.
+**NOTE**: A REopt solution may contain multiple PV systems. In this case the aggregate generation from all PV systems will be reported in the PV columns.
 
 
 ### Additional Outputs
 
-**REopt Lite** API responses are saved in `reopt` folders. This information may be helpful in interpreting results or debugging errors (i.e. identifying if API rate-limits have been reached).
+**REopt** API responses are saved in `reopt` folders. This information may be helpful in interpreting results or debugging errors (i.e. identifying if API rate-limits have been reached).
 
 If you post-processed with `--reopt-scenario` the `reopt` folder will be at the top level of scenerio in the `run` (i.e. `run\reopt_scenario\reopt`). Otherwise, if you run with `--reopt-feature` each feature will have its own `reopt` folder (i.e. `run\reopt_scenario\1\reopt`).
 

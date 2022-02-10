@@ -15,4 +15,4 @@ A FeatureFile (e.g. `example_project.json`) includes data describing Features. T
 A [Scenario](../resources/scenarios/scenarios.md) represents one potential realization of a district for energy analysis purposes.  Each Scenario references a FeatureFile and assigns a Simulation Mapper Class to each included Feature in that file.  In this way, Features in the FeatureFile can be translated to simulation input files.
 
 ### Scenario File:
-A ScenarioFile (e.g. `baseline.csv`) includes all features that make up the Scenario, which is not necessarily all Features in the FeatureFile. It may optionally reference a REOpt assumptions file for each Feature.
+A ScenarioFile (e.g. `baseline.csv`) includes all features that make up the Scenario, which is not necessarily all Features in the FeatureFile. It may optionally reference a REopt assumptions file for each Feature.

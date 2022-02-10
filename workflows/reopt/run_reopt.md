@@ -8,7 +8,7 @@ nav_order: 1
 
 ## Before you begin!
 
-To run a project you will need an internet connection so the REopt™ Gem can access the REopt Lite API.
+To run a project you will need an internet connection so the REopt™ Gem can access the REopt API.
 
 You'll also need an API key from the [NREL Developer Network](https://developer.nrel.gov/). Copy and paste your key as an environment variable on your computer. Step-by-step instructions for creating env variables are found in the [installation](../../installation/installation.md) docs for your operating system.
 
@@ -16,7 +16,7 @@ You'll also need an API key from the [NREL Developer Network](https://developer.
 
 ## Example Project    
 
-We provide examples of running an URBANopt workflow that integrates **REopt Lite** optimization.
+We provide examples of running an URBANopt workflow that integrates **REopt** optimization.
 
 ![example_project_layout](../../doc_files/building_types_ISO_with_res.jpg)
 

@@ -8,7 +8,7 @@ nav_order: 10
 
 To modify or build your own gem that generates OpenStudio energy simulation results, here are the details of our code.
 
-The first code block below creates and runs a `baseline_scenario` parser for OpenStudio results. It also integrates REopt Lite settings for analysis during post processing. The example is set up so that the **REopt™ Lite** analysis will use assumptions defined in a `reopt/base_assumptions.json` file for a scenario level analysis, as well as for subsequent individual site analyses at the feature level. 
+The first code block below creates and runs a `baseline_scenario` parser for OpenStudio results. It also integrates REopt settings for analysis during post processing. The example is set up so that the **REopt™** analysis will use assumptions defined in a `reopt/base_assumptions.json` file for a scenario level analysis, as well as for subsequent individual site analyses at the feature level. 
 
 Inputs to this function are defined as follows:
 
@@ -24,8 +24,8 @@ Inputs to this function are defined as follows:
   | 1          | Mixed_use 1  | URBANopt::Scenario::BaselineMapper | base_assumptions.json |
   | 2          | Lodging 1    | URBANopt::Scenario::BaselineMapper | base_assumptions.json |
 
-- `reopt_files_dir`: File path for a folder containing `.json` files for defining _non-default_ **REopt Lite** analysis assumptions. All assumption files **MUST** be saved in this folder. Note this folder is _optional_; if base assumptions are not provided for a feature, then defaults will be used as defined in [https://developer.nrel.gov/docs/energy-optimization/reopt-v1/](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/). If default assumptions are used utility charges will consist of $0.13/kWh without demand charges.
-- `scenario_reopt_assumptions_file_name`: Base **REopt Lite** assumption `.json` file within the _reopt_files_dir_ folder to use if running an optimization for an aggregated scenario.
+- `reopt_files_dir`: File path for a folder containing `.json` files for defining _non-default_ **REopt** analysis assumptions. All assumption files **MUST** be saved in this folder. Note this folder is _optional_; if base assumptions are not provided for a feature, then defaults will be used as defined in [https://developer.nrel.gov/docs/energy-optimization/reopt-v1/](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/). If default assumptions are used utility charges will consist of $0.13/kWh without demand charges.
+- `scenario_reopt_assumptions_file_name`: Base **REopt** assumption `.json` file within the _reopt_files_dir_ folder to use if running an optimization for an aggregated scenario.
 
 ```ruby
 def self.run_func
