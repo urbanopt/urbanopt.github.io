@@ -12,7 +12,7 @@ nav_order: 3
 1. You may encounter a 'certificate has expired' error when running REopt&trade; optimizations. The error text will look something like this:
 
 	```bash
-	 error from REopt lite API: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)
+	 error from REopt API: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)
 	 ```
 	To resolve this issue, run the following command and then try again:
 
