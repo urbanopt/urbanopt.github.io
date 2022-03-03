@@ -185,6 +185,8 @@ nav_order: 1
     <div class="show">
     <p>Simulate the energy usage of each feature in a scenario.  Use the following command to specify the appropriate FeatureFile and Scenario CSV File:</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo run --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
+      <p>Running a simulation is computationally intensive. Each building simulation requires one core of your computer. To reduce the time spent on computation, you may use multiple cores simultaneously. The default is 2 cores, set in the <em>runner.conf</em> file of each project. You may alter this on the fly by including <code><span class="code-text">--num-parallel=[i]</span></code> in the run command above, where <em>[i]</em> is the number of cores you want to use.</p>
+      <p>You may also set the num-parallel globally by using an environment variable and not have to adjust the runner.conf file or use the above CLI flag in each project or run. To do this, create an environment variable and set it to the number of cores you want to use: <code><span class="code-text">UO_NUM_PARALLEL=7</span></code> or other appropriate number.
     </div>
   </li>
 </ul>
