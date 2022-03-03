@@ -6,8 +6,8 @@ nav_order: 1
 <div class="row">
 	<div class="col">
 		<p>To run URBANopt&trade;, first follow the <a href="../installation/installation" class="bold">installation instructions</a> to install the URBANopt command line interface (CLI) and all of its dependencies.</p>
-		<p>Once the CLI is installed, help is available by typing <code><span class="code-text">uo --help</span></code> from the command line.  Detailed help for each command can be found with <code><span class="code-text">uo [the command name] --help</span></code>. The main CLI commands are: <code><span class="code-text">create</span></code>, <code><span class="code-text">run</span></code>, <code><span class="code-text">process</span></code>, <code><span class="code-text">visualize</span></code>, <code><span class="code-text">opendss</span></code>, and <code><span class="code-text">delete</span></code>.</p>
-		<p>Before you start, think about the capabilities and analyses you want to utilize and setup your project accordingly. The best way to start is to use the example project made with the CLI.  Once you are familiar with the commands you can customize your project.</p> 
+		<p>Once the CLI is installed, help is available by typing <code><span class="code-text">uo --help</span></code> from the command line.  Detailed help for each command can be found with <code><span class="code-text">uo [the command name] --help</span></code>. The main CLI commands are: <code><span class="code-text">create</span></code>, <code><span class="code-text">run</span></code>, <code><span class="code-text">process</span></code>, <code><span class="code-text">visualize</span></code>, <code><span class="code-text">opendss</span></code>, <code><span class="code-text">rnm</span></code>, and <code><span class="code-text">delete</span></code>.</p>
+		<p>Before you start, think about the capabilities and analyses you want to utilize and setup your project accordingly. The best way to start is to use the example project made with the CLI.  Once you are familiar with the commands you can customize your project.</p>
 	</div>
 	<div class="col" style="padding-left:20px;">
 	<h2 style="padding-bottom:20px;">Important Notes</h2>
@@ -22,7 +22,7 @@ nav_order: 1
 <h1>Steps</h1>
 <p>The overall URBANopt process is shown in the graphic below.
 <img src="../doc_files/process-steps.png" alt="UO process steps image">
-<p>Read through each section below for more information on each step of the process&mdash;including CLI command examples&mdash;and for details on the different workflows available.</p> 
+<p>Read through each section below for more information on each step of the process&mdash;including CLI command examples&mdash;and for details on the different workflows available.</p>
 <div class="row blue-section">
 	<div class="col-8">
 		<h2 class="white-text" id="step1">1. Create Project</h2>
@@ -41,7 +41,7 @@ nav_order: 1
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
       </div>
       <p>This creates a project folder containing the example project using the default geometry workflow with <code>urban-geometry-creation-zoning</code> measure, and downloads related weather files and detailed models to the appropriate directories.</p>
-      <p>For more details on the various geometry workflows, refer to the <a href="../workflows/geometry_workflows" class="bold">geometry_workflows page</a>.</p>  
+      <p>For more details on the various geometry workflows, refer to the <a href="../workflows/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
     </div>
   </li>
   <li class="acc"><input id="accordion2" type="checkbox" /><label for="accordion2">Use Createbar geometry workflow</label>
@@ -136,13 +136,12 @@ nav_order: 1
         <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NREL Developer Network</a> to use the <strong>REopt API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NREL developer key here'&gt;</span></code></pre></div>
         </li>
-        <li>Extend the Scenario CSV File with REopt information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File (named REopt_scenario.csv by default) that has an extra column to map assumptions files to features. Use this Scenario CSV File going forward in future steps. The assumptions file listed in the Scenario CSV will be used when performing a REopt feature optimization.  By default, this is set to <code>multiPV_assumptions.json</code>. If you'd like to use a different file, open the Scenario CSV file, edit the assumptions file name and save. Your new assumptions file should be saved in the <code>reopt</code> directory within your project directory.</p>
-        <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-scenario-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
+        <li> The assumptions file listed in the Scenario CSV will be used when performing a REopt feature optimization.  By default, this is set to <code>multiPV_assumptions.json</code>. If you'd like to use a different file, open the Scenario CSV file, edit the assumptions file name (for all rows) and save. Your new assumptions file should be saved in the <code>reopt</code> directory within your project directory.
         </li>
         <li><p>Configure your REopt assumptions. Two example <strong>REopt</strong> assumptions files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://github.com/NREL/REopt-API-Analysis/wiki/Job-Inputs" target="_blank" class="bold">REopt API documentation</a> and can be customized to your specific project needs. Through CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt API</strong>.</p>
         <p>In particular, you will want to make sure that the <code>urdb_label</code> in the assumptions file maps to a suitable utility rate <em>label</em> from the <a href="https://openei.org/apps/IURDB/" target="_blank" class="bold">URDB</a>. The <em>label</em> is the last term of the URL of a utility rate detail page (e.g. the <em>label</em> for the rate at <a href="https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305" target="_blank" class="bold">https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305</a> is 5b0d83af5457a3f276733305).</p>
         <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once (e.g. rooftop PV and ground mount PV).</p>
-        <p><strong>Unless otherwise configured, the <code>multiPV_assumptions.json</code> file will be used inside the REopt-enabled Scenario CSV for feature-level optimizations, and the <code>base_assumptions.json</code> file will be used for scenario-level optimizations. Both of these files can be found in the <code>reopt</code> directory within the project directory.</strong></p> 
+        <p><strong>Unless otherwise configured, the <code>multiPV_assumptions.json</code> file will be used inside the REopt-enabled Scenario CSV for feature-level optimizations, and the <code>base_assumptions.json</code> file will be used for scenario-level optimizations. Both of these files can be found in the <code>reopt</code> directory within the project directory.</strong></p>
         <p>A complete list of input fields&mdash;including type, description, and acceptable range&mdash;can be retrieved from the REopt API by entering the following URL in your browser:</p>
         <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">https://developer.nrel.gov/api/reopt/stable/help?API_KEY=&lt;insert your NREL developer key here&gt;</span></code></pre></div>
         </li>
@@ -186,13 +185,6 @@ nav_order: 1
     <div class="show">
     <p>Simulate the energy usage of each feature in a scenario.  Use the following command to specify the appropriate FeatureFile and Scenario CSV File:</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo run --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
-    </div>
-  </li>
-  <p>Or</p>
-  <li class="acc"><input id="accordion13" type="checkbox" /><label for="accordion13">Run a project with REopt functionality</label>
-    <div class="show">
-      <p>To simulate energy usage for a scenario with REopt-enabled functionality, add the <code>--reopt</code> flag to the command to extend the Scenario CSV File with REopt functionality:</p>
-      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo run --reopt --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
     </div>
   </li>
 </ul>
@@ -309,7 +301,7 @@ nav_order: 1
 <ul class="jk_accordion">
    <li class="acc" id="opendss"><input id="accordion17" type="checkbox" /><label for="accordion17">OpenDSS Functionality</label>
     <div class="show">
-      <p><strong>OpenDSS</strong> is an open-source tool that is popular for simulating electrical distribution systems. The <strong>DIstribution Transformation TOol (DiTTo)</strong> is an open source and many-to-many conversion tool that has been developed by NREL to simplify converting data between distribution models. Finally, the <strong>URBANopt DiTTo Reader</strong> package and CLI provide the link between URBANopt and OpenDSS.</p> 
+      <p><strong>OpenDSS</strong> is an open-source tool that is popular for simulating electrical distribution systems. The <strong>DIstribution Transformation TOol (DiTTo)</strong> is an open source and many-to-many conversion tool that has been developed by NREL to simplify converting data between distribution models. Finally, the <strong>URBANopt DiTTo Reader</strong> package and CLI provide the link between URBANopt and OpenDSS.</p>
       <p>The entire DiTTo-Reader to OpenDSS workflow is available in URBANopt via the opendss URBANopt CLI command.</p>
       <div class="important-note">
         <p> Since the DiTTo Reader and OpenDSS functionality is written in Python, additional dependencies will need to be installed if you wish to use this workflow. Visit the <a href="../installation/ditto_reader.md" class="bold">OpenDSS Installation page</a> to install OpenDSS and URBANopt DiTTo Reader.
@@ -375,7 +367,7 @@ nav_order: 1
       <li class="t"><code><span class="code-text">--extended-catalog</span></code>: Use this option to specify the path to the extended electrical catalog. If this option is not included, the default catalog will be used</li>
       <li class="t"><code><span class="code-text">--average-peak-catalog</span></code>: Use this option to specify the path to the average peak catalog. If this option is not included, the default catalog will be used.</li>
       <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSon file be created.</li>
-      </ul> 
+      </ul>
       <p>View the <a href="../workflows/rnm">RNM Workflow page</a> for more info. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/10_RNM-workflow.mp4" target="_blank" class="bold">RNM Workflow Tutorial Video</a>.</p>
     </div>
   </li>
