@@ -325,7 +325,7 @@ nav_order: 1
           <ul class="t">
             <li class="t"><code>--equipment</code>: Path to custom equipment file. View the <a href="../workflows/opendss">OpenDSS page</a> for more info.</li>
             <li class="t"><code>--start-date</code>: Optional, Beginning date for OpenDSS analysis. Defaults to beginning date of simulation period. Format: YYYY/MM/DD</li>
-            <li class="t"><code>--start-time</code>: Beginning time for OpenDSS analysis. Defaults to 00:00:00 of
+            <li class="t"><code>--start-time</code>: Optional, Beginning time for OpenDSS analysis. Defaults to 00:00:00 of
             start_date if specified, otherwise beginning time of simulation period. Format: HH:MM:SS</li>
             <li class="t"><code>--end-date</code>: Optional, End date for OpenDSS analysis. Defaults to ending date of
             simulation period. Format: YYYY/MM/DD</li>
