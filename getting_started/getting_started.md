@@ -324,8 +324,12 @@ nav_order: 1
           <p>In addition to the required `--scenario` and `--feature` options, there are optional options that can be specified, as listed below.  You can also run the CLI help command for more information and examples: `uo opendss -h`</p>
           <ul class="t">
             <li class="t"><code>--equipment</code>: Path to custom equipment file. View the <a href="../workflows/opendss">OpenDSS page</a> for more info.</li>
-            <li class="t"><code>--start-time</code>: Beginning of the period for OpenDSS analysis. Defaults to beginning of simulation time Format: "YYYY/MM/DD HH:MM:SS" (use quotes).</li>
-            <li class="t"><code>--end-time</code>: End of the period for OpenDSS analysis. Defaults to end of simulation time. Format "YYYY/MM/DD HH:MM:SS" (use quotes).</li>
+            <li class="t"><code>--start-date</code>: Optional, Beginning date for OpenDSS analysis. Defaults to beginning date of simulation period. Format: YYYY/MM/DD</li>
+            <li class="t"><code>--start-time</code>: Beginning time for OpenDSS analysis. Defaults to 00:00:00 of
+            start_date if specified, otherwise beginning time of simulation period. Format: HH:MM:SS</li>
+            <li class="t"><code>--end-date</code>: Optional, End date for OpenDSS analysis. Defaults to ending date of
+            simulation period. Format: YYYY/MM/DD</li>
+            <li class="t"><code>--end-time</code>: Optional, Ending time for OpenDSS analysis. Defaults to 23:00:00 of end_date if specified, otherwise ending time of simulation period. Format: HH:MM:SS.</li>
             <li class="t"><code>--timesteps</code>: Number of minutes per timestep in the OpenDSS simulation. </li>
           </ul>
           <p> Alternatively, a config JSON file can be used to set the OpenDSS options. An <a href="https://github.com/urbanopt/urbanopt-ditto-reader/blob/develop/urbanopt_ditto_reader/example_config.json" target="_blank">example config JSON file</a> is available. Note the key names are slightly different than the CLI option names. This config file can be passed into the CLI command:</p>
