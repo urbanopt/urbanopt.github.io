@@ -28,7 +28,8 @@ In particular, you will want to make sure that the `urdb_label` in the assumptio
 Also note that the example `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once.
 
 Lots of detail can be specified by customizing the REopt assumptions file. Some examples:
-- To simulate an off-grid scenario, inside the selected assumptions file change `off_grid_flag` to `true`.
+- To simulate an off-grid scenario: change `off_grid_flag` to `true`.
+- To set min/max renewable fraction of power in a district: change `renewable_electricity_min_pct` and/or `renewable_electricity_max_pct` to a value between 0-1.
 
 ### REopt Time Series Resolution
 
