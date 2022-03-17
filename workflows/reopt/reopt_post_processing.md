@@ -29,7 +29,7 @@ Also note that the example `reopt/multiPV_assumptions.json` file contains an arr
 
 Lots of detail can be specified by customizing the REopt assumptions file. Some examples:
 - To simulate an off-grid scenario: change `off_grid_flag` to `true`.
-- To set min/max renewable fraction of power in a district: change `renewable_electricity_min_pct` and/or `renewable_electricity_max_pct` to a value between 0-1.
+- To set min/max renewable fraction of power in a district: change `renewable_electricity_min_pct` and/or `renewable_electricity_max_pct` to a value between 0-1, where 0 is 0% renewable and 1 is 100% renewable. Max renewable can be larger than 1 if more energy is produced than consumed.
 
 ### REopt Time Series Resolution
 
