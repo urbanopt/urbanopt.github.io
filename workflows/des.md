@@ -107,13 +107,13 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 ## Publications and References
 
-- Long, N., Gautier, A., Elarga, H., Allen, A., Summer, T., Klun, L., Moore, N., Wetter, M.,. (2021). Modeling District Heating and Cooling Systems with Urbanopt, Geojson To Modelica Translator, and the Modelica Buildings Library. In Building Simulation 2021. Bruges, Brussels.
+- Hinkelman, Kathryn, Jing Wang, Wangda Zuo, Antoine Gautier, Michael Wetter, Chengliang Fan, and Nicholas Long. (2021). [Modelica-Based Modeling and Simulation of District Cooling Systems: A Case Study](https://www.sciencedirect.com/science/article/pii/S0306261922001210). Applied Energy.
+
+- Long, N., Gautier, A., Elarga, H., Allen, A., Summer, T., Klun, L., Moore, N., Wetter, M.,. (2021). [Modeling District Heating and Cooling Systems with URBANopt, GeoJSON to Modelica Translator, and the Modelica Buildings Library](../doc_files/modeling_des_paper.pdf). In Building Simulation 2021. Bruges, Brussels.
 
 - Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). URBANopt District Energy Systems HVAC Measures. National Renewable Energy Laboratory. [https://doi.org/10.11578/dc.20210127.1](https://doi.org/10.11578/dc.20210127.1)
 
-- Long, N., & Summer, T. (2020). Modelica Builder (0.1.0). [https://doi.org/10.11578/dc.20200409.1](https://doi.org/10.11578/dc.20200409.1)
-
-- Long, N., & Summer, T. (2020). Modelica Formatter. [https://github.com/urbanopt/modelica-fmt](https://github.com/urbanopt/modelica-fmt)
+- Allen, A., Henze, G., Baker, K., Pavlak Gregory, & Murphy, M. (2021). [Evaluation of Topology Optimization to Achieve Energy Savings at the Urban District Level](https://www.nrel.gov/docs/fy21osti/77625.pdf). 2021 ASHRAE Winter Conference.
 
 - Long, N., Almajed, F., von Rhein, J., & Henze, G. (2021). Development of a metamodelling framework for building energy models with application to fifth-generation district heating and cooling networks. Journal of Building Performance Simulation, 14(2), 203–225. [https://doi.org/10.1080/19401493.2021.1884291.](https://doi.org/10.1080/19401493.2021.1884291) [https://www.tandfonline.com/doi/abs/10.1080/19401493.2021.1884291](https://www.tandfonline.com/doi/abs/10.1080/19401493.2021.1884291)
 
@@ -121,4 +121,6 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 - Allen, A., Henze, G., Baker, K., & Pavlak, G. (2020). Evaluation of low-exergy heating and cooling systems and topology optimization for deep energy savings at the urban district level. Energy Conversion and Management, 222, 113106. [https://doi.org/https://doi.org/10.1016/j.enconman.2020.113106](https://doi.org/https://doi.org/10.1016/j.enconman.2020.113106)
 
-- Allen, A., Henze, G., Baker, K., Pavlak Gregory, & Murphy, M. (2021). Evaluation of Topology Optimization to Achieve Energy Savings at the Urban District Level. 2021 ASHRAE Winter Conference.
+- Long, N., & Summer, T. (2020). Modelica Builder (0.1.0). [https://doi.org/10.11578/dc.20200409.1](https://doi.org/10.11578/dc.20200409.1)
+
+- Long, N., & Summer, T. (2020). Modelica Formatter. [https://github.com/urbanopt/modelica-fmt](https://github.com/urbanopt/modelica-fmt)
