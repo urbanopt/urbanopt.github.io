@@ -73,7 +73,9 @@ Enumerations that are applicable to residential buildings:
 If no template enumeration is specified, argument values will be defaulted according to the [documentation](https://openstudio-hpxml.readthedocs.io/en/latest/workflow_inputs.html) for the OpenStudio-HPXML workflow.
 In general, these defaults are based on **ANSI / RESNET / ICC Std. 301 (2006)**.
 
-All argument values for the previous categories may be customized by manually adjusting values in the lookup files.
+All argument values for the previous categories may be customized by manually adjusting values in
+the lookup files, or a new customizable template with unique argument values may be created as
+described under [customization](customization.md).
 The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
 Note that not all possible assumptions have been aligned with IECC requirements (e.g., see above regarding defaults), but the users can further customize these templates as needed for specific projects.
 
