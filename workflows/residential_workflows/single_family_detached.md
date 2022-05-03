@@ -49,7 +49,6 @@ Required fields:
 | ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | floor_area                    | number       |                                                                                                                                                                                                                       | Conditioned floor area.                                                     |
 | number_of_stories_above_ground| integer      |                                                                                                                                                                                                                       |                                                                             |
-| number_of_stories             | integer      |                                                                                                                                                                                                                       | Includes foundations.                                                       |
 | number_of_bedrooms            | integer      |                                                                                                                                                                                                                       | Must be > 0.                                                                |
 | foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) basement - unconditioned<br>(5) basement - conditioned<br>(6) ambient                                                                         |                                                                             |
 | attic_type                    | string       | (1) attic - vented<br>(2) attic - unvented<br>(3) attic - conditioned<br>(4) flat roof                                                                                                                                | Stories > 1 for conditioned attics.                                         |
@@ -61,7 +60,8 @@ Optional fields:
 | system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
 | heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
 | onsite_parking_fraction       | number       | (1) No (0)<br>(2) Yes (1)                                                                                                                                                                                                         |                                                                             |
-| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](residential_workflows#customizable-template) |
+| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](residential_workflows#customizable-template)    |
+| hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building.                                                   |
 
 An example "Single-Family Detached" building feature snippet is shown below.
 
@@ -76,7 +76,6 @@ An example "Single-Family Detached" building feature snippet is shown below.
       "floor_area": 3055,
       "footprint_area": 3055,
       "number_of_stories_above_ground": 1,
-      "number_of_stories": 1,
       "number_of_bedrooms": 3,
       "foundation_type": "crawlspace - unvented",
       "attic_type": "attic - vented",
