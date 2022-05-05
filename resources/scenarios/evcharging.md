@@ -79,10 +79,20 @@ building types.
 
 **Typical Public** : Representing URBANopt building types such as Retail, Shopping Mall, Food Services etc.
 
+ 
 ### <a name="its"></a> EV percent
 
 Denotes percentage of vehicles between 0 to 100 that are electric on site. The measure currently
-does not support adding discrete values of Electric Vehicles directly.
+does not support adding discrete values of Electric Vehicles directly. The default value is 100.
+
+
+### <a name="its"></a> EV use model occupancy
+
+When set to true, it uses the occupancy of the OpenStudio model to determine the number of electric vehicles
+on site. When false, it resorts to the default behavior of leveraging occupancy from typical
+building types from OpenStudio Standards to determine number of electric vehicles on site.
+
+The EV percent argument can be further used to scale the percentage of electric vehicles.
 
 ### Assumptions and Limitations
 
@@ -161,6 +171,7 @@ For example:
         "ev_charging": true,
         "ev_charging_behavior": "Business as Usual",
         "ev_percent": 100,
+        "ev_use_model_occupancy": true
         "ev_curtailment_frac": 0.5
       }
 ```
