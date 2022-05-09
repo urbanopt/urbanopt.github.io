@@ -115,9 +115,6 @@ The aspect ratio of individual units of the building is assumed to be 2.
 For buildings with a crawlspace foundation, the height of the foundation is assumed to be 3 ft.
 For buildings with a basement or ambient foundation, the height of the foundation is assumed to be 8 ft.
 
-#### Roofs
-For buildings with an attic (i.e., not a flat roof), the roof type is assumed to be a gable roof.
-
 #### Walls
 The average height of walls adjacent to living space is 8 ft.
 
