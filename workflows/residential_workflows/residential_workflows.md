@@ -10,7 +10,10 @@ has_toc: false
 # Residential Workflows
 
 Low-rise residential building energy models in URBANopt<sup>&trade;</sup> are created using the [**OpenStudio-HPXML**](https://github.com/NREL/OpenStudio-HPXML) workflow.
-For every residential building feature found in the GeoJSON file, an [HPXML](https://hpxml.nrel.gov) file is built to represent each living unit of the building.
+For every residential building feature found in the GeoJSON file, either:
+
+1. an [HPXML](https://hpxml.nrel.gov) file is built to represent each living unit of the building, or
+1. a set of pre-built HPXML files is used to represent each of the living units of the building.
 
 For example, in the case of a single-family detached building one HPXML file is built to represent the single unit.
 HPXML files are built based on feature information contained in the GeoJSON file as well as on sets of default assumptions contained in the following [lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential):
@@ -128,9 +131,6 @@ The aspect ratio of individual units of the building is assumed to be 2.
 #### Foundations
 For buildings with a crawlspace foundation, the height of the foundation is assumed to be 3 ft.
 For buildings with a basement or ambient foundation, the height of the foundation is assumed to be 8 ft.
-
-#### Roofs
-For buildings with an attic (i.e., not a flat roof), the roof type is assumed to be a gable roof.
 
 #### Walls
 The average height of walls adjacent to living space is 8 ft.
