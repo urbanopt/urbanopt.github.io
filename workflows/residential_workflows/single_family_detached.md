@@ -79,7 +79,7 @@ An example "Single-Family Detached" building feature snippet is shown below.
       "floor_area": 3055,
       "footprint_area": 3055,
       "number_of_stories_above_ground": 1,
-      "number_of_stories": 2,
+      "number_of_stories": 1,
       "number_of_bedrooms": 3,
       "foundation_type": "crawlspace - unvented",
       "attic_type": "attic - vented",
