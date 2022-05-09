@@ -59,7 +59,7 @@ Required fields:
 | number_of_stories             | integer      |                                                                                                                                                                                                                   | Includes foundations.                                                       |
 | number_of_residential_units   | integer      |                                                                                                                                                                                                                   |                                                                             |
 | number_of_bedrooms            | integer      |                                                                                                                                                                                                                   | Must be > 0.                                                                |
-| foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) basement - unconditioned<br>(5) basement - conditioned                                                                                    | Invalid:<br>(1) ambient                                                     |
+| foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) crawlspace - conditioned<br>(5) basement - unconditioned<br>(6) basement - conditioned<br>(7) ambient                                     |                                                                             |
 | attic_type                    | string       | (1) attic - vented<br>(2) attic - unvented<br>(3) attic - conditioned<br>(4) flat roof                                                                                                                            | Stories > 1 for conditioned attics.                                         |
 
 Optional fields:
@@ -80,12 +80,12 @@ An example "Single-Family Attached" building feature snippet is shown below.
       "name": "Residential 4",
       "type": "Building",
       "building_type": "Single-Family Attached",
-      "number_of_stories_above_ground": 2,
-      "number_of_stories": 2,
-      "foundation_type": "slab",
       "floor_area": 18320,
       "footprint_area": 9160,
+      "number_of_stories_above_ground": 2,
+      "number_of_stories": 2,
       "number_of_bedrooms": 6,
+      "foundation_type": "slab",
       "attic_type": "attic - vented",
       "system_type": "Residential - furnace and room air conditioner",
       "heating_system_fuel_type": "fuel oil",
