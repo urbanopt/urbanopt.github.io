@@ -105,10 +105,9 @@ Occupancy-based loads (i.e., plug loads, appliances, hot water, etc.) can be cal
 
 The default behavior is to perform an asset calculation, but the user has control to enable an operational calculation.
 
-Asset calculations are performed using number of bedrooms and conditioned floor area.
+Asset calculations are performed using number of bedrooms and/or conditioned floor area.
 
-Operational calculations are performed using number of bedrooms, conditioned floor area, and number of occupants.
-Adjustments are made to usage multipliers to account for number of occupants.
+Operational calculations are performed using an adjustment for the number of occupants.
 
 ## Other Assumptions
 
