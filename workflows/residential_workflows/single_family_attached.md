@@ -53,8 +53,10 @@ Required fields:
 
 |             Field             |     Type     |                                                                                             Enums                                                                                                                 |                                    Notes                                    |
 | ----------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| floor_area                    | number       |                                                                                                                                                                                                                   | Conditioned floor area.                                                     |
+| floor_area                    | number       |                                                                                                                                                                                                                   | Total conditioned floor area.                                               |
+| footprint_area                | number       |                                                                                                                                                                                                                   | First floor conditioned floor area.                                         |
 | number_of_stories_above_ground| integer      |                                                                                                                                                                                                                   |                                                                             |
+| number_of_stories             | integer      |                                                                                                                                                                                                                   | Includes foundations.                                                       |
 | number_of_residential_units   | integer      |                                                                                                                                                                                                                   |                                                                             |
 | number_of_bedrooms            | integer      |                                                                                                                                                                                                                   | Must be > 0.                                                                |
 | foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) basement - unconditioned<br>(5) basement - conditioned                                                                                    | Invalid:<br>(1) ambient                                                     |
@@ -64,10 +66,11 @@ Optional fields:
 
 |             Field             |     Type     |                                                                                             Enums                                                                                                                                 |                                    Notes                                    |
 | ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| roof_type                     | string       | (1) Gable<br>(2) Hip                                                                                                                                                                                                              | NA when attic type is flat roof.                                            |
 | system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
 | heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
 | template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](residential_workflows#customizable-template)    |
-| hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building.                                                   |
+| hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
 
 An example "Single-Family Attached" building feature snippet is shown below.
 
@@ -77,11 +80,12 @@ An example "Single-Family Attached" building feature snippet is shown below.
       "name": "Residential 4",
       "type": "Building",
       "building_type": "Single-Family Attached",
+      "number_of_stories_above_ground": 2,
+      "number_of_stories": 2,
+      "foundation_type": "slab",
       "floor_area": 18320,
       "footprint_area": 9160,
-      "number_of_stories_above_ground": 2,
       "number_of_bedrooms": 6,
-      "foundation_type": "slab",
       "attic_type": "attic - vented",
       "system_type": "Residential - furnace and room air conditioner",
       "heating_system_fuel_type": "fuel oil",
