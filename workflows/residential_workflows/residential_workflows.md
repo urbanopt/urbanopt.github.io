@@ -82,7 +82,11 @@ described under [customization](customization.md).
 The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
 Note that not all possible assumptions have been aligned with IECC requirements (e.g., see above regarding defaults), but the users can further customize these templates as needed for specific projects.
 
-## Schedules
+## Occupancy
+
+The user has control over both occupant-related schedule types and the occupancy calculation type.
+
+### Schedules
 
 Occupant-related schedules can be either defaulted or stochastically generated, and may vary either building-to-building or unit-to-unit.
 The default behavior is to use stochastically generated schedules that vary unit-to-unit, but the user has control to both use defaulted schedules and vary them building-to-building.
@@ -94,6 +98,19 @@ In terms of repeatability, stochastic schedules generation uses a pseudo-random 
 The seed is determined by the index of a given feature relative to all features in the GeoJSON, and then multiplied by the unit number within the building.
 For schedules that vary by building, the schedules that correspond to the first unit are used for all units of the building.
 Relocating a feature's position within a GeoJSON would change the seed argument for that building.
+
+### Calculation Type
+
+Occupancy-based loads (i.e., plug loads, appliances, hot water, etc.) can be calculated through either:
+
+1. an asset calculation, or
+1. an operational calculation.
+
+The default behavior is to perform an asset calculation, but the user has control to enable an operational calculation.
+
+Asset calculations are performed using number of bedrooms and/or conditioned floor area.
+
+Operational calculations are performed using an adjustment for the number of occupants.
 
 ## Other Assumptions
 
