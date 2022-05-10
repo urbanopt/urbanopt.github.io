@@ -9,14 +9,12 @@ The EV Charging Scenario adds loads due to **Electric Vehicle (EV)** charging as
 Features in the FeatureFile. The EV Charging MapperClass inherits from the High Efficiency
 MapperClass and adds EV loads in addition to high efficiency building measures.
 
-## Measures
-
 The two measures used for this scenario are in the
 [openstudio-common-measures](https://github.com/NREL/openstudio-common-measures-gem "GitHub
 Repository") gem. The functionality and available user inputs are briefly described below and links
 to additional documentation are provided.
 
-### add_ev_load Measure
+## add_ev_load Measure
 
 The measure is based on static profiles of power draw  for a district in Denver to reflect
 different potential scenarios for EV charging behavior as described in  *Integrating Electric
@@ -32,7 +30,7 @@ proportion of vehicles at site that are EVs can be configured as well.
 
 Users can specify their inputs for the following arguments:
 
-### <a name="its"></a> EV charging behavior
+### EV charging behavior
 
 *Business as usual* : This represents home dominant charging behavior where the majority of the
 electrical energy consumed by EV charging is during evening hours and overnight.
@@ -55,7 +53,7 @@ fast charging ([Pless et al. 2020](#ref1)).
 
 ![](../../doc_files/EVChargingProfile2.png)
 
-### <a name="its"></a> Delay type
+### Delay type
 
 Represents charging demand flexibility scenarios applied to workplace charging. Users can select from the
 following scenarios:
@@ -66,7 +64,7 @@ following scenarios:
 
 *Minimum power* : EVs are charged at minimum rate over the parking event.
 
-### <a name="its"></a> Charging station type
+### Charging station type
 
 Users can select from the following options:
 
@@ -80,13 +78,13 @@ building types.
 **Typical Public** : Representing URBANopt building types such as Retail, Shopping Mall, Food Services etc.
 
  
-### <a name="its"></a> EV percent
+### EV percent
 
 Denotes percentage of vehicles between 0 to 100 that are electric on site. The measure currently
 does not support adding discrete values of Electric Vehicles directly. The default value is 100.
 
 
-### <a name="its"></a> EV use model occupancy
+### EV use model occupancy
 
 When set to true, it uses the occupancy of the OpenStudio model to determine the number of electric vehicles
 on site. When false, it resorts to the default behavior of leveraging occupancy from typical
@@ -107,7 +105,7 @@ profiles are generalized to represent work, public and home building types and t
 directly to the schedules used in the URBANopt buildings.
 
 
-### add_ems_to_control_ev_charging Measure
+## add_ems_to_control_ev_charging Measure
 
 This measure uses EnergyPlus' EnergyManagementSystem objects to control an electric vehicle charging
 load to better align the charging power draw with expected solar PV power production. The measure is
