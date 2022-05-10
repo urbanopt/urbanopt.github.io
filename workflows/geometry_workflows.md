@@ -42,7 +42,7 @@ bar, surrounded by spaces of another space type. For an example, for a primary s
 
 ![create_bar measure workflow diagram a](../doc_files/create_bar.png)
 
-As shown below workflow does take the actual building footprint into account by creating a second bar when necessary too match the perimeter by orientation non-rectangular geoJSON footprints. Additionally, custom high spaces like school cafeterias are pulled into their own bar from the rest of the building types. This more accurately represents the volume of those spaces. This workflow does not take into account the impact of self and context shading.
+As shown below, the workflow does take the actual building footprint into account by creating a second bar when necessary to match the perimeter by orienting non-rectangular geoJSON footprints. Additionally, custom high spaces like school cafeterias are pulled into their own bar from the rest of the building spaces. This more accurately represents the volume of those spaces. This workflow does not take into account the impact of self and context shading.
 
 ![create_bar measure workflow diagram b](../doc_files/create_bar_b.png)
 
