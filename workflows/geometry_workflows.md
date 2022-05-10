@@ -67,7 +67,7 @@ The FloorSpaceJS file and the OpenStudio seed model must have the same name, for
 the osm_building directory within the project directory. The FloorSpaceJS file name must also be added to the
 `detailed_model_filename` property for that feature in the feature file.
 
-![FllorSpaceJS measure workflow diagram](../doc_files/floorspace_js.png)
+![FloorSpaceJS measure workflow diagram](../doc_files/floorspace_js.png)
 
 *For all these workflows, an existing OpenStudio model of a building feature can be used, if desired, by
 specifying the name of the model in the `detailed_model_filename` property of the particular feature in the Feature File and adding the OpenStudio model in the osm_building directory within the project directory.*
