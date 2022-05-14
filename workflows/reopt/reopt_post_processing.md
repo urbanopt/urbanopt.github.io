@@ -21,11 +21,15 @@ You may chose to optimize by one or both of these approaches according to your p
 
 ### REopt Optimization Assumption Files
 
-In your URBANopt project directory, you should see two example **REopt** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a REopt-enabled ScenarioFile with the `uo create --reopt-scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt API**.
+In your URBANopt project directory, you should see two example **REopt** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a new baseline REopt-enabled ScenarioFile with the `uo create --scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt API**.
 
 In particular, you will want to make sure that the `urdb_label` in the assumptions file maps to a suitable utility rate _label_ from the [URDB](https://openei.org/apps/IURDB/). The _label_ is the last term of the URL of a utility rate detail page (i.e. the _label_ for the rate at [https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305](https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305) is 5b0d83af5457a3f276733305).
 
 Also note that the example `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once.
+
+Lots of detail can be specified by customizing the REopt assumptions file. Some examples:
+- To simulate an off-grid scenario: change `off_grid_flag` to `true`.
+- To set min/max renewable fraction of power in a district: change `renewable_electricity_min_pct` and/or `renewable_electricity_max_pct` to a value between 0-1, where 0 is 0% renewable and 1 is 100% renewable. Max renewable can be larger than 1 if more energy is produced than consumed.
 
 ### REopt Time Series Resolution
 
