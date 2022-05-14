@@ -48,8 +48,15 @@ An example:
 	- `--feature` &mdash; Required, Path to feature json file
 	- `--equipment` &mdash; Optional, Path to custom equipment file
 	- `--reopt` &mdash; Optional, use to specify a run with additional REopt functionality.
-	- `--start-time` &mdash; Optional, Beginning of the period for OpenDSS analysis. Defaults to beginning of simulation time Format: "YYYY/MM/DD HH:MM:SS" (use quotes).
-	- `--end_time` &mdash; Optional, End of the period for OpenDSS analysis. Defaults to end of simulation time. Format "YYYY/MM/DD HH:MM:SS" (use quotes).
+	- `--start-date` &mdash; Optional, Beginning date for OpenDSS analysis. Defaults to beginning
+	date of
+	simulation period. Format: YYYY/MM/DD
+	- `--start-time` &mdash; Optional, Beginning time for OpenDSS analysis. Defaults to 00:00:00 of
+	start_date if specified, otherwise beginning time of simulation period. Format: HH:MM:SS
+	- `--end-date` &mdash; Optional, End date for OpenDSS analysis. Defaults to ending date of
+	simulation period. Format: YYYY/MM/DD
+	- `--end_time` &mdash; Optional, Ending time for OpenDSS analysis. Defaults to 23:00:00 of
+	end_date if specified, otherwise ending time of simulation period. Format HH:MM:SS.
 	- `--timestep` &mdash; Optional, Number of minutes per timestep in the OpenDSS simulation.
 
 	An [example config JSON file](https://github.com/urbanopt/urbanopt-ditto-reader/blob/develop/urbanopt_ditto_reader/example_config.json) is also available. Note the key names are slightly different than the CLI option names.
