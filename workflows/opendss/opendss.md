@@ -58,6 +58,7 @@ An example:
 	- `--end_time` &mdash; Optional, Ending time for OpenDSS analysis. Defaults to 23:00:00 of
 	end_date if specified, otherwise ending time of simulation period. Format HH:MM:SS.
 	- `--timestep` &mdash; Optional, Number of minutes per timestep in the OpenDSS simulation.
+	- `--upgrade` &mdash;Optional, Upgrades undersized transformers when set to true. Defaults to false.
 
 	An [example config JSON file](https://github.com/urbanopt/urbanopt-ditto-reader/blob/develop/urbanopt_ditto_reader/example_config.json) is also available. Note the key names are slightly different than the CLI option names.
 
