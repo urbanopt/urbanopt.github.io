@@ -1,1 +1,45 @@
 @import "./custom/custom";
+
+
+/*
+td,
+th {
+  margin: 0;
+  border: 1px solid grey;
+}
+*/
+
+
+#tablediv {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: visible;
+  padding: 0;
+
+  thead th {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  font-weight: normal;
+  top: 0;
+	}
+
+	.bold {
+	font-weight: bold;
+	}
+
+	tbody th {
+	  position: -webkit-sticky; /* for Safari */
+	  position: sticky;
+	  left: 0;
+	}
+
+	thead th:first-child {
+	  left: 0;
+	  z-index: 1;
+	}
+
+	.info-col {
+		min-width: 350px;
+	}
+}
+
