@@ -20,6 +20,22 @@ has_toc: false
 	1. Assign a reviewer to look over the code
 	1. Use the “DO NOT MERGE” label for Pull Requests that should not be merged
 
+## Functionality Development / Copying over to the CLI
+Functionality should be developed in the urbanopt-example-geojson-project repo. once it is ready and passing tests, the files from urbanopt-example-geojson-project will be copied over to the urbanopt-cli repo. Take care when performing the copy process as it is possible some changes were made directly on the cli repo (i.e., you might have to diff the files and reconcile both repos with the latest changes). 
+
+Notes for the copy process (from example-project repo to cli repo):
+1. Copy example_project/resources folder to example_files/resources
+2. Copy mappers folder over. **Note:** take the residential folder that is within the mappers folder and put it next to the mappers folder in the CLI repo
+3. Copy base_workflow.osw again and place it next to the mappers folder. Rename it as base_workflow_res.osw and place it NEXT TO the mappers folder (not inside).
+4. Open mappers/base_workflow.osw file in cli repo (you have previously copied it over in step 2) Remove the "BuildResidentialModel" measure section completely from this file and save.
+5. copy the measures folder to example_files/measures
+6. copy xml_building to example_files/xml_building
+7. copy osm_building to example_files/osm_building
+8. copy reopt to example_files/reopt. (on this one maybe diff the files to ensure that changes weren't just made on the CLI repo)
+9. copy visualization to example_files/visualization
+10. There is no need to copy any of the scenario CSVs
+
+
 ## Conflicting packages
 
 If you make changes, ensure that all gems use the  `openstudio-standard` gem shipped with OpenStudio to avoid unforeseen consequences (**do not** include an _openstudio-standard_ dependency in the gemfile).
