@@ -81,7 +81,7 @@ simulation mapper class from existing at that level.
 
 ## Testing and Developer Resources
 
-It is possible to test the GeoJSON to Modelica Translator (GMT) by simpling installing the Python package and running the command line interface (CLI) with results from and URBANopt SDK set of results. However, to fully leverage the functionality of this package (e.g., running simulations), then you must also install the Modelica Buildings library (MBL) and Docker. Instructions for installing and configuring the MBL and Docker are available on the [DES Installation page](../installation/des_installation.md).
+It is possible to test the GeoJSON to Modelica Translator (GMT) by simpling installing the Python package and running the command line interface (CLI) with results from and URBANopt SDK set of results. However, to fully leverage the functionality of this package (e.g., running simulations), then you will need to install additional software. For GMT versio 0.3.0 you will need the Modelica Buildings library (MBL) and either Dymola or OpenModelica. We understand that this is a non-ideal solution. Prior to GMT version 0.3.0, you can install the MBL and Docker. Instructions for installing and configuring the MBL and Docker are available on the [DES Installation page](../installation/des_installation.md).
 
 To simply scaffold out a Modelica package that can be inspected in a Modelica environment (e.g., Dymola) then run the following code below up to the point of run-model. The example generates a complete 4th Generation District Heating and Cooling (4GDHC) system with time series loads that were generated from the URBANopt SDK using OpenStudio/EnergyPlus simulations.
 
