@@ -54,7 +54,7 @@ Installation of the MBL is done through Git and GitHub. Follow the instructions 
 - Install git-lfs
   - Mac: `brew install git-lfs; git lfs install`
   - Ubuntu: `sudo apt install git-lfs; git lfs install`
-- Pull the correct staging branch for this project with: `git checkout issue2204_gmt_mbl`
+- Pull the correct staging branch for this project with: `git checkout v9.0.0`. Note that the git repo will be in a detached head state, which is expected.
 - Add the Modelica Buildings Library path to your MODELICAPATH environment variable (e.g., `export MODELICAPATH=${MODELICAPATH}:$HOME/path/to/modelica-buildings`). Restart your terminal to ensure that the MBL library is exported correctly.
 
 Once the MBL is installed, the CLI can be used to create the model with the following command:
@@ -71,9 +71,11 @@ The resulting Modelica package will be created and can be opened in a Modelica e
 
 ### Docker Installation
 
-The preferred method of running the simulations would be within Dymola; however, that is not a
-practical solution for many based on the license requirement. The GMT enables the running of the
-models using JModelica which requires the installation of [Docker](https://docs.docker.com/get-docker/). To configure Docker, do the following:
+In GMT version 0.3.0, the only method of running the simulations is within Dymola or OpenModelica. We are working on an
+approach that will reenable the Docker-based solution that is described below.
+
+The GMT versions prior to 0.3.0 enabled running of the models using JModelica. It requires the
+installation of [Docker](https://docs.docker.com/get-docker/). To configure Docker, do the following:
 
 - Install [Docker](https://docs.docker.com/get-docker/) for your system.
 - Configure Docker Desktop to have at least 4 GB Ram and 2 cores. This is configured under the Docker Preferences.
@@ -83,7 +85,6 @@ After Docker is installed and configured, you can use the CLI to run the model u
 command:
 
 ```bash
-
   uo_des run-model -h
 
   # the command below is only an example; however, it will run if the repository
