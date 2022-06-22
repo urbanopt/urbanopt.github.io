@@ -47,7 +47,7 @@ URBANopt emissions inputs, along with their choices, are listed below:
 	- SRTV
 	- SRVC
 
-	If not defined the subregion will be selected based on a default mapper that maps states to eGRIDsubregions. Warning: in reality, some states ( 'ND', 'IN', 'MN', 'SD', 'IA', 'WV', 'OH', 'NE' ) map to two eGRID subregions. The default mapper maps the state to a subregion that covers the most zipcodes in the state. User should take care to select the appropriate subregion.  
+	If not defined the subregion will be selected based on a default mapper that maps states to eGRID Subregions. Warning: in reality, some states ( 'ND', 'IN', 'MN', 'SD', 'IA', 'WV', 'OH', 'NE' ) map to two eGRID Subregions. The default mapper maps the state to a subregion that covers the most zip codes in the state. The user should take care to select the appropriate subregion.  
 
 	Default mapping:  
 	- FL: FRCC
