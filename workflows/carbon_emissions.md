@@ -290,7 +290,7 @@ Emissions results are reported in URBANopt reports. For each feature, time serie
 	Natural Gas emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
 	
 	"propane_emissions_mt":
-	Propane emissions in mt calculated by multipling the facility propane energy use (MWH) by the natural gas emission factor (323.896704 KG/MWH) and convertd to metric ton (mt)
+	Propane emissions in mt were calculated by multiplying the facility propane energy use (MWh) by the natural gas emission factor (323.9 kg/MWh) and converted to metric ton (mt)
 
 	"propane_emissions_intensity_kg_per_ft2": 
 	Propane emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
