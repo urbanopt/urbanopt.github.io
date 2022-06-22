@@ -9,7 +9,7 @@ nav_order: 3
 
 ### All Versions
 
-1. You may encounter a 'certificate has expired' error when running REopt&trade; optimizations. The error text will look something like this:
+1. **CERTIFICATE HAS EXPIRED** You may encounter a 'certificate has expired' error when running REopt&trade; optimizations. The error text will look something like this:
 
 	```bash
 	 error from REopt API: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)
@@ -20,7 +20,16 @@ nav_order: 3
 	bundle exec certified-update
 	```
 
-1. Starting with OpenStudio version 3.3.0, major biannual releases of OpenStudio SDK / OpenStudio Analysis Framework (OSAF) will *not* include the URBANopt SDK due to dependency conflicts. URBANopt SDK will be released following the OpenStudio release, and then a patch release of the OSAF will be made that includes the URBANopt dependency.  Visit the [Release Instructions](release_instructions.md#openstudio---urbanopt-release-process) page for more details.
+1. **LONG FILEPATHS ISSUE** Users (windows users especially) may run into an error while running URBANopt.  The error will be encountered either when running ‘bundle install’ in the project directory or in the in.osw.log file of a specific feature simulation and will look like this:
+
+	```bash
+	Errno::ENOENT: No such file or directory @ rb_sysopen –
+	```
+
+This will occur in the `uo run` command during installation of either the openstudio-standards gem or another openstudio gem.  This error occurs because the filepath to your project directory is too long.  Move the directory to a shallower path on your system and try again.
+
+
+1. **OSAF** Starting with OpenStudio version 3.3.0, major biannual releases of OpenStudio SDK / OpenStudio Analysis Framework (OSAF) will *not* include the URBANopt SDK due to dependency conflicts. URBANopt SDK will be released following the OpenStudio release, and then a patch release of the OSAF will be made that includes the URBANopt dependency.  Visit the [Release Instructions](release_instructions.md#openstudio---urbanopt-release-process) page for more details.
 
 ### Version 0.6.3
 
