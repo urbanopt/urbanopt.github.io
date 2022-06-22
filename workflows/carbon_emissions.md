@@ -119,7 +119,7 @@ URBANopt emissions inputs, along with their choices, are listed below:
 	- Tennessee  
 	- Texas
 
-	If not defined by the user, the AVERT region will be selected based on a default mapper that maps states to AVERT regions. Warning: in reality, some states map to multiple AVERT regions. The default mapper maps the state to a AVERT region that covers the most zipcodes in the state. User should take care to select the appropriate region.
+	If not defined by the user, the AVERT region will be selected based on a default mapper that maps states to AVERT regions. Warning: in reality, some states map to multiple AVERT regions. The default mapper maps the state to an AVERT region that covers the most zip codes in the state. Users should take care to select the appropriate region.
 
 	Default Mapping:
 	- FL: Florida
