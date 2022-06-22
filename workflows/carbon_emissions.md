@@ -253,7 +253,7 @@ These emission factors are then multiplied by the associated facility total ener
 
 # Outputs
 
-Emissions results are reported in URBANopt reports. For each feature, timeseries results are reported in the CSV report and aggregate values are reported in URBANopt JSON reports. Bellow are descriptions for the emissions results variables.
+Emissions results are reported in URBANopt reports. For each feature, time series results are reported in the CSV report and aggregate values are reported in URBANopt JSON reports. Below are descriptions for the emissions results variables.
 
 ### JSON reports results
 
