@@ -284,7 +284,7 @@ Emissions results are reported in URBANopt reports. For each feature, time serie
 	Historical electricity emissions intensity in kg/ft2 calculated based on hourly emissions factor values for the selected historical year
 
 	"natural_gas_emissions_mt": 
-	Natural Gas emissions in mt calculated by multipling the facility natural gas energy use (MWH) by the natural gas emission factor (277.358126 KG/MWH) and convertd to metric ton(mt)
+	Natural Gas emissions in metric tonnes (mt) were calculated by multiplying the facility's natural gas energy use (MWh) by the natural gas emission factor (277.4 kg/MWH) and converted to metric tonnes (mt)
 
 	"natural_gas_emissions_intensity_kg_per_ft2":
 	Natural Gas emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
