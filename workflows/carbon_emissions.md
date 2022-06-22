@@ -247,7 +247,7 @@ Emisison factors for natural gas, propane, and fueloil#2 are based on EPA eGRID 
 	
 	natural gas :  277.358126 KG/MWH
 	propane : 323.896704 KG/MWH
-	Fueloil #2 : 294.962046 KG/MWH
+	Fuel oil #2 : 294.962046 KG/MWH
 
 These emission factors are then multiplied by the associated facility total energy use profile for the corresponding fuel type to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
 
