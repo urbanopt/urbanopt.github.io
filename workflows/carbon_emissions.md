@@ -296,7 +296,7 @@ Emissions results are reported in URBANopt reports. For each feature, timeseries
 	Propane emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
 
 	"fueloil_no2_emissions_mt": 
-	FuelOilNo2 emissions in mt calculated by multipling the facility FuelOilNo2 energy use (MWH) by the FuelOilNo2 emission factor (294.962046 KG/MWH) and convertd to metric ton (mt)
+	FuelOilNo2 emissions in mt were calculated by multiplying the facility FuelOilNo2 energy use (MWh) by the FuelOilNo2 emission factor (294.96 kg/MWH) and converted to metric ton (mt)
 	
 	"fueloil_no2_emissions_intensity_kg_per_ft2": 
 	FuelOilNo2 emissions intensity in kg/ft2 calculated by dividing the FuelOilNo2 emissions (kg) for a building by its floor area(ft2)
