@@ -7,7 +7,7 @@ nav_order: 5
 
 # **Carbon Emissions Reporting**
 
-The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity, natural gas, propane and fueloil use. 
+The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity, natural gas, propane and fuel oil number 1 use. 
 Carbon emissions calculations are added to URBANopt to enable users to plan/design for low/net zero carbon buildings, neighborhoods, and urban districts. Calculated emissions values are direct emissions that occur from sources controlled or owned by an organization. Users can calculate emissions and compare the results across multiple UO Scenarios.
 
 
@@ -119,7 +119,7 @@ URBANopt emissions inputs, along with their choices, are listed below:
 	- Tennessee  
 	- Texas
 
-	If not defined by the user, the AVERT region will be selected based on a default mapper that maps states to AVERT regions. Warning: in reality, some states map to multiple AVERT regions. The default mapper maps the state to an AVERT region that covers the most zip codes in the state. Users should take care to select the appropriate region.
+	If not defined by the user, the [AVERT](https://www.epa.gov/avert) region will be selected based on a default mapper that maps states to AVERT regions. Warning: in reality, some states map to multiple AVERT regions. The default mapper maps the state to an [AVERT](https://www.epa.gov/avert) region that covers the most zip codes in the state. Users should take care to select the appropriate region.
 
 	Default Mapping:
 	- FL: Florida
