@@ -7,7 +7,7 @@ nav_order: 5
 
 # **Carbon Emissions Reporting**
 
-The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity, natural gas, propane and fuel oil number 1 use. 
+The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity, natural gas, propane and fuel oil number 2 use. 
 Carbon emissions calculations are added to URBANopt to enable users to plan/design for low/net zero carbon buildings, neighborhoods, and urban districts. Calculated emissions values are direct emissions that occur from sources controlled or owned by an organization. Users can calculate emissions and compare the results across multiple UO Scenarios.
 
 
@@ -245,9 +245,9 @@ When adding emissions inputs in the project properties, URBANopt will apply thes
 
 Emission factors for natural gas, propane, and fuel oil no. 2 are based on EPA eGRID data and calculated using a 20-year global warming potential (GWP) horizon based on ASHRAE 189.1 :
 	
-	natural gas :  277.358126 kg/MWh
-	propane : 323.896704 KG/MWH
-	Fuel oil #2 : 294.962046 KG/MWH
+	Natural Gas :  277.358126 kg/MWh
+	Propane : 323.896704 Kg/MWh
+	Fuel Oil #2 : 294.962046 Kg/MWh
 
 These emission factors are then multiplied by the associated facility total energy use profile for the corresponding fuel type to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
 
@@ -284,7 +284,7 @@ Emissions results are reported in URBANopt reports. For each feature, time serie
 	Historical electricity emissions intensity in kg/ft2 calculated based on hourly emissions factor values for the selected historical year
 
 	"natural_gas_emissions_mt": 
-	Natural Gas emissions in metric tonnes (mt) were calculated by multiplying the facility's natural gas energy use (MWh) by the natural gas emission factor (277.4 kg/MWH) and converted to metric tonnes (mt)
+	Natural Gas emissions in metric tonnes (mt) were calculated by multiplying the facility's natural gas energy use (MWh) by the natural gas emission factor (277.4 kg/MWh) and converted to metric tonnes (mt)
 
 	"natural_gas_emissions_intensity_kg_per_ft2":
 	Natural Gas emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
@@ -296,7 +296,7 @@ Emissions results are reported in URBANopt reports. For each feature, time serie
 	Propane emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
 
 	"fueloil_no2_emissions_mt": 
-	FuelOilNo2 emissions in mt were calculated by multiplying the facility FuelOilNo2 energy use (MWh) by the FuelOilNo2 emission factor (294.96 kg/MWH) and converted to metric ton (mt)
+	FuelOilNo2 emissions in mt were calculated by multiplying the facility FuelOilNo2 energy use (MWh) by the FuelOilNo2 emission factor (294.96 kg/MWh) and converted to metric ton (mt)
 	
 	"fueloil_no2_emissions_intensity_kg_per_ft2": 
 	FuelOilNo2 emissions intensity in kg/ft2 calculated by dividing the FuelOilNo2 emissions (kg) for a building by its floor area(ft2)
