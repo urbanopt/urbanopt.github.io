@@ -8,12 +8,12 @@ nav_order: 5
 # **Carbon Emissions Reporting**
 
 The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity, natural gas, propane and fuel oil number 2 use. 
-Carbon emissions calculations are added to URBANopt to enable users to plan/design for low/net zero carbon buildings, neighborhoods, and urban districts. Calculated emissions values are direct emissions that occur from sources controlled or owned by an organization. Users can calculate emissions and compare the results across multiple UO Scenarios.
+Carbon emissions calculations are added to URBANopt to enable users to plan/design for low/net zero carbon buildings, neighborhoods, and urban districts. Users can calculate emissions and compare the results across multiple UO Scenarios.
 
 
 # Electricity Emissions
 
-The measure used to calculate electricity emissions, called add_ems_emissions_reporting, is in the [openstudio-common-measures](https://github.com/NREL/openstudio-common-measures-gem) GitHub Repository. The functionality and the translated URBANopt user inputs are briefly defined below.
+The measure used to calculate emissions associated with electricity, called add_ems_emissions_reporting, is in the [openstudio-common-measures](https://github.com/NREL/openstudio-common-measures-gem) GitHub Repository. The functionality and the translated URBANopt user inputs are briefly defined below.
 
 ## Inputs 
 
@@ -47,9 +47,9 @@ URBANopt emissions inputs, along with their choices, are listed below:
 	- SRTV
 	- SRVC
 
-	If not defined the subregion will be selected based on a default mapper that maps states to eGRID Subregions. Warning: in reality, some states ( 'ND', 'IN', 'MN', 'SD', 'IA', 'WV', 'OH', 'NE' ) map to two eGRID Subregions. The default mapper maps the state to a subregion that covers the most zip codes in the state. The user should take care to select the appropriate subregion.  
+	If not defined by the user, the subregion will be selected based on a default mapper that maps states to eGRID Subregions. **Warning**: in reality, some states ( 'ND', 'IN', 'MN', 'SD', 'IA', 'WV', 'OH', 'NE' ) map to two eGRID Subregions. The default mapper maps the state to a subregion that covers the most zip codes in the state. The user should take care to select the appropriate subregion.  
 
-	Default mapping:  
+	Default mapping (see **Warning** above):  
 	- FL: FRCC
 	- MS: SRMV
 	- NE: MROW
@@ -119,9 +119,9 @@ URBANopt emissions inputs, along with their choices, are listed below:
 	- Tennessee  
 	- Texas
 
-	If not defined by the user, the [AVERT](https://www.epa.gov/avert) region will be selected based on a default mapper that maps states to AVERT regions. Warning: in reality, some states map to multiple AVERT regions. The default mapper maps the state to an [AVERT](https://www.epa.gov/avert) region that covers the most zip codes in the state. Users should take care to select the appropriate region.
+	If not defined by the user, the [AVERT](https://www.epa.gov/avert) region will be selected based on a default mapper that maps states to AVERT regions. **Warning**: in reality, some states map to multiple AVERT regions. The default mapper maps the state to an [AVERT](https://www.epa.gov/avert) region that covers the most zip codes in the state. Users should take care to select the appropriate region.
 
-	Default Mapping:
+	Default Mapping (see **Warning** above):
 	- FL: Florida
 	- MS: Midwest
 	- NE: Midwest
@@ -253,7 +253,7 @@ These emission factors are then multiplied by the associated facility total ener
 
 # Outputs
 
-Emissions results are reported in URBANopt reports. For each feature, time series results are reported in the CSV report and aggregate values are reported in URBANopt JSON reports. Below are descriptions for the emissions results variables.
+Emissions results are reported in URBANopt reports. For each feature, time series results are reported in the CSV report and aggregate values are reported in URBANopt JSON reports. Below are descriptions for the emissions results variables. **Warning**: emissions associated with electricity may be included in the output reporting for multiple calculation approaches (e.g., future hourly and historical average); electricity emissions values from different calculation approaches should **NOT** be summed together.
 
 ### JSON reports results
 
