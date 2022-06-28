@@ -5,12 +5,15 @@ parent: Workflows
 nav_order: 5
 ---
 
-# Carbon Emissions Reporting
+# **Carbon Emissions Reporting**
 
-The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity use. Emission calculations for other fuel types will be added soon. Note that the modeling capabilities are currently in Beta mode. This means that testing and development are still in progress, and user feedback is welcome.
-Carbon emissions calculations for electricity use are added to URBANopt to enable users to plan/design for low/net zero carbon buildings, neighborhoods, and urban districts. Calculated emissions values are direct emissions that occur from sources controlled or owned by an organization. Users can calculate emissions and compare the results across multiple UO Scenarios.
+The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity, natural gas, propane and fuel oil number 2 use. 
+Carbon emissions calculations are added to URBANopt to enable users to plan/design for low/net zero carbon buildings, neighborhoods, and urban districts. Users can calculate emissions and compare the results across multiple UO Scenarios.
 
-The measure used to calculate emissions, called add_ems_emissions_reporting, is in the [openstudio-common-measures](https://github.com/NREL/openstudio-common-measures-gem) GitHub Repository. The functionality and the translated URBANopt user inputs are briefly defined below.
+
+# Electricity Emissions
+
+The measure used to calculate emissions associated with electricity, called add_ems_emissions_reporting, is in the [openstudio-common-measures](https://github.com/NREL/openstudio-common-measures-gem) GitHub Repository. The functionality and the translated URBANopt user inputs are briefly defined below.
 
 ## Inputs 
 
@@ -44,9 +47,9 @@ URBANopt emissions inputs, along with their choices, are listed below:
 	- SRTV
 	- SRVC
 
-	If not defined the subregion will be selected based on a default mapper that maps states to eGRIDsubregions. Warning: in reality, some states map to multiple eGRID subregions, so the user should take care to select the appropriate subregion.
+	If not defined by the user, the subregion will be selected based on a default mapper that maps states to eGRID Subregions. **Warning**: in reality, some states ( 'ND', 'IN', 'MN', 'SD', 'IA', 'WV', 'OH', 'NE' ) map to two eGRID Subregions. The default mapper maps the state to a subregion that covers the most zip codes in the state. The user should take care to select the appropriate subregion.  
 
-	Default mapping:  
+	Default mapping (see **Warning** above):  
 	- FL: FRCC
 	- MS: SRMV
 	- NE: MROW
@@ -116,9 +119,9 @@ URBANopt emissions inputs, along with their choices, are listed below:
 	- Tennessee  
 	- Texas
 
-	If not defined by the user, the AVERT region will be selected based on a default mapper that maps states to AVERT regions. Warning: in reality, some states map to multiple AVERT regions, so the user should take care to select the appropriate region.
+	If not defined by the user, the [AVERT](https://www.epa.gov/avert) region will be selected based on a default mapper that maps states to AVERT regions. **Warning**: in reality, some states map to multiple AVERT regions. The default mapper maps the state to an [AVERT](https://www.epa.gov/avert) region that covers the most zip codes in the state. Users should take care to select the appropriate region.
 
-	Default Mapping:
+	Default Mapping (see **Warning** above):
 	- FL: Florida
 	- MS: Midwest
 	- NE: Midwest
@@ -238,39 +241,81 @@ When adding emissions inputs in the project properties, URBANopt will apply thes
     "emissions_annual_historical_year": "2019"
   }
 ```
-## Outputs
+# Natural Gas, Propane, and FuelOil #2 Emissions
 
-Emissions results are reported in URBANopt reports. For each feature, timeseries results are reported in the CSV report and aggregate values are reported in URBANopt JSON reports. Bellow are descriptions the emissions results variables.
+Emission factors for natural gas, propane, and fuel oil no. 2 are based on EPA eGRID data and calculated using a 20-year global warming potential (GWP) horizon based on ASHRAE 189.1 :
+	
+	Natural Gas :  277.358126 kg/MWh
+	Propane : 323.896704 Kg/MWh
+	Fuel Oil #2 : 294.962046 Kg/MWh
+
+These emission factors are then multiplied by the associated facility total energy use profile for the corresponding fuel type to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
+
+# Outputs
+
+Emissions results are reported in URBANopt reports. For each feature, time series results are reported in the CSV report and aggregate values are reported in URBANopt JSON reports. Below are descriptions for the emissions results variables. **Warning**: emissions associated with electricity may be included in the output reporting for multiple calculation approaches (e.g., future hourly and historical average); electricity emissions values from different calculation approaches should **NOT** be summed together.
 
 ### JSON reports results
 
 ```json
 "emissions": {
-  "future_annual_emissions_mt":
-   Future emissions in metric tons (mt) calculated based on an annual emissions factor value for the selected future year
-  "future_hourly_emissions_mt":  
-    Future emissions in metric tons (mt) calculated based on hourly emissions factor values for the selected future year
-  "historical_annual_emissions_mt": 
-    Historical emissions in metric tons (mt) calculated based on an annual emissions factor value for the selected historical year
-  "historical_hourly_emissions_mt":  
-    Historical emissions in metric tons (mt) calculated based on hourly emissions factor values for the selected historical year
-  "future_annual_emissions_intensity_kg_per_ft2": 
-    Future emissions intensity in kg/ft2 calculated based on an annual emissions factor value for the selected future year
-  "future_hourly_emissions_intensity_kg_per_ft2": 
-    Future emissions intensity in kg/ft2 calculated based on hourly emissions factor values for the selected future year
-  "historical_annual_emissions_intensity_kg_per_ft2": 
-    Historical emissions intensity in kg/ft2 calculated based on an annual emissions factor value for the selected historical year
-  "historical_hourly_emissions_intensity_kg_per_ft2":
-    Historical emissions intensity in kg.ft2 calculated based on hourly emissions factor values for the selected historical year
+	"future_annual_electricity_emissions_mt":
+	Future electricity emissions in metric tons (mt) calculated based on an annual emissions factor value for the selected future year
+
+	"future_hourly_electricity_emissions_mt":  
+	Future electricity emissions in metric tons (mt) calculated based on hourly emissions factor values for the selected future year
+
+	"historical_annual_electricity_emissions_mt": 
+	Historical electricity emissions in metric tons (mt) calculated based on an annual emissions factor value for the selected historical year
+
+	"historical_hourly_electricity_emissions_mt":  
+	Historical electricity emissions in metric tons (mt) calculated based on hourly emissions factor values for the selected historical year
+
+	"future_annual_electricity_emissions_intensity_kg_per_ft2": 
+	Future electricity emissions intensity in kg/ft2 calculated based on an annual emissions factor value for the selected future year
+
+	"future_hourly_electricity_emissions_intensity_kg_per_ft2": 
+	Future electricity emissions intensity in kg/ft2 calculated based on hourly emissions factor values for the selected future year
+
+	"historical_annual_electricity_emissions_intensity_kg_per_ft2": 
+	Historical electricity emissions intensity in kg/ft2 calculated based on an annual emissions factor value for the selected historical year
+
+	"historical_hourly_electricity_emissions_intensity_kg_per_ft2":
+	Historical electricity emissions intensity in kg/ft2 calculated based on hourly emissions factor values for the selected historical year
+
+	"natural_gas_emissions_mt": 
+	Natural Gas emissions in metric tonnes (mt) were calculated by multiplying the facility's natural gas energy use (MWh) by the natural gas emission factor (277.4 kg/MWh) and converted to metric tonnes (mt)
+
+	"natural_gas_emissions_intensity_kg_per_ft2":
+	Natural Gas emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
+	
+	"propane_emissions_mt":
+	Propane emissions in mt were calculated by multiplying the facility propane energy use (MWh) by the natural gas emission factor (323.9 kg/MWh) and converted to metric ton (mt)
+
+	"propane_emissions_intensity_kg_per_ft2": 
+	Propane emissions intensity in kg/ft2 calculated by dividing the natural gas emissions (kg) for a building by its floor area(ft2)
+
+	"fueloil_no2_emissions_mt": 
+	FuelOilNo2 emissions in mt were calculated by multiplying the facility FuelOilNo2 energy use (MWh) by the FuelOilNo2 emission factor (294.96 kg/MWh) and converted to metric ton (mt)
+	
+	"fueloil_no2_emissions_intensity_kg_per_ft2": 
+	FuelOilNo2 emissions intensity in kg/ft2 calculated by dividing the FuelOilNo2 emissions (kg) for a building by its floor area(ft2)
 }
+					
 ```
 ### Timeseries CSV results
 
-- Future_Annual_Emissions_Var (mt)
-- Future_Hourly_Emissions_Var (mt)
-- Historical_Annual_Emissions_Var (mt)
-- Historical_Hourly_Emissions_Var (mt)
-- Future_Annual_Emissions_Intensity_Var (kg/sqft)
-- Future_Hourly_Emissions_Intensity_Var (kg/sqft)
-- Historical_Annual_Emissions_Intensity_Var (kg/sqft)
-- Historical_Hourly_Emissions_Intensity_Var (kg/sqft)
+- Future_Annual_Electricity_Emissions (mt)
+- Future_Hourly_Electricity_Emissions (mt)
+- Historical_Annual_Electricity_Emissions (mt)
+- Historical_Hourly_Electricity_Emissions (mt)
+- Natural_Gas_Emissions (mt)
+- Propane_Emissions (mt)
+- FuelOilNo2_Emissions (mt)
+- Future_Annual_Electricity_Emissions_Intensity (kg/sqft)
+- Future_Hourly_Electricity_Emissions_Intensity (kg/sqft)
+- Historical_Annual_Electricity_Emissions_Intensity (kg/sqft)
+- Historical_Hourly_Electricity_Emissions_Intensity (kg/sqft)
+- Natural_Gas_Emissions_Intensity (kg/sqft)
+- Propane_Emissions_Intensity (kg/sqft)
+- FuelOilNo2_Emissions_Intensity (kg/sqft)
