@@ -25,9 +25,7 @@ nav_order: 3
 	```bash
 	Errno::ENOENT: No such file or directory @ rb_sysopen –
 	```
-
-This will occur in the `uo run` command during installation of either the openstudio-standards gem or another openstudio gem.  This error occurs because the filepath to your project directory is too long.  Move the directory to a shallower path on your system and try again.
-
+	This will occur in the `uo run` command during installation of either the openstudio-standards gem or another openstudio gem.  This error occurs because the filepath to your project directory is too long.  Move the directory to a shallower path on your system and try again.
 
 1. **OSAF** Starting with OpenStudio version 3.3.0, major biannual releases of OpenStudio SDK / OpenStudio Analysis Framework (OSAF) will *not* include the URBANopt SDK due to dependency conflicts. URBANopt SDK will be released following the OpenStudio release, and then a patch release of the OSAF will be made that includes the URBANopt dependency.  Visit the [Release Instructions](release_instructions.md#openstudio---urbanopt-release-process) page for more details.
 
