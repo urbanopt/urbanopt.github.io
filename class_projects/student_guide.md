@@ -24,8 +24,8 @@ has_toc: true
 
 ### Student Activities:
 
-- Activity 0
-- Activity 1
-- Activity 2
-- Activity 3
-- Activity 4
+- Activity 0 - [Installation and Basic Concepts](./activities/activity_0.pdf)
+- Activity 1 - [Temporal Demand Diversity](./activities/activity_1.pdf)
+- Activity 2 - [Energy Efficiency Measures](./activities/activity_2.pdf)
+- Activity 3 - [Distributed Energy Resources](./activities/activity_3.pdf)
+- Activity 4 - [Demand Flexibility Measures](./activities/activity_4.pdf)
