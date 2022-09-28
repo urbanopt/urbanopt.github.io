@@ -30,7 +30,7 @@ Students will use REopt to optimize the size and the operation of chosen DERs an
 
 Students will experiment with active control measures to further optimize the energy use in the community by shifting loads.
 
-### Timeline:
+### Suggested Timeline:
 
 *Week 1*: Student Activity #0 Installation and Basics
 
@@ -44,7 +44,7 @@ Students will experiment with active control measures to further optimize the en
 
 ### Description of Project:
 
-This class project was created for the purpose of educating students on the concepts of district-scale energy modeling using the URBANopt™ and REopt™ software tools. The project is based on a hypothetical community consisting of 23 buildings of varying types of both commercial and residential buildings. The design of this hypothetical class project has no relation to the designs and site requirements of any actual development project.
+This class project was created for the purpose of educating students on the concepts of district-scale energy modeling using the URBANopt™ and REopt™ software tools. The project is based on a hypothetical community consisting of 23 buildings of varying types of both commercial and residential buildings. The design of this hypothetical class project has no relation to the designs and site requirements of any actual specific development project.
 
 ![example project](../doc_files/example_project.jpg)
 

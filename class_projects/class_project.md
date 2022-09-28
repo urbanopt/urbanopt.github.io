@@ -16,9 +16,9 @@ The project will introduce students to the objectives, tools, and methodologies 
 
 UBEM is a complex process and cannot be satisfactorily performed “at the last minute.” Furthermore, the tools used within the URBANopt platform are energy research programs and software development kits (SDKs) that are powerful under-the-hood, but do not have polished user-interfaces to which most students will be accustomed. Therefore, the sequence of activities for the project is designed to get students through the software “learning curve” while simultaneously teaching key concepts related to urban-scale energy analysis.
 
-The class project is divided into four activities each with various tasks. Activity 0 introduces students to key concepts related to UBEM and ensures that they have access to the necessary software tools. Activity 1 is both a tutorial on using the URBANopt SDK and an introduction to the concept of demand diversity. Activity 2 takes students through a simplified preliminary design process in which they will propose and evaluate various energy efficiency measures to achieve an energy objective. Activity 3 teaches students how to design distributed energy resources (DERs) using REopt™ integration in URBANopt to decrease the reliance on grid energy. Students will also learn the difference between individual building and community design optimization of DERs. Through Activity 4 students understand the concept of load flexibility and will experiment with active control measures to further optimize the energy use in the community by shifting loads.
+The class project is divided into four primary activities each with various tasks. Activity 0 introduces students to key concepts related to UBEM and ensures that they have access to the necessary software tools. Activity 1 is both a tutorial on using the URBANopt™ SDK and an introduction to the concept of demand diversity. Activity 2 takes students through a simplified preliminary design process in which they will propose and evaluate various energy efficiency measures to achieve an energy objective. Activity 3 teaches students how to design distributed energy resources (DERs) using REopt™ integration in URBANopt. Students will also learn the difference between individual building and community design optimization of DERs. Through Activity 4 students understand the concept of load flexibility and will experiment with active control measures to further optimize the energy use in the community by shifting loads.
 
-The class project will include three main documentation components: 1) a general overview of the class project that includes: objectives, timeline, project description and measures library description, 2) a student guide that details all the activities and tasks for the students and the timeline, and 3) an answer key for the instructors only. Instructors interested in utilizing the class project described below should contact [Rawad El Kontar](mailto:rawad.elkontar@nrel.gov) of the URBANopt development team for instructor materials (including example answer key) for the class project and related questions.
+The class project includes three main documentation components: 1) a general overview of the class project that covers: objectives, timeline, project description and measures library description, 2) a student guide that details all the activities and tasks for the students and the timeline, and 3) an answer key for the instructors only. Instructors interested in utilizing the class project described below should contact [Rawad El Kontar](mailto:rawad.elkontar@nrel.gov) of the URBANopt development team for instructor materials (including example answer key) for the class project and related questions.
 
 ### Student Learning Objectives:
 
@@ -30,11 +30,9 @@ After the completion of this project, students will be able to:
 
 3. Evaluate appropriate load flexibility and energy efficiency measures and DERs to achieve grid-interactive efficient building objectives in the community or district context.
 
-### Student Prerequisites:
+### Suggested Student Prerequisites:
 
 Students will be best prepared to achieve the project learning objectives if they have the following prior knowledge:
-
-- An undergraduate education in architectural or mechanical engineering with a command of thermodynamics, fluid mechanics, heat transfer, and building energy systems
 
 - Experience with building energy modeling
 
@@ -44,7 +42,7 @@ Students will be best prepared to achieve the project learning objectives if the
 
 - Basic familiarity using the command-line interface (note: guidance is provided on this throughout the documentation)
 
-### Computing Prerequisites:
+### Suggested Computing Prerequisites:
 
 - Access to a computer over which they have administrator privileges to install the URBANopt software development kit (SDK) and command-line interface (CLI). 
 
