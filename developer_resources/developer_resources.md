@@ -62,7 +62,7 @@ For local development, you will want to set the environment variable *FAVOR_LOCA
 
 There are 2 Gemfiles of interest:
 
-1. When testing a new measure that will run in the OpenStudio workflow OSW file, enable the gem that contains the measure in the Gemfile of the project you are testing by uncommenting the appropriate block of code. You may have to modify the path or branch referenced to match what you are testing.
+1. When testing a new measure that will run in the OpenStudio workflow OSW file, enable the gem that contains the measure in the Gemfile of the project you are testing by uncommenting the appropriate block of code. You may have to modify the path or branch referenced to match what you are testing. If you are adding a new OpenStudio measure gem, you will also need to (temporarily) add it to the CLI gemfile until you have released the measure gem on rubygems.org.  Follow the instructions below to install the CLI in development mode once you have the gem added to the CLI Gemfile.
 
 1. When testing new functionality in the URBANOPT workflow (a new scenario post-processor, for example), enable the gem in the Gemfile of the URBANopt-cli local directory by uncommenting the appropriate block of code. You may have to modify the path or branch referenced to match what you are testing.
 
