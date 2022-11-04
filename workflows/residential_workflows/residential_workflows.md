@@ -40,7 +40,7 @@ Argument values found in these lookup files span across the following categories
 
 See the [Customizable Template](#customizable-template) section below for more information on controlling how these assumptions are made.
 
-A translator measure is then applied to each HPXML file to constuct an OpenStudio<sup>&copy;</sup> building model.
+A translator measure is then applied to each HPXML file to construct an OpenStudio<sup>&copy;</sup> building model.
 
 ## Supported Building Types
 
