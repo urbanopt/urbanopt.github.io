@@ -5,7 +5,7 @@ parent: Resources
 nav_order: 2
 ---
 
-The URBANopt<sup>&trade;</sup> SDK consists of four main modules at its core: `urbanopt-core-gem`, `urbanopt-scenario-gem`, `urbanopt-reporting-gem`, and`urbanopt-geojson-gem`, as well as four connector modules to enable additional capabilities: `urbanopt-reopt-gem` to access the REopt API, `urbanopt-ditto-reader` and its associated command line interface (CLI) `ditto cli` to access the OpenDSS workflow, `urbanopt-rnm-us-gem` and its associated API to access the RNM-US functionality, and finally `geojson-modelica-translator` and its associated CLI `des cli` to enable the District Energy Systems functionality. 
+The URBANopt<sup>&trade;</sup> SDK consists of four main modules at its core: `urbanopt-core-gem`, `urbanopt-scenario-gem`, `urbanopt-reporting-gem`, and`urbanopt-geojson-gem`, as well as four connector modules to enable additional capabilities: `urbanopt-reopt-gem` to access the REopt API, `urbanopt-ditto-reader` and its associated command line interface (CLI) `ditto cli` to access the OpenDSS workflow, `urbanopt-rnm-us-gem` and its associated API to access the RNM-US functionality, and finally `geojson-modelica-translator` and its associated CLI `des cli` to enable the District Energy Systems functionality.
 
 ![URBANopt EcoSystem](../doc_files/urbanopt-diagrams_structure-more-detail.png)
 

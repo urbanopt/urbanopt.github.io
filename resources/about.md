@@ -10,7 +10,7 @@ nav_order: 5
 
 The URBANopt project is focused on enabling three primary use cases:
 
-- Design of low energy campuses and districts through multi-building efficiency scenario analysis 
+- Design of low energy campuses and districts through multi-building efficiency scenario analysis
 - Design and optimization of grid-interactive efficient buildings (GEBs) at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems
 - Detailed design of next-generation district thermal systems
 
@@ -23,7 +23,7 @@ Visit the following links for more details on the URBANopt project:
 
 ## Project Team
 
-### SDK Team 
+### SDK Team
 
 - Tanushree Charan
 - Tim Coleman
@@ -50,7 +50,7 @@ Visit the following links for more details on the URBANopt project:
 - Karl Heine
 - Zahra Fallahi
 
-### District Energy Systems 
+### District Energy Systems
 
 - Nicholas Long, NREL
 - Kyle Benne, NREL

@@ -20,18 +20,18 @@ To include additional **REopt API** responses to your Feature and Scenario Repor
     $ git clone https://github.com/urbanopt/urbanopt-reporting-gem
     ```
 
-1.  Later we'll need to also update the [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem) 
+1.  Later we'll need to also update the [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem)
     to parse these additional attributes from the **REopt API** response, so clone this now in the same directory as the **URBANopt Scenario Gem** repository with:
 
     ```bash
     $ git clone https://github.com/urbanopt/urbanopt-reopt-gem
     ```
 
-1.  Let's first update the **URBANopt Reporting Gem**. The `distributed_generation` schema used by Feature and 
-    Scenario Reports is defined in this repository and needs to handle new attibutes. 
+1.  Let's first update the **URBANopt Reporting Gem**. The `distributed_generation` schema used by Feature and
+    Scenario Reports is defined in this repository and needs to handle new attibutes.
 
 
-    We'll add `lcc_us_dollars` here as an example. 
+    We'll add `lcc_us_dollars` here as an example.
 
     First, open `urbanopt-reporting-gem/lib/urbanopt/reporting/default_reports/distributed_generation.rb`
 
@@ -58,14 +58,14 @@ To include additional **REopt API** responses to your Feature and Scenario Repor
     ```
 
 
-    Also, within the `to_hash` function, make sure the attribute will be exported when the report is saved: 
-    ```ruby    
+    Also, within the `to_hash` function, make sure the attribute will be exported when the report is saved:
+    ```ruby
             def to_hash
               result = {}
               result[:lcc_us_dollars] = @lcc_us_dollars if @lcc_us_dollars
-    ```    
-    
-    Finally, within the `merge_distributed_generation` function, make sure the attribute will be added when two reports are combined: 
+    ```
+
+    Finally, within the `merge_distributed_generation` function, make sure the attribute will be added when two reports are combined:
     ```ruby
             def self.merge_distributed_generation(existing_dgen, new_dgen)
                existing_dgen.lcc_us_dollars = add_values(existing_dgen.lcc_us_dollars, new_dgen.lcc_us_dollars)
@@ -73,16 +73,16 @@ To include additional **REopt API** responses to your Feature and Scenario Repor
 
     You're now all set updating the `distributed_generation` schema.
 
-1.  Let's next update **URBANopt REopt Gem** to load lifecycle costs from the **REopt API** responses into the 
+1.  Let's next update **URBANopt REopt Gem** to load lifecycle costs from the **REopt API** responses into the
     Feature and Scenario Report `distributed_generation` schema's `lcc_us_dollars` attribute.
-  
+
     First, in `urbanopt-reopt-gem/Gemfile` make sure that the `urbanopt-reporting` gem is loaded as follows:
-    
+
     ```terminal
         gem 'urbanopt-reporting', path: '../urbanopt-reporting-gem'
     ```
 
-    This will ensure that the `urbanopt-sceanrio` gem that the `urbanopt-reopt` gem uses includes the schema we just modified. 
+    This will ensure that the `urbanopt-sceanrio` gem that the `urbanopt-reopt` gem uses includes the schema we just modified.
 
     _Note:_ You can alternatively specify a gem from a branch on github as follows:
 
@@ -91,7 +91,7 @@ To include additional **REopt API** responses to your Feature and Scenario Repor
     ```
 
     Next, in `urbanopt-reopt-gem/lib/reopt/feature_report_adapter.rb` in the `update_feature_report` function, parse the **REopt API** response:
-     
+
      ```ruby
         # Update distributed generation sizing and financials
         feature_report.distributed_generation.lcc_us_dollars = reopt_output['outputs']['Scenario']['Site']['Financial']['lcc_us_dollars'] || 0
@@ -113,5 +113,5 @@ To include additional **REopt API** responses to your Feature and Scenario Repor
     $ bundle update
     ```
 
-1.  Now, when you reference this modified `urbanopt-reopt` implementation you can access the lifecycle costs from 
-    `feature_report.distributed_generation.lcc_us_dollars` or `scenario_report.distributed_generation.lcc_us_dollars`. The lifecycle costs will also be included when a Feature or Scenario Report is saved. 
+1.  Now, when you reference this modified `urbanopt-reopt` implementation you can access the lifecycle costs from
+    `feature_report.distributed_generation.lcc_us_dollars` or `scenario_report.distributed_generation.lcc_us_dollars`. The lifecycle costs will also be included when a Feature or Scenario Report is saved.

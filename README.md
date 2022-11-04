@@ -14,4 +14,4 @@ To serve the documentation pages locally:
 
 ## Deployment
 
-The website will automatically deploy when code is pushed to the master branch.
+The website will automatically deploy when code is pushed to the main branch.

@@ -11,11 +11,11 @@ nav_order: 6
 
 Charan, T., Mackey, C., Irani, A., Polly, B., Ray, S., Fleming, K., El Kontar, R., Moore, N., Elgindy, T., Cutler, D., Roudsari, M. S., & Goldwasser, D. (2021). [Integration of Open-Source URBANopt and Dragonfly Energy Modeling Capabilities into Practitioner Workflows for District-Scale Planning and Design](https://doi.org/10.3390/en14185931).
 
-De Rosa, L., Domingo, C. M., Gómez, T., Roman, S., Kontar, R. El, Polly, B., Fleming, K., & Elgindy, T. (2021). [Integrated models for electrical distribution network planning and district-scale building energy use](https://doi.org/10.1109/PowerTech46648.2021.9494767). IEEE Madrid PowerTech. 
+De Rosa, L., Domingo, C. M., Gómez, T., Roman, S., Kontar, R. El, Polly, B., Fleming, K., & Elgindy, T. (2021). [Integrated models for electrical distribution network planning and district-scale building energy use](https://doi.org/10.1109/PowerTech46648.2021.9494767). IEEE Madrid PowerTech.
 
 Hinkelman, Kathryn, Jing Wang, Wangda Zuo, Antoine Gautier, Michael Wetter, Chengliang Fan, and Nicholas Long. (2021). [Modelica-Based Modeling and Simulation of District Cooling Systems: A Case Study](https://www.sciencedirect.com/science/article/pii/S0306261922001210). Applied Energy.
 
-Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). [URBANopt District Energy Systems HVAC Measures. National Renewable Energy Laboratory](https://doi.org/10.11578/dc.20210127.1). 
+Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). [URBANopt District Energy Systems HVAC Measures. National Renewable Energy Laboratory](https://doi.org/10.11578/dc.20210127.1).
 
 Long, Nicholas, Antoine Gautier, Hagar Elarga, Amy Allen, Ted Summer, Lauren Klun, Nathan Moore, and Michael Wetter. (2021). [Modeling District Heating and Cooling Systems with URBANopt, GeoJSON to Modelica Translator, and the Modelica Buildings Library](../doc_files/modeling_des_paper.pdf). In Building Simulation 2021. Bruges, Brussels.
 
@@ -32,7 +32,7 @@ Shanti Pless, Ben Polly, Sammy Houssainy, Paul Torcellini, William Livingood, Sa
 
 Polly, Benjamin J. (2018). "Zero Energy Districts". United States. IMPACT Conference, St. Paul, Minnesota. [Presentation](https://www.osti.gov/servlets/purl/1436854).
 
-Polly, B., Kutscher, C., Macumber, D., & Schott, M. 2016. [From Zero Energy Buildings to Zero Energy Districts](https://www.researchgate.net/publication/307955877_From_Zero_Energy_Buildings_to_Zero_Energy_Districts). (2016) ACEEE Summer Study on Energy Efficiency in Buildings, August, 1–16. 
+Polly, B., Kutscher, C., Macumber, D., & Schott, M. 2016. [From Zero Energy Buildings to Zero Energy Districts](https://www.researchgate.net/publication/307955877_From_Zero_Energy_Buildings_to_Zero_Energy_Districts). (2016) ACEEE Summer Study on Energy Efficiency in Buildings, August, 1–16.
 
 Macumber, D., Gruchalla, K., Brunhart-lupo, N., Gleason, M., Robertson, J., Polly, B., Fleming, K., & Schott, M. (2016). [City Scale Modelling with OpenStudio](../doc_files/city_scale_modeling_paper.pdf). ASHRAE and IBPSA-USA SimBuild 2016 Building Performance Modeling Conference, September, 133–140.
 

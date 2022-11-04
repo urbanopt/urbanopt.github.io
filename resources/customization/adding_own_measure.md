@@ -8,7 +8,7 @@ nav_order: 3
 
 Additional measures can be added to the [base workflow OSW](base_workflow.md) file as follows:
 
-* Add the measure directory along with the measure arguments to the base workflow OSW. For example, 
+* Add the measure directory along with the measure arguments to the base workflow OSW. For example,
 
 	```terminal
     {
@@ -37,16 +37,16 @@ Additional measures can be added to the [base workflow OSW](base_workflow.md) fi
    is needed.
 
    ![uo_architecture_example](../../doc_files/urbanopt-diagrams_gems-to-cli.png)
-   
+
 URBANopt software architecture
 
 *  When the measure resides in a gem other than the URBANopt core gems, the gem must be included
    in the project
-   [Gemfile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/example_project/Gemfile). 
+   [Gemfile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/example_project/Gemfile).
    Note that you may need to delete the Gemfile.lock file and .bundle directory from your project folder in order to regenerate the bundle to include the new gem.
 
-*  If the measure is new, or just not in a gem, add the following line (which specifies the file path of the new measure) to the Mapper Class: 
- 
+*  If the measure is new, or just not in a gem, add the following line (which specifies the file path of the new measure) to the Mapper Class:
+
 
     ```terminal
     osw[:measure_paths] << File.join(File.dirname(__FILE__), '../new_measure_folder/')
@@ -56,7 +56,7 @@ URBANopt software architecture
 
 *  It may be necessary to modify default measure arguments by mapping specific Feature properties from the [FeatureFile](https://github.com/urbanopt/urbanopt-example-geojson-project/blob/develop/example_project/example_project.json) to the arguments in the Simulation Mapper Class.
 
-   For example, the `urban_geometry_creation` measure in the base workflow OSW: 
+   For example, the `urban_geometry_creation` measure in the base workflow OSW:
 
    ```terminal
      {
@@ -73,7 +73,7 @@ URBANopt software architecture
 
    The *`OpenStudio::Extension.set_measure_argument`* method is added in the Simulation Mapper Class
    to sets the Feature property  `feature_id` from the FeatureFile and map it to the `'feature_id'` argument in
-   the measure as follows: 
+   the measure as follows:
 
    ```terminal
    OpenStudio::Extension.set_measure_argument(osw, 'urban_geometry_creation', 'feature_id', feature_id)
