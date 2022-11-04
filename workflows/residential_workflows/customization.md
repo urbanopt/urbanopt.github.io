@@ -44,4 +44,4 @@ lookup files are:
 This customized template is assigned to the low-rise residential building features in the [alternate
 combined example project feature file](https://github.com/urbanopt/urbanopt-cli/blob/e7d29764eb9ae837078f92a488adb783a3e52616/example_files/example_project_combined.json). It is to be noted, that these values are meant to be representative
 to illustrate how templates can be used to customize
-the workflow for different communities and are not based on an actual community or formal study. Users should ensure that specific assumptions in their templates are accurate for the homes/communities they are modeling. 
+the workflow for different communities and are not based on an actual community or formal study. Users should ensure that specific assumptions in their templates are accurate for the homes/communities they are modeling.

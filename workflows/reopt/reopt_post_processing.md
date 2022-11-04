@@ -37,7 +37,7 @@ The **REopt** time series resolution is controlled by the **Scenario** `time_ste
 
 ### Mapping REopt Assumption Files to Features
 
-In your Scenario File enabled for **REopt** you will see a `REopt Assumptions` column. Before post-processing ensure that each feature has the appropriate assumtions file specified in this CSV file.
+In your Scenario File enabled for **REopt** you will see a `REopt Assumptions` column. Before post-processing ensure that each feature has the appropriate assumptions file specified in this CSV file.
 
 The following figure represents how Simulation Mapper Classes can be assigned to different Features from the FeatureFile in the Scenario CSV.
 

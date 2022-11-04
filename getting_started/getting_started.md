@@ -163,7 +163,7 @@ nav_order: 1
     <div class="show">
     <p>The default process to create a Scenario CSV File for each mapper assigns the same mapper to all Features in the FeatureFile.  If you wish to customize the scenario so that features are mapped to different mappers, the best course of action is to first generate the basic Scenario CSV Files for each mapper and then edit them to assign the various mappers.</p>
     <p>The following figure represents how Simulation Mapper Classes can be assigned to different Features from the FeatureFile in the Scenario CSV.</p>
-    <img src="../doc_files/scenario_mapper.jpg" alt="diagram showing assigment of different mapper classes to different features">
+    <img src="../doc_files/scenario_mapper.jpg" alt="diagram showing assignment of different mapper classes to different features">
     </div>
   </li>
   <li class="acc"><input id="accordion11" type="checkbox" /><label for="accordion11">Customize the mappers</label>
@@ -367,7 +367,7 @@ nav_order: 1
       <p>Once a scenario has been run and processed as explained in the sections above, an RNM simulation can then be run using the output from the URBANopt SDK.</p>
       <p>To run the RNM workflow, use the following command:</p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo rnm --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
-      <p>The result files <code><span class="code-text">scenario_report_rnm.json</span></code> and <code><span class="code-text">feature_file_rnm.json</span></code> can be found in the scenario directory.  Additonal RNM outputs are in the <code><span class="code-text">rnm-us/results</span></code> directory.</p>
+      <p>The result files <code><span class="code-text">scenario_report_rnm.json</span></code> and <code><span class="code-text">feature_file_rnm.json</span></code> can be found in the scenario directory.  Additional RNM outputs are in the <code><span class="code-text">rnm-us/results</span></code> directory.</p>
       <p>Additional options that can be used with the <code><span class="code-text">rnm</span></code> command are:</p>
       <ul class="t">
       <li class="t"><code><span class="code-text">--reopt</span></code>: Use this option to use REopt results in the RNM analysis. In order to do so, the scenario must first be post-processed with the REopt feature optimization option (`--reopt-feature`)</li>

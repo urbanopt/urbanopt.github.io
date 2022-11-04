@@ -51,7 +51,7 @@ The building loads can be defined multiple ways depending on the fidelity of the
 
 ## Architecture Overview
 
-The GMT is designed to enable "easy" swapping of building loads, district systems, and newtork topologies. Some
+The GMT is designed to enable "easy" swapping of building loads, district systems, and network topologies. Some
 of these functionalities are more developed than others, for instance swapping building loads between Spawn and
 RC models (using TEASER) is fleshed out; however, swapping between a first and fifth generation heating system has yet to be fully implemented.
 
@@ -70,11 +70,11 @@ Data-Driven Model (DDM), CSV, Spawn, etc.
 
 ### Simulation Mapper Class / Translator
 
-The Simulation Mapper Class can operate at mulitple levels:
+The Simulation Mapper Class can operate at multiple levels:
 
 1. The GeoJSON level -- input: geojson, output: geojson+
 2. The Load Model Connection -- input: geojson+, output: multiple files related to building load models (spawn, rom, csv)
-3. The Translation to Modelica -- input: custom format, output: .mo (example inputs: geojson+, system design parameters). The translators are implicit to the load model connectors as each load model requires different paramters to calculate the loads.
+3. The Translation to Modelica -- input: custom format, output: .mo (example inputs: geojson+, system design parameters). The translators are implicit to the load model connectors as each load model requires different parameters to calculate the loads.
 
 In some cases, the Level 3 case (translation to Modelica) is a blackbox method (e.g. TEASER) which prevents a
 simulation mapper class from existing at that level.
