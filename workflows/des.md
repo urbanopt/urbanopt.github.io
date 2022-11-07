@@ -107,6 +107,8 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 ## Publications and References
 
+- Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nrel.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
+
 - Hinkelman, Kathryn, Jing Wang, Wangda Zuo, Antoine Gautier, Michael Wetter, Chengliang Fan, and Nicholas Long. (2021). [Modelica-Based Modeling and Simulation of District Cooling Systems: A Case Study](https://www.sciencedirect.com/science/article/pii/S0306261922001210). Applied Energy.
 
 - Long, N., Gautier, A., Elarga, H., Allen, A., Summer, T., Klun, L., Moore, N., Wetter, M.,. (2021). [Modeling District Heating and Cooling Systems with URBANopt, GeoJSON to Modelica Translator, and the Modelica Buildings Library](../doc_files/modeling_des_paper.pdf). In Building Simulation 2021. Bruges, Brussels.

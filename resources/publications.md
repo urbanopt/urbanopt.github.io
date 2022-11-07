@@ -7,6 +7,12 @@ nav_order: 6
 
 ## Publications and Presentations
 
+### 2022
+
+- Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nrel.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
+
+- Zahra Fallahi, P., Houssainy, S., Ling, J., Leach, M., Klun, L., Slovensky, M. (2022). [Designing for Zero Energy and Zero Carbon on a Multi-Building Scale using URBANopt](https://www.nrel.gov/docs/fy22osti/83457.pdf). ACEEE Summer Study on Energy Efficiency in Buildings. 
+
 ### 2021
 
 Charan, T., Mackey, C., Irani, A., Polly, B., Ray, S., Fleming, K., El Kontar, R., Moore, N., Elgindy, T., Cutler, D., Roudsari, M. S., & Goldwasser, D. (2021). [Integration of Open-Source URBANopt and Dragonfly Energy Modeling Capabilities into Practitioner Workflows for District-Scale Planning and Design](https://doi.org/10.3390/en14185931).
