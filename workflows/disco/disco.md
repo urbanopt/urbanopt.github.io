@@ -41,7 +41,7 @@ An overview of the URBANopt-DISCO workflow is shown below:
 ![ditto-flowchart](../../doc_files/workflow-disco.png)
 
 ## DISCO Installation
-
+Visit the [DISCO Installation page](../../installation/disco.md) to install DISCO.
 ## Usage
 
 The DISCO workflow is available via the `disco` URBANopt CLI command.
@@ -167,15 +167,20 @@ project.
 	```
 
 	The DISCO results are summarized under `scenario_power_distribution_cost` key in the
-	`scenario_report_disco.json` file in the scenario results folder. The DISCO results reported are: 
+	*scenario_report_disco.json* file in the scenario results folder. The DISCO results reported are: 
 
-	`num_violations`: [TODO add description]\
-	`total_cost_usd`: [TODO add description]
+	**results**\
+		- `num_violations`: [TODO add description]\
+		- `total_cost_usd`: [TODO add description]
 
+	**outputs**
 	
+	**violation_summary**
+
+	**costs_per_equipment**
 	
 
-	A DISCO folder containing detailed results is also created within the outputs folder for
+	A *DISCO folder* containing detailed results is also created within the outputs folder for
 	the scenario and contains the following:
 
 	 `job_outputs`: [TODO add description]\
