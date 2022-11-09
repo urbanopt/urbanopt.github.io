@@ -7,7 +7,7 @@ nav_order: 5
 
 # RNM Analysis
 
-RNM (Reference Network Model) is an electrical distribution system planning tool. The US-compatible version of RNM, RNM-US, can be used to design a cost-effective synthetic distribution system to serve consumers in a district, considering the connection of distributed energy resources (DERs). 
+RNM (Reference Network Model) is an electrical distribution system planning tool. The US-compatible version of RNM, RNM-US, can be used to design a cost-effective synthetic distribution system to serve consumers in a district, considering the connection of distributed energy resources (DERs).
 
 ## Usage
 
@@ -28,7 +28,7 @@ An example:
 	```bash
 	uo run --feature <path/to/streets/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
 	```
-1. Post-process using the default post-processor to generate the feature_reports used by the RNM workflow. 
+1. Post-process using the default post-processor to generate the feature_reports used by the RNM workflow.
 
 	```bash
 	uo process --default --feature <path/to/streets/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
@@ -89,7 +89,7 @@ A figure showing the workflow of the URBANopt RNM-US Gem is presented below, hig
 
 ### Input Files to the URBANopt RNM-US Gem
 
-In order to generate the RNM-US input files, an URBANopt scenario must be setup, run, and post-processed. In cases where DER integration is considered, the scenario would also need to be post-processed with REopt feature optimization to obtain the hourly energy consumption/generation of each building. 
+In order to generate the RNM-US input files, an URBANopt scenario must be setup, run, and post-processed. In cases where DER integration is considered, the scenario would also need to be post-processed with REopt feature optimization to obtain the hourly energy consumption/generation of each building.
 
 As mentioned above, the RNM-US workflow needs as inputs **street map information** of the district where the distribution network is to be designed, **buildings energy consumptions and generations** in the temporal window considered by the URBANopt simulations, and the **extended catalog**.
 
@@ -132,7 +132,7 @@ The consumers/generators files, consist of 10 input text files, which are genera
 
 - **Gen_profile_p_extendido.txt (gen_profile_q_extendido.txt)** including the active (reactive) power profiles of each generator, for all the hours of the year, enabling operational analysis with the generator profiles and the network generated
 
-Lastly, the **`electric_catalog`** file is generated from the “extended_catalog.json” provided in the Gem. This generated file includes all the electric components that can be selected by the RNM-US tool when planning the network. 
+Lastly, the **`electric_catalog`** file is generated from the “extended_catalog.json” provided in the Gem. This generated file includes all the electric components that can be selected by the RNM-US tool when planning the network.
 
 ### RNM-US Outputs Files
 

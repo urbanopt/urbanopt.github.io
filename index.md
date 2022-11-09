@@ -21,7 +21,7 @@ URBANopt<sup>&trade;</sup> (Urban Renewable Building And Neighborhood optimizati
 
 The URBANopt project is focused on enabling three primary use cases:
 
-1. Design of low energy campuses and districts through multi-building efficiency scenario analysis 
+1. Design of low energy campuses and districts through multi-building efficiency scenario analysis
 2.  Design and optimization of grid-interactive efficient buildings (GEBs) at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems
 3. Detailed design of next-generation district thermal systems
 

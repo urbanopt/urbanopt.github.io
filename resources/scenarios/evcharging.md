@@ -77,7 +77,7 @@ building types.
 
 **Typical Public** : Representing URBANopt building types such as Retail, Shopping Mall, Food Services etc.
 
- 
+
 ### EV percent
 
 Denotes percentage of vehicles between 0 to 100 that are electric on site. The measure currently

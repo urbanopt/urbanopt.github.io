@@ -14,14 +14,14 @@ has_toc: false
 	1. **Enhancement** (these will appear as “Improved" in the changelog)
 	1. **Bug** (these will appear as “Fixed” in the changelog)
 
-1. Branch off of the `develop` branch (unless it is a hotfix for production) 
-1. When done, create pull requests against the `develop` branch. You can group related issues together in the same PR).  
+1. Branch off of the `develop` branch (unless it is a hotfix for production)
+1. When done, create pull requests against the `develop` branch. You can group related issues together in the same PR).
 	1. Make sure all tests are passing and run rubocop
 	1. Assign a reviewer to look over the code
 	1. Use the “DO NOT MERGE” label for Pull Requests that should not be merged
 
 ## Functionality Development / Copying over to the CLI
-Functionality should be developed in the urbanopt-example-geojson-project repo. once it is ready and passing tests, the files from urbanopt-example-geojson-project will be copied over to the urbanopt-cli repo. Take care when performing the copy process as it is possible some changes were made directly on the cli repo (i.e., you might have to diff the files and reconcile both repos with the latest changes). 
+Functionality should be developed in the urbanopt-example-geojson-project repo. once it is ready and passing tests, the files from urbanopt-example-geojson-project will be copied over to the urbanopt-cli repo. Take care when performing the copy process as it is possible some changes were made directly on the cli repo (i.e., you might have to diff the files and reconcile both repos with the latest changes).
 
 Notes for the copy process (from example-project repo to cli repo):
 1. Copy example_project/resources folder to example_files/resources
@@ -56,9 +56,9 @@ Rdoc options are controlled with this [config file](https://github.com/urbanopt/
 
 ## Developing with the CLI
 
-When developing locally on URBANopt<sup>&trade;</sup> core gems and testing new functionality and dependencies via the CLI, it may be necessary to install local versions of core gems.  
+When developing locally on URBANopt<sup>&trade;</sup> core gems and testing new functionality and dependencies via the CLI, it may be necessary to install local versions of core gems.
 
-For local development, you will want to set the environment variable *FAVOR_LOCAL_GEMS* to 1. This enables local copies of gems in the Gemfile.  Note that setting *FAVOR_LOCAL_GEMS* to 0 will not undo local gems functionality: you will have to either remove the *FAVOR_LOCAL_GEMS* environment variable, set it to *nil* or *false* (not 0), and open a new terminal window to turn it off.  
+For local development, you will want to set the environment variable *FAVOR_LOCAL_GEMS* to 1. This enables local copies of gems in the Gemfile.  Note that setting *FAVOR_LOCAL_GEMS* to 0 will not undo local gems functionality: you will have to either remove the *FAVOR_LOCAL_GEMS* environment variable, set it to *nil* or *false* (not 0), and open a new terminal window to turn it off.
 
 There are 2 Gemfiles of interest:
 
@@ -74,6 +74,5 @@ Follow these steps when testing local gems via the CLI:
 
 ## Example Project Development
 
-1. Develop new functionality in the example project directory.  
+1. Develop new functionality in the example project directory.
 1. When the functionality is ready and all tests are passing, update the example project files in the urbanopt-cli repo.
-

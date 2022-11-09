@@ -11,7 +11,7 @@ As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) 
 
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
-We also have [tutorial videos](../resources/tutorials/tutorials.md) available to guide you through the installation steps. 
+We also have [tutorial videos](../resources/tutorials/tutorials.md) available to guide you through the installation steps.
 
 ## Install with the URBANopt Installer
 
@@ -19,14 +19,14 @@ Follow the steps below or watch the [Mac Installer Video](https://urbanopt-tutor
 
 1. Download the desired version of the  [.dmg package](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/).
 
-1. Use the GUI installer and choose a directory to install. Once installed, open a terminal and run the provided setup script. The ```setup-env.sh``` generates env variables and stores them in a file ```.env_uo.sh``` in your home directory: 
+1. Use the GUI installer and choose a directory to install. Once installed, open a terminal and run the provided setup script. The ```setup-env.sh``` generates env variables and stores them in a file ```.env_uo.sh``` in your home directory:
 
     ```bash
-    /Applications/UrbanOptCLI_X.X.X/setup-env.sh  
+    /Applications/UrbanOptCLI_X.X.X/setup-env.sh
     . ~/.env_uo.sh
     ```
 
-1. When launching new shell terminals, run ```. ~/.env_uo.sh``` to setup the environment. 
+1. When launching new shell terminals, run ```. ~/.env_uo.sh``` to setup the environment.
 
 
 ## Manual Install
@@ -47,7 +47,7 @@ Follow the steps below or watch the [Mac Manual Installation Video](https://urba
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.4.0](https://github.com/NREL/OpenStudio/releases/tag/v3.4.0)  
+1. Install [OpenStudio 3.4.0](https://github.com/NREL/OpenStudio/releases/tag/v3.4.0)
 
 1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as TextEdit, Sublime Text, vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
@@ -73,12 +73,12 @@ Follow the steps below or watch the [Mac Manual Installation Video](https://urba
 
 ## OpenDSS and DiTTo Reader Installation
 
-As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.  
+As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.
 
 If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.
 
 ## DES Installation
 
-As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use. 
+As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use.
 
 Follow the [DES Installation Instructions](./des_installation.md) to install these dependencies.

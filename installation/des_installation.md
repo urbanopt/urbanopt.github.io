@@ -72,7 +72,7 @@ The resulting Modelica package will be created and can be opened in a Modelica e
 ### Docker Installation
 
 In GMT version 0.3.0, the only method of running the simulations is within Dymola or OpenModelica. We are working on an
-approach that will reenable the Docker-based solution that is described below.
+approach that will re-enable the Docker-based solution that is described below.
 
 The GMT versions prior to 0.3.0 enabled running of the models using JModelica. It requires the
 installation of [Docker](https://docs.docker.com/get-docker/). To configure Docker, do the following:

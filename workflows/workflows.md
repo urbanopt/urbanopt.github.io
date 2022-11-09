@@ -7,7 +7,7 @@ nav_order: 4
 
 # URBANopt Workflows
 
-In this section you can find out more details about each of the workflows supported by URBANopt. Check out the sections below for more information on the OpenStudio measures currently used in URBANopt workflows as well as a functionality lookup table. 
+In this section you can find out more details about each of the workflows supported by URBANopt. Check out the sections below for more information on the OpenStudio measures currently used in URBANopt workflows as well as a functionality lookup table.
 
 [Measure Compatibility](#measure-compatibility-details){: .btn .btn-uo .white-text}
 
@@ -19,7 +19,7 @@ In this section you can find out more details about each of the workflows suppor
 
 URBANopt<sup>&trade;</sup> workflows use OpenStudio<sup>&reg;</sup> measures to create building models, apply different energy conservation measures (ECMs) for different Scenarios, perform quality checks, and report results back to URBANopt.  The sequence of measures is specified in an OpenStudio workflow (osw) file found in the project directory. To enable/disable a measure, modify its `SKIP` variable in the `base_workflow.osw` file either directly or via the scenario mapper file.
 
-The table below lists the measures that are used in URBANopt workflows, what types of buildings they are compatible with, and whether they are enabled or disabled by default in the workflow file.  
+The table below lists the measures that are used in URBANopt workflows, what types of buildings they are compatible with, and whether they are enabled or disabled by default in the workflow file.
 
 <div id="table2div">
 	<table>
@@ -110,7 +110,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				<td>An URBANopt GeoJSON measure that is used to create extruded geometry for building features from
   GeoJSON coordinates with core and perimeter zoning, it can also account for shading from surrounding buildings.
 				</td>
-			</tr>		
+			</tr>
 			<tr>
 				<th><a target="_blank" href="https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model">Create Typical Building From Model (2nd application)</a></th>
 				<td>Commercial</td>
@@ -118,13 +118,13 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				<td>Yes</td>
 				<td>A second instance of this OpenStudio Measure, which is added in the workflow after urban geometry creation and the add_hvac argument is now set to true, to add HVAC system for the blended space types. The rest of the arguments for adding constructions, space type, loads, etc. are set to false.
 				</td>
-			</tr>	
+			</tr>
 			<tr>
 				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/PredictedMeanVote">Predicted Mean Vote</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Yes</td>
-				<td>An OpenStudio measure used to add the necessary data to people objects to support Predicted Mean Vote output data. 
+				<td>An OpenStudio measure used to add the necessary data to people objects to support Predicted Mean Vote output data.
 				</td>
 			</tr>
 			<tr>
@@ -188,7 +188,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Yes</td>
-				<td>An OpenStudio reporting measure that adds the required output variables and creates a CSV file with plant loop level mass flow rates and temperatures for use in a Modelica simulation. 
+				<td>An OpenStudio reporting measure that adds the required output variables and creates a CSV file with plant loop level mass flow rates and temperatures for use in a Modelica simulation.
 				</td>
 			</tr>
 			<tr>
@@ -341,7 +341,7 @@ The following table lists some of the functionality that is available in URBANop
 				<td></td>
 				<td>&#10004;</td>
 				<td>QAQC is implemented for commercial buildings as a set of 3 reporting measures. This functionality is only enabled in the CreateBar workflow, but can be easily enabled in the workflows marked with a <em>*</em> by modifying the <a href="https://github.com/urbanopt/urbanopt-cli/blob/v0.8.0/example_files/mappers/Baseline.rb#L1023-L1025" target="_blank">Baseline Mapper</a> in your example project. Note that enabling this functionality will generate additional result files and will increase the size of your simulation. See <a href="./geometry_workflows.html#qaqc-reporting">QAQC Reporting</a> for more information.</td>
-			</tr> 
+			</tr>
 			<tr>
 				<th>Thermal Comfort Reporting</th>
 				<td>&#10004;</td>
@@ -389,6 +389,3 @@ The following table lists some of the functionality that is available in URBANop
 	  </tbody>
   </table>
 </div>
-
-
-

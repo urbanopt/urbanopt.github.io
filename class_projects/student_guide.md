@@ -18,9 +18,9 @@ has_toc: true
 	- This program can be used for editing Ruby (.rb) files
 
 ### General Notes:
--	Ensure all reported figures are properly formatted and captioned. Focus your efforts on addressing stated objectives and do not be distracted by the extra data available to you in the results reports. You will need to combine information from the individual feature reports to generate the required figures. Be sure to provide thoughtful qualitative assessment in addition to reporting the quantitative values. 
+-	Ensure all reported figures are properly formatted and captioned. Focus your efforts on addressing stated objectives and do not be distracted by the extra data available to you in the results reports. You will need to combine information from the individual feature reports to generate the required figures. Be sure to provide thoughtful qualitative assessment in addition to reporting the quantitative values.
 
--	Time estimates are set for each of the tasks. Students may spend more or less time completing the tasks. 
+-	Time estimates are set for each of the tasks. Students may spend more or less time completing the tasks.
 
 ### Student Activities:
 

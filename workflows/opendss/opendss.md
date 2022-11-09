@@ -31,7 +31,7 @@ An example:
 	```bash
 	uo run --feature <path/to/electrical/featurefile.json> --scenario <path/to/SCENARIOFILE.csv>
 	```
-	
+
 1. Post-process using the default post-processor to generate the feature_reports used by the OpenDSS workflow:
 	```bash
 	uo process --default --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>

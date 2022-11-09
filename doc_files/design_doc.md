@@ -10,7 +10,7 @@ architecture, and modules. More detailed design documentation is available by fo
 links throughout the URBANopt documentation. These design documents are living documents which will be
 continuously referenced, updated, and modified throughout the URBANopt project. We
 encourage the reader to submit comments or suggested changes to the URBANopt team for
-further discussion.  
+further discussion.
 
 Ultimately, URBANopt is focused on the design of districts where the interactions between
 individual buildings, district energy systems, distributed energy resources, and
@@ -56,9 +56,9 @@ Figure 2: Ecosystem and public/private partnership model
 
 # Software Design Principles
 
-The communities and urban design space is too large for any tool, SDK, or engine to address all of the possible use cases and design decisions of interest.  Rather than building a single monolithic piece of software, the URBANopt project is made up of several modules that operate as part of the larger communities and urban design and modeling ecosystem.  These modules can be shared across the community and combined as needed by tool vendors to save time and effort.  We encourage collaboration with external parties who may want to use URBANopt modules directly, modify URBANopt modules, or build their own modules.  To encourage modular reuse and collaboration, URBANopt software development has adopted the following design principles: 
+The communities and urban design space is too large for any tool, SDK, or engine to address all of the possible use cases and design decisions of interest.  Rather than building a single monolithic piece of software, the URBANopt project is made up of several modules that operate as part of the larger communities and urban design and modeling ecosystem.  These modules can be shared across the community and combined as needed by tool vendors to save time and effort.  We encourage collaboration with external parties who may want to use URBANopt modules directly, modify URBANopt modules, or build their own modules.  To encourage modular reuse and collaboration, URBANopt software development has adopted the following design principles:
 
-- URBANopt modules have clear inputs and outputs.  Any module can be replaced by another module with the same inputs and outputs. 
+- URBANopt modules have clear inputs and outputs.  Any module can be replaced by another module with the same inputs and outputs.
 - URBANopt modules are developed in separate, single-purpose repositories with clear ownership, dependencies, licensing, documentation, and testing.
 - URBANopt modules may be written in a variety of software languages (Ruby, Python, C++, etc); interoperability between modules via well-documented file formats is preferred to options that restrict programming language choice for each module.
 - Users (either end users or third-party applications) design and manage their overall workflow by combining modules and tools. This will provide several meaningful combinations of modules and tools to address a variety of design questions as there is not one “right way” to do things.
@@ -72,7 +72,7 @@ Figure 3: URBANopt Modules
 ![urbanopt diagram modules structure](urbanopt-diagrams_structure-more-detail.png)
 
 
-In line with the software design principles outlined above, URBANopt projects are assembled from multiple functional modules. A command line interface (CLI) has been developed to aid users in combining the modules needed to implement a desired workflow. Example projects are also available through the CLI for users to test a particular workflow before adapting it to their particular use case.  Because there is so much variability in district-scale energy analysis, the end user may need to customize some of the URBANopt (and other) modules needed to implement the desired workflow for their project. [Customization documentation](../resources/customization/customization.md) is available for users to consult during their particular project development. 
+In line with the software design principles outlined above, URBANopt projects are assembled from multiple functional modules. A command line interface (CLI) has been developed to aid users in combining the modules needed to implement a desired workflow. Example projects are also available through the CLI for users to test a particular workflow before adapting it to their particular use case.  Because there is so much variability in district-scale energy analysis, the end user may need to customize some of the URBANopt (and other) modules needed to implement the desired workflow for their project. [Customization documentation](../resources/customization/customization.md) is available for users to consult during their particular project development.
 
 
 Figure 4: Software Architecture for an Example URBANopt Project
@@ -89,7 +89,7 @@ specify, run, and compare multiple district-scale energy scenarios. The OpenStud
 Measures Gem, OpenStudio Model Articulation Gem, and OpenStudio Standards Gem modules are
 part of the OpenStudio project.
 
-All of the project specific data, including the GeoJSON file with potentially non-public information about the district of interest, is stored in project repository which may be kept private.  Project or user specific OpenStudio Measures can also be used.  When working on a project, the end user can specify the exact version of each module to use in their project, even overriding the versions of OpenStudio modules included in the OpenStudio release. This allows the project to move quickly or slowly depending on the project’s needs.  Finally, third party modules can be leveraged if needed.  For example, URBANopt will not initially implement a module to read from CityGML.  Figure 3 shows how a CityGML module developed by a third party could be used as an alternative to the URBANopt GeoJSON module if a project desired.  
+All of the project specific data, including the GeoJSON file with potentially non-public information about the district of interest, is stored in project repository which may be kept private.  Project or user specific OpenStudio Measures can also be used.  When working on a project, the end user can specify the exact version of each module to use in their project, even overriding the versions of OpenStudio modules included in the OpenStudio release. This allows the project to move quickly or slowly depending on the project’s needs.  Finally, third party modules can be leveraged if needed.  For example, URBANopt will not initially implement a module to read from CityGML.  Figure 3 shows how a CityGML module developed by a third party could be used as an alternative to the URBANopt GeoJSON module if a project desired.
 
 In general, URBANopt modules will be packaged and distributed as [Ruby Gems](https://guides.rubygems.org/what-is-a-gem/) or [Python Modules](https://docs.python.org/3/tutorial/modules.html).  Functionality that will be used by OpenStudio Measures should be developed in Ruby and packaged as OpenStudio Extension Gems. URBANopt modules distributed as OpenStudio Extension Gems can be executed using OpenStudio Command Line Interface (CLI) to integrate with Python-driven workflows. URBANopt modules will be developed under the URBANopt GitHub organization to encourage collaboration with other organizations that might be hesitant to upload code to the NREL Github organization.  Documentation, testing, and continuous integration (CI) will also be developed for these example projects.  Users can leverage these example projects as starting points for their individual projects.
 
