@@ -6,8 +6,8 @@ grand_parent: Resources
 nav_order: 7
 ---
 
-The Peak Hours Thermostat Adjust Scenario prepares the Grid-interactive Efficient Building (GEB) by adjusting the thermostat setpoint for cooling or heating during peak hours.
-The measure used in this scenario is `AdjustThermostatSetpointsByDegreesForPeakHours` from the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem) developed by LBNL.
+The Peak Hours Thermostat Adjust Scenario adjusts the thermostat setpoints for cooling and heating during peak hours.
+The measure used in this scenario is `AdjustThermostatSetpointsByDegreesForPeakHours` from the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem) developed by LBNL. The gem features a series of measures that provide the capabilities to achieve Grid-interactive Efficient Buildings.
 
 ## Measure
 ### Description
@@ -32,10 +32,6 @@ Arguments that can be specified for this measure are listed below.
 
 Users can find the default settings of these arguments in the PeakHoursThermostatAdjustMapper.
 
-### Result
-The figure below shows the effect of using this scenario on an example medium office model. The load during peak hours is shed.
-![](../../doc_files/geb_thermostat.png)
-
 
 ## Using or Modifying the Peak Hours Thermostat Adjust Scenario
 
@@ -48,6 +44,9 @@ uo run -s <path to peak_hours_mels_shedding_scenario.csv> -f <path to example_pr
 ```bash
 uo run -r -s <path to peak_hours_mels_shedding_scenario.csv> -f <path to example_project.json>
 ```
+
+The figure below shows the effect of using this scenario on an example medium office model. The load during peak hours is shed.
+![](../../doc_files/geb_thermostat.png)
 
 
 ## Using the add_hpwh Measure in Your Own Project
@@ -68,7 +67,7 @@ Then within your .osw file, add the measure and set any common argument values. 
 
 ```bash
 {
-      "measure_dir_name":"add_hpwh",
+      "measure_dir_name":"AdjustThermostatSetpointsByDegreesForPeakHours",
       "arguments":{
         "__SKIP__": true,
         "cooling_adjustment": 2,

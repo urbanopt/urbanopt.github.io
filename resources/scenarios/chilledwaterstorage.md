@@ -6,8 +6,8 @@ grand_parent: Resources
 nav_order: 8
 ---
 
-The Chilled Water Storage Scenario prepares the Grid-interactive Efficient Building (GEB) by adding a chilled water tank to the building for thermal energy storage. By charging the tank at night and discharge it during the day, the load can be shed during the peak hours.   
-The measure used in this scenario is `add_chilled_waster_storage_tank` from the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem) developed by LBNL.
+The Chilled Water Storage Scenario adds a chilled water tank to the building for thermal energy storage. By charging the tank at night and discharge it during the day, the load can be shed during the peak hours.
+The measure used in this scenario is `add_chilled_waster_storage_tank` from the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem) developed by LBNL. The gem features a series of measures that provide the capabilities to achieve Grid-interactive Efficient Buildings.
 
 ## Measure 
 ### Description
@@ -34,9 +34,6 @@ Arguments that can be specified for this measure are listed below.
 
 Users can find the default settings of these arguments in the ChilledWaterStorageMapper.
 
-### Result
-The figure below shows the effect of using this scenario on an example large office model. The load for cooling is shifted from the day to the night.
-![](../../doc_files/geb_cws.png)
 
 ## Using or Modifying the Chilled Water Storage Scenario
 
@@ -50,6 +47,8 @@ uo run -s <path to chilled_water_storage_scenario.csv> -f <path to example_proje
 uo run -r -s <path to chilled_water_storage_scenario.csv> -f <path to example_project.json>
 ```
 
+The figure below shows the effect of using this scenario on an example large office model. The load for cooling is shifted from the day to the night.
+![](../../doc_files/geb_cws.png)
 
 ## Using the add_chilled_waster_storage_tank Measure in Your Own Project
 
