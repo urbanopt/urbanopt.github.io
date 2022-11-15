@@ -44,19 +44,19 @@ The figure below shows the effect of using this scenario on an example medium of
 
 ## Using the reduce_epd_by_percentage_for_peak_hours Measure in Your Own Project
 
-To use the reduce_epd_by_percentage_for_peak_hours measure with your own project, you must install the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem):
+To use the reduce_epd_by_percentage_for_peak_hours measure with your own project, ensure that the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem) is added in your project's Gemfile:
 
 ```bash
-gem install openstudio-geb
+  gem 'openstudio-geb'
 ```
 
-and then require it within your mapper file:
+and then require it within your custom mapper file:
 
 ```bash
 require 'openstudio/geb'
 ```
 
-Then within your .osw file, add the measure and set any common argument values. For example:
+Then within your .osw workflow file, add the measure and set any common argument values. For example:
 
 ```bash
 {

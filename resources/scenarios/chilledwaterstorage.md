@@ -12,7 +12,7 @@ The measure used in this scenario is `add_chilled_waster_storage_tank` from the 
 ## Measure 
 ### Description
 
-The measure add_chilled_waster_storage_tank adds a chilled water storage tank and links it to an existing chilled water loop. User can specify the operating season, charge period, discharge period, setpoint temperature and volume of the chilled water tank. 
+The measure add_chilled_waster_storage_tank adds a chilled water storage tank and links it to an existing chilled water loop. Users can specify the operating season, charge period, discharge period, setpoint temperature and volume of the chilled water tank. 
 If the tank volume is not provided, a sizing simulation will be run to autosize the tank.
 
 ### Arguments
@@ -30,7 +30,7 @@ Arguments that can be specified for this measure are listed below.
 - `Charge start time`: Starting Time for Chilled Water Tank Charge in HR:mm (24 hour format)
 - `Charge end time`: Ending Time for Chilled Water Tank Charge in HR:mm (24 hour format)
 - `Work on weekends?`: Allow Chilled Water Tank Work on Weekends?  
-- If a tanks size is not provided, a sizing run will be performed beforehand to autosize the tank. An output path and a weather file can be specified to be used for sizing run.  
+- If a tank's size is not provided, a sizing run will be performed beforehand to autosize the tank. An output path and a weather file can be specified to be used for sizing run.  
 
 Users can find the default settings of these arguments in the ChilledWaterStorageMapper.
 
@@ -52,19 +52,19 @@ The figure below shows the effect of using this scenario on an example large off
 
 ## Using the add_chilled_waster_storage_tank Measure in Your Own Project
 
-To use the add_chilled_waster_storage_tank measure with your own project, you must install the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem):
+To use the add_chilled_waster_storage_tank measure with your own project, ensure that the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem) is added in your project's Gemfile:
 
 ```bash
-gem install openstudio-geb
+  gem 'openstudio-geb'
 ```
 
-and then require it within your mapper file:
+and then require it within your custom mapper file:
 
 ```bash
 require 'openstudio/geb'
 ```
 
-Then within your .osw file, add the measure and set any common argument values. For example:
+Then within your .osw workflow file, add the measure and set any common argument values. For example:
 
 ```bash
 {
