@@ -95,6 +95,14 @@ nav_order: 1
       <p>View the <a href="#rnm" class="bold">RNM section</a> under <a href="#analyses" class="bold">Additional Capabilities</a> below for more details on the RNM functionality.</p>
     </div>
   </li>
+  <li class="acc"><input id="accordionC" type="checkbox" /><label for="accordionC">Include DISCO functionality in your project</label>
+    <div class="show">
+      <p>In order to use the DISCO functionality successfully, the FeatureFile should contain Electrical distribution system features. The project directory should also contain a cost database input file and a technical catalog input file to be used by the DISCO analysis. Use the command below to create an example project containing a FeatureFile with electrical network defined within it (<code>example_project_with_electric_network.json</code>) as well as a disco folder including the necessary catalog input files. You can also use your own Feature File that includes an electric network.</p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo create --disco --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+      </div>
+      <p>View the <a href="#disco" class="bold">DISCO section</a> under <a href="#analyses" class="bold">Additional Capabilities</a> below for more details on the DISCO functionality.</p>
+    </div>
+  </li>
 </ul>
 <p>Other Options</p>
 <ul class="jk_accordion">
@@ -376,6 +384,20 @@ nav_order: 1
       <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSon file be created.</li>
       </ul>
       <p>View the <a href="../workflows/rnm">RNM Workflow page</a> for more info. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/10_RNM-workflow.mp4" target="_blank" class="bold">RNM Workflow Tutorial Video</a>.</p>
+    </div>
+  </li>
+  <li class="acc" id="disco"><input id="disco2" type="checkbox" /><label for="disco2">DISCO Functionality</label>
+    <div class="show">
+      <p><strong>DISCO functionality is available in URBANopt CLI version 0.9.0 and above.</strong></p>
+      <p>To access DISCO functionality, first create a project with the <code><span class="code-text">--disco</span></code> flag. This will create an example project with electrical distribution network features in the feature file as well as the required default DISCO files in a folder named <code><span class="code-text">disco</span></code> within the project folder. Once a project scenario has first been run and processed with the default post-processor, then run through the OpenDSS workflow and processed with the OpenDSS post-processor, a DISCO analysis can finally be run.</p>
+      <p>To run the DISCO workflow, use the following command:</p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo disco --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
+      <p>Additional options that can be used with the <code><span class="code-text">disco</span></code> command are:</p>
+      <ul class="t">
+      <li class="t"><code><span class="code-text">--cost_database</span></code>: Use this option to specify the file name of a custom cost database file. If omitted, the default cost database found in the disco folder will be used</li>
+      <li class="t"><code><span class="code-text">--technical_catalog</span></code>: Use this option to   specify the file name of a custom technical catalog file. If omitted, the default technical catalog found in the disco folder will be used</li>
+      <p>View the <a href="../workflows/disco">DISCO Workflow page</a> for more info.</p>
+      </ul>
     </div>
   </li>
   <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate EUI Results</label>
