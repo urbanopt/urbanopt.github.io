@@ -4,8 +4,14 @@ title: DISCO
 nav_order: 3
 parent: Workflows
 ---
-
 # DISCO
+
+Overall, the combined URBANopt™-DISCO workflow allows users to investigate the impacts of buildings
+and Distributed Energy Resource (DER) strategies on electric distribution system performance and required upgrades. For example,
+the URBANopt-DISCO capabilities can help understand the value of building efficiency and demand
+flexibility in decarbonization/electrification scenarios at a neighborhood/district/community scale. 
+
+## DISCO Background
 
 [DISCO](https://github.com/NREL/disco) (Distribution Integration Solution Cost Options) is an open-source, NREL-developed,
 python-based software tool for automating distribution analyses at scale. Originally developed to
@@ -18,21 +24,21 @@ DISCO combines many features in forms of analysis modules such as snapshot and d
 capacity analysis, grid impact analysis, automated upgrade cost analysis, and cost-benefit analysis
 for selected grid control strategies.
 
+## URBANopt-DISCO Workflow
+
 The URBANopt<sup>TM</sup>-DISCO workflow leverages the automated **upgrade cost analysis module** to determine the distribution system upgrades required
 to mitigate any voltage and thermal violations that exist on the feeder and then calculate the cost
 associated with those upgrades. The upgrades currently only include traditional infrastructure upgrade
 options (reconductoring, upgrade transformers, installing voltage regulators and capacitor banks,
 and changing the controls or setpoints on voltage regulators and capacitor banks).
 
-## URBANopt-DISCO Workflow
-
 Prior to running the DISCO analysis, OpenDSS models for the distribution system need to be created. 
  These OpenDSS models, along with the cost database file and technical catalog for distribution
-system equipment is passed on to DISCO (more details about these inputs is provided below). Several URBANopt scenarios can be defined to represent the district with varying
-amounts of building efficiency, building demand flexibility, PV penetration, and battery storage.
+system equipment is passed on to DISCO (more details about these inputs are provided below). Several URBANopt scenarios can be defined to represent the district with varying
+amounts of building efficiency, electrification, building demand flexibility, PV penetration, and battery storage.
 
 The DISCO module loops through these scenarios and analyzes the thermal and voltage violations to
-determine the grid infrastructure upgrades required, if any, and report the associated costs in each
+determine the grid infrastructure upgrades required, if any, and reports the associated costs in each
 case.
 
 An overview of the URBANopt-DISCO workflow is shown below: 
@@ -51,7 +57,7 @@ uo disco --help
 ```
 
 In order to use the URBANopt-DISCO capabilities, the `DISCO Project` can be created and run using the
-URBANopt CLI using the steps below: 
+URBANopt CLI following the steps below: 
 
 
 1. ### Create a DISCO Project
@@ -71,25 +77,27 @@ these files is provided below.
 	transformers etc.. Users can customize and/or create
 	their own databases of proprietary equipment costs if they wish to do so to reflect the costs
 	and available equipment of the distribution system they are looking to represent. The cost
-	database provided in DISCO is based on the catalog of equipment used to create synthetic network
-	designs in the [URBANopt-RNM](../rnm.md) workflow.
+	database used in DISCO is based on the catalog of equipment used to create synthetic network
+	designs in the [URBANopt-RNM](../rnm) workflow.
 
 
-	- `technical_catalog.json`: The technical catalog contains the detailed electrical specifications of the equipment that is represented in the `cost_database.xlsx` file. The components used are those specified in the RNM equipment catalog.
+	- `technical_catalog.json`: The technical catalog contains the detailed electrical
+	specifications of the equipment that is represented in the `cost_database.xlsx` file. The
+	components used are those specified in the URBANopt-RNM Module equipment catalog.
 
-	- `config.json`: This configuration file specifies the DISCO analysis jobs to be run as a part of the analysis, and also defines the input technical parameters that need to be defined for the simulation.
+	- `config.json`: This configuration file specifies the DISCO analysis jobs to be run for the analysis, and also defines the input technical parameters for the simulation.
 
 	The DISCO example
-project also includes the `example_project_with_electric_network.json` Feature File that includes
+project also includes the `example_project_with_electric_network.json` Feature File that contains
 the building features as well as the
 electrical distribution network of a given district.
 
 
 2. ### Create Scenario Files
 
-	Scenario files are created next. If using the REopt workflow, scenario files for REopt need to be
+	Scenario files are created next. If using the URBANopt-REopt workflow, scenario files for REopt need to be
 created. More details on creating scenario files are provided under the [Set up
-Scenario](../getting_started/getting_started.md) section.
+Scenario](../getting_started/getting_started) section.
 
 	```bash
 	uo create --scenario-file <path/to/FEATUREFILE.json>
@@ -142,14 +150,14 @@ the [OpenDSS documentation](../opendss/opendss.md).
 6. ### Run DISCO
 	To run use the DISCO command and specify the DISCO Feature File and Scenario file.
 
-	Additional options namely the custom cost database and the technical catalog can also be specified. Details on all disco options can be viewed using the
+	Additional options namely the custom cost database and the technical catalog can also be specified. Details on all DISCO options can be viewed using the
 `-h` flag as shown below: 
 
 	```bash
 	uo disco -h
 	```
 
-	This prints out the following options and their description:
+	This prints out the following options and their descriptions:
 
 	
 	`--scenario` &mdash; Required, Path to scenario csv file\
@@ -177,11 +185,11 @@ the [OpenDSS documentation](../opendss/opendss.md).
 
 	**outputs**:  This points the user to the `run_upgrade_cost_analysis.log` file path and includes detailed output files for each job.
 	
-	**violation_summary**: This provides a summary of number and magnitude of all violations, both before and after thermal and voltage upgrades. Users can refer to this if they want to get a better understanding of the impacts on feeder power quality at various stages of the automated upgrades cost analysis. 
+	**violation_summary**: This provides a summary of number and magnitude of all violations, both before and after thermal and voltage upgrades. Users can refer to it if they want to get a better understanding of the impacts on feeder power quality at various stages of the automated upgrades cost analysis. 
 
-	**costs_per_equipment**: This gives costs for each upgraded equipment.
+	**costs_per_equipment**: This gives costs for each upgraded piece of equipment.
 
-	**equipment**: This is a list of all equipment in the feeder with information on whether it’s been upgraded as well as details on any changed parameters.
+	**equipment**: This is a list of all equipment in the feeder with information on whether it has been upgraded as well as details on any changed parameters.
 
 	A *DISCO folder* containing detailed results is also created within the outputs folder for
 	the scenario and contains the following:
