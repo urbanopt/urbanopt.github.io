@@ -119,6 +119,31 @@ nav_order: 1
     </div>
   </div>
   </li>
+  <li class="acc"><input id="accordion6b" type="checkbox" /><label for="accordion6b">Update an existing project to a more recent version of URBANopt</label>
+  <div class="show">
+    <p>The <code>update</code> function can be used to update an existing URBANopt project to the currently installed URBANopt CLI version. This process will overwrite the existing URBANopt files and folders in the new project folder with the updated ones. If you have made modifications to the following files in your existing folder, you will need to reinstate these modifications in the new project folder:</p>
+    <ul style="margin-left:50px;">
+      <li>Gemfile</li>
+      <li>validation_schema.yaml</li>
+      <li>runner.conf</li>
+      <li>Example Feature File</li>
+      <li>mappers folder</li>
+      <li>osm_building folder</li>
+      <li>weather folder</li>
+      <li>visualization folder</li>
+      <li>residential folder</li> 
+      <li>measures folder</li>
+      <li>resources folder</li>
+      <li>xml_building folder in case of a residential project</li>
+      <li>reopt folder in case of a REopt project</li>
+      <li>opendss folder in case of an OpenDSS project</li>
+      <li>disco folder in case of a DISCO project</li>
+    </ul>
+    <p>To update the project, specify the existing project folder name and location for the updated URBANopt project:</p>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo update --existing-project-folder &lt;name of existing project&gt; --new-project-directory &lt;location/to/new_urbanopt_example_project&gt;</span></code></pre>
+    </div>
+  </div>
+  </li>
 </ul>
 <div class="row blue-section">
   <div class="col-7">
