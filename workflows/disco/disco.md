@@ -32,7 +32,7 @@ associated with those upgrades. The upgrades currently only include traditional 
 options (reconductoring, upgrade transformers, installing voltage regulators and capacitor banks,
 and changing the controls or setpoints on voltage regulators and capacitor banks).
 
-Prior to running the DISCO analysis, OpenDSS models for the distribution system need to be created. 
+Prior to running the DISCO analysis, the URBANopt-OpenDSS workflow is used to create OpenDSS models for the distribution system. 
  These OpenDSS models, along with the cost database file and technical catalog for distribution
 system equipment is passed on to DISCO (more details about these inputs are provided below). Several URBANopt scenarios can be defined to represent the district with varying
 amounts of building efficiency, electrification, building demand flexibility, PV penetration, and battery storage.
@@ -162,7 +162,7 @@ the [OpenDSS documentation](../opendss/opendss.md).
 	
 	`--scenario` &mdash; Required, Path to scenario csv file\
 	`--feature` &mdash; Required, Path to feature json file\
-	`--cost_database` &mdash; Optional, Filename for custom cost database filename\
+	`--cost_database` &mdash; Optional, Filename for custom cost database\
 	`--technical_catalog` &mdash; Optional, Filename for custom technical catalog
 
 
