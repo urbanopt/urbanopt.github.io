@@ -2,6 +2,7 @@
 layout: default
 title: RNM
 parent: Workflows
+has_children: true
 nav_order: 5
 ---
 
