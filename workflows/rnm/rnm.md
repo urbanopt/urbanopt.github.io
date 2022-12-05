@@ -62,6 +62,8 @@ An example:
 
 Visit the [Getting Started page](../getting_started/getting_started) for detailed usage examples.
 
+** Note:** There is a 2000 building size limit for RNM-US. 
+
 ## RNM-US
 
 RNM (Reference Network Model) has primarily been used to build synthetic or representative distribution grids and assess the impact of distributed energy resources in European distribution systems. However, given the unique features that characterize U.S. distribution systems, a version of RNM customized to U.S. characteristic features (namely RNM-US) was developed by Comillas Pontifical University.
