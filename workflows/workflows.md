@@ -120,6 +120,14 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
+				<th><a target="_blank" href="https://github.com/LBNL-ETA/Openstudio-GEB-gem/tree/master/lib/measures/add_chilled_water_storage_tank">Add Chilled Water Storage Tank</a></th>
+				<td>Commercial</td>
+				<td>No</td>
+				<td>Enabled in the Chilled Water Storage Scenario</td>
+				<td>This measure adds a chilled water storage tank to a chilled water loop for the purpose of thermal energy storage.
+				</td>
+			</tr>
+			<tr>
 				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/PredictedMeanVote">Predicted Mean Vote</a></th>
 				<td>Commercial</td>
 				<td>No</td>
@@ -132,7 +140,23 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				<td>Commercial and Residential</td>
 				<td>No</td>
 				<td>No</td>
-				<td>An OpenStudio measure used to report emissions based on user-provided future and historical years as well as future, historical hourly, and historical annual subregions.
+				<td>An OpenStudio measure used to report emissions based on user-provided future and historical years as well as future, historical hourly, and historical annual subregions. 
+				</td>
+			</tr>
+			<tr>
+				<th><a target="_blank" href="https://github.com/LBNL-ETA/Openstudio-GEB-gem/tree/master/lib/measures/reduce_epd_by_percentage_for_peak_hours">Reduce EPD by Percentage For Peak Hours</a></th>
+				<td>Commercial and Residential</td>
+				<td>No</td>
+				<td>Enabled in the Peak Hours MELs Shedding Scenario</td>
+				<td>This measure reduces electric equipment loads by a user-specified percentage for a user-specified time period (usually the peak hours). The reduction can be applied to at most three periods throughout out the year specified by the user. This is applied throughout the entire building.
+				</td>
+			</tr>
+			<tr>
+				<th><a target="_blank" href="https://github.com/LBNL-ETA/Openstudio-GEB-gem/tree/master/lib/measures/AdjustThermostatSetpointsByDegreesForPeakHours">Adjust Thermostat Setpoint by Degrees for Peak Hours</a></th>
+				<td>Commercial and Residential</td>
+				<td>No</td>
+				<td>Enabled in the Peak Hours Thermostat Adjust Scenario</td>
+				<td>This measure adjusts heating and cooling setpoints by a user-specified number of degrees and a user-specified time period. This is applied throughout the entire building.
 				</td>
 			</tr>
 			<tr>
