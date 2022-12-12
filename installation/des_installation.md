@@ -109,6 +109,7 @@ The Modelica Buildings Library contains many models that are needed to assemble 
 Installation of the MBL is done through Git and GitHub. Follow the instructions below to install the MBL needed for the GMT:
 
 - Download and extract [the MBL](https://simulationresearch.lbl.gov/modelica/downloads/archive/modelica-buildings.html)
+    - See the [compatibility matrix](../developer_resources/compatibility_matrix.md) for appropriate version
 - Add the Modelica Buildings Library path to your MODELICAPATH environment variable (e.g., `export MODELICAPATH=${MODELICAPATH}:$HOME/path/to/modelica-buildings`). Restart your terminal to ensure that the MBL library is exported correctly.
 
 Once the MBL is installed, the CLI can be used to create the model with the following command:
