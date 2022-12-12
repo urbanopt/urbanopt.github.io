@@ -24,11 +24,11 @@ nav_order: 5
 
 Once the python dependencies are installed, the `uo des_params` CLI command can be used to build the system parameters file from the URBANopt post-processed results:
 
-```bash 
+```bash
   uo des_params -y <path/to/system-parameters-file.json> -s <path/to/scenario.csv> -f <path/to/featurefile.json>
 ```
 
-Use the following for additional help on running this command: 
+Use the following for additional help on running this command:
 
 ```bash
  uo des_params --help
@@ -42,7 +42,7 @@ Once the system parameters file is generated, the CLI can then be used to create
   uo  des_create -y <path/to/system-parameters-file.json> -f <path/to/featurefile.json> -d <path/to/modelica/dir/to/create>
 ```
 
-Use the following for additional help on running this command: 
+Use the following for additional help on running this command:
 
 ```bash
  uo des_create --help
@@ -58,7 +58,7 @@ command:
   uo des_run -m <path/to/modelica/dir>
 ```
 
-Use the following for additional help on running this command: 
+Use the following for additional help on running this command:
 
 ```bash
  uo des_run --help
@@ -91,7 +91,7 @@ You must have PIP and Python 3.7 or later installed (run `python --version` to s
  pip install geojson-modelica-translator
 ```
 
-After installation of the GMT, a new command line interface (called the URBANopt District Energy Systems [UO DES] CLI) can be used to run various commands. Without needing to install the [MBL](https://github.com/lbl-srg/modelica-buildings/) the user can use the CLI to build the system parameters file from the results of the URBANopt SDK. For more information run the following:
+After installation of the GMT, a new command line interface (called the URBANopt District Energy Systems [UO DES] CLI) can be used to run various commands. Without needing to install the [MBL](https://simulationresearch.lbl.gov/modelica) the user can use the CLI to build the system parameters file from the results of the URBANopt SDK. For more information run the following:
 
 ```bash
   uo_des -h
@@ -108,12 +108,7 @@ After installation of the GMT, a new command line interface (called the URBANopt
 The Modelica Buildings Library contains many models that are needed to assemble the district systems.
 Installation of the MBL is done through Git and GitHub. Follow the instructions below to install the MBL needed for the GMT:
 
-- Clone the [MBL](https://github.com/lbl-srg/modelica-buildings/) into a working directory outside of the GMT directory
-- Change to the directory inside the modelica-buildings repo you just checked out. (`cd modelica-buildings`)
-- Install git-lfs
-  - Mac: `brew install git-lfs; git lfs install`
-  - Ubuntu: `sudo apt install git-lfs; git lfs install`
-- Pull the correct staging branch for this project with: `git checkout v9.0.0`. Note that the git repo will be in a detached head state, which is expected.
+- Download and extract [the MBL](https://simulationresearch.lbl.gov/modelica/downloads/archive/modelica-buildings.html)
 - Add the Modelica Buildings Library path to your MODELICAPATH environment variable (e.g., `export MODELICAPATH=${MODELICAPATH}:$HOME/path/to/modelica-buildings`). Restart your terminal to ensure that the MBL library is exported correctly.
 
 Once the MBL is installed, the CLI can be used to create the model with the following command:
@@ -130,8 +125,7 @@ The resulting Modelica package will be created and can be opened in a Modelica e
 
 #### Docker Installation
 
-In GMT version 0.3.0, the only method of running the simulations is within Dymola or OpenModelica. We are working on an
-approach that will re-enable the Docker-based solution that is described below.
+In GMT version >=0.3.0, the only method of running the simulations for models built by the GMT is within Dymola. Alternative approaches are currently in development. The following instructions apply to GMT <= 0.3.0.
 
 The GMT versions prior to 0.3.0 enabled running of the models using JModelica. It requires the
 installation of [Docker](https://docs.docker.com/get-docker/). To configure Docker, do the following:
