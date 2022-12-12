@@ -21,11 +21,11 @@ e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
 1. To run the UrbanOpt CLI, first run the ```setup-env.sh``` script that generates environmental variables and stores these in ```env_uo.sh``` in your home directory.
 
 ```bash
-/usr/local/urbanopt-cli-X.X.X/setup-env.sh  
+/usr/local/urbanopt-cli-X.X.X/setup-env.sh
 . ~/.env_uo.sh
 ```
 
-1. When launching new shell terminals, run ```. ~/.env_uo.sh``` to setup the environment. 
+1. When launching new shell terminals, run ```. ~/.env_uo.sh``` to setup the environment.
 
 ## Manual Install
 
@@ -38,7 +38,7 @@ e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
     - Once installed, you may check which versions of Ruby have been installed and which one is active with: `rbenv versions`
     - Set your current directory to use Ruby 2.7.x with: `rbenv local 2.7.x`
     - Full documentation for rbenv can be found at the [rbenv github site](https://github.com/rbenv/rbenv#command-reference)
- 
+
 1. Install Bundler version 2.1:
 
 	```terminal
@@ -49,7 +49,7 @@ e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
 
 	OpenStudio is designed to be used on Ubuntu 18.04. For other Ubuntu versions, see the [troubleshooting](troubleshooting.md) page.
 
-1. Add the `RUBYLIB` environment variable path pointing to OpenStudio Ruby location by pasting the following line into your `.bash_profile`, `.zshenv` or similar file: 
+1. Add the `RUBYLIB` environment variable path pointing to OpenStudio Ruby location by pasting the following line into your `.bash_profile`, `.zshenv` or similar file:
 
 	```terminal
 		export RUBYLIB=/usr/local/openstudio-X.X.X/Ruby
@@ -75,12 +75,12 @@ e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
 
 ## OpenDSS and DiTTo Reader Installation
 
-As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.  
+As of version 0.4.0, the URBANopt CLI includes DiTTo/OpenDSS support.  Since this functionality is implemented in Python, a different set of dependencies must be installed in order to use it.
 
 If you'd like to use this functionality, follow the [OpenDSS installation](./ditto_reader.md) instructions.
 
 ## DES Installation
 
-As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use. 
+As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use.
 
 Follow the [DES Installation Instructions](./des_installation.md) to install these dependencies.

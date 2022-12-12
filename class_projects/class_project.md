@@ -44,6 +44,6 @@ Students will be best prepared to achieve the project learning objectives if the
 
 ### Suggested Computing Prerequisites:
 
-- Access to a computer over which they have administrator privileges to install the URBANopt software development kit (SDK) and command-line interface (CLI). 
+- Access to a computer over which they have administrator privileges to install the URBANopt software development kit (SDK) and command-line interface (CLI).
 
 - Obtain an [NREL Developer API Key](https://developer.nrel.gov/) so that the REopt tool can be used.

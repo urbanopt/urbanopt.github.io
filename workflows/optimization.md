@@ -19,7 +19,7 @@ Follow the steps below to install the necessary dependencies and run the file wi
 
 1. Install [PAT](https://github.com/NREL/OpenStudio-PAT/releases) to have access to the `openstudio_meta CLI` and all gems necessary to run it.  (it is assumed the install directory is c:/ParametricAnalysisTool-3.1.0)
 
-1. Start an OSAF server cluster on AWS, Google or Microsoft using the [Helm](https://github.com/NREL/openstudio-server-helm) charts.  Note the server IP address; you will need it to submit the jobs. 
+1. Start an OSAF server cluster on AWS, Google or Microsoft using the [Helm](https://github.com/NREL/openstudio-server-helm) charts.  Note the server IP address; you will need it to submit the jobs.
 
 1. Once the cluster is up and running, open a terminal prompt or powershell in the directory with the URBANopt example files:
 
@@ -45,7 +45,7 @@ Once the job is submitted, you should be able to see the analysis on the Server 
 
 ## Customization
 
-The URBANopt analysis is defined using the OpenStudio OSA file.  This allows you to define the names of the feature file and scenario file as well as the variables. 
+The URBANopt analysis is defined using the OpenStudio OSA file.  This allows you to define the names of the feature file and scenario file as well as the variables.
 
 ### Variables
 
@@ -69,4 +69,3 @@ A `report` key should be added to each objective function to specify whether it 
 ![OSA objective functions](../doc_files/opt_objfunctions.png)
 
 PAT can be used to generate a template OSA that can then be manually adjusted for an URBANopt analysis.
-

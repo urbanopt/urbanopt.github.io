@@ -11,10 +11,10 @@ nav_order: 6
 
 If you have a secure firewall that prevents **bundler** from installing properly, type the following into the command line:
 
-`gem sources -c`  
+`gem sources -c`
 `gem sources -a http://rubygems.org/`
 
-You will need to accept the reduced security of `http` compared to `https`  
+You will need to accept the reduced security of `http` compared to `https`
 
 If installing bundler **still** doesn't work, create a `.gemrc` file in your home directory:
 
