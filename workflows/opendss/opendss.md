@@ -10,7 +10,11 @@ OpenDSS simulates powerflow through an electrical network for steady-state loadi
 
 ## Installation
 
-Visit the [OpenDSS Installation page](../installation/ditto_reader.md) to install OpenDSS and URBANopt DiTTo Reader.
+Run the following URBANopt CLI command to install Python and the required OpenDSS-related dependencies:
+
+```bash
+uo install_python
+```
 
 ## Usage
 
