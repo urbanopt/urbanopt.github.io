@@ -46,3 +46,5 @@ A diagram of the technologies needed to enable each capability is shown below:
 [Resources](./resources/about){: .btn .btn-uo .white-text} &mdash; Visit the [Resources](./resources/about) section for general information on URBANopt structure and customizations.
 
 [For Developers](./developer_resources/developer_resources){: .btn .btn-uo .white-text} &mdash; Visit the [Developer Resources](developer_resources/developer_resources) section for details on how to develop and test new URBANopt functionality as well as a compatibility matrix for all URBANopt dependencies.
+
+[Questions, Comments, Requests?](https://github.com/orgs/urbanopt/discussions){: .btn .btn-uo .white-text} &mdash; Visit the new [URBANopt Discussions](https://github.com/orgs/urbanopt/discussions) page on GitHub to ask questions or make feature requests.
