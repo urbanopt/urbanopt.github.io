@@ -343,7 +343,7 @@ nav_order: 1
         <p> Since the DiTTo Reader and OpenDSS functionality is written in Python, additional dependencies will need to be installed if you wish to use this workflow. Run the <strong>uo install_python</strong> command to install Python and all required dependencies.
       </p>
       </div>
-      <p>Once you have installed Python and urbanopt-ditto-reader, you can use the <code>opendss</code> CLI command to access the OpenDSS functionality. You can use the <code>opendss</code> CLI command after you have run the scenario (using a FeatureFile that contains a fully-connected electrical network) and post-process the general results with the <code>--default</code> post-processor.  The OpenDSS workflow will use these results files in the processing.</p>
+      <p>Once you have installed Python and Python-related dependencies with the <code>uo install_python</code> command, you can use the <code>opendss</code> CLI command to access the OpenDSS functionality. You can use the <code>opendss</code> CLI command after you have run the scenario (using a FeatureFile that contains a fully-connected electrical network) and post-process the general results with the <code>--default</code> post-processor.  The OpenDSS workflow will use these results files in the processing.</p>
       <p>Watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/09_UO_opendss_workflow.mp4" target="_blank" class="bold">OpenDSS Workflow Tutorial Video</a>.</p>
       <h3>Step-by-Step of the entire OpenDSS-enabled workflow:</h3>
       <ol class="t">
@@ -357,6 +357,7 @@ nav_order: 1
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo opendss --reopt --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
           <p>In addition to the required `--scenario` and `--feature` options, there are optional options that can be specified, as listed below.  You can also run the CLI help command for more information and examples: `uo opendss -h`</p>
           <ul class="t">
+            <li class="t"><code>--rnm</code>: Use RNM-generated DSS files in this analysis.</li>
             <li class="t"><code>--equipment</code>: Path to custom equipment file. View the <a href="../workflows/opendss">OpenDSS page</a> for more info.</li>
             <li class="t"><code>--start-date</code>: Optional, Beginning date for OpenDSS analysis. Defaults to beginning date of simulation period. Format: YYYY/MM/DD</li>
             <li class="t"><code>--start-time</code>: Optional, Beginning time for OpenDSS analysis. Defaults to 00:00:00 of
@@ -406,8 +407,9 @@ nav_order: 1
       <li class="t"><code><span class="code-text">--reopt</span></code>: Use this option to use REopt results in the RNM analysis. In order to do so, the scenario must first be post-processed with the REopt feature optimization option (`--reopt-feature`)</li>
       <li class="t"><code><span class="code-text">--extended-catalog</span></code>: Use this option to specify the path to the extended electrical catalog. If this option is not included, the default catalog will be used</li>
       <li class="t"><code><span class="code-text">--average-peak-catalog</span></code>: Use this option to specify the path to the average peak catalog. If this option is not included, the default catalog will be used.</li>
-      <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSon file be created.</li>
+      <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSON file be created.</li>
       </ul>
+      <p>Once the RNM Workflow is run, the resulting DSS files can be processed with OpenDSS, if desired. View the OpenDSS section for command details.</p>
       <p>View the <a href="../workflows/rnm">RNM Workflow page</a> for more info. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/10_RNM-workflow.mp4" target="_blank" class="bold">RNM Workflow Tutorial Video</a>.</p>
     </div>
   </li>
