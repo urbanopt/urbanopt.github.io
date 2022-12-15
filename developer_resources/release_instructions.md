@@ -13,7 +13,10 @@ The modular nature of URBANopt<sup>&trade;</sup> allows for freedom in developin
 
 We recommend releasing gems **in order from the base to most dependent**. For each gem being improved, follow these steps:
 
-1. Increment version (if needed) in `/lib/*/version.rb`
+1. Increment version (if needed) in `/lib/*/version.rb`. URBANopt follows a semantic versioning scheme where the version number parts are: MAJOR.MINOR.PATCH.
+	- If the changes are non-breaking and it is safe to include them in a current URBANopt release, increment the version number at the PATCH level only, for example: v0.3.1 to v0.3.2. This will ensure that the changes will be automatically pulled in when users install the current version of URBANopt.
+
+	- If the new release includes changes that break the current functionality or if the gem's dependencies are updated at the minor or major version level, increment the version number at the MINOR level, for example: v0.3.1 to v0.4.0.  This will ensure that the changes will not be automatically pulled in when users install the current version of URBANopt.
 1. For gems with measures in them, run the following rake tasks and commit the changes:
 	```
 	rake openstudio:test_with_openstudio
@@ -30,6 +33,7 @@ We recommend releasing gems **in order from the base to most dependent**. For ea
 	rake openstudio:change_log[start_date,end_date,apikey]
 	```
     No spaces around the commas! Paste the `Closed Issues` into the CHANGELOG, matching formatting as appropriate.
+1. Ensure that the Gemfile and gemspec files are "clean" and that no dependency is pointing to a github branch before merging to develop and main branches.
 1. Merge pull requests to the `develop` branch
 1. Create PR to main
     - Ensure all tests pass before merging
@@ -39,6 +43,20 @@ We recommend releasing gems **in order from the base to most dependent**. For ea
     - Link to relevant documentation URLs in release tags
 1. Update [Compatibility Matrix](compatibility_matrix.md) as appropriate
 
+### Updates for New Version of OpenStudio
+Follow these steps when testing URBANopt for a new version of OpenStudio. These changes should be made on all URBANopt Ruby gems, the example-geojson-project repo, and the CLI:
+
+1. Create long-term support branches for the previous version of OpenStudio off of the develop branch prior to making any updates for the new version.  Branch name should be OS-X.X-LTS, for example: OS-3.4-LTS.
+
+1. Create a testing branch that includes the ruby version update and ruby dependency version updates. Name this branch with the new OpenStudio version: OS-X.X, for example: OS-3.5
+
+1. Update Jenkins testing on GitHub to run the new OpenStudio executable for all PRs made against the new testing branch.  For example, all PRs made against OS-X.X will run the new OpenStudio executable for testing.
+
+1. Once all tests pass, merge PRs into the OpenStudio testing branch.  Update Jenkins a final time to have run the new OpenStudio executable on all branches EXCEPT the long-term support (LTS) branches.  
+
+1. Make a PR from the OS testing branch to develop, ensure that all tests pass, and merge.
+
+1. Continue the release steps as usual after this point.
 
 ### OpenStudio - URBANopt Release Process
 

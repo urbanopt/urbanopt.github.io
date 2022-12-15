@@ -2,10 +2,11 @@
 layout: default
 title: RNM
 parent: Workflows
+has_children: true
 nav_order: 5
 ---
 
-# RNM Analysis
+# URBANopt RNM-US Analysis
 
 RNM (Reference Network Model) is an electrical distribution system planning tool. The US-compatible version of RNM, RNM-US, can be used to design a cost-effective synthetic distribution system to serve consumers in a district, considering the connection of distributed energy resources (DERs).
 
@@ -60,6 +61,8 @@ An example:
 	```
 
 Visit the [Getting Started page](../getting_started/getting_started) for detailed usage examples.
+
+** Note:** There is a 2000 building size limit for RNM-US. 
 
 ## RNM-US
 
