@@ -9,14 +9,15 @@ nav_order: 1
 
 The URBANopt<sup>&trade;</sup> installer includes Ruby and OpenStudio. The matrix below shows the versions details for each installer version.
 
-|URBANopt Version|OpenStudio| OpenStudio-HPXML | Ruby|
-|:--------------:|:----------:|:--------:|:--------:|
-| 0.8.0	- 0.8.2	 | 3.4.0		  | 1.4.0		 |2.7		 |
-| 0.7.0	- 0.7.1	 | 3.3.0			| 1.3.0		 |2.7		 |
-| 0.6.0 - 0.6.4  | 3.2.0      | 1.2.0    |2.7		 |
-| 0.5.0 - 0.5.1  | 3.1.0      | 1.1.0    |2.5    |
-| 0.4.0 - 0.4.1  | 3.0.1      |   -      |2.5    |
-| 0.3.1          | 3.0.1      |		-	     |2.5    |
+|URBANopt Version|OpenStudio| OpenStudio-HPXML | Ruby| Python | REopt API | Modelica Buildings Library |
+|:--------------:|:----------:|:--------:|:--------:| :-------: | :-----: | :------------------------: |
+| 0.9.0 				 | 3.5.0 	    | 1.5.0    |2.7    | 3.10 | v2 | 9 |
+| 0.8.0	- 0.8.2	 | 3.4.0		  | 1.4.0		 |2.7		 | 3.7 | v1 | 8 |
+| 0.7.0	- 0.7.1	 | 3.3.0			| 1.3.0		 |2.7		 | 3.7 | v1 | 7 |
+| 0.6.0 - 0.6.4  | 3.2.0      | 1.2.0    |2.7		 |3.7 | v1 | 7 |
+| 0.5.0 - 0.5.1  | 3.1.0      | 1.1.0    |2.5    | 3.7 | v1 |
+| 0.4.0 - 0.4.1  | 3.0.1      |   -      |2.5    | 3.7 | v1 |
+| 0.3.1          | 3.0.1      |		-	     |2.5    | 3.7 | v1 |
 
 
 ## URBANopt Compatibility Matrix

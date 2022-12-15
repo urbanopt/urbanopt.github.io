@@ -6,7 +6,7 @@ nav_order: 1
 <div class="row">
 	<div class="col">
 		<p>To run URBANopt&trade;, first follow the <a href="../installation/installation" class="bold">installation instructions</a> to install the URBANopt command line interface (CLI) and all of its dependencies.</p>
-		<p>Once the CLI is installed, help is available by typing <code><span class="code-text">uo --help</span></code> from the command line.  Detailed help for each command can be found with <code><span class="code-text">uo [the command name] --help</span></code>. The main CLI commands are: <code><span class="code-text">create</span></code>, <code><span class="code-text">run</span></code>, <code><span class="code-text">process</span></code>, <code><span class="code-text">visualize</span></code>, <code><span class="code-text">opendss</span></code>, <code><span class="code-text">rnm</span></code>, and <code><span class="code-text">delete</span></code>.</p>
+		<p>Once the CLI is installed, help is available by typing <code><span class="code-text">uo --help</span></code> from the command line.  Detailed help for each command can be found with <code><span class="code-text">uo [the command name] --help</span></code>. The main CLI commands are: <code><span class="code-text">create</span></code>, <code><span class="code-text">run</span></code>, <code><span class="code-text">process</span></code>, <code><span class="code-text">visualize</span></code>, <code><span class="code-text">opendss</span></code>, <code><span class="code-text">rnm</span></code>, <code><span class="code-text">disco</span></code>, and <code><span class="code-text">delete</span></code>.</p>
 		<p>Before you start, think about the capabilities and analyses you want to utilize and setup your project accordingly. The best way to start is to use the example project made with the CLI.  Once you are familiar with the commands you can customize your project.</p>
 	</div>
 	<div class="col" style="padding-left:20px;">
@@ -95,6 +95,14 @@ nav_order: 1
       <p>View the <a href="#rnm" class="bold">RNM section</a> under <a href="#analyses" class="bold">Additional Capabilities</a> below for more details on the RNM functionality.</p>
     </div>
   </li>
+  <li class="acc"><input id="accordionC" type="checkbox" /><label for="accordionC">Include DISCO functionality in your project</label>
+    <div class="show">
+      <p>In order to use the DISCO functionality successfully, the FeatureFile should contain Electrical distribution system features. The project directory should also contain a cost database input file and a technical catalog input file to be used by the DISCO analysis. Use the command below to create an example project containing a FeatureFile with electrical network defined within it (<code>example_project_with_electric_network.json</code>) as well as a disco folder including the necessary catalog input files. You can also use your own Feature File that includes an electric network.</p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo create --disco --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+      </div>
+      <p>View the <a href="#disco" class="bold">DISCO section</a> under <a href="#analyses" class="bold">Additional Capabilities</a> below for more details on the DISCO functionality.</p>
+    </div>
+  </li>
 </ul>
 <p>Other Options</p>
 <ul class="jk_accordion">
@@ -108,6 +116,31 @@ nav_order: 1
   <div class="show">
     <p>By default, the CLI will abort if the project directory being created already exists. To overwrite an existing folder, use the <code>--overwrite</code> option. This deletes anything in the named folder and creates a fresh project directory. This command can be combined with the <code>-e</code> option to overwrite a directory with a new empty URBANopt project directory.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --overwrite --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+    </div>
+  </div>
+  </li>
+  <li class="acc"><input id="accordion6b" type="checkbox" /><label for="accordion6b">Update an existing project to a more recent version of URBANopt</label>
+  <div class="show">
+    <p>The <code>update</code> function can be used to update an existing URBANopt project to the currently installed URBANopt CLI version. This process will overwrite the existing URBANopt files and folders in the new project folder with the updated ones. If you have made modifications to the following files in your existing folder, you will need to reinstate these modifications in the new project folder:</p>
+    <ul style="margin-left:50px;">
+      <li>Gemfile</li>
+      <li>validation_schema.yaml</li>
+      <li>runner.conf</li>
+      <li>Example Feature File</li>
+      <li>mappers folder</li>
+      <li>osm_building folder</li>
+      <li>weather folder</li>
+      <li>visualization folder</li>
+      <li>residential folder</li> 
+      <li>measures folder</li>
+      <li>resources folder</li>
+      <li>xml_building folder in case of a residential project</li>
+      <li>reopt folder in case of a REopt project</li>
+      <li>opendss folder in case of an OpenDSS project</li>
+      <li>disco folder in case of a DISCO project</li>
+    </ul>
+    <p>To update the project, specify the existing project folder name and location for the updated URBANopt project:</p>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo update --existing-project-folder &lt;name of existing project&gt; --new-project-directory &lt;location/to/new_urbanopt_example_project&gt;</span></code></pre>
     </div>
   </div>
   </li>
@@ -307,10 +340,10 @@ nav_order: 1
       <p><strong>OpenDSS</strong> is an open-source tool that is popular for simulating electrical distribution systems. The <strong>DIstribution Transformation TOol (DiTTo)</strong> is an open source and many-to-many conversion tool that has been developed by NREL to simplify converting data between distribution models. Finally, the <strong>URBANopt DiTTo Reader</strong> package and CLI provide the link between URBANopt and OpenDSS.</p>
       <p>The entire DiTTo-Reader to OpenDSS workflow is available in URBANopt via the opendss URBANopt CLI command.</p>
       <div class="important-note">
-        <p> Since the DiTTo Reader and OpenDSS functionality is written in Python, additional dependencies will need to be installed if you wish to use this workflow. Visit the <a href="../installation/ditto_reader.md" class="bold">OpenDSS Installation page</a> to install OpenDSS and URBANopt DiTTo Reader.
+        <p> Since the DiTTo Reader and OpenDSS functionality is written in Python, additional dependencies will need to be installed if you wish to use this workflow. Run the <strong>uo install_python</strong> command to install Python and all required dependencies.
       </p>
       </div>
-      <p>Once you have installed Python and urbanopt-ditto-reader, you can use the <code>opendss</code> CLI command to access the OpenDSS functionality. You can use the <code>opendss</code> CLI command after you have run the scenario (using a FeatureFile that contains a fully-connected electrical network) and post-process the general results with the <code>--default</code> post-processor.  The OpenDSS workflow will use these results files in the processing.</p>
+      <p>Once you have installed Python and Python-related dependencies with the <code>uo install_python</code> command, you can use the <code>opendss</code> CLI command to access the OpenDSS functionality. You can use the <code>opendss</code> CLI command after you have run the scenario (using a FeatureFile that contains a fully-connected electrical network) and post-process the general results with the <code>--default</code> post-processor.  The OpenDSS workflow will use these results files in the processing.</p>
       <p>Watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/09_UO_opendss_workflow.mp4" target="_blank" class="bold">OpenDSS Workflow Tutorial Video</a>.</p>
       <h3>Step-by-Step of the entire OpenDSS-enabled workflow:</h3>
       <ol class="t">
@@ -324,6 +357,7 @@ nav_order: 1
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo opendss --reopt --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
           <p>In addition to the required `--scenario` and `--feature` options, there are optional options that can be specified, as listed below.  You can also run the CLI help command for more information and examples: `uo opendss -h`</p>
           <ul class="t">
+            <li class="t"><code>--rnm</code>: Use RNM-generated DSS files in this analysis.</li>
             <li class="t"><code>--equipment</code>: Path to custom equipment file. View the <a href="../workflows/opendss">OpenDSS page</a> for more info.</li>
             <li class="t"><code>--start-date</code>: Optional, Beginning date for OpenDSS analysis. Defaults to beginning date of simulation period. Format: YYYY/MM/DD</li>
             <li class="t"><code>--start-time</code>: Optional, Beginning time for OpenDSS analysis. Defaults to 00:00:00 of
@@ -373,8 +407,9 @@ nav_order: 1
       <li class="t"><code><span class="code-text">--reopt</span></code>: Use this option to use REopt results in the RNM analysis. In order to do so, the scenario must first be post-processed with the REopt feature optimization option (`--reopt-feature`)</li>
       <li class="t"><code><span class="code-text">--extended-catalog</span></code>: Use this option to specify the path to the extended electrical catalog. If this option is not included, the default catalog will be used</li>
       <li class="t"><code><span class="code-text">--average-peak-catalog</span></code>: Use this option to specify the path to the average peak catalog. If this option is not included, the default catalog will be used.</li>
-      <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSon file be created.</li>
+      <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSON file be created.</li>
       </ul>
+      <p>Once the RNM Workflow is run, the resulting DSS files can be processed with OpenDSS, if desired. View the OpenDSS section for command details.</p>
       <p>View the <a href="../workflows/rnm">RNM Workflow page</a> for more info. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/10_RNM-workflow.mp4" target="_blank" class="bold">RNM Workflow Tutorial Video</a>.</p>
     </div>
   </li>
