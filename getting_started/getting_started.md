@@ -378,6 +378,20 @@ nav_order: 1
       <p>View the <a href="../workflows/rnm">RNM Workflow page</a> for more info. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/10_RNM-workflow.mp4" target="_blank" class="bold">RNM Workflow Tutorial Video</a>.</p>
     </div>
   </li>
+  <li class="acc" id="disco"><input id="disco2" type="checkbox" /><label for="disco2">DISCO Functionality</label>
+    <div class="show">
+      <p><strong>DISCO functionality is available in URBANopt CLI version 0.9.0 and above.</strong></p>
+      <p>To access DISCO functionality, first create a project with the <code><span class="code-text">--disco</span></code> flag. This will create an example project with electrical distribution network features in the feature file as well as the required default DISCO files in a folder named <code><span class="code-text">disco</span></code> within the project folder. Once a project scenario has first been run and processed with the default post-processor, then run through the OpenDSS workflow and processed with the OpenDSS post-processor, a DISCO analysis can finally be run.</p>
+      <p>To run the DISCO workflow, use the following command:</p>
+      <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo disco --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
+      <p>Additional options that can be used with the <code><span class="code-text">disco</span></code> command are:</p>
+      <ul class="t">
+      <li class="t"><code><span class="code-text">--cost_database</span></code>: Use this option to specify the file name of a custom cost database file. If omitted, the default cost database found in the disco folder will be used</li>
+      <li class="t"><code><span class="code-text">--technical_catalog</span></code>: Use this option to   specify the file name of a custom technical catalog file. If omitted, the default technical catalog found in the disco folder will be used</li>
+      <p>View the <a href="../workflows/disco/disco.html">DISCO Workflow page</a> for more info.</p>
+      </ul>
+    </div>
+  </li>
   <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate EUI Results</label>
     <div class="show">
     <p>URBANopt provides a method to validate the energy use intensity (EUI) results from your full year simulation against a relatively wide range of potential EUI values. This can be used to confirm that your simulation results are within the right ballpark. Note: this does not guarantee that no errors or inaccuracies are present, it just helps perform an initial check on simulation output results. The schema file is included in the project_dir and can be customized if your buildings are unusual. </p>
