@@ -9,7 +9,7 @@ nav_order: 3
 
 This page provide documentation to support commercial software cloud-based integration of URBANopt. This process is divided into multiple steps illustrated in Figure 1 and described below. 
 
-![cloud integration](../../doc_files/cloud_integration.jpg)
+![cloud integration](../../doc_files/cloud_integration.png)
 
 **I– Inputs Translator**
 
