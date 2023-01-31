@@ -21,7 +21,7 @@ The flexibility of the system is based on user-defined temperatures and times, w
 1.	Float: all heating elements are turned-off for a user-defined time period unless the tank temperature falls below a minimum value.
 The heat pump will be prioritized in a low tank temperature event, with the electric resistance heaters serving as back-up.
 
-**A more details description for usinf the Add HPWH (Heat Pump Water Heater) Measure is provided in this [General Reference Guide](https://github.com/NREL/openstudio-load-flexibility-measures-gem/blob/master/lib/measures/add_hpwh/docs/Flexible%20Domestic%20Hot%20Water%20Implementation%20Guide.pdf).**
+**A more detailed description for using the Add HPWH (Heat Pump Water Heater) Measure is provided in this [General Reference Guide](https://github.com/NREL/openstudio-load-flexibility-measures-gem/blob/master/lib/measures/add_hpwh/docs/Flexible%20Domestic%20Hot%20Water%20Implementation%20Guide.pdf).**
 
 ## Using or Modifying the FlexibleHotWater Scenario
 
