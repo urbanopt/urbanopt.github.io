@@ -29,6 +29,19 @@ nav_order: 3
 
 1. **OSAF** Starting with OpenStudio version 3.3.0, major biannual releases of OpenStudio SDK / OpenStudio Analysis Framework (OSAF) will *not* include the URBANopt SDK due to dependency conflicts. URBANopt SDK will be released following the OpenStudio release, and then a patch release of the OSAF will be made that includes the URBANopt dependency.  Visit the [Release Instructions](release_instructions.md#openstudio---urbanopt-release-process) page for more details.
 
+### Version 0.9.1 and below
+1. An unpinned ruby dependency has been updated and is causing an issue with running URBANopt projects.  If you get an error related to `unicode_normalize` similar to this:
+	```bash
+	lib/openstudio/workflow/util/measure.rb failed with message cannot load such file -- unicode_normalize/normalize.rb 
+	      ...
+	```
+
+To fix this issue, either download URBANopt CLI 0.9.2 and recreate/update your projects.  
+Since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
+	```
+		gem 'addressable', '2.8.1'
+	```
+
 ### Version 0.6.3
 
 1. The REopt assumptions files have the `gcr` field set incorrectly to `1` as a default value and will cause REopt optimizations to fail.  The maximum value for this field is `0.99`. This change can be made in the `base_assumptions.json` (1 occurrence) and `multiPV_assumptions.json` (2 occurrences) files found in the `reopt` folder within the project directory.
