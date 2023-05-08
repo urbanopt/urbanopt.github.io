@@ -14,10 +14,19 @@ nav_order: 3
 	```bash
 	 error from REopt API: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)
 	 ```
-	To resolve this issue, run the following command and then try again:
+	To resolve this issue in DEVELOPMENT mode, run the following command and then try again:
 
 	```bash
 	bundle exec certified-update
+	```
+	
+	If you are using an URBANopt installer, locate the path within the installed application of the 'certified-update' executable and run it.  For example, on MAC the path would be something like:
+	```bash
+	/Applications/URBANoptCLI_X.X.X/gems/ruby/2.7.0/gems/certified-1.0.0/bin/certified-update
+	```
+	And on windows it may look like:
+	```bash
+	c:\urbanopt-cli-X.X.X\gems\ruby\2.7.0\gems\certified-1.0.0\bin\certified-update
 	```
 
 1. **LONG FILEPATHS ISSUE** Users (windows users especially) may run into an error while running URBANopt.  The error will be encountered either when running ‘bundle install’ in the project directory or in the in.osw.log file of a specific feature simulation and will look like this:
