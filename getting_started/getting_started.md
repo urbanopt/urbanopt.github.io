@@ -131,7 +131,7 @@ nav_order: 1
       <li>osm_building folder</li>
       <li>weather folder</li>
       <li>visualization folder</li>
-      <li>residential folder</li> 
+      <li>residential folder</li>
       <li>measures folder</li>
       <li>resources folder</li>
       <li>xml_building folder in case of a residential project</li>

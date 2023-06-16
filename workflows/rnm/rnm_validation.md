@@ -19,7 +19,7 @@ The validation module has been developed in Python to enable interfacing with Op
 
 As shown in Figure 2, the validation module implementation is made up of several classes that deal with the OpenDSS interface, the plotting of figures, and the report.
 
-The core functions of the OpenDSS interface interact with OpenDSS. These functions solve the power flow iteratively and obtain 1) voltages, 2) unbalances, 3) loading of equipment, 4) loads and load shapes, 5) energy losses, and 6) network component parameters. 
+The core functions of the OpenDSS interface interact with OpenDSS. These functions solve the power flow iteratively and obtain 1) voltages, 2) unbalances, 3) loading of equipment, 4) loads and load shapes, 5) energy losses, and 6) network component parameters.
 
 The plot library displays histograms, violin plots, and duration curves. It also has a function to obtain a hierarchical representation of the network that displays the number of thermal and voltage violations throughout the year. The Report class calculates metrics related to voltage, unbalance, and thermal violations, as well as the top violations, and outputs the summary operational report.
 
@@ -31,10 +31,10 @@ The plot library displays histograms, violin plots, and duration curves. It also
 
 The results that are automatically obtained with this module can be classified into the following categories.
 - **Technical constraints**. Information is presented in CSV files, complemented with histograms and violin plots showing the monthly variations.
-	- **Loading**. Results contain the loading of every network component (power line or transformer) and the thermal limit violations. An overload is considered to exist if the current through a network component (power line or transformer winding) exceeds its rated ampacity. 
-	- **Voltage**. Results contain the voltage of every bus in the network and the voltage violations. The voltage limit has been set to +/- 5%, following the ANSI C84.1. 
-	- **Unbalance**. Results contain the phase voltage unbalance of every bus in the network, and the unbalance violations. The definition of the Phase Voltage Unbalance Rate (PVUR) in the IEEE has been applied to measure the unbalance, and a 2% limit has been set, following the IEEE standard 141-1993. 
-- **Statistics** 
+	- **Loading**. Results contain the loading of every network component (power line or transformer) and the thermal limit violations. An overload is considered to exist if the current through a network component (power line or transformer winding) exceeds its rated ampacity.
+	- **Voltage**. Results contain the voltage of every bus in the network and the voltage violations. The voltage limit has been set to +/- 5%, following the ANSI C84.1.
+	- **Unbalance**. Results contain the phase voltage unbalance of every bus in the network, and the unbalance violations. The definition of the Phase Voltage Unbalance Rate (PVUR) in the IEEE has been applied to measure the unbalance, and a 2% limit has been set, following the IEEE standard 141-1993.
+- **Statistics**
 	- **Loads**. The system load duration curve as well as the violin plot of the load peaks and the load along the year are obtained.
 	- **Losses**. The system losses along the year as well as the detailed losses in every component and hour are evaluated.
 	- **Equipment**. The violin plot of the power line ampacity and the distribution transformer size are obtained.
@@ -49,7 +49,7 @@ In the following sections, each of these categories is described in more detail.
 
 The variables evaluated include the loading of network components (power lines and transformers) as well as voltages and unbalances in buses. The corresponding constraints are the thermal limits as well as the voltage and unbalance limits.
 
-These variables are represented as yearly and monthly histograms, enabling users to visually determine if the variables are within the allowed ranges, or the proportion outside the limits, if applicable. For example, Figure 3.a illustrates the histogram of bus voltages and the limits. The histograms are complemented with violin plots of the relevant variables. For example, Figure 3.b illustrates the violin plot of the voltages, showing on the left side the monthly patterns and on the right side the yearly pattern. 
+These variables are represented as yearly and monthly histograms, enabling users to visually determine if the variables are within the allowed ranges, or the proportion outside the limits, if applicable. For example, Figure 3.a illustrates the histogram of bus voltages and the limits. The histograms are complemented with violin plots of the relevant variables. For example, Figure 3.b illustrates the violin plot of the voltages, showing on the left side the monthly patterns and on the right side the yearly pattern.
 
 <div style="display:flex;">
   <div style="flex: 50%"><img src="../../doc_files/rnm-validation-3a.png"/></div>
