@@ -140,7 +140,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				<td>Commercial and Residential</td>
 				<td>No</td>
 				<td>No</td>
-				<td>An OpenStudio measure used to report emissions based on user-provided future and historical years as well as future, historical hourly, and historical annual subregions. 
+				<td>An OpenStudio measure used to report emissions based on user-provided future and historical years as well as future, historical hourly, and historical annual subregions.
 				</td>
 			</tr>
 			<tr>

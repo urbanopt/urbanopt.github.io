@@ -9,10 +9,10 @@ nav_order: 8
 The Chilled Water Storage Scenario adds a chilled water tank to the building for thermal energy storage. By charging the tank at night and discharge it during the day, the load can be shed during the peak hours.
 The measure used in this scenario is `add_chilled_waster_storage_tank` from the [Openstudio-GEB-gem](https://github.com/LBNL-ETA/Openstudio-GEB-gem) developed by LBNL. The gem features a series of measures that provide the capabilities to achieve Grid-interactive Efficient Buildings.
 
-## Measure 
+## Measure
 ### Description
 
-The measure add_chilled_waster_storage_tank adds a chilled water storage tank and links it to an existing chilled water loop. Users can specify the operating season, charge period, discharge period, setpoint temperature and volume of the chilled water tank. 
+The measure add_chilled_waster_storage_tank adds a chilled water storage tank and links it to an existing chilled water loop. Users can specify the operating season, charge period, discharge period, setpoint temperature and volume of the chilled water tank.
 If the tank volume is not provided, a sizing simulation will be run to autosize the tank.
 
 ### Arguments
@@ -29,15 +29,15 @@ Arguments that can be specified for this measure are listed below.
 - `Discharge end time`: Ending Time for Chilled Water Tank Discharge in HR:mm (24 hour format)
 - `Charge start time`: Starting Time for Chilled Water Tank Charge in HR:mm (24 hour format)
 - `Charge end time`: Ending Time for Chilled Water Tank Charge in HR:mm (24 hour format)
-- `Work on weekends?`: Allow Chilled Water Tank Work on Weekends?  
-- If a tank's size is not provided, a sizing run will be performed beforehand to autosize the tank. An output path and a weather file can be specified to be used for sizing run.  
+- `Work on weekends?`: Allow Chilled Water Tank Work on Weekends?
+- If a tank's size is not provided, a sizing run will be performed beforehand to autosize the tank. An output path and a weather file can be specified to be used for sizing run.
 
 Users can find the default settings of these arguments in the ChilledWaterStorageMapper.
 
 
 ## Using or Modifying the Chilled Water Storage Scenario
 
-To run and post-process the *Chilled Water Storage* scenario simply specify the chilled_water_storage_scenario.csv file when executing at the command line. 
+To run and post-process the *Chilled Water Storage* scenario simply specify the chilled_water_storage_scenario.csv file when executing at the command line.
 
 ```bash
 uo run -s <path to chilled_water_storage_scenario.csv> -f <path to example_project.json>

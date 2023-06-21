@@ -18,20 +18,20 @@ interfere with python versions and dependency packages already installed on a us
 ### To Install
 
 Use the following CLI command to install the **NREL-disco**, **urbanopt-ditto-reader** and
-**geojson-modelica-translator** python packages: 
+**geojson-modelica-translator** python packages:
 
 ```bash
 uo install_python
 ```
 
-This installs to the following versions of the python packages: 
+This installs to the following versions of the python packages:
 
 
 |Python Package|Version|
 |:--------------:|:----------:|
-| NREL-disco| 0.4.0		  | 
-| urbanopt-ditto-reader| 0.4.1			| 
-| geojson-modelica-translator|0.3.0       | 
+| NREL-disco| 0.4.0		  |
+| urbanopt-ditto-reader| 0.4.1			|
+| geojson-modelica-translator|0.3.0       |
 
 
 To update these versions, modify the version in the *dependencies.json*

@@ -52,7 +52,7 @@ Follow these steps when testing URBANopt for a new version of OpenStudio. These 
 
 1. Update Jenkins testing on GitHub to run the new OpenStudio executable for all PRs made against the new testing branch.  For example, all PRs made against OS-X.X will run the new OpenStudio executable for testing.
 
-1. Once all tests pass, merge PRs into the OpenStudio testing branch.  Update Jenkins a final time to have run the new OpenStudio executable on all branches EXCEPT the long-term support (LTS) branches.  
+1. Once all tests pass, merge PRs into the OpenStudio testing branch.  Update Jenkins a final time to have run the new OpenStudio executable on all branches EXCEPT the long-term support (LTS) branches.
 
 1. Make a PR from the OS testing branch to develop, ensure that all tests pass, and merge.
 

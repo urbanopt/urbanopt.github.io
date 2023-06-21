@@ -62,7 +62,7 @@ An example:
 
 Visit the [Getting Started page](../getting_started/getting_started) for detailed usage examples.
 
-** Note:** There is a 2000 building size limit for RNM-US. 
+** Note:** There is a 2000 building size limit for RNM-US.
 
 ## RNM-US
 

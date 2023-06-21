@@ -23,13 +23,13 @@ Arguments that can be specified for this measure are listed below.
 - `Second start date for the Reduction` (optional): In mm-dd format; leave blank if not needed
 - `Second end date for the Reduction` (optional): In mm-dd format; leave blank if not needed
 - `Third start date for the Reduction` (optional): In mm-dd format; leave blank if not needed
-- `Third end date for the Reduction` (optional): In mm-dd format; leave blank if not needed  
+- `Third end date for the Reduction` (optional): In mm-dd format; leave blank if not needed
 
 Users can find the default settings of these arguments in the PeakHoursMelsSheddingMapper.
 
 ## Using or Modifying the Peak Hours MELs Shedding Scenario
 
-To run and post-process the *PeakHoursMelsShedding* scenario simply specify the peak_hours_mels_shedding_scenario.csv file when executing at the command line. 
+To run and post-process the *PeakHoursMelsShedding* scenario simply specify the peak_hours_mels_shedding_scenario.csv file when executing at the command line.
 
 ```bash
 uo run -s <path to peak_hours_mels_shedding_scenario.csv> -f <path to example_project.json>

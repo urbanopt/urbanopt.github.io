@@ -113,6 +113,8 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 - Long, N., Gautier, A., Elarga, H., Allen, A., Summer, T., Klun, L., Moore, N., Wetter, M.,. (2021). [Modeling District Heating and Cooling Systems with URBANopt, GeoJSON to Modelica Translator, and the Modelica Buildings Library](../doc_files/modeling_des_paper.pdf). In Building Simulation 2021. Bruges, Brussels.
 
+- Kathryn Hinkelman, Jing Wang, Chengliang Fan, Wangda Zuo, Antoine Gautier, Michael Wetter, Nicholas Long. (2021). [A Case Study on Condenser Water Supply Temperature Optimization with a District Cooling Plant.](https://doi.org/10.3384/ecp21181587) Proceedings of 14th Modelica Conference 2021, Linköping, Sweden, September 20-24, 2021, 181, 587–595.
+
 - Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). URBANopt District Energy Systems HVAC Measures. National Renewable Energy Laboratory. [https://doi.org/10.11578/dc.20210127.1](https://doi.org/10.11578/dc.20210127.1)
 
 - Allen, A., Henze, G., Baker, K., Pavlak Gregory, & Murphy, M. (2021). [Evaluation of Topology Optimization to Achieve Energy Savings at the Urban District Level](https://www.nrel.gov/docs/fy21osti/77625.pdf). 2021 ASHRAE Winter Conference.
@@ -126,3 +128,7 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 - Long, N., & Summer, T. (2020). Modelica Builder (0.1.0). [https://doi.org/10.11578/dc.20200409.1](https://doi.org/10.11578/dc.20200409.1)
 
 - Long, N., & Summer, T. (2020). Modelica Formatter. [https://github.com/urbanopt/modelica-fmt](https://github.com/urbanopt/modelica-fmt)
+
+- von Rhein, J., Henze, G. P., Long, N., Fu, Y. (2019). [Development of a topology analysis tool for fifth-generation district heating and cooling networks.](https://www.sciencedirect.com/science/article/pii/S0196890419306211?via%3Dihub). Energy Conversion and Management, 196 (March), 705–716.
+
+- Buffa, S., Cozzini, M., D’Antoni, M., Baratieri, M., Fedrizzi, R. (2019). [5th generation district heating and cooling systems: A review of existing cases in Europe. Renewable and Sustainable Energy Reviews (pp. 504–522)](https://doi.org/10.1016/j.rser.2018.12.059). Elsevier Ltd.
