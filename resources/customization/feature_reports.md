@@ -93,7 +93,7 @@ end
 Users can also query and add new timeseries results to CSV feature report files. [OpenStudio API](https://openstudio-sdk-documentation.s3.amazonaws.com/cpp/OpenStudio-2.9.0-doc/utilities/html/classopenstudio_1_1_sql_file.html) include methods to query timeseries data from the sql file. These methods are utilized to query timeseries reults of interest. The queried timeseries values are then converted to specified units and saved in the `default_feature_eport.csv` file. Below is a simplified example of this process where two requested timeseries names are added to the csv report (`Electricity:Facility` and `Gas:Facility`).
 
 
-First, the requested timeseries names are defined. Then the `sql_file.timeSeries` and `.get.values` methods are envoked sequentially to get the timeseires values for each of the requested names (refer to [OpenStudio API](https://openstudio-sdk-documentation.s3.amazonaws.com/cpp/OpenStudio-2.9.0-doc/utilities/html/classopenstudio_1_1_sql_file.html) for further details on these methods).
+First, the requested timeseries names are defined. Then the `sql_file.timeSeries` and `.get.values` methods are invoked sequentially to get the timeseires values for each of the requested names (refer to [OpenStudio API](https://openstudio-sdk-documentation.s3.amazonaws.com/cpp/OpenStudio-2.9.0-doc/utilities/html/classopenstudio_1_1_sql_file.html) for further details on these methods).
 
 In the next step the initial units are acquired using the `.get.units` methods and stored in `old_unit` variable, while the target units are specified and stored in `new_units` variable. Then unit conversion is performed using `OpenStudio.convert` method to convert all the timeseries values from the old units to the desired new units.
 

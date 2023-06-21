@@ -11,7 +11,7 @@ nav_order: 6
 
 - Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nrel.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
 
-- Zahra Fallahi, P., Houssainy, S., Ling, J., Leach, M., Klun, L., Slovensky, M. (2022). [Designing for Zero Energy and Zero Carbon on a Multi-Building Scale using URBANopt](https://www.nrel.gov/docs/fy22osti/83457.pdf). ACEEE Summer Study on Energy Efficiency in Buildings. 
+- Zahra Fallahi, P., Houssainy, S., Ling, J., Leach, M., Klun, L., Slovensky, M. (2022). [Designing for Zero Energy and Zero Carbon on a Multi-Building Scale using URBANopt](https://www.nrel.gov/docs/fy22osti/83457.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
 
 ### 2021
 

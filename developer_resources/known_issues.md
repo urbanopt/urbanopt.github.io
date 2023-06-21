@@ -19,7 +19,7 @@ nav_order: 3
 	```bash
 	bundle exec certified-update
 	```
-	
+
 	If you are using an URBANopt installer, locate the path within the installed application of the 'certified-update' executable and run it.  For example, on MAC the path would be something like:
 	```bash
 	/Applications/URBANoptCLI_X.X.X/gems/ruby/2.7.0/gems/certified-1.0.0/bin/certified-update
@@ -41,11 +41,11 @@ nav_order: 3
 ### Version 0.9.1 and below
 1. An unpinned ruby dependency has been updated and is causing an issue with running URBANopt projects.  If you get an error related to `unicode_normalize` similar to this:
 	```bash
-	lib/openstudio/workflow/util/measure.rb failed with message cannot load such file -- unicode_normalize/normalize.rb 
+	lib/openstudio/workflow/util/measure.rb failed with message cannot load such file -- unicode_normalize/normalize.rb
 	      ...
 	```
 
-To fix this issue, either download URBANopt CLI 0.9.2 and recreate/update your projects.  
+To fix this issue, either download URBANopt CLI 0.9.2 and recreate/update your projects.
 Since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
 	```
 		gem 'addressable', '2.8.1'

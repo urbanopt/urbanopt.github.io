@@ -38,7 +38,7 @@ The installer provides access to the URBANopt cli (uo cli) and that provides com
 
 *Figure 2 - Option 2: Connecting to OpenStudio server through REST API*
 
-Another option is to use the OpenStudio Analysis Framework (OSAF), also called [OpenStudio-server](https://github.com/NREL/OpenStudio-server).  This approach is useful for applications that are running on serverless computing environments (e.g. AWS Kestrel) that do not have a way to install URBANopt locally. 
+Another option is to use the OpenStudio Analysis Framework (OSAF), also called [OpenStudio-server](https://github.com/NREL/OpenStudio-server).  This approach is useful for applications that are running on serverless computing environments (e.g. AWS Kestrel) that do not have a way to install URBANopt locally.
 
 [OpenStudio-server](https://github.com/NREL/OpenStudio-server) is a web-based application that runs OpenStudio Analysis workflows as well as URBANopt workflows. It provides a REST API to process workflows and run simulations in the cloud. OpenStudio-server can be deployed using a  [Kubernetes Helm chart](https://github.com/NREL/OpenStudio-server-helm) and works with most cloud providers' Kubernetes stacks such as AWS Elastic Kubernetes Service (EKS). Once deployed, your application client can make REST HTTP requests to the OpenStudio-server without having to run it locally.  For details on how to install OpenStudio-server and set up cloud deployment, please consult [README.md.](https://github.com/NREL/OpenStudio-server-helm/#readme) For information on how to run an URBANopt workflow using OpenStudio-server, please consult this example [Jupyter notebook](https://github.com/NREL/docker-openstudio-jupyter/blob/openstudio/notebooks/create_URBANopt_OSA.ipynb).
 
@@ -68,13 +68,13 @@ For example:
 ```terminal
 C:\ParametricAnalysisTool-3.1.0\pat\OpenStudio-server\bin\openstudio_metarun_analysis --debug --verbose 'C:/create_URBANopt_OSA/URBANopt_template.json' 'http://10.40.18.67' -z 'URBANopt' -a single_run
 ```
-Once the job is submitted, you should be able to see the analysis status and the results on the Server Web Interface that you created. 
+Once the job is submitted, you should be able to see the analysis status and the results on the Server Web Interface that you created.
 Note: The user can choose to recreate the functions that send REST HTTP requests in any coding language they want instead of using openstudio_meta CLI, which is in Ruby language. The details of the ruby based client that contain the REST API functions (e.g. new_analysis, run_analysis, download_datapoint) can be found in the [OpenStudio Analysis Gem](https://github.com/NREL/OpenStudio-analysis-gem/blob/develop/lib/openstudio/analysis/server_api.rb). The openstudio_meta -CLI tool makes uses of that API.
 
 
 ## Preparing URBANopt project inputs via an Inputs Translator
 
-To streamline the creation of URBANopt inputs, a translator will first need to be developed. The translator should generally include methods that map project details defined in the commercial software platform to URBANopt inputs as outlined in the following sections. To see an example of an URBANopt project directory structure you can run the CLI to create a URBANopt project. A example project directory is also provided in the [example project repository](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project). It is recommended that users refer to the following tutorials to understand more about URBANopt required files and their structure:   [Project Creation and GeoJSON File Tutorial](https://urbanopt-tutorial.s3.amazonaws.com/videos/05_CreateProject.mp4)  and  [Scenario Creation and Run](https://urbanopt-tutorial.s3.amazonaws.com/videos/06_CreateRunScenario.mp4). 
+To streamline the creation of URBANopt inputs, a translator will first need to be developed. The translator should generally include methods that map project details defined in the commercial software platform to URBANopt inputs as outlined in the following sections. To see an example of an URBANopt project directory structure you can run the CLI to create a URBANopt project. A example project directory is also provided in the [example project repository](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project). It is recommended that users refer to the following tutorials to understand more about URBANopt required files and their structure:   [Project Creation and GeoJSON File Tutorial](https://urbanopt-tutorial.s3.amazonaws.com/videos/05_CreateProject.mp4)  and  [Scenario Creation and Run](https://urbanopt-tutorial.s3.amazonaws.com/videos/06_CreateRunScenario.mp4).
 
 
 ### Create a valid initial GeoJSON file
@@ -96,5 +96,5 @@ Methods can be created to extract a valid weather file and store it in the direc
 
 ## Reading URBANopt Outputs Via an Outputs Translator
 
-After running the analysis, the URBANopt output results can be found in the URBANopt project directory, which will follow according to the [URBANopt reporting schema](https://github.com/urbanopt/urbanopt-reporting-gem/tree/develop/lib/urbanopt/reporting/default_reports/schema). For more information about URBANopt outputs refers to the [URBANopt Results Processing](https://urbanopt-tutorial.s3.amazonaws.com/videos/07a_PostProcess.mp4) tutorial.  
+After running the analysis, the URBANopt output results can be found in the URBANopt project directory, which will follow according to the [URBANopt reporting schema](https://github.com/urbanopt/urbanopt-reporting-gem/tree/develop/lib/urbanopt/reporting/default_reports/schema). For more information about URBANopt outputs refers to the [URBANopt Results Processing](https://urbanopt-tutorial.s3.amazonaws.com/videos/07a_PostProcess.mp4) tutorial.
 The client can create a translator that processes these result files and maps them back in a specific format to be displayed on the client's platform.

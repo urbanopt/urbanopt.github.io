@@ -11,7 +11,7 @@ The measure used in this scenario is `AdjustThermostatSetpointsByDegreesForPeakH
 
 ## Measure
 ### Description
-The measure AdjustThermostatSetpointsByDegreesForPeakHours adjusts heating and cooling setpoints by a user-specified number of degrees for a user-specified time period. This is applied throughout the entire building.  
+The measure AdjustThermostatSetpointsByDegreesForPeakHours adjusts heating and cooling setpoints by a user-specified number of degrees for a user-specified time period. This is applied throughout the entire building.
 
 ### Arguments
 Arguments that can be specified for this measure are listed below.
@@ -28,14 +28,14 @@ Arguments that can be specified for this measure are listed below.
 - `End Date for Heating Adjustment Period 1`: In mm-dd format
 - `Start Date for Heating Adjustment Period 2`: In mm-dd format
 - `End Date for Heating Adjustment Period 2:` In mm-dd format
-- `Alter Design Day Thermostats`: Apply the adjustment to design day?  
+- `Alter Design Day Thermostats`: Apply the adjustment to design day?
 
 Users can find the default settings of these arguments in the PeakHoursThermostatAdjustMapper.
 
 
 ## Using or Modifying the Peak Hours Thermostat Adjust Scenario
 
-To run and post-process the *PeakHoursMelsShedding* scenario simply specify the peak_hours_mels_shedding_scenario.csv file when executing at the command line. 
+To run and post-process the *PeakHoursMelsShedding* scenario simply specify the peak_hours_mels_shedding_scenario.csv file when executing at the command line.
 
 ```bash
 uo run -s <path to peak_hours_mels_shedding_scenario.csv> -f <path to example_project.json>
@@ -85,4 +85,3 @@ Then within your .osw workflow file, add the measure and set any common argument
         }
     }
 ```
-
