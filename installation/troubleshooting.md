@@ -7,6 +7,16 @@ nav_order: 6
 
 # Troubleshooting Installation Errors
 
+## Cannot Load such file -- uo_cli
+
+If after installation, you try to use the URBANotp CLI and get an error similar to this:
+
+```terminal
+C:/Ruby27-x64/lib/ruby/2.7.0/rubygems/core_ext/kernel_require.rb:92:in `require': cannot load such file -- uo_cli (LoadError)
+```
+
+Ensure that your path on the command line is not within a directory that already has a `Gemfile` in it. If it does, move to a different directory with no Gemfiles and try the commands again. URBANopt cannot be called successfully from a directory containing a `Gemfile`.
+
 ## Bundler Installation Error
 
 If you have a secure firewall that prevents **bundler** from installing properly, type the following into the command line:

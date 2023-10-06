@@ -9,6 +9,12 @@ nav_order: 3
 
 ### All Versions
 
+1. **Cannot Load Such File -- uo_cli** Ensure that your path on the command line is not within a directory that already has a `Gemfile` in it. If it does, move to a different directory with no Gemfiles and try the commands again. URBANopt cannot be called successfully from a directory containing a `Gemfile`. The error text will look something like this:
+
+	```terminal
+	C:/Ruby27-x64/lib/ruby/2.7.0/rubygems/core_ext/kernel_require.rb:92:in `require': cannot load such file -- uo_cli (LoadError)
+	```
+
 1. **CERTIFICATE HAS EXPIRED** You may encounter a 'certificate has expired' error when running REopt&trade; optimizations. The error text will look something like this:
 
 	```bash
@@ -38,6 +44,15 @@ nav_order: 3
 
 1. **OSAF** Starting with OpenStudio version 3.3.0, major biannual releases of OpenStudio SDK / OpenStudio Analysis Framework (OSAF) will *not* include the URBANopt SDK due to dependency conflicts. URBANopt SDK will be released following the OpenStudio release, and then a patch release of the OSAF will be made that includes the URBANopt dependency.  Visit the [Release Instructions](release_instructions.md#openstudio---urbanopt-release-process) page for more details.
 
+1. **Residential HPXML workflow and Non-US Weather Files** This workflow supports only US weather files at this time. If you have a weather file outside of the US, a possible work-around is to add a row to the climate zone lookup file with your weather file's WMO and climate_zone. The file can be found in your project directory under:
+
+	```bash 
+	resources/hpxml-resources/HPXMLtoOpenStudio/resources/data/climate_zones.csv
+	```
+
+### Version 0.7.0 through 0.9.0
+1. Residential stochastic schedules are silently failing in UO v0.7.0-v0.9.0 and the default schedules are instead being used. Use version v0.10.0 and above to resolve this issue.
+
 ### Version 0.9.1 and below
 1. An unpinned ruby dependency has been updated and is causing an issue with running URBANopt projects.  If you get an error related to `unicode_normalize` similar to this:
 	```bash
@@ -50,6 +65,8 @@ Since this issue is isolated to the files in your project directory, you can als
 	```
 		gem 'addressable', '2.8.1'
 	```
+
+1. The HPXML detailed functionality introduced in v0.8.0 is broken in version 0.9.0. Use version v0.10.0 and above to resolve this issue.
 
 ### Version 0.6.3
 

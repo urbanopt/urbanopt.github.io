@@ -9,10 +9,12 @@ nav_order: 1
 		<p>Once the CLI is installed, help is available by typing <code><span class="code-text">uo --help</span></code> from the command line.  Detailed help for each command can be found with <code><span class="code-text">uo [the command name] --help</span></code>. The main CLI commands are: <code><span class="code-text">create</span></code>, <code><span class="code-text">run</span></code>, <code><span class="code-text">process</span></code>, <code><span class="code-text">visualize</span></code>, <code><span class="code-text">opendss</span></code>, <code><span class="code-text">rnm</span></code>, <code><span class="code-text">disco</span></code>, and <code><span class="code-text">delete</span></code>.</p>
 		<p>Before you start, think about the capabilities and analyses you want to utilize and setup your project accordingly. The best way to start is to use the example project made with the CLI.  Once you are familiar with the commands you can customize your project.</p>
 	</div>
-	<div class="col" style="padding-left:20px;">
-	<h2 style="padding-bottom:20px;">Important Notes</h2>
-	<p>Keep the project directory path short to avoid errors related to long paths, especially when running on Windows.  For more information on this error, refer to the <a href="../developer_resources/known_issues" class="bold">known issues section</a>.</p>
-	<p>We recommend calling all URBANopt commands from outside of the project you created, using relative or absolute paths to the relevant files.</p>
+  <div class="col">
+    <div class="important-note-wide">
+	    <h2 style="padding-bottom:20px;color:#ffffff;">Important Notes</h2>
+    	<p>All URBANopt commands should be called from outside the project directory you created, using relative or absolute paths to the relevant files. Do not call the CLI or install it in a directory that contains a Gemfile. This will lead to unexpected errors.</p>
+      <p>Keep the project directory path short to avoid errors related to long paths, especially when running on Windows.  For more information on this error, refer to the <a href="../developer_resources/known_issues" class="bold">known issues section</a>.</p>
+    </div>
 	<div style="float:right;padding-top:30px;padding-right:20px;"><a href="../resources/definitions" class="btn btn-uo white-text">Definitions</a></div>
   <div style="float:right;padding-top:30px;padding-right:20px;"><a href="../resources/tutorials/tutorials" class="btn btn-uo white-text">Tutorial Videos</a></div>
 	</div>
