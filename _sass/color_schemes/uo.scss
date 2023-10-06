@@ -188,6 +188,12 @@ ul.jk_accordion li.acc input:checked + label::before {transform: rotate(-45deg);
   padding: 0.50rem 2rem;
   color: white;
 }
+.important-note-wide {
+  background-color: #68C3E8;
+  margin: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
+  color: white;
+}
 .center-img {
   display: inline-block;
   height: 100%;
