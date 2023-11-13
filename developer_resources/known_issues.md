@@ -57,7 +57,7 @@ nav_order: 3
 1. An unpinned ruby dependency in the `parser` gem is causing an issue with runnig URBANopt projects. You may get an error related to URBANopt being unable to find the dependency `racc`.
 To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your projects. Or, since this issue is isolated to the files in yoour project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
 ```
-	gem 'parser 1.2.2.2'
+	gem 'parser 3.2.2.2'
 ```
    
 ### Version 0.9.1 and below
