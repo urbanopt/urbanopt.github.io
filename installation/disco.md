@@ -27,11 +27,11 @@ uo install_python
 This installs to the following versions of the python packages:
 
 
-|Python Package|Version|
-|:--------------:|:----------:|
-| NREL-disco| 0.4.0		  |
-| urbanopt-ditto-reader| 0.4.1			|
-| geojson-modelica-translator|0.3.0       |
+|Python Package               |Version |
+|:---------------------------:|:------:|
+| NREL-disco                  | 0.4.0	 |
+| urbanopt-ditto-reader       | 0.6.3	 |
+| geojson-modelica-translator | 0.6.0  |
 
 
 To update these versions, modify the version in the *dependencies.json*
