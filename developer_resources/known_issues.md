@@ -26,7 +26,7 @@ nav_order: 3
 	bundle exec certified-update
 	```
 
-	If you are using an URBANopt installer, locate the path within the installed application of the 'certified-update' executable and run it.  For example, on MAC the path would be something like:
+	If you are using an URBANopt installer, locate the path within the installed application of the 'certified-update' executable and run it.  For example, on Mac the path would be something like:
 	```bash
 	/Applications/URBANoptCLI_X.X.X/gems/ruby/2.7.0/gems/certified-1.0.0/bin/certified-update
 	```
@@ -46,7 +46,7 @@ nav_order: 3
 
 1. **Residential HPXML workflow and Non-US Weather Files** This workflow supports only US weather files at this time. If you have a weather file outside of the US, a possible work-around is to add a row to the climate zone lookup file with your weather file's WMO and climate_zone. The file can be found in your project directory under:
 
-	```bash 
+	```bash
 	resources/hpxml-resources/HPXMLtoOpenStudio/resources/data/climate_zones.csv
 	```
 
@@ -55,11 +55,11 @@ nav_order: 3
 
 ### Version 0.9.2 and below
 1. An unpinned ruby dependency in the `parser` gem is causing an issue with runnig URBANopt projects. You may get an error related to URBANopt being unable to find the dependency `racc`.
-To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your projects. Or, since this issue is isolated to the files in yoour project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
+To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your projects. Or, since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
 ```
 	gem 'parser 3.2.2.2'
 ```
-   
+
 ### Version 0.9.1 and below
 1. An unpinned ruby dependency has been updated and is causing an issue with running URBANopt projects.  If you get an error related to `unicode_normalize` similar to this:
 	```bash
@@ -67,8 +67,8 @@ To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your pr
 	      ...
 	```
 
-To fix this issue, either download URBANopt CLI 0.9.2 and recreate/update your projects.
-Since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
+    To fix this issue, either download URBANopt CLI 0.9.2 and recreate/update your projects.
+    Since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
 	```
 		gem 'addressable', '2.8.1'
 	```
@@ -88,7 +88,7 @@ Since this issue is isolated to the files in your project directory, you can als
 	gem install urbanopt-cli
 	```
 
-1. This version contains a known bug related to the feature CSV reports and the scenario-level SQL database.  It is recommended that you upgrade to version 0.4.1.
+1. This version contains a known bug related to the feature CSV reports and the scenario-level SQL database. Please use version 0.4.1 instead.
 
 1. URBANopt<sup>&trade;</sup> SDK version 0.4.0 includes OpenDSS support via the URBANopt CLI.  Windows users may experience errors detecting python and urbanopt-ditto-reader when using the `opendss` CLI command.  If you are not able to run OpenDSS through the CLI, the functionality is also available manually by following the general [OpenDSS instructions](../opendss/opendss.md#converting-and-running-opendss).
 
