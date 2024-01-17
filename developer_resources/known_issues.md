@@ -53,6 +53,13 @@ nav_order: 3
 ### Version 0.7.0 through 0.9.0
 1. Residential stochastic schedules are silently failing in UO v0.7.0-v0.9.0 and the default schedules are instead being used. Use version v0.10.0 and above to resolve this issue.
 
+### Version 0.9.2 and below
+1. An unpinned ruby dependency in the `parser` gem is causing an issue with runnig URBANopt projects. You may get an error related to URBANopt being unable to find the dependency `racc`.
+To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your projects. Or, since this issue is isolated to the files in yoour project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
+```
+	gem 'parser 3.2.2.2'
+```
+   
 ### Version 0.9.1 and below
 1. An unpinned ruby dependency has been updated and is causing an issue with running URBANopt projects.  If you get an error related to `unicode_normalize` similar to this:
 	```bash
