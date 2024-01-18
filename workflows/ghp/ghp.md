@@ -32,8 +32,9 @@ URBANopt CLI following the steps below:
 	uo create --project-folder <path/to/ghp/folder> --ghe
 	```
 
-This will create an URBANopt example project which includes a feature file with a GHP network as shown in the figure below :
+This will create an URBANopt example project which includes a feature file with a single pipe closed GHP network as shown in the figure below :
 
+![ghp2](../../doc_files/ghp2.PNG)
 
 The Feature File include the footprint area of the GHP that is taken as an input for GHP sizing.
 
@@ -102,4 +103,3 @@ uo des_create --sys-param-file <path/to/sys_param.json> --feature <path/to/FEATU
 ```bash
 uo des_run --model <path/to/modelica_dir>
 ```
-
