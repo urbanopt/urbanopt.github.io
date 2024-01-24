@@ -1,7 +1,7 @@
 ---
 layout: default
 title: DISCO
-nav_order: 3
+nav_order: 2
 parent: Workflows
 ---
 # DISCO
@@ -66,7 +66,7 @@ URBANopt CLI following the steps below:
 	Create a DISCO project by including the `-a` flag in the create command:
 
 	```bash
-	uo create --project-folder <path/to/electrical/folder> --disco
+	uo create --project-folder <path/to/disco/folder> --disco
 	```
 
 	This will create a `disco` folder in the URBANopt example project which includes DISCO specific files such

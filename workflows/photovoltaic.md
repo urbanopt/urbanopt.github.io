@@ -2,7 +2,7 @@
 layout: default
 title: Photovoltaic Workflows
 parent: Workflows
-nav_order: 2
+nav_order: 8
 ---
 
 # Solar Photovoltaics Workflows
