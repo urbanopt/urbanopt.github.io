@@ -22,7 +22,9 @@ Follow the steps below or watch the [Windows Installer Video](https://urbanopt-t
 
 1. Use the GUI installer and choose a directory to install. Once installed, open a  terminal and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
 
-**Note: GitBash is recommended** If you are unfamiliar with git or GitBash, you can check out this [video tutorial](https://www.youtube.com/watch?v=iGutIN5t9Mo).
+**Note: GitBash is recommended**
+
+If you are unfamiliar with git or GitBash, you can check out this [video tutorial](https://www.youtube.com/watch?v=iGutIN5t9Mo).
 
 **GitBash**
 ```terminal
@@ -44,7 +46,7 @@ c:\urbanopt-cli-X.X.X\setup-env.bat
 
 
 
-<span class="label label-red">Important Note</span> Each time you want to work on URBAnopt and you open a new terminal to do so, you will need to run the `env_uo` script to configure your terminal session environment:
+<span class="label label-red">Important Note</span> Each time you want to work on URBANopt and you open a new terminal to do so, you will need to run the `env_uo` script to configure your terminal session environment:
 
 **GitBash**
 ```terminal
@@ -84,7 +86,7 @@ Follow the steps below or watch the [Windows Manual Installation Video](https://
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.4.0](https://github.com/NREL/OpenStudio/releases/tag/v3.4.0)
+1. Install [OpenStudio 3.7.0](https://github.com/NREL/OpenStudio/releases/tag/v3.7.0)
 
 1. Create file `C:\ruby-2.7.2-1-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
 
@@ -135,6 +137,6 @@ The python installation path will be printed in the terminal once python is succ
 
 ## DES Installation
 
-As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use.
+As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica and requires that additional dependencies be installed before use.
 
 While the GeoJSON Modelica Translator will be installed automatically with the UO CLI `install_python` command, follow the [DES Installation Instructions](./des_installation.md) to install additional dependencies related to this workflow.
