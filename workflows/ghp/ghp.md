@@ -7,6 +7,8 @@ parent: Workflows
 
 # Geothermal Heat Pump (GHP) Analysis
 
+**This workflow is available in URBANopt versions 0.11.0 and later**
+
 The URBANopt-Geothermal Heat Pump (GHP) workflows are used for modeling and simulation of district-scale GHP systems.  URBANopt is used to calculate building loads connected to the GHP system. The building loads along with technical specifications  for the GHP system, stored in the system parameter file, are used for sizing and simulations of custom district GHP systems. The installation and usage of these capabilities are described below.
 
 ## Installation
