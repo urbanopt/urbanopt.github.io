@@ -2,7 +2,7 @@
 layout: default
 title: District Energy Systems (DES)
 parent: Workflows
-nav_order: 4
+nav_order: 3
 ---
 
 # District Energy Systems (DES)
