@@ -9,7 +9,7 @@ nav_order: 5
 
 ## Installation via URBANopt CLI
 
-1. Run the following URBANopt CLI command to install all URBANopt python dependencies.  As of version 0.9.0, URBANopt requires Python v3.10.
+1. Run the following URBANopt CLI command to install all URBANopt python dependencies, which includes the GeoJSON-to-Modelica-Translator (GMT).  As of version 0.9.0, URBANopt requires Python v3.10.
   ```bash
    uo install_python
   ```
@@ -80,12 +80,12 @@ GeoJSON and System Parameter file from results of an URBANopt SDK simulation res
 This Installation guide is broken up into three major setup steps:
 
 1. [Installing the GMT](#gmt-installation)
-2. [Installing and configuring the Modelica Buildings Library (MBL)](#mbl-installation)
-3. [Installing and configuring Docker in order to run simulations using JModelica](#docker-installation)
+1. [Installing and configuring the Modelica Buildings Library (MBL)](#mbl-installation)
+1. [Installing and configuring Docker in order to run simulations using JModelica](#docker-installation)
 
 ### GMT Installation
 
-You must have PIP and Python 3.7 or later installed (run `python --version` to see what version you're using). After installing Python and PIP run the following in a terminal (requires Python 3):
+You must have PIP and Python 3.8 or later installed (run `python --version` to see what version you're using). After installing Python and PIP run the following in a terminal, ideally in a virtual environment (requires Python 3):
 
 ```bash
  pip install geojson-modelica-translator
@@ -109,7 +109,7 @@ The Modelica Buildings Library contains many models that are needed to assemble 
 Installation of the MBL is done through Git and GitHub. Follow the instructions below to install the MBL needed for the GMT:
 
 - Download and extract [the MBL](https://simulationresearch.lbl.gov/modelica/downloads/archive/modelica-buildings.html)
-    - See the [compatibility matrix](../developer_resources/compatibility_matrix.md) for appropriate version
+    - See the [compatibility matrix](../developer_resources/compatibility_matrix.md) for appropriate MBL version
 - Add the Modelica Buildings Library path to your MODELICAPATH environment variable (e.g., `export MODELICAPATH=${MODELICAPATH}:$HOME/path/to/modelica-buildings`). Restart your terminal to ensure that the MBL library is exported correctly.
 
 Once the MBL is installed, the CLI can be used to create the model with the following command:
@@ -124,16 +124,13 @@ Once the MBL is installed, the CLI can be used to create the model with the foll
 
 The resulting Modelica package will be created and can be opened in a Modelica editor. Open the `package.mo` file in the root directory of the generated package. You will also need to load the MBL into your Modelica editor.
 
-#### Docker Installation
+### Docker Installation
 
-In GMT version >=0.3.0, the only method of running the simulations for models built by the GMT is within Dymola. Alternative approaches are currently in development. The following instructions apply to GMT <= 0.3.0.
-
-The GMT versions prior to 0.3.0 enabled running of the models using JModelica. It requires the
-installation of [Docker](https://docs.docker.com/get-docker/). To configure Docker, do the following:
+In GMT version >=0.5.0, district models can be simulated by using OpenModelica, which is included with the GMT. This does require the installation of [Docker](https://docs.docker.com/get-docker/). To configure Docker, do the following:
 
 - Install [Docker](https://docs.docker.com/get-docker/) for your system.
 - Configure Docker Desktop to have at least 4 GB Ram and 2 cores. This is configured under the Docker Preferences.
-- It is recommended to test the installation of Docker by simply running `docker run hello-world` in a terminal.
+- We recommend testing the installation of Docker by running `docker run hello-world` in a terminal.
 
 After Docker is installed and configured, you can use the CLI to run the model using the following
 command:

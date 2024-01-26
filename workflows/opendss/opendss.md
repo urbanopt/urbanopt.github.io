@@ -1,7 +1,7 @@
 ---
 layout: default
 title: OpenDSS Converter
-nav_order: 3
+nav_order: 6
 parent: Workflows
 ---
 # OpenDSS Converter

@@ -47,7 +47,7 @@ Follow the steps below or watch the [Mac Manual Installation Video](https://urba
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.4.0](https://github.com/NREL/OpenStudio/releases/tag/v3.4.0)
+1. Install [OpenStudio 3.7.0](https://github.com/NREL/OpenStudio/releases/tag/v3.7.0)
 
 1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as TextEdit, Sublime Text, vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
@@ -84,6 +84,6 @@ The python installation path will be printed in the terminal once python is succ
 
 ## DES Installation
 
-As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use.
+As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica and requires that additional dependencies be installed before use.
 
 While the GeoJSON Modelica Translator will be installed automatically with the UO CLI `install_python` command, follow the [DES Installation Instructions](./des_installation.md) to install additional dependencies related to this workflow.
