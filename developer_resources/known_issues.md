@@ -49,6 +49,7 @@ nav_order: 3
 	```bash
 	resources/hpxml-resources/HPXMLtoOpenStudio/resources/data/climate_zones.csv
 	```
+1. **libomp.dylib Library not found Error** Apple Silicon computers may encounter an error message similar to `Library not loaded: '/opt/homebrew/opt/libomp/lib/libomp.dylib'`. This appears to be caused by the Apple Silicon chip (M1, M2, M3 etc). If you encounter this error, install the library with `brew install libomp`. You may also need to install Apple Command Line Developer Tools with `xcode-select --install`.
 
 ### Version 0.7.0 through 0.9.0
 1. Residential stochastic schedules are silently failing in UO v0.7.0-v0.9.0 and the default schedules are instead being used. Use version v0.10.0 and above to resolve this issue.

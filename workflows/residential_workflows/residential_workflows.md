@@ -126,7 +126,8 @@ Another example is allowing building orientation to be user-defined, or determin
 ### Geometry
 
 #### Aspect Ratio
-The aspect ratio of individual units of the building is assumed to be 2.
+The aspect ratio of individual units of the building is assumed to be 2. 
+* As of URBANopt version 0.11.0, aspect ratio can be configured in the geojson file for Single-Family Detached and Single-Family Attached building types. See the example project feature ID 14 for example usage.
 
 #### Foundations
 For buildings with a crawlspace foundation, the height of the foundation is assumed to be 3 ft.
@@ -141,6 +142,8 @@ It is assumed that buildings have no neighbors.
 #### Orientation
 For Single-Family Detached and Single-Family Attached buildings, 100% of the building units are oriented to the South.
 For Low-Rise Multifamily buildings, 50% of the building units are oriented to the South while the other 50% are oriented to the North.
+
+* As of URBANopt version 0.11.0, orientation can be configured in the geojson file for Single-Family Detached and Single-Family Attached building types. See the example project feature ID 14 for example usage.
 
 #### Garages
 For Single-Family Detached buildings with garages, the size of the garage depends on the floor area.
