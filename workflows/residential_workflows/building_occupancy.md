@@ -1,21 +1,21 @@
 ---
 layout: default
-title: Occupancy
+title: Building Occupancy
 parent: Residential Workflows
 grand_parent: Workflows
 nav_order: 3
 ---
 
-## Occupancy
+## Building Occupancy
 
-- [Schedules](#schedules)
-- [Calculation Type](#calculation-type)
+The user has control over both occupant-related schedule types and occupancy calculation types:
 
-The user has control over both occupant-related schedule types and the occupancy calculation type.
+- [Schedule Types](#schedule-types)
+- [Calculation Types](#calculation-types)
 
-### Schedules
+### Schedule Types
 
-Occupant-related schedules can be either defaulted or stochastically generated, and may vary either building-to-building or unit-to-unit.
+Occupant-related schedules can be either defaulted (smooth) or stochastically generated, and may vary either building-to-building or unit-to-unit.
 The default behavior is to use stochastically generated schedules that vary unit-to-unit, but the user has control to both use defaulted schedules and vary them building-to-building.
 Note that there are runtime impacts associated with using stochastically generated schedules and for varying schedules unit-to-unit.
 
@@ -26,7 +26,7 @@ The seed is determined by the index of a given feature relative to all features 
 For schedules that vary by building, the schedules that correspond to the first unit are used for all units of the building.
 Relocating a feature's position within a GeoJSON would change the seed argument for that building.
 
-### Calculation Type
+### Calculation Types
 
 Occupancy-based loads (i.e., plug loads, appliances, hot water, etc.) can be calculated through either:
 

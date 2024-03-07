@@ -16,7 +16,7 @@ Currently, the following residential building types are supported:
 - [Single-Family Attached](#single-family-attached)
 - [Low-Rise Multifamily](#low-rise-multifamily)[^1]
 
-Only the *Baseline* and *High Efficiency* Scenarios are supported at this time; any additional mappers will need to be updated manually.
+Only the [Baseline Scenario](../../resources/scenarios/baseline.md) and [High Efficiency Scenario](../../resources/scenarios/highefficiency.md) are supported at this time; any additional mappers will need to be updated manually.
 
 Note that the modeling capabilities for these building types are currently in Beta mode.
 This means that testing and development is still in progress, and user feedback is welcome.
@@ -38,13 +38,12 @@ An example 3D rendering of the single-family detached building is shown below.
 
 ![single_family_detached](../../doc_files/single-family-detached-1.jpg)
 
-Note that the footprint of the modeled unit, less the garage, is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.
+Note that the footprint of the modeled unit, less the garage, is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](other_assumptions.md) for more information.
 
 The 3D building surfaces stored in HPXML and OSM models represent the area and orientation of ground and exterior exposure of surfaces, but do not represent their position relative to each other.
 An example geometry rendering for a translated HPXML file is given below.
 
 ![single_family_detached](../../doc_files/single-family-detached-2.jpg)
-
 
 #### Modeling Notes
 
@@ -54,7 +53,6 @@ An example geometry rendering for a translated HPXML file is given below.
   - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate.
   - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
 - It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for "Single-Family Detached" home models, users should look at district heating and cooling loads.
-
 
 #### GeoJSON Schema
 
@@ -82,8 +80,11 @@ Optional fields:
 | system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
 | heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
 | onsite_parking_fraction       | number       | (1) No (0)<br>(2) Yes (1)                                                                                                                                                                                                         |                                                                             |
-| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](residential_workflows#customizable-template)    |
 | hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
+| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](building_inputs.md#customizable-template)       |
+| characterize_residential_buildings_from_buildstock_csv    | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
+| resstock_buildstock_csv_path                              | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
+| uo_buildstock_mapping_csv_path                            | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
 
 An example "Single-Family Detached" building feature snippet is shown below.
 
@@ -131,13 +132,12 @@ You can see outside boundary conditions of "Outdoors" on one facade, and "Adiaba
 ![single_family_attached](../../doc_files/single-family-attached-1-1.jpg)
 ![single_family_attached](../../doc_files/single-family-attached-1-2.jpg)
 
-Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.
+Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](other_assumptions.md) for more information.
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
 
 ![single_family_attached](../../doc_files/single-family-attached-2.jpg)
-
 
 #### Modeling Notes
 
@@ -146,7 +146,6 @@ These OSM models are merged into a single OSM model, as shown below.
   - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate.
   - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
 - It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for "Single-Family Attached" home models, users should look at district heating and cooling loads.
-
 
 #### GeoJSON Schema
 
@@ -174,8 +173,11 @@ Optional fields:
 | number_of_occupants           | integer      |                                                                                                                                                                                                                                   | For operational calculations.                                               |
 | system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
 | heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
-| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](residential_workflows#customizable-template)    |
 | hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
+| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](argument_values.md#customizable-template)       |
+| characterize_residential_buildings_from_buildstock_csv    | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
+| resstock_buildstock_csv_path                              | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
+| uo_buildstock_mapping_csv_path                            | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
 
 An example "Single-Family Attached" building feature snippet is shown below.
 
@@ -223,13 +225,12 @@ You can see outside boundary conditions of "Outdoors" on the roof and one facade
 ![multifamily](../../doc_files/multifamily-1-3.jpg)
 ![multifamily](../../doc_files/multifamily-1-4.jpg)
 
-Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](residential_workflows#other-assumptions) for more information.
+Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](other_assumptions.md) for more information.
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
 
 ![multifamily](../../doc_files/multifamily-2.jpg)
-
 
 #### Modeling Notes
 
@@ -238,7 +239,6 @@ These OSM models are merged into a single OSM model, as shown below.
   - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate.
   - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
 - It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for "Low-Rise Multifamily" home models, users should look at district heating and cooling loads.
-
 
 #### GeoJSON Schema
 
@@ -267,8 +267,11 @@ Optional fields:
 | system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
 | system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
 | heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
-| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](residential_workflows#customizable-template)    |
 | hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
+| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](argument_values.md#customizable-template)       |
+| characterize_residential_buildings_from_buildstock_csv    | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
+| resstock_buildstock_csv_path                              | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
+| uo_buildstock_mapping_csv_path                            | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
 
 An example "Low-Rise Multifamily" building feature snippet is shown below.
 

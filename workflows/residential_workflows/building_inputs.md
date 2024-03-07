@@ -1,0 +1,121 @@
+---
+layout: default
+title: Building Inputs
+parent: Residential Workflows
+grand_parent: Workflows
+nav_order: 2
+---
+
+## Building Inputs
+
+HPXML files are built based on feature information contained in the GeoJSON file.
+The [Building Types](building_types.md) section lists all the required and optional GeoJSON fields for each building type.
+
+Following the assignment of fields from the GeoJSON file, a number of inputs are defaulted using the OpenStudio-HPXML workflow.
+Optionally, input values may then be further refined using either a customizable template or samples from the [ResStock](https://github.com/NREL/resstock) workflow.
+
+- [Default Values](#default-values)
+- [Customizable Template](#customizable-template)
+- [ResStock Samples](#resstock-samples)
+
+After all arguments are assigned input values and an HPXML file is built, a translator measure is then applied to construct an OpenStudio<sup>&copy;</sup> building model.
+
+### Default Values
+
+The [Input Defaults](https://openstudio-hpxml.readthedocs.io/en/latest/workflow_inputs.html#input-defaults) section of the [OpenStudio-HPXML documentation](https://openstudio-hpxml.readthedocs.io/en/latest/index.html) describes how HPXML fields may be defaulted.
+Defaults are generally based on **ANSI / RESNET / ICC Std. 301 (2019)**.
+
+For example, the air leakage infiltration rate of the building (i.e., air changes per hour at 50 Pascals obtained from a blower door measurement) is not specified using feature information from the GeoJSON file.
+A default value of 3 ACH50 is used, which impacts the infiltration model.
+
+The air leakage infiltration rate of the building may be changed from its default value of 3 ACH50 (e.g., to 7 ACH50 or 20 ACH50) using either approach described in the following [Customizable Template](#customizable-template) and [ResStock Samples](#resstock-samples) sections.
+
+### Customizable Template
+
+An optional template enumeration may be specified for each feature in the GeoJSON file.
+See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for the specific template field name.
+The assignment of various argument values contained in "TSV lookup files" depend on the specified template enumeration.
+Customizable template enumerations that are applicable to residential buildings:
+
+- `Residential IECC 2006 - Customizable Template Sep 2020`
+- `Residential IECC 2009 - Customizable Template Sep 2020`
+- `Residential IECC 2012 - Customizable Template Sep 2020`
+- `Residential IECC 2015 - Customizable Template Sep 2020`
+- `Residential IECC 2018 - Customizable Template Sep 2020`
+- `Residential IECC 2006 - Customizable Template Apr 2022`
+- `Residential IECC 2009 - Customizable Template Apr 2022`
+- `Residential IECC 2012 - Customizable Template Apr 2022`
+- `Residential IECC 2015 - Customizable Template Apr 2022`
+- `Residential IECC 2018 - Customizable Template Apr 2022`
+
+The various arguments that may be assigned input values use mappings contained in the following [TSV lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential/template/iecc):
+
+* clothes_dryer.tsv
+* clothes_washer.tsv
+* cooling_system.tsv
+* dishwasher.tsv
+* enclosure.tsv
+* heat_pump.tsv
+* heating_system.tsv
+* mechanical_ventilation.tsv
+* refrigerator.tsv
+* water_heater.tsv
+
+Argument values found in these lookup files span across the following categories:
+
+* enclosure (insulation levels, air leakage, etc.)
+* HVAC systems (heating/cooling types, efficiencies, etc.)
+* appliances (refrigerator, clothes washer, etc.)
+* mechanical ventilation
+* water heating
+
+All argument values for the previous categories may be customized by manually adjusting values in the lookup files, or a new customizable template with unique argument values may be created as described below.
+The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
+Note that not all possible assumptions have been aligned with IECC requirements (e.g., see above regarding defaults), but the users can further customize these templates as needed for specific projects.
+
+The residential workflows in URBANopt are designed to be flexible and extensible to adapt to specific user projects.
+The building models are created on the basis of default assumptions made for different building components within lookup files, grouped together within a template, and assigned to the building feature in the feature file.
+To modify the models, these templates and the underlying assumptions can be customized, or a new template with unique assumptions can be created.
+The URBANopt example project includes alternate customizable templates (e.g., for modeling homes where some types appliances are not present and/or efficiency of certain appliances/equipment needs to be adjusted) and illustrates how these could be assigned to the building features.
+
+The specific assumptions made in these customized templates for different building equipment in the lookup files are:
+
+- Clothes Dryer : The location is updated to be 'none' and it is assumed that no clothes dryer is present.
+- Clothes Washer: The location is updated to be 'none' and it is assumed that no clothes dryer is present.
+- Dishwasher: The location is updated to be 'none' and it is assumed that no clothes dryer is present.
+- Refrigerator: The efficiency of the appliance is modified.
+- Water heater: The efficiency of the appliance is modified.
+
+This customized template is assigned to the low-rise residential building features in the [alternate combined example project feature file](https://github.com/urbanopt/urbanopt-cli/blob/e7d29764eb9ae837078f92a488adb783a3e52616/example_files/example_project_combined.json).
+It is to be noted, that these values are meant to be representative to illustrate how templates can be used to customize the workflow for different communities and are not based on an actual community or formal study.
+Users should ensure that specific assumptions in their templates are accurate for the homes/communities they are modeling.
+
+### ResStock Samples
+
+As of v1.0.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to ResStock dwelling unit samples.
+See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for specific boolean and path field names.
+The path field should be a relative path that references a sampled ResStock "buildstock CSV file".
+The buildstock CSV file stores a collection of Parameter/Option pairs, organized by ResStock Building ID, that have been sampled from a set of statistical distributions derived from U.S. residential housing stock characterization data.
+An example of a buildstock CSV file is given [here](https://github.com/NREL/resstock/blob/develop/test/base_results/baseline/annual/buildstock.csv).
+Each sample (i.e., row of the buildstock CSV file) represents a number of individual dwelling units within the actual housing stock.
+
+ResStock maps individual dwelling unit samples into OpenStudio-HPXML argument values using the [options_lookup.tsv](https://github.com/NREL/resstock/blob/develop/resources/options_lookup.tsv) file and [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure.
+Each row of the buildstock CSV file, therefore, becomes a representative building model created from mapped model input values.
+The general OpenStudio-HPXML/ResStock workflow is depicted in the flow chart below.
+
+![os-hpxml-resstock-workflow](../../doc_files/os-hpxml-resstock-workflow.png)
+
+URBANopt connects to ResStock by matching buildstock CSV file sample row(s) to GeoJSON feature properties (e.g., building type, number of stories, floor area).
+Once the appropriate ResStock Building ID from the buildstock CSV file is identified, argument values corresponding to sampled Parameter/Option pairs can be assigned.
+Note that some argument assignments from the options_lookup.tsv file are ignored if they conflict with defined properties in the GeoJSON feature (e.g., the "County" parameter maps various weather-related arguments but location is already defined in the GeoJSON file).
+
+Previously defaulted input values are thus refined using argument value assignments corresponding to representative ResStock samples.
+In the case of the air leakage infiltration rate example from above, ResStock explicitly samples "ACH50" options for its "Infiltration" parameter.
+If the identified ResStock Building ID has a corresponding sampled "7 ACH50" option, this would result in overriding the default value of 3 ACH50 with 7 ACH50.
+
+ResStock samples are defined at the individual dwelling unit level.
+Therefore, with the exception of stochastic schedules, this workflow duplicates dwelling units for Single-Family Attached and Low-Rise Multifamily buildings.
+Building units have variation across schedules but not in terms of their attic/foundation type, orientation (e.g., North, South), location (e.g., corner unit, top unit) relative the entire building.
+
+After each feature's HPXML file is built (containing 1 or more dwelling units), OpenStudio-HPXML's [HPXMLtoOpenStudio](https://github.com/NREL/OpenStudio-HPXML/tree/master/HPXMLtoOpenStudio) OpenStudio measure is applied to translate and construct an OpenStudio<sup>&copy;</sup> building model.
+The building model is then simulated using OpenStudio/EnergyPlus.

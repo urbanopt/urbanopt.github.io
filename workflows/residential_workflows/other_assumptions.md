@@ -8,6 +8,8 @@ nav_order: 4
 
 ## Other Assumptions
 
+Other assumptions are made for the following categories:
+
 - [Geometry](#geometry)
 - [Fuel Types](#fuel-types)
 
