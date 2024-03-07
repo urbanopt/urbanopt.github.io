@@ -97,7 +97,7 @@ See a [GeoJSON Schema](building_types#geojson-schema) optional fields section fo
 The path field should be a relative file path that references a sampled ResStock "buildstock CSV file".
 The buildstock CSV file stores a collection of Parameter/Option pairs, organized by ResStock Building ID, that have been sampled from a set of statistical distributions derived from U.S. residential housing stock characterization data.
 An example of a buildstock CSV file is given [here](https://github.com/NREL/resstock/blob/develop/test/base_results/baseline/annual/buildstock.csv).
-Each sample (i.e., row of the buildstock CSV file) represents a number of individual dwelling units within the actual housing stock.
+Each sample (i.e., row of the buildstock CSV file) represents several individual dwelling units within the actual housing stock.
 
 ResStock maps individual dwelling unit samples into OpenStudio-HPXML argument values using the [options_lookup.tsv](https://github.com/NREL/resstock/blob/develop/resources/options_lookup.tsv) file and [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure.
 Each row of the buildstock CSV file, therefore, becomes a representative building model created from mapped model input values.
@@ -107,7 +107,8 @@ The general OpenStudio-HPXML/ResStock workflow is depicted in the flow chart bel
 
 URBANopt connects to ResStock by matching buildstock CSV file sample row(s) to GeoJSON feature properties (e.g., building type, number of stories, floor area).
 Once the appropriate ResStock Building ID from the buildstock CSV file is identified, argument values corresponding to sampled Parameter/Option pairs can be assigned.
-Note that some argument assignments from the options_lookup.tsv file are ignored if they conflict with defined properties in the GeoJSON feature (e.g., the "County" parameter maps various weather-related arguments but location is already defined in the GeoJSON file).
+Note that some argument assignments from the options_lookup.tsv file are ignored if they conflict with defined properties in the GeoJSON feature.
+For example, the "County" parameter maps various weather-related arguments, but location is already defined in the GeoJSON file.
 
 Previously defaulted input values are thus refined using argument value assignments corresponding to representative ResStock samples.
 In the case of the air leakage infiltration rate example from above, ResStock explicitly samples "ACH50" options for its "Infiltration" parameter.
