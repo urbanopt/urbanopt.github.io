@@ -21,6 +21,6 @@ In the case of a multifamily building one HPXML file is built containing multipl
 The following sections describe the types of buildings supported by this workflow and how input values are assigned to various arguments.
 
 - [Building Types](building_types.md) lists the supported residential building types, including modeling notes and GeoJSON schema details.
-- [Building Inputs](building_inputs.md) describes various paths for assigning building input values for GeoJSON features.
+- [Building Inputs](building_inputs.md) describes various paths for assigning building model input values for GeoJSON features.
 - [Building Occupancy](building_occupancy.md) includes information about schedule and calculation types.
 - [Other Assumptions](other_assumptions.md) describes modeling assumptions related to geometry and fuel types.

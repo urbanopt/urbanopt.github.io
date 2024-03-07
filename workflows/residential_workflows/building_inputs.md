@@ -12,7 +12,7 @@ HPXML files are built based on feature information contained in the GeoJSON file
 The [Building Types](building_types.md) section lists all the required and optional GeoJSON fields for each building type.
 
 Following the assignment of fields from the GeoJSON file, a number of inputs are defaulted using the OpenStudio-HPXML workflow.
-Optionally, input values may then be further refined using either a customizable template or samples from the [ResStock](https://github.com/NREL/resstock) workflow.
+Optionally, input values may then be further refined/adjusted using either a customizable template or samples from the [ResStock](https://github.com/NREL/resstock) workflow.
 
 - [Default Values](#default-values)
 - [Customizable Template](#customizable-template)
@@ -50,24 +50,24 @@ Customizable template enumerations that are applicable to residential buildings:
 
 The various arguments that may be assigned input values use mappings contained in the following [TSV lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential/template/iecc):
 
-* clothes_dryer.tsv
-* clothes_washer.tsv
-* cooling_system.tsv
-* dishwasher.tsv
-* enclosure.tsv
-* heat_pump.tsv
-* heating_system.tsv
-* mechanical_ventilation.tsv
-* refrigerator.tsv
-* water_heater.tsv
+- clothes_dryer.tsv
+- clothes_washer.tsv
+- cooling_system.tsv
+- dishwasher.tsv
+- enclosure.tsv
+- heat_pump.tsv
+- heating_system.tsv
+- mechanical_ventilation.tsv
+- refrigerator.tsv
+- water_heater.tsv
 
 Argument values found in these lookup files span across the following categories:
 
-* enclosure (insulation levels, air leakage, etc.)
-* HVAC systems (heating/cooling types, efficiencies, etc.)
-* appliances (refrigerator, clothes washer, etc.)
-* mechanical ventilation
-* water heating
+- enclosure (insulation levels, air leakage, etc.)
+- HVAC systems (heating/cooling types, efficiencies, etc.)
+- appliances (refrigerator, clothes washer, etc.)
+- mechanical ventilation
+- water heating
 
 All argument values for the previous categories may be customized by manually adjusting values in the lookup files, or a new customizable template with unique argument values may be created as described below.
 The enumeration names include "Residential IECC 20XX" because a variety of enclosure, window, duct insulation, and whole-home air leakage assumptions are based on the different IECC model code years to illustrate how templates can be used to approximate different levels of efficiency.
@@ -94,7 +94,7 @@ Users should ensure that specific assumptions in their templates are accurate fo
 
 As of v1.0.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to ResStock dwelling unit samples.
 See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for specific boolean and path field names.
-The path field should be a relative path that references a sampled ResStock "buildstock CSV file".
+The path field should be a relative file path that references a sampled ResStock "buildstock CSV file".
 The buildstock CSV file stores a collection of Parameter/Option pairs, organized by ResStock Building ID, that have been sampled from a set of statistical distributions derived from U.S. residential housing stock characterization data.
 An example of a buildstock CSV file is given [here](https://github.com/NREL/resstock/blob/develop/test/base_results/baseline/annual/buildstock.csv).
 Each sample (i.e., row of the buildstock CSV file) represents a number of individual dwelling units within the actual housing stock.
@@ -114,8 +114,13 @@ In the case of the air leakage infiltration rate example from above, ResStock ex
 If the identified ResStock Building ID has a corresponding sampled "7 ACH50" option, this would result in overriding the default value of 3 ACH50 with 7 ACH50.
 
 ResStock samples are defined at the individual dwelling unit level.
-Therefore, with the exception of stochastic schedules, this workflow duplicates dwelling units for Single-Family Attached and Low-Rise Multifamily buildings.
-Building units have variation across schedules but not in terms of their attic/foundation type, orientation (e.g., North, South), location (e.g., corner unit, top unit) relative the entire building.
+Therefore, with the exception of stochastic occupancy schedules, this workflow duplicates dwelling units for Single-Family Attached and Low-Rise Multifamily buildings.
+Building units have variation across schedules but not in terms of their:
+
+- attic type (e.g., vented, adiabatic)
+- foundation type (e.g., slab, adiabatic)
+- orientation (e.g., North, South)
+- location (e.g., corner unit, top unit)
 
 After each feature's HPXML file is built (containing 1 or more dwelling units), OpenStudio-HPXML's [HPXMLtoOpenStudio](https://github.com/NREL/OpenStudio-HPXML/tree/master/HPXMLtoOpenStudio) OpenStudio measure is applied to translate and construct an OpenStudio<sup>&copy;</sup> building model.
 The building model is then simulated using OpenStudio/EnergyPlus.
