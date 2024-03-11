@@ -12,7 +12,7 @@ HPXML files are built based on feature information contained in the GeoJSON file
 The [Building Types](building_types.md) section lists all the required and optional GeoJSON fields for each building type.
 
 Following the assignment of fields from the GeoJSON file (e.g., building type, number of stories, floor area), a number of inputs are defaulted using the OpenStudio-HPXML workflow.
-Optionally, input values may be *further* refined/adjusted using either a customizable template or samples from the [ResStock](https://github.com/NREL/resstock) workflow.
+Optionally, input values may be *further* refined/adjusted using either a customizable template or samples from the [ResStock™](https://www.nrel.gov/buildings/resstock.html) workflow.
 
 - [Default Values](#default-values)
 - [Customizable Template](#customizable-template)
@@ -88,12 +88,16 @@ Users should ensure that specific assumptions in their templates are accurate fo
 
 As of v1.0.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to ResStock dwelling unit samples.
 See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for specific boolean and path field names.
-The path field should be a relative file path that references a sampled ResStock "buildstock CSV file".
+The path field should be a relative file path that references a sampled ResStock **buildstock CSV file**.
 The buildstock CSV file stores a collection of Parameter/Option pairs, organized by ResStock Building ID, that have been sampled from a set of statistical distributions derived from U.S. residential housing stock characterization data.
 An example of a buildstock CSV file is given [here](https://github.com/NREL/resstock/blob/develop/test/base_results/baseline/annual/buildstock.csv).
 Each sample (i.e., row of the buildstock CSV file) represents several individual dwelling units within the actual housing stock.
 
-ResStock maps individual dwelling unit samples into OpenStudio-HPXML argument values using the [options_lookup.tsv](https://github.com/NREL/resstock/blob/develop/resources/options_lookup.tsv) file and [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure.
+ResStock maps individual dwelling unit samples into OpenStudio-HPXML argument values using the:
+
+- [options_lookup.tsv](https://github.com/NREL/resstock/blob/develop/resources/options_lookup.tsv) file
+- [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure.
+
 Each row of the buildstock CSV file, therefore, becomes a representative building model created from mapped model input values.
 The general OpenStudio-HPXML/ResStock workflow is depicted in the flow chart below.
 
@@ -107,6 +111,7 @@ For example, the "County" parameter maps various weather-related arguments, but 
 Previously defaulted input values are thus refined using argument value assignments corresponding to representative ResStock samples.
 In the case of the air leakage infiltration rate example from above, ResStock explicitly samples "ACH50" options for its "Infiltration" parameter.
 If the identified ResStock Building ID has a corresponding sampled "7 ACH50" option, this would result in overriding the default value of 3 ACH50 with 7 ACH50.
+The [Housing Characteristics](https://resstock.readthedocs.io/en/latest/workflow_inputs/characteristics.html#housing-characteristics) section of the [ResStock documentation](https://resstock.readthedocs.io/en/latest/index.html) describes all parameters sampled by ResStock.
 
 ResStock samples are defined at the individual dwelling unit level.
 Therefore, with the exception of stochastic occupancy schedules, this workflow duplicates dwelling units for Single-Family Attached and Low-Rise Multifamily buildings.
@@ -117,5 +122,5 @@ Building units have variation across schedules but not in terms of their:
 - orientation (e.g., North, South)
 - location (e.g., corner unit, top unit)
 
-After each feature's HPXML file is built (containing 1 or more dwelling units), OpenStudio-HPXML's [HPXMLtoOpenStudio](https://github.com/NREL/OpenStudio-HPXML/tree/master/HPXMLtoOpenStudio) OpenStudio measure is applied to translate and construct an OpenStudio<sup>&copy;</sup> building model.
+After each feature's HPXML file is built (containing 1 or more dwelling units), OpenStudio-HPXML's [HPXMLtoOpenStudio](https://github.com/NREL/OpenStudio-HPXML/tree/master/HPXMLtoOpenStudio) OpenStudio measure is applied to translate and construct an OpenStudio building model.
 The building model is then simulated using OpenStudio/EnergyPlus.
