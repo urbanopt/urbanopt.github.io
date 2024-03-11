@@ -84,7 +84,7 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 
 
 	```bash
-	uo ghe_size --sys-param-file <path/to/sys_param.json> --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv> --ghe
+	uo ghe_size --sys-param <path/to/sys_param.json> --feature <path/to/FEATUREFILE.json> --scenario <path/to/SCENARIOFILE.csv>
 	```
 
 	On running this command, a new folder `ghe_dir` is created that stores sizing results such as the g-function and the ground loads for the GHP. The system parameters file is also updated with the results of sizing such as the number of boreholes and length of boreholes.
@@ -96,7 +96,7 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 	The following command is used:
 
 	```bash
-	uo des_create --sys-param-file <path/to/sys_param.json> --feature <path/to/FEATUREFILE.json> --des-name <path/to/example_modelica_project>
+	uo des_create --sys-param <path/to/sys_param.json> --feature <path/to/FEATUREFILE.json> --des-name <path/to/example_modelica_project>
 	```
 
 8. ### Run Modelica Models
