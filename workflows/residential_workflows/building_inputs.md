@@ -99,7 +99,7 @@ ResStock maps individual dwelling unit samples into OpenStudio-HPXML argument va
 - [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure.
 
 Each row of the buildstock CSV file, therefore, becomes a representative building model created from mapped model input values.
-The general OpenStudio-HPXML/ResStock workflow is depicted in the flow chart below.
+The basic OpenStudio-HPXML/ResStock/URBANopt workflow is depicted in the flow chart below.
 
 ![os-hpxml-resstock-workflow](../../doc_files/os-hpxml-resstock-workflow.png)
 
