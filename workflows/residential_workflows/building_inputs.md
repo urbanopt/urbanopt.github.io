@@ -11,8 +11,8 @@ nav_order: 2
 HPXML files are built based on feature information contained in the GeoJSON file.
 The [Building Types](building_types.md) section lists all the required and optional GeoJSON fields for each building type.
 
-Following the assignment of fields from the GeoJSON file, a number of inputs are defaulted using the OpenStudio-HPXML workflow.
-Optionally, input values may then be further refined/adjusted using either a customizable template or samples from the [ResStock](https://github.com/NREL/resstock) workflow.
+Following the assignment of fields from the GeoJSON file (e.g., building type, number of stories, floor area), a number of inputs are defaulted using the OpenStudio-HPXML workflow.
+Optionally, input values may be *further* refined/adjusted using either a customizable template or samples from the [ResStock](https://github.com/NREL/resstock) workflow.
 
 - [Default Values](#default-values)
 - [Customizable Template](#customizable-template)
@@ -34,19 +34,13 @@ The air leakage infiltration rate of the building may be changed from its defaul
 
 An optional template enumeration may be specified for each feature in the GeoJSON file.
 See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for the specific template field name.
-The assignment of various argument values contained in "TSV lookup files" depend on the specified template enumeration.
+The assignment of various argument values contained in *TSV lookup files* depend on the specified template enumeration.
 Customizable template enumerations that are applicable to residential buildings:
 
-- `Residential IECC 2006 - Customizable Template Sep 2020`
-- `Residential IECC 2009 - Customizable Template Sep 2020`
-- `Residential IECC 2012 - Customizable Template Sep 2020`
-- `Residential IECC 2015 - Customizable Template Sep 2020`
-- `Residential IECC 2018 - Customizable Template Sep 2020`
-- `Residential IECC 2006 - Customizable Template Apr 2022`
-- `Residential IECC 2009 - Customizable Template Apr 2022`
-- `Residential IECC 2012 - Customizable Template Apr 2022`
-- `Residential IECC 2015 - Customizable Template Apr 2022`
-- `Residential IECC 2018 - Customizable Template Apr 2022`
+- `Residential IECC <year> - Customizable Template Sep 2020`
+- `Residential IECC <year> - Customizable Template Apr 2022`
+
+for `<year> = 2006, 2009, 2012, 2015, 2018`.
 
 The various arguments that may be assigned input values use mappings contained in the following [TSV lookup files](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project/mappers/residential/template/iecc):
 
@@ -64,7 +58,7 @@ The various arguments that may be assigned input values use mappings contained i
 Argument values found in these lookup files span across the following categories:
 
 - enclosure (insulation levels, air leakage, etc.)
-- HVAC systems (heating/cooling types, efficiencies, etc.)
+- heating/cooling systems (types, efficiencies, etc.)
 - appliances (refrigerator, clothes washer, etc.)
 - mechanical ventilation
 - water heating
@@ -76,18 +70,18 @@ Note that not all possible assumptions have been aligned with IECC requirements 
 The residential workflows in URBANopt are designed to be flexible and extensible to adapt to specific user projects.
 The building models are created on the basis of default assumptions made for different building components within lookup files, grouped together within a template, and assigned to the building feature in the feature file.
 To modify the models, these templates and the underlying assumptions can be customized, or a new template with unique assumptions can be created.
-The URBANopt example project includes alternate customizable templates (e.g., for modeling homes where some types appliances are not present and/or efficiency of certain appliances/equipment needs to be adjusted) and illustrates how these could be assigned to the building features.
+The URBANopt example project includes alternate customizable "Residential IECC 20XX - Customizable Template Apr 2022" templates (e.g., for modeling homes where some types appliances are not present and/or efficiency of certain appliances/equipment needs to be adjusted) and illustrates how these could be assigned to the building features.
 
 The specific assumptions made in these customized templates for different building equipment in the lookup files are:
 
-- Clothes Dryer : The location is updated to be 'none' and it is assumed that no clothes dryer is present.
-- Clothes Washer: The location is updated to be 'none' and it is assumed that no clothes dryer is present.
-- Dishwasher: The location is updated to be 'none' and it is assumed that no clothes dryer is present.
+- Clothes Dryer: The location is updated to be "none" and it is assumed that no clothes dryer is present.
+- Clothes Washer: The location is updated to be "none" and it is assumed that no clothes dryer is present.
+- Dishwasher: The location is updated to be "none" and it is assumed that no clothes dryer is present.
 - Refrigerator: The efficiency of the appliance is modified.
 - Water heater: The efficiency of the appliance is modified.
 
 This customized template is assigned to the low-rise residential building features in the [alternate combined example project feature file](https://github.com/urbanopt/urbanopt-cli/blob/e7d29764eb9ae837078f92a488adb783a3e52616/example_files/example_project_combined.json).
-It is to be noted, that these values are meant to be representative to illustrate how templates can be used to customize the workflow for different communities and are not based on an actual community or formal study.
+It is to be noted that these values are meant to be representative to illustrate how templates can be used to customize the workflow for different communities and are not based on an actual community or formal study.
 Users should ensure that specific assumptions in their templates are accurate for the homes/communities they are modeling.
 
 ### ResStock Samples
