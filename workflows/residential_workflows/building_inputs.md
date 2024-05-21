@@ -86,9 +86,13 @@ Users should ensure that specific assumptions in their templates are accurate fo
 
 ### ResStock Samples
 
-As of v1.0.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to ResStock dwelling unit samples.
+As of v1.0.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to mapped ResStock parameters.
 See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for specific boolean and path field names.
-The path field should be a relative file path that references a sampled ResStock **buildstock CSV file**.
+The path field should be either a:
+
+- relative file path that references a ResStock **buildstock CSV file** directly sampled from a project, or
+- relative file path that references a ResStock **buildstock CSV file** mapping GeoJSON feature ID to set of ResStock parameters.
+
 The buildstock CSV file stores a collection of Parameter/Option pairs, organized by ResStock Building ID, that have been sampled from a set of statistical distributions derived from U.S. residential housing stock characterization data.
 An example of a buildstock CSV file is given [here](https://github.com/NREL/resstock/blob/develop/test/base_results/baseline/annual/buildstock.csv).
 Each sample (i.e., row of the buildstock CSV file) represents several individual dwelling units within the actual housing stock.
@@ -96,14 +100,18 @@ Each sample (i.e., row of the buildstock CSV file) represents several individual
 ResStock maps individual dwelling unit samples into OpenStudio-HPXML argument values using the:
 
 - [options_lookup.tsv](https://github.com/NREL/resstock/blob/develop/resources/options_lookup.tsv) file
-- [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure.
+- [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure
 
-Each row of the buildstock CSV file, therefore, becomes a representative building model created from mapped model input values.
+Each row of the buildstock CSV file, therefore, becomes a building model created from mapped model input values.
 The basic OpenStudio-HPXML/ResStock/URBANopt workflow is depicted in the flow chart below.
 
 ![os-hpxml-resstock-workflow](../../doc_files/os-hpxml-resstock-workflow.png)
 
-URBANopt connects to ResStock by matching buildstock CSV file sample row(s) to GeoJSON feature properties (e.g., building type, number of stories, floor area).
+URBANopt connects to ResStock by either:
+
+- matching sampled buildstock CSV file sample row(s) to GeoJSON feature properties (e.g., building type, number of stories, floor area), or
+- matching the row of the buildstock CSV file by GeoJSON feature ID
+
 Once the appropriate ResStock Building ID from the buildstock CSV file is identified, argument values corresponding to sampled Parameter/Option pairs can be assigned.
 Note that some argument assignments from the options_lookup.tsv file are ignored if they conflict with defined properties in the GeoJSON feature.
 For example, the "County" parameter maps various weather-related arguments, but location is already defined in the GeoJSON file.
