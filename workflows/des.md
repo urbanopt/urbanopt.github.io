@@ -115,7 +115,7 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 - Kathryn Hinkelman, Jing Wang, Chengliang Fan, Wangda Zuo, Antoine Gautier, Michael Wetter, Nicholas Long. (2021). [A Case Study on Condenser Water Supply Temperature Optimization with a District Cooling Plant.](https://doi.org/10.3384/ecp21181587) Proceedings of 14th Modelica Conference 2021, Linköping, Sweden, September 20-24, 2021, 181, 587–595.
 
-- Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). URBANopt District Energy Systems HVAC Measures. National Renewable Energy Laboratory. [https://doi.org/10.11578/dc.20210127.1](https://doi.org/10.11578/dc.20210127.1)
+- Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). [URBANopt District Energy Systems HVAC Measures](https://doi.org/10.11578/dc.20210127.1) National Renewable Energy Laboratory.
 
 - Allen, A., Henze, G., Baker, K., Pavlak Gregory, & Murphy, M. (2021). [Evaluation of Topology Optimization to Achieve Energy Savings at the Urban District Level](https://www.nrel.gov/docs/fy21osti/77625.pdf). 2021 ASHRAE Winter Conference.
 
