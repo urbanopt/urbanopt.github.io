@@ -33,7 +33,7 @@ The air leakage infiltration rate of the building may be changed from its defaul
 ### Customizable Template
 
 An optional template enumeration may be specified for each feature in the GeoJSON file.
-See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for the specific template field name.
+See the [GeoJSON Schema](other_details#geojson-schema) optional fields section for the specific template field name.
 The assignment of various argument values contained in *TSV lookup files* depend on the specified template enumeration.
 Customizable template enumerations that are applicable to residential buildings:
 
@@ -87,7 +87,7 @@ Users should ensure that specific assumptions in their templates are accurate fo
 ### ResStock Samples
 
 As of v1.0.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to mapped ResStock parameters.
-See a [GeoJSON Schema](building_types#geojson-schema) optional fields section for specific boolean and path field names.
+See the [GeoJSON Schema](other_details#geojson-schema) optional fields section for specific boolean and path field names.
 The path field should be either a:
 
 - relative file path that references a ResStock **buildstock CSV file** directly sampled from a project, or

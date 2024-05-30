@@ -38,53 +38,13 @@ An example 3D rendering of the single-family detached building is shown below.
 
 ![single_family_detached](../../doc_files/single-family-detached-1.jpg)
 
-Note that the footprint of the modeled unit, less the garage, is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](other_assumptions.md) for more information.
+Note that the footprint of the modeled unit, less the garage, is always rectangular even though the GeoJSON footprint may not be.
+See [Assumptions](other_details#assumptions) for more information.
 
 The 3D building surfaces stored in HPXML and OSM models represent the area and orientation of ground and exterior exposure of surfaces, but do not represent their position relative to each other.
 An example geometry rendering for a translated HPXML file is given below.
 
 ![single_family_detached](../../doc_files/single-family-detached-2.jpg)
-
-#### Modeling Notes
-
-- "Single-Family Detached" home models may contain unconditioned non-living spaces that are included as part of the total building area, such as a garage. As a result energy use intensities (EUIs) for homes, often calculated in units of kBtu/sqft/yr, will vary based on the unconditioned floor area if total building area is used for the calculation. Alternatively, conditioned floor area can be used for such calculations.
-- "Single-Family Detached" home models may be heated only, cooled only, or both heated and cooled.
-  - Partial Conditioning: heating and cooling may be applied to just a portion of the living space of the home or to the entire living space. Representation of partial conditioning of the living space of a home is accomplished by adding ideal air load system to heat and cool the unconditioned portion of the living area. In this situation, district heating or cooling loads may show up in end uses for the home.
-  - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate.
-  - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
-- It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for "Single-Family Detached" home models, users should look at district heating and cooling loads.
-
-#### GeoJSON Schema
-
-The [URBANopt GeoJSON schema](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/building_properties.json) differentiates between sets of required and optional fields for "Single-Family Detached" residential buildings:
-
-Required fields:
-
-|             Field             |     Type     |                                                                                             Enums                                                                                                                     |                                    Notes                                    |
-| ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| floor_area                    | number       |                                                                                                                                                                                                                       | Total conditioned floor area.                                               |
-| footprint_area                | number       |                                                                                                                                                                                                                       | First floor conditioned floor area.                                         |
-| number_of_stories_above_ground| integer      |                                                                                                                                                                                                                       |                                                                             |
-| number_of_stories             | integer      |                                                                                                                                                                                                                       | Includes foundations.                                                       |
-| number_of_bedrooms            | integer      |                                                                                                                                                                                                                       | Must be > 0.                                                                |
-| foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) crawlspace - conditioned<br>(5) basement - unconditioned<br>(6) basement - conditioned<br>(7) ambient                                         |                                                                             |
-| attic_type                    | string       | (1) attic - vented<br>(2) attic - unvented<br>(3) attic - conditioned<br>(4) flat roof                                                                                                                                | Stories > 1 for conditioned attics.                                         |
-
-Optional fields:
-
-|             Field             |     Type     |                                                                                             Enums                                                                                                                                 |                                    Notes                                    |
-| ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| roof_type                     | string       | (1) Gable<br>(2) Hip                                                                                                                                                                                                              | NA when attic type is flat roof.                                            |
-| occupancy_calculation_type    | string       | (1) asset<br>(2) operational                                                                                                                                                                                                      |                                                                             |
-| number_of_occupants           | integer      |                                                                                                                                                                                                                                   | For operational calculations.                                               |
-| system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
-| heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
-| onsite_parking_fraction       | number       | (1) No (0)<br>(2) Yes (1)                                                                                                                                                                                                         |                                                                             |
-| hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
-| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](building_inputs.md#customizable-template)       |
-| characterize_residential_buildings_from_buildstock_csv    | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
-| resstock_buildstock_csv_path                              | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
-| uo_buildstock_mapping_csv_path                            | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
 
 An example "Single-Family Detached" building feature snippet is shown below.
 
@@ -132,52 +92,13 @@ You can see outside boundary conditions of "Outdoors" on one facade, and "Adiaba
 ![single_family_attached](../../doc_files/single-family-attached-1-1.jpg)
 ![single_family_attached](../../doc_files/single-family-attached-1-2.jpg)
 
-Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](other_assumptions.md) for more information.
+Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be.
+See [Assumptions](other_details#assumptions) for more information.
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
 
 ![single_family_attached](../../doc_files/single-family-attached-2.jpg)
-
-#### Modeling Notes
-
-- "Single-Family Attached" home models may be heated only, cooled only, or both heated and cooled.
-  - Partial Conditioning: heating and cooling may be applied to just a portion of the living space of the home or to the entire living space. Representation of partial conditioning of the living space of a home is accomplished by adding ideal air load system to heat and cool the unconditioned portion of the living area. In this situation, district heating or cooling loads may show up in end uses for the home.
-  - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate.
-  - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
-- It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for "Single-Family Attached" home models, users should look at district heating and cooling loads.
-
-#### GeoJSON Schema
-
-The [URBANopt GeoJSON schema](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/building_properties.json) differentiates between sets of required and optional fields for "Single-Family Attached" residential buildings:
-
-Required fields:
-
-|             Field             |     Type     |                                                                                             Enums                                                                                                                 |                                    Notes                                    |
-| ----------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| floor_area                    | number       |                                                                                                                                                                                                                   | Total conditioned floor area.                                               |
-| footprint_area                | number       |                                                                                                                                                                                                                   | First floor conditioned floor area.                                         |
-| number_of_stories_above_ground| integer      |                                                                                                                                                                                                                   |                                                                             |
-| number_of_stories             | integer      |                                                                                                                                                                                                                   | Includes foundations.                                                       |
-| number_of_residential_units   | integer      |                                                                                                                                                                                                                   |                                                                             |
-| number_of_bedrooms            | integer      |                                                                                                                                                                                                                   | Must be > 0.                                                                |
-| foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) crawlspace - conditioned<br>(5) basement - unconditioned<br>(6) basement - conditioned<br>(7) ambient                                     |                                                                             |
-| attic_type                    | string       | (1) attic - vented<br>(2) attic - unvented<br>(3) attic - conditioned<br>(4) flat roof                                                                                                                            | Stories > 1 for conditioned attics.                                         |
-
-Optional fields:
-
-|             Field             |     Type     |                                                                                             Enums                                                                                                                                 |                                    Notes                                    |
-| ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| roof_type                     | string       | (1) Gable<br>(2) Hip                                                                                                                                                                                                              | NA when attic type is flat roof.                                            |
-| occupancy_calculation_type    | string       | (1) asset<br>(2) operational                                                                                                                                                                                                      |                                                                             |
-| number_of_occupants           | integer      |                                                                                                                                                                                                                                   | For operational calculations.                                               |
-| system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
-| heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
-| hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
-| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](argument_values.md#customizable-template)       |
-| characterize_residential_buildings_from_buildstock_csv    | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
-| resstock_buildstock_csv_path                              | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
-| uo_buildstock_mapping_csv_path                            | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
 
 An example "Single-Family Attached" building feature snippet is shown below.
 
@@ -225,53 +146,13 @@ You can see outside boundary conditions of "Outdoors" on the roof and one facade
 ![multifamily](../../doc_files/multifamily-1-3.jpg)
 ![multifamily](../../doc_files/multifamily-1-4.jpg)
 
-Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be. See [Other Assumptions](other_assumptions.md) for more information.
+Note that the footprint of the modeled unit is always rectangular even though the GeoJSON footprint may not be.
+See [Assumptions](other_details#assumptions) for more information.
 
 For each unit of the building, an HPXML and OSM model is constructed.
 These OSM models are merged into a single OSM model, as shown below.
 
 ![multifamily](../../doc_files/multifamily-2.jpg)
-
-#### Modeling Notes
-
-- "Low-Rise Multifamily" home models may be heated only, cooled only, or both heated and cooled.
-  - Partial Conditioning: heating and cooling may be applied to just a portion of the living space of the home or to the entire living space. Representation of partial conditioning of the living space of a home is accomplished by adding ideal air load system to heat and cool the unconditioned portion of the living area. In this situation, district heating or cooling loads may show up in end uses for the home.
-  - Undersized Mechanical System: District heating or cooling loads may also show up in end uses when a designed mechanical system cannot meet the load required to maintain thermostat temperatures. An example would be an evaporative cooling system in a hot humid climate.
-  - For both the partially conditioned and undersized examples, it is possible for reporting or post processing to filter out these unintended district heating and cooling loads.
-- It is important to know, that unlike the commercial models that will result in unmet heating or cooling hours, the residential models will not have any unmet heating or cooling hours. To understand how the HVAC system is conditioning for "Low-Rise Multifamily" home models, users should look at district heating and cooling loads.
-
-#### GeoJSON Schema
-
-The [URBANopt GeoJSON schema](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/building_properties.json) differentiates between sets of required and optional fields for "Low-Rise Multifamily" residential buildings:
-
-Required fields:
-
-|             Field             |     Type     |                                                                                             Enums                                                                                                                             |                                    Notes                                    |
-| ----------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| floor_area                    | number       |                                                                                                                                                                                                                               | Total conditioned floor area.                                               |
-| footprint_area                | number       |                                                                                                                                                                                                                               | First floor conditioned floor area.                                         |
-| number_of_stories_above_ground| integer      |                                                                                                                                                                                                                               |                                                                             |
-| number_of_stories             | integer      |                                                                                                                                                                                                                               | Includes foundations.                                                       |
-| number_of_residential_units   | integer      |                                                                                                                                                                                                                               | Divisible by stories.                                                       |
-| number_of_bedrooms            | integer      |                                                                                                                                                                                                                               | Must be > 0.                                                                |
-| foundation_type               | string       | (1) slab<br>(2) crawlspace - vented<br>(3) crawlspace - unvented<br>(4) basement - unconditioned<br>(5) ambient                                                                                                               | Invalid:<br>(1) crawlspace - conditioned<br>(2) basement - conditioned      |
-| attic_type                    | string       | (1) attic - vented<br>(2) attic - unvented<br>(3) flat roof                                                                                                                                                                   | Invalid:<br>(1) attic - conditioned                                         |
-
-Optional fields:
-
-|             Field             |     Type     |                                                                                             Enums                                                                                                                                 |                                    Notes                                    |
-| ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| roof_type                     | string       | (1) Gable<br>(2) Hip                                                                                                                                                                                                              | NA when attic type is flat roof.                                            |
-| occupancy_calculation_type    | string       | (1) asset<br>(2) operational                                                                                                                                                                                                      |                                                                             |
-| number_of_occupants           | integer      |                                                                                                                                                                                                                                   | For operational calculations.                                               |
-| system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
-| system_type                   | string       | (1) electric resistance<br>(2) furnace<br>(3) boiler<br>(4) central air conditioner<br>(5) room air conditioner<br>(6) evaporative cooler<br>(7) air-to-air heat pump<br>(8) mini-split heat pump<br>(9) ground-to-air-heat-pump  |                                                                             |
-| heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
-| hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
-| template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](argument_values.md#customizable-template)       |
-| characterize_residential_buildings_from_buildstock_csv    | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
-| resstock_buildstock_csv_path                              | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
-| uo_buildstock_mapping_csv_path                            | string       |                                                                                                                                                                                                       | See [ResStock Samples](building_inputs.md#resstock-samples)                 |
 
 An example "Low-Rise Multifamily" building feature snippet is shown below.
 
