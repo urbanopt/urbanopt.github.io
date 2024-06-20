@@ -73,6 +73,9 @@ Optional fields:
 | heating_system_fuel_type      | string       | (1) electricity<br>(2) natural gas<br>(3) fuel oil<br>(4) propane<br>(5) wood                                                                                                                                                     |                                                                             |
 | template                      | string       |                                                                                                                                                                                                                                   | See [Customizable Template](residential_workflows#customizable-template)    |
 | hpxml_directory               | string       |                                                                                                                                                                                                                                   | Relative to xml_building. Most required fields are then optional.           |
+| orientation | number | North=0, East=90, South=180, West=270 | Customizable as of UO v0.11.0 |
+| aspect_ratio | number | | Customizable as of UO v0.11.0. The ratio of front/back wall length to left/right wall length for the unit, excluding any protruding garage wall area. | 
+
 
 An example "Single-Family Attached" building feature snippet is shown below.
 
