@@ -86,7 +86,7 @@ Users should ensure that specific assumptions in their templates are accurate fo
 
 ### ResStock Samples
 
-As of v1.0.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to mapped ResStock parameters.
+As of v0.13.0, optional boolean and path fields may be set in GeoJSON features to indicate assignment of argument values corresponding to mapped ResStock parameters.
 See the [GeoJSON Schema](other_details#geojson-schema) optional fields section for specific boolean and path field names.
 The path field should be either a:
 
