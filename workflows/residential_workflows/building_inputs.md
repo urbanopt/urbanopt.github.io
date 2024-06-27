@@ -12,7 +12,7 @@ HPXML files are built based on feature information contained in the GeoJSON file
 The [Building Types](building_types.md) section lists all the required and optional GeoJSON fields for each building type.
 
 Following the assignment of fields from the GeoJSON file (e.g., building type, number of stories, floor area), a number of inputs are defaulted using the OpenStudio-HPXML workflow.
-Optionally, input values may be *further* refined/adjusted using either a customizable template or samples from the [ResStock™](https://www.nrel.gov/buildings/resstock.html) workflow.
+Optionally, input values may be *further* refined/adjusted using either a customizable template or samples from the [ResStock™](https://www.nrel.gov/buildings/resstock.html) workflow. An alpha release of the ResStock samples workflow is included in URBANopt version 0.13.0.
 
 - [Default Values](#default-values)
 - [Customizable Template](#customizable-template)
