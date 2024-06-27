@@ -45,7 +45,7 @@ e.g.:  ```/usr/local/urbanopt-cli-0.3.1/```
 	gem install bundler -v 2.1
 	```
 
-1. Install [OpenStudio 3.4.0](https://github.com/NREL/OpenStudio/releases/tag/v3.4.0)
+1. Install [OpenStudio 3.7.0](https://github.com/NREL/OpenStudio/releases/tag/v3.7.0)
 
 	OpenStudio is designed to be used on Ubuntu 18.04. For other Ubuntu versions, see the [troubleshooting](troubleshooting.md) page.
 
@@ -86,6 +86,6 @@ The python installation path will be printed in the terminal once python is succ
 
 ## DES Installation
 
-As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica requires that various dependencies be installed before use.
+As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica and requires that additional dependencies be installed before use.
 
 While the GeoJSON Modelica Translator will be installed automatically with the UO CLI `install_python` command, follow the [DES Installation Instructions](./des_installation.md) to install additional dependencies related to this workflow.

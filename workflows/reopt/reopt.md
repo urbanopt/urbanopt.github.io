@@ -3,7 +3,7 @@ layout: default
 title: REopt
 has_children: true
 parent: Workflows
-nav_order: 1
+nav_order: 9
 ---
 
 <div style="text-align:center"><img src="../../doc_files/reopt-logo.png" /></div>

@@ -2,7 +2,7 @@
 layout: default
 title: Carbon Emissions
 parent: Workflows
-nav_order: 5
+nav_order: 1
 ---
 
 # **Carbon Emissions Reporting**

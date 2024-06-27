@@ -28,20 +28,14 @@ We recommend releasing gems **in order from the base to most dependent**. For ea
 	```
 1. Remove .DS_Store files if any are in the repo
 1. If the gem has rdoc documentation, [regenerate the rdocs](../developer_resources/developer_resources.md#generating-rdoc-documentation)
-1. Run the changelog rake task and add the changes to the CHANGELOG file for the range of time between last release and this release. Also make sure that all pull requests have a related Issue to be included in the change log.
-	```
-	rake openstudio:change_log[start_date,end_date,apikey]
-	```
-    No spaces around the commas! Paste the `Closed Issues` into the CHANGELOG, matching formatting as appropriate.
 1. Ensure that the Gemfile and gemspec files are "clean" and that no dependency is pointing to a github branch before merging to develop and main branches.
 1. Merge pull requests to the `develop` branch
+1. On GitHub, go to the releases page and draft a latest release tag. Name it “Version x.y.z”. Use the Github automated changelog generation and copy the CHANGELOG entry into the changelog file.
+1. Update the documentation with detailed usage and helpful examples
+1. Update [Compatibility Matrix](compatibility_matrix.md) as appropriate
 1. Create PR to main
     - Ensure all tests pass before merging
 1. Locally - from the main branch, run `rake release` to release the gem to RubyGems
-1. Update the documentation with detailed usage and helpful examples
-1. On GitHub, go to the releases page and update the latest release tag. Name it “Version x.y.z” and copy the CHANGELOG entry into the text box.
-    - Link to relevant documentation URLs in release tags
-1. Update [Compatibility Matrix](compatibility_matrix.md) as appropriate
 
 ### Updates for New Version of OpenStudio
 Follow these steps when testing URBANopt for a new version of OpenStudio. These changes should be made on all URBANopt Ruby gems, the example-geojson-project repo, and the CLI:

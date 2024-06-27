@@ -21,30 +21,30 @@ has_toc: false
 	1. Use the “DO NOT MERGE” label for Pull Requests that should not be merged
 
 ## Functionality Development / Copying over to the CLI
-Functionality should be developed in the urbanopt-example-geojson-project repo. once it is ready and passing tests, the files from urbanopt-example-geojson-project will be copied over to the urbanopt-cli repo. Take care when performing the copy process as it is possible some changes were made directly on the cli repo (i.e., you might have to diff the files and reconcile both repos with the latest changes).
+Functionality should be developed in the urbanopt-example-geojson-project repo. Once it is ready and passing tests, the files from urbanopt-example-geojson-project will be copied over to the urbanopt-cli repo. Take care when performing the copy process as it is possible some changes were made directly on the cli repo (i.e., you might have to diff the files and reconcile both repos with the latest changes).
 
 Notes for the copy process (from example-project repo to cli repo):
 1. Copy example_project/resources folder to example_files/resources
-2. Copy mappers folder over. **Note:** take the residential folder that is within the mappers folder and put it next to the mappers folder in the CLI repo
-3. Copy base_workflow.osw again and place it next to the mappers folder. Rename it as base_workflow_res.osw and place it NEXT TO the mappers folder (not inside).
-4. Open mappers/base_workflow.osw file in cli repo (you have previously copied it over in step 2) Remove the "BuildResidentialModel" measure section completely from this file and save.
-5. copy the measures folder to example_files/measures
-6. copy xml_building to example_files/xml_building
-7. copy osm_building to example_files/osm_building
-8. copy reopt to example_files/reopt. (on this one maybe diff the files to ensure that changes weren't just made on the CLI repo)
-9. copy visualization to example_files/visualization
-10. There is no need to copy any of the scenario CSVs
+1. Copy mappers folder over. **Note:** take the residential folder that is within the mappers folder and put it next to the mappers folder in the CLI repo
+1. Copy base_workflow.osw again and place it next to the mappers folder. Rename it as base_workflow_res.osw and place it NEXT TO the mappers folder (not inside).
+1. Open mappers/base_workflow.osw file in cli repo (you have previously copied it over in step 2) Remove the "BuildResidentialModel" measure section completely from this file and save.
+1. copy the measures folder to example_files/measures
+1. copy xml_building to example_files/xml_building
+1. copy osm_building to example_files/osm_building
+1. copy reopt to example_files/reopt. (on this one maybe diff the files to ensure that changes weren't just made on the CLI repo)
+1. copy visualization to example_files/visualization
+1. There is no need to copy any of the scenario CSVs
 
 
 ## Conflicting packages
 
-If you make changes, ensure that all gems use the  `openstudio-standard` gem shipped with OpenStudio to avoid unforeseen consequences (**do not** include an _openstudio-standard_ dependency in the gemfile).
+If you make changes, ensure that all gems use the `openstudio-standards` gem shipped with OpenStudio to avoid unforeseen consequences (**do not** include an _openstudio-standards_ dependency in the gemfile).
 
 
 ## Generating rdoc Documentation
-Follow these steps to generate rdocs for now and existing SDK gems:
+Follow these steps to generate rdocs for new and existing SDK gems:
 1. Install [NodeJS](https://nodejs.org/en/)
-1. Go to the repository docs file, eg. _urbanopt-scenario-gem/docs_ and type `npm install`. Note: access to developerVPN will be needed for this step if within the NREL firewall.
+1. Go to the repository docs file, eg. _urbanopt-scenario-gem/docs_ and type `npm install`
 1. Move to the root level of the repo, eg. _urbanopt-scenario-gem_ and enter these commands:
 	```
     bundle exec rdoc --template-stylesheets ./docs/.vuepress/public/custom_rdoc_styles.css
@@ -56,9 +56,9 @@ Rdoc options are controlled with this [config file](https://github.com/urbanopt/
 
 ## Developing with the CLI
 
-When developing locally on URBANopt<sup>&trade;</sup> core gems and testing new functionality and dependencies via the CLI, it may be necessary to install local versions of core gems.
+When developing locally on URBANopt<sup>&trade;</sup> gems and testing new functionality and dependencies via the CLI, it may be necessary to install local versions of some gems.
 
-For local development, you will want to set the environment variable *FAVOR_LOCAL_GEMS* to 1. This enables local copies of gems in the Gemfile.  Note that setting *FAVOR_LOCAL_GEMS* to 0 will not undo local gems functionality: you will have to either remove the *FAVOR_LOCAL_GEMS* environment variable, set it to *nil* or *false* (not 0), and open a new terminal window to turn it off.
+For local development, you will want to set the environment variable *FAVOR_LOCAL_GEMS* to 1. This enables local copies of gems in the Gemfile.  Note that setting *FAVOR_LOCAL_GEMS* to 0 will not undo local gems functionality: you will have to either remove the *FAVOR_LOCAL_GEMS* environment variable or set it to *nil* or *false* (not 0), and open a new terminal window to turn it off.
 
 There are 2 Gemfiles of interest:
 
