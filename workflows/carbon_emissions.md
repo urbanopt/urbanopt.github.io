@@ -243,11 +243,12 @@ When adding emissions inputs in the project properties, URBANopt will apply thes
 ```
 # Natural Gas, Propane, and FuelOil #2 Emissions
 
-Emission factors for natural gas, propane, and fuel oil no. 2 are based on EPA eGRID data and calculated using a 20-year global warming potential (GWP) horizon based on ASHRAE 189.1 :
+Emission factors for natural gas, propane, and fuel oil no. 2 are based on EPA eGRID data and calculated using a 100-year global warming potential (GWP) horizon based on ASHRAE 189.1. See the [Greenhouse Gas Emissions Technical Reference](https://portfoliomanager.energystar.gov/pdf/reference/Emissions.pdf) for more details.
 
-	Natural Gas :  277.358126 kg/MWh
-	Propane : 323.896704 Kg/MWh
-	Fuel Oil #2 : 294.962046 Kg/MWh
+	Natural Gas :  181.7 kg/MWh
+	Propane : 219.2 Kg/MWh
+	Fuel Oil #1 : 250.8 Kg/MWh
+	Fuel Oil #2 : 253.2 Kg/MWh
 
 These emission factors are then multiplied by the associated facility total energy use profile for the corresponding fuel type to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
 
