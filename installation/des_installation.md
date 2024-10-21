@@ -39,7 +39,7 @@ Use the following for additional help on running this command:
 Once the system parameters file is generated, the CLI can then be used to create the model with the following command:
 
 ```bash
-  uo  des_create -y <path/to/system-parameters-file.json> -f <path/to/featurefile.json> -d <path/to/modelica/dir/to/create>
+  uo  des_create -y <path/to/system-parameters-file.json> -f <path/to/featurefile.json> -n <path/to/modelica/dir/to/create>
 ```
 
 Use the following for additional help on running this command:
