@@ -81,25 +81,7 @@ simulation mapper class from existing at that level.
 
 ## Testing and Developer Resources
 
-It is possible to test the GeoJSON to Modelica Translator (GMT) by simply installing the Python package and running the command line interface (CLI) with results from an URBANopt SDK set of simulations. However, to fully leverage the functionality of this package (e.g., running simulations), then you will need to install additional software. For GMT version 0.3.0 you will need the Modelica Buildings library (MBL) and either Dymola or OpenModelica. We understand that this is a non-ideal solution. Prior to GMT version 0.3.0, you can install the MBL and Docker. Instructions for installing and configuring the MBL and Docker are available on the [DES Installation page](../installation/des_installation.md).
-
-To simply scaffold out a Modelica package that can be inspected in a Modelica environment (e.g., Dymola) then run the following code below up to the point of run-model. The example generates a complete 4th Generation District Heating and Cooling (4GDHC) system with time series loads that were generated from the URBANopt SDK using OpenStudio/EnergyPlus simulations.
-
-```bash
-pip install geojson-modelica-translator
-
-# from the simulation results within a checkout of this repository
-# in the ./tests/management/data/sdk_project_scraps path.
-
-# generate the system parameter from the results of the URBANopt SDK and OpenStudio Simulations
-uo_des build-sys-param sys_param.json baseline_scenario.csv example_project.json
-
-# create the modelica package (requires installation of the MBL)
-uo_des create-model sys_param.json
-
-# test running the new Modelica package (requires installation of Docker)
-uo_des run-model model_from_sdk
-```
+It is possible to test the GeoJSON to Modelica Translator (GMT) by separately installing the Python package and running the command line interface (CLI) with results from an URBANopt SDK set of simulations. Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/getting_started.html) as a standalone package with its own CLI.
 
 More example projects are available in an accompanying [example repository](https://github.com/urbanopt/geojson-modelica-translator-examples).
 
