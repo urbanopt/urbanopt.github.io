@@ -16,7 +16,7 @@ nav_order: 5
 2. You will also need to install and configure MBL and Docker as described in the manual section:
 
   - [Installing and configuring the Modelica Buildings Library (MBL)](#mbl-installation)
-  - [Installing and configuring Docker in order to run simulations using JModelica](#docker-installation)
+  - [Installing and configuring Docker to run simulations using OpenModelica](#docker-installation)
 
 ### Usage
 
@@ -39,7 +39,7 @@ Use the following for additional help on running this command:
 Once the system parameters file is generated, the CLI can then be used to create the model with the following command:
 
 ```bash
-  uo  des_create -y <path/to/system-parameters-file.json> -f <path/to/featurefile.json> -d <path/to/modelica/dir/to/create>
+  uo  des_create -y <path/to/system-parameters-file.json> -f <path/to/featurefile.json> -n <path/to/modelica/dir/to/create>
 ```
 
 Use the following for additional help on running this command:
@@ -66,79 +66,4 @@ Use the following for additional help on running this command:
 
 ## Manual Installation
 
-There are three major steps to running the GeoJSON to Modelica Translator (GMT):
-
-1. generating the GeoJSON and System Parameter JSON files,
-1. creating of the Modelica package containing the district system, and
-1. running the Modelica package.
-
-Depending on the use case, the need to run all the steps above may not be needed. For example:
-it may be desirable to only generate the Modelica package and then open and run the model
-in a Modelica user interface such as Dymola. Or, there may be a case to simply generate the
-GeoJSON and System Parameter file from results of an URBANopt SDK simulation result set.
-
-This Installation guide is broken up into three major setup steps:
-
-1. [Installing the GMT](#gmt-installation)
-1. [Installing and configuring the Modelica Buildings Library (MBL)](#mbl-installation)
-1. [Installing and configuring Docker in order to run simulations using JModelica](#docker-installation)
-
-### GMT Installation
-
-You must have PIP and Python 3.8 or later installed (run `python --version` to see what version you're using). After installing Python and PIP run the following in a terminal, ideally in a virtual environment (requires Python 3):
-
-```bash
- pip install geojson-modelica-translator
-```
-
-After installation of the GMT, a new command line interface (called the URBANopt District Energy Systems [UO DES] CLI) can be used to run various commands. Without needing to install the [MBL](https://simulationresearch.lbl.gov/modelica) the user can use the CLI to build the system parameters file from the results of the URBANopt SDK. For more information run the following:
-
-```bash
-  uo_des -h
-  uo_des build-sys-param -h
-
-  # the command below is only an example; however, it will run if the repository
-  # is checked out and run in the following path: ./tests/management/data/sdk_project_scraps
-  uo_des build-sys-param sys_param.json baseline_scenario.csv example_project.json
-```
-
-### MBL Installation
-
-
-The Modelica Buildings Library contains many models that are needed to assemble the district systems.
-Installation of the MBL is done through Git and GitHub. Follow the instructions below to install the MBL needed for the GMT:
-
-- Download and extract [the MBL](https://simulationresearch.lbl.gov/modelica/downloads/archive/modelica-buildings.html)
-    - See the [compatibility matrix](../developer_resources/compatibility_matrix.md) for appropriate MBL version
-- Add the Modelica Buildings Library path to your MODELICAPATH environment variable (e.g., `export MODELICAPATH=${MODELICAPATH}:$HOME/path/to/modelica-buildings`). Restart your terminal to ensure that the MBL library is exported correctly.
-
-Once the MBL is installed, the CLI can be used to create the model with the following command:
-
-```bash
-  uo_des create-model -h
-
-  # the command below is only an example; however, it will run if the repository
-  # is checked out and run in the following path: ./tests/management/data/sdk_project_scraps
-  uo_des create-model sys_param.json
-```
-
-The resulting Modelica package will be created and can be opened in a Modelica editor. Open the `package.mo` file in the root directory of the generated package. You will also need to load the MBL into your Modelica editor.
-
-### Docker Installation
-
-In GMT version >=0.5.0, district models can be simulated by using OpenModelica, which is included with the GMT. This does require the installation of [Docker](https://docs.docker.com/get-docker/). To configure Docker, do the following:
-
-- Install [Docker](https://docs.docker.com/get-docker/) for your system.
-- Configure Docker Desktop to have at least 4 GB Ram and 2 cores. This is configured under the Docker Preferences.
-- We recommend testing the installation of Docker by running `docker run hello-world` in a terminal.
-
-After Docker is installed and configured, you can use the CLI to run the model using the following
-command:
-
-```bash
-  uo_des run-model -h
-
-  # the command below is only an example; however, it will run if the repository
-  # is checked out and run in the following path: ./tests/management/data/sdk_project_scraps
-  uo_des run-model model_from_sdk
-```
+Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/getting_started.html) as a standalone package with its own CLI.
