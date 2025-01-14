@@ -28,6 +28,7 @@ Functionality should be developed in the urbanopt-example-geojson-project repo. 
 Notes for the copy process (from example-project repo to cli repo):
 
 1. Copy example_project/resources folder to example_files/resources
+    1. Delete the contents of resources/residential-measures/weather/ so it is just an empty dir
 1. Copy mappers folder over. **Note:** take the residential folder that is within the mappers folder and put it next to the mappers folder in the CLI repo
 1. Copy base_workflow.osw again and place it next to the mappers folder. Rename it as base_workflow_res.osw and place it NEXT TO the mappers folder (not inside).
 1. Open mappers/base_workflow.osw file in cli repo (you have previously copied it over in step 2) Remove the "BuildResidentialModel" measure section completely from this file and save.
