@@ -29,9 +29,9 @@ Notes for the copy process (from example-project repo to cli repo):
 
 1. Copy example_project/resources folder to example_files/resources
     1. Delete the contents of resources/residential-measures/weather/ so it is just an empty dir
-1. Copy mappers folder over. **Note:** take the residential folder that is within the mappers folder and put it next to the mappers folder in the CLI repo
-1. Copy base_workflow.osw again and place it next to the mappers folder. Rename it as base_workflow_res.osw and place it NEXT TO the mappers folder (not inside).
-1. Open mappers/base_workflow.osw file in cli repo (you have previously copied it over in step 2) Remove the "BuildResidentialModel" measure section completely from this file and save.
+1. Copy the contents of the mappers folder to the CLI
+    1. Pasting in the contents of the folder will help ensure you don't overwrite the Class Project items
+    1. mappers/residential/tests/ can be deleted as it is generated from the tests
 1. copy the measures folder to example_files/measures
 1. copy xml_building to example_files/xml_building
 1. copy osm_building to example_files/osm_building
