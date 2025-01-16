@@ -81,11 +81,11 @@ simulation mapper class from existing at that level.
 
 ## Testing and Developer Resources
 
-It is possible to test the GeoJSON to Modelica Translator (GMT) by separately installing the Python package and running the command line interface (CLI) with results from an URBANopt SDK set of simulations. Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/getting_started.html) as a standalone package with its own CLI.
+It is possible to test the GeoJSON to Modelica Translator (GMT) by separately installing the Python package and running the command line interface (CLI) with results from an URBANopt SDK set of simulations. Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/getting_started/) as a standalone package with its own CLI.
 
 More example projects are available in an accompanying [example repository](https://github.com/urbanopt/geojson-modelica-translator-examples).
 
-Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-translator/developer_resources.html) if you are interested in contributing to the GMT project.
+Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-translator/developer_resources/) if you are interested in contributing to the GMT project.
 
 ## Publications and References
 
