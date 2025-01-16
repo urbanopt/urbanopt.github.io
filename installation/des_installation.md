@@ -10,13 +10,15 @@ nav_order: 5
 ## Installation via URBANopt CLI
 
 1. Run the following URBANopt CLI command to install all URBANopt python dependencies, which includes the GeoJSON-to-Modelica-Translator (GMT).  As of version 0.9.0, URBANopt requires Python v3.10.
+
   ```bash
    uo install_python
   ```
-2. You will also need to install and configure MBL and Docker as described in the manual section:
 
-  - [Installing and configuring the Modelica Buildings Library (MBL)](#mbl-installation)
-  - [Installing and configuring Docker to run simulations using OpenModelica](#docker-installation)
+1. You will also need to install and configure MBL and Docker as described in the manual section:
+
+- [Installing and configuring the Modelica Buildings Library (MBL)](https://docs.urbanopt.net/geojson-modelica-translator/getting_started/#mbl-installation)
+- [Installing and configuring Docker to run simulations using OpenModelica](https://docs.urbanopt.net/geojson-modelica-translator/getting_started/#docker-installation)
 
 ### Usage
 
@@ -47,6 +49,7 @@ Use the following for additional help on running this command:
 ```bash
  uo des_create --help
 ```
+
 The resulting Modelica package will be created and can be opened in a Modelica editor. Open the `package.mo` file in the root directory of the generated package. You will also need to load the MBL into your Modelica editor.
 
 #### Run the Model
@@ -66,4 +69,4 @@ Use the following for additional help on running this command:
 
 ## Manual Installation
 
-Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/getting_started.html) as a standalone package with its own CLI.
+Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/getting_started/) as a standalone package with its own CLI.
