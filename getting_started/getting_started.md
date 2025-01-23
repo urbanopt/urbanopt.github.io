@@ -61,7 +61,17 @@ nav_order: 1
     </div>
     <p>For more details on the various geometry workflows, refer to the <a href="../workflows/geometry_workflows" class="bold">geometry_workflows page</a>.</p>
   </div></li>
-  <li class="acc"><input id="accordion4" type="checkbox" /><label for="accordion4">Include Residential buildings in your project</label>
+  <li class="acc"><input id="accordion4" type="checkbox" /><label for="accordion4">Include ground heat exchangers (GHE) in your project</label>
+  <div class="show">
+    <p>As of version 0.11.0, URBANopt supports a workflow that will automatically size GHEs based on the building loads.</p>
+    <p>To create a project that contains all files required to run this GHE workflow, add the <code>--ghe</code> option to the create command:</p>
+    <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo create --ghe --project-folder &lt;path/to/PROJECT_DIRECTORY_NAME&gt;</span></code></pre>
+    </div>
+    <p>Make sure that you use and inspect the <code>example_project_with_ghe.json</code> FeatureFile in your project directory to see an example of a ghe feature specification and the additional fields required for those district types.</p>
+    <p>This workflow requires additional Python dependencies. Visit the <a href="../workflows/ghp" class="bold">GHP Workflows page</a> to learn more.</p>
+  </div>
+  </li>
+  <li class="acc"><input id="accordion5" type="checkbox" /><label for="accordion5">Include Residential buildings in your project</label>
   <div class="show">
     <p>As of version 0.4.0, URBANopt supports a workflow that combines commercial building types and residential building types (Single-family Detached only for now, with beta testing code for Single-family Attached and Low-rise Multifamily).</p>
     <p>To create a project that contains all files required to run this combined workflow, add the <code>--combined</code> option to the create command:</p>
@@ -394,7 +404,7 @@ nav_order: 1
            <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo des_run --model &lt;path/to/modelica_dir&gt;</span></code></pre></div>
         </li>
       </ol>
-      <p>For more information, visit the <a href="../workflows/des">DES Workflow page</a>. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/12_DES_Tutorial.mp4" target="_blank" class="bold">DES Workflow Tutorial Video</a>.</p>
+      <p>For more information, visit the <a href="../workflows/des">DES</a> or <a href="../workflows/ghp">GHP</a> workflow pages. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/12_DES_Tutorial.mp4" target="_blank" class="bold">DES Workflow Tutorial Video</a>.</p>
     </div>
   </li>
   <li class="acc" id="rnm"><input id="rnm2" type="checkbox" /><label for="rnm2">RNM Functionality</label>
