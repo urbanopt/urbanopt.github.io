@@ -7,7 +7,7 @@ nav_order: 1
 
 # Mac Installation Instructions
 
-As of version 0.3.1, an URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) is available to install the URBANopt CLI, Ruby, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
+An URBANopt<sup>&trade;</sup> installer (Mac OSX >= 10.12) is available to install the URBANopt CLI, Ruby, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
 
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
@@ -28,26 +28,25 @@ Follow the steps below or watch the [Mac Installer Video](https://urbanopt-tutor
 
 1. When launching new shell terminals, run ```. ~/.env_uo.sh``` to setup the environment.
 
-
 ## Manual Install
 
 Follow the steps below or watch the [Mac Manual Installation Video](https://urbanopt-tutorial.s3.amazonaws.com/videos/04_Mac_Manual_Install.mp4).
 
-1. Install Ruby 2.7.2.  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby](https://github.com/rbenv/rbenv#installing-ruby-versions)
+1. Install Ruby 3.2.2.  We recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage and install [Ruby](https://github.com/rbenv/rbenv#installing-ruby-versions)
     - `brew install rbenv`
-    - `rbenv install 2.7.2`
+    - `rbenv install 3.2.2`
     - Do not forget the `rbenv init` step of rbenv installation
     - Once installed, you may check which versions of Ruby have been installed and which one is active with: `rbenv versions`
-    - Set your current directory to use Ruby 2.7.2 with: `rbenv local 2.7.2`
+    - Set your current directory to use Ruby 3.2.2 with: `rbenv local 3.2.2`
     - Full documentation for rbenv can be found at the [rbenv github site](https://github.com/rbenv/rbenv#command-reference)
 
-1. Install Bundler version 2.1:
+1. Install Bundler version 2.4.10:
 
-	```terminal
-	gem install bundler -v 2.1
-	```
+    ```terminal
+    gem install bundler -v 2.4.10
+    ```
 
-1. Install [OpenStudio 3.7.0](https://github.com/NREL/OpenStudio/releases/tag/v3.7.0)
+1. Install [OpenStudio 3.9.0](https://github.com/NREL/OpenStudio/releases/tag/v3.9.0)
 
 1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as TextEdit, Sublime Text, vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
@@ -81,9 +80,8 @@ uo install_python
 
 The python installation path will be printed in the terminal once python is successfully installed; you may want to save this path for use in future troubleshooting.
 
-
 ## DES Installation
 
-As of version 0.5.2, the URBANopt CLI includes DES support.  This functionality is implemented in Python and Modelica and requires that additional dependencies be installed before use.
+The URBANopt CLI includes District Energy System (DES) support.  This functionality is implemented in Python and Modelica and requires additional dependencies before use.
 
 While the GeoJSON Modelica Translator will be installed automatically with the UO CLI `install_python` command, follow the [DES Installation Instructions](./des_installation.md) to install additional dependencies related to this workflow.
