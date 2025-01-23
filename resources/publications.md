@@ -35,7 +35,6 @@ nav_order: 6
 
 ### 2021
 
-
 Meyer, Ryan, Bridgeland, Brett, Woldekidan, Korbaga, Webster, Brett, Charan, Tanushree, Lewe, Jung-Ho, Olgyay, Victor, & Zaleski, Sarah. (2021) [GT Flex: A Coordinated Multi-Building Pilot Study](https://doi.org/10.2172/1823767).
 
 Charan, T., Mackey, C., Irani, A., Polly, B., Ray, S., Fleming, K., El Kontar, R., Moore, N., Elgindy, T., Cutler, D., Roudsari, M. S., & Goldwasser, D. (2021). [Integration of Open-Source URBANopt and Dragonfly Energy Modeling Capabilities into Practitioner Workflows for District-Scale Planning and Design](https://doi.org/10.3390/en14185931).
@@ -55,7 +54,6 @@ Rawad El Kontar, Ben Polly, Tanushree Charan, Katherine Fleming, Nathan Moore, N
 Houssainy, Sammy, Faramarzi, Ramin, Farahmand, Farhad, Pande, Abhjieet, and Griesser, Jon. (2020). [Community-Scale Energy Efficiency Assessment for Zero Net Energy Using the URBANopt Simulation Platform](https://www.nrel.gov/docs/fy21osti/77417.pdf). ACEEE Summer Study on Energy Efficiency in Buildings, 17-21 August 2020.
 
 Shanti Pless, Ben Polly, Sammy Houssainy, Paul Torcellini, William Livingood, Sarah Zaleski, Matt Jungclaus, Tom Hootman, & Mindy Craig. (2020). [A Guide to Energy Master Planning of High-Performance Districts and Communities](https://www.nrel.gov/docs/fy21osti/78495.pdf). Technical Report, NREL.
-
 
 ### Earlier Publications
 

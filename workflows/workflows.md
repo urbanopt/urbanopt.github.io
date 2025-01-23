@@ -11,9 +11,7 @@ In this section you can find out more details about each of the workflows suppor
 
 [Measure Compatibility](#measure-compatibility-details){: .btn .btn-uo .white-text}
 
-
 [Functionality Lookup](#functionality-example-lookup){: .btn .btn-uo .white-text}
-
 
 ## Measure Compatibility Details
 

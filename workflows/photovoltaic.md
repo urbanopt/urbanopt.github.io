@@ -44,7 +44,9 @@ uo create --reopt-scenario-file <path/to/EXISTING_SCENARIO_FILE.csv>
 ```
 
 ### Assumptions Files
+
 The command above creates a `reopt` directory within the project directory as well as a REopt enabled Scenario CSV. This directory contains two example assumptions file:
+
 1. a `base` assumptions file that can be used for a basic optimization
 2. a `multi-pv` assumptions file that can be used to optimize both rooftop and ground mount PV.
 

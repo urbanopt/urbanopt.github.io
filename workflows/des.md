@@ -13,7 +13,6 @@ The DES workflow has python and Modelica dependencies that must be installed in 
 
 ## Usage
 
-
 There are three major steps to running the DES workflow:
 
 1. generating the GeoJSON and System Parameter JSON files,
@@ -21,7 +20,6 @@ There are three major steps to running the DES workflow:
 1. running the Modelica package.
 
 Refer to the [Getting Started page](../getting_started/getting_started.md) to view examples of how to use the DES workflow with the URBANopt CLI.
-
 
 ## Overview
 
