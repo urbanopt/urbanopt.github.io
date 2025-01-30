@@ -20,7 +20,7 @@ The class project is divided into four primary activities each with various task
 
 The class project includes three main documentation components: 1) a general overview of the class project that covers: objectives, timeline, project description and measures library description, 2) a student guide that details all the activities and tasks for the students and the timeline, and 3) an answer key for the instructors only. Instructors interested in utilizing the class project described below should contact [Rawad El Kontar](mailto:rawad.elkontar@nrel.gov) of the URBANopt development team for instructor materials (including example answer key) for the class project and related questions.
 
-### Student Learning Objectives:
+### Student Learning Objectives
 
 After the completion of this project, students will be able to:
 
@@ -30,7 +30,7 @@ After the completion of this project, students will be able to:
 
 3. Evaluate appropriate load flexibility and energy efficiency measures and DERs to achieve grid-interactive efficient building objectives in the community or district context.
 
-### Suggested Student Prerequisites:
+### Suggested Student Prerequisites
 
 Students will be best prepared to achieve the project learning objectives if they have the following prior knowledge:
 
@@ -42,7 +42,7 @@ Students will be best prepared to achieve the project learning objectives if the
 
 - Basic familiarity using the command-line interface (note: guidance is provided on this throughout the documentation)
 
-### Suggested Computing Prerequisites:
+### Suggested Computing Prerequisites
 
 - Access to a computer over which they have administrator privileges to install the URBANopt software development kit (SDK) and command-line interface (CLI).
 

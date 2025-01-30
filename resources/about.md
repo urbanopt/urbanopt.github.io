@@ -15,6 +15,7 @@ The URBANopt project is focused on enabling three primary use cases:
 - Detailed design of next-generation district thermal systems
 
 Visit the following links for more details on the URBANopt project:
+
 - [URBANopt project website](https://www.energy.gov/eere/buildings/urbanopt)
 - [URBANopt Design overview](../doc_files/design_doc.md)
 - [URBANopt GitHub code repositories](https://github.com/urbanopt)
@@ -69,7 +70,6 @@ Visit the following links for more details on the URBANopt project:
 - Mingzhe Liu, CU Boulder
 - Cary Faulkner, CU Boulder
 - Saranya Anbarasu, CU Boulder
-
 
 ### Optimization
 

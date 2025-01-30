@@ -11,67 +11,78 @@ nav_order: 3
 
 1. **Cannot Load Such File -- uo_cli** Ensure that your path on the command line is not within a directory that already has a `Gemfile` in it. If it does, move to a different directory with no Gemfiles and try the commands again. URBANopt cannot be called successfully from a directory containing a `Gemfile`. The error text will look something like this:
 
-	```terminal
-	C:/Ruby27-x64/lib/ruby/2.7.0/rubygems/core_ext/kernel_require.rb:92:in `require': cannot load such file -- uo_cli (LoadError)
-	```
+```terminal
+C:/Ruby27-x64/lib/ruby/2.7.0/rubygems/core_ext/kernel_require.rb:92:in `require': cannot load such file -- uo_cli (LoadError)
+```
 
 1. **CERTIFICATE HAS EXPIRED** You may encounter a 'certificate has expired' error when running REopt&trade; optimizations. The error text will look something like this:
 
-	```bash
-	 error from REopt API: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)
-	 ```
-	To resolve this issue in DEVELOPMENT mode, run the following command and then try again:
+```bash
+error from REopt API: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)
+```
 
-	```bash
-	bundle exec certified-update
-	```
+To resolve this issue in DEVELOPMENT mode, run the following command and then try again:
 
-	If you are using an URBANopt installer, locate the path within the installed application of the 'certified-update' executable and run it.  For example, on Mac the path would be something like:
-	```bash
-	/Applications/URBANoptCLI_X.X.X/gems/ruby/2.7.0/gems/certified-1.0.0/bin/certified-update
-	```
-	And on windows it may look like:
-	```bash
-	c:\urbanopt-cli-X.X.X\gems\ruby\2.7.0\gems\certified-1.0.0\bin\certified-update
-	```
+```bash
+bundle exec certified-update
+```
+
+If you are using an URBANopt installer, locate the path within the installed application of the 'certified-update' executable and run it.  For example, on Mac the path would be something like:
+
+```bash
+/Applications/URBANoptCLI_X.X.X/gems/ruby/2.7.0/gems/certified-1.0.0/bin/certified-update
+```
+
+And on windows it may look like:
+
+```bash
+c:\urbanopt-cli-X.X.X\gems\ruby\2.7.0\gems\certified-1.0.0\bin\certified-update
+```
 
 1. **LONG FILEPATHS ISSUE** Users (windows users especially) may run into an error while running URBANopt.  The error will be encountered either when running ‘bundle install’ in the project directory or in the in.osw.log file of a specific feature simulation and will look like this:
 
-	```bash
-	Errno::ENOENT: No such file or directory @ rb_sysopen –
-	```
-	This will occur in the `uo run` command during installation of either the openstudio-standards gem or another openstudio gem.  This error occurs because the filepath to your project directory is too long.  Move the directory to a shallower path on your system and try again.
+```bash
+Errno::ENOENT: No such file or directory @ rb_sysopen –
+```
+
+This will occur in the `uo run` command during installation of either the openstudio-standards gem or another openstudio gem.  This error occurs because the filepath to your project directory is too long.  Move the directory to a shallower path on your system and try again.
 
 1. **OSAF** Starting with OpenStudio version 3.3.0, major biannual releases of OpenStudio SDK / OpenStudio Analysis Framework (OSAF) will *not* include the URBANopt SDK due to dependency conflicts. URBANopt SDK will be released following the OpenStudio release, and then a patch release of the OSAF will be made that includes the URBANopt dependency.  Visit the [Release Instructions](release_instructions.md#openstudio---urbanopt-release-process) page for more details.
 
 1. **Residential HPXML workflow and Non-US Weather Files** This workflow supports only US weather files at this time. If you have a weather file outside of the US, a possible work-around is to add a row to the climate zone lookup file with your weather file's WMO and climate_zone. The file can be found in your project directory under:
 
-	```bash
-	resources/hpxml-resources/HPXMLtoOpenStudio/resources/data/climate_zones.csv
-	```
+```bash
+resources/hpxml-resources/HPXMLtoOpenStudio/resources/data/climate_zones.csv
+```
 
 ### Version 0.7.0 through 0.9.0
+
 1. Residential stochastic schedules are silently failing in UO v0.7.0-v0.9.0 and the default schedules are instead being used. Use version v0.10.0 and above to resolve this issue.
 
 ### Version 0.9.2 and below
-1. An unpinned ruby dependency in the `parser` gem is causing an issue with runnig URBANopt projects. You may get an error related to URBANopt being unable to find the dependency `racc`.
-To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your projects. Or, since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
-```
-	gem 'parser 3.2.2.2'
+
+1. An unpinned ruby dependency in the `parser` gem is causing an issue with running URBANopt projects. You may get an error related to URBANopt being unable to find the dependency `racc`.
+
+    * To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your projects. Or, since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
+
+```bash
+gem 'parser 3.2.2.2'
 ```
 
 ### Version 0.9.1 and below
-1. An unpinned ruby dependency has been updated and is causing an issue with running URBANopt projects.  If you get an error related to `unicode_normalize` similar to this:
-	```bash
-	lib/openstudio/workflow/util/measure.rb failed with message cannot load such file -- unicode_normalize/normalize.rb
-	      ...
-	```
 
-    To fix this issue, either download URBANopt CLI 0.9.2 and recreate/update your projects.
-    Since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
-	```
-		gem 'addressable', '2.8.1'
-	```
+1. An unpinned ruby dependency has been updated and is causing an issue with running URBANopt projects.  If you get an error related to `unicode_normalize` similar to this:
+
+```bash
+lib/openstudio/workflow/util/measure.rb failed with message cannot load such file -- unicode_normalize/normalize.rb
+...
+```
+
+To fix this issue, either download URBANopt CLI 0.9.2 and recreate/update your projects. Since this issue is isolated to the files in your project directory, you can also add the following line to the Gemfile *inside your project directory* and re-run your simulation:
+
+```bash
+gem 'addressable', '2.8.1'
+```
 
 1. The HPXML detailed functionality introduced in v0.8.0 is broken in version 0.9.0. Use version v0.10.0 and above to resolve this issue.
 
@@ -83,10 +94,10 @@ To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your pr
 
 1. If the CLI installation stalls on the `openstudio-standards` gem: 1) exit out of the installation, 2) install openstudio-standards by itself, 3) rerun the CLI install command:
 
-	```bash
-	gem install openstudio-standards
-	gem install urbanopt-cli
-	```
+```bash
+gem install openstudio-standards
+gem install urbanopt-cli
+```
 
 1. This version contains a known bug related to the feature CSV reports and the scenario-level SQL database. Please use version 0.4.1 instead.
 
@@ -94,21 +105,21 @@ To fix the issue, either download URBANopt CLI 0.9.3 and recreate/update your pr
 
 1. SQLITE/WINDOWS issues: The sqlite3 gem contains native extensions and sometimes causes installation errors for WINDOWS users.  To resolve, ensure your ruby version is installed with "MSYS2 and MINGW development toolchain" (option 3 during installation) and that the following command succeeds before installing the CLI:
 
-	```bash
-		gem install sqlite3 -v 1.4.2
-	```
-1. The residential workflows currently only support the *Single-Family Detached* building type in the **Baseline** Scenario and have not been tested exhaustively.  *Single-Family Attached* and lowrise *Multifamily* building types will be added in future releases of the URBANopt SDK. Review the [modeling notes](../usage/residential_workflows.html#modeling-notes) on the residential workflows page. Please submit a bug report via the [URBANopt GitHub Issues Page](https://github.com/urbanopt/urbanopt-cli/issues) if you run into any issues.
+```bash
+gem install sqlite3 -v 1.4.2
+```
 
+1. The residential workflows currently only support the *Single-Family Detached* building type in the **Baseline** Scenario and have not been tested exhaustively.  *Single-Family Attached* and lowrise *Multifamily* building types will be added in future releases of the URBANopt SDK. Review the [modeling notes](../usage/residential_workflows.html#modeling-notes) on the residential workflows page. Please submit a bug report via the [URBANopt GitHub Issues Page](https://github.com/urbanopt/urbanopt-cli/issues) if you run into any issues.
 
 ### Version 0.2.0
 
-1.	New example project files: The URBANopt™ SDK version 0.2.0 release comes with new files for the example project (new mappers and a new base_workflow.osw file).  For compatibility purposes and to use all new features, you may want to update any existing projects with these new files.  The example project can be installed via the CLI with the following command:
+1. New example project files: The URBANopt™ SDK version 0.2.0 release comes with new files for the example project (new mappers and a new base_workflow.osw file).  For compatibility purposes and to use all new features, you may want to update any existing projects with these new files.  The example project can be installed via the CLI with the following command:
 
-	```bash
-		uo create --project-folder <path/to/PROJECT DIR>
-	```
+```bash
+uo create --project-folder <path/to/PROJECT DIR>
+```
 
-1.	Walk-in refrigeration modeling: The "create_typical_building_from_model" measure in the model articulation gem that supports OpenStudio 2.9.1 adds in capability for modeling walk-in refrigeration to a select number of space types. However, this functionality requires discrete space types to be modeled, and not a whole building or whole story blended space types. As a result, when using the default URBANopt workflow that models a blended space type based on the GeoJSON footprints, the new functionality will not be enabled. If a workflow using the GeoJSON floor area and number of floors is used with the create_bar_from_building_type_ratios measure, then walk-in refrigeration can be added in URBANopt using this version of the model articulation gem.
+1. Walk-in refrigeration modeling: The "create_typical_building_from_model" measure in the model articulation gem that supports OpenStudio 2.9.1 adds in capability for modeling walk-in refrigeration to a select number of space types. However, this functionality requires discrete space types to be modeled, and not a whole building or whole story blended space types. As a result, when using the default URBANopt workflow that models a blended space type based on the GeoJSON footprints, the new functionality will not be enabled. If a workflow using the GeoJSON floor area and number of floors is used with the create_bar_from_building_type_ratios measure, then walk-in refrigeration can be added in URBANopt using this version of the model articulation gem.
 
 1. URBANopt CLI users may see 2 lines of warning regarding `DEVELOPER_NREL_KEY`. This does not affect operation in any way. A future patch will remove the warning.
 

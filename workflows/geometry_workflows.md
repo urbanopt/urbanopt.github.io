@@ -19,7 +19,6 @@ workflow can be found in the [base workflow section](../resources/customization/
 
 ![urbanopt measure workflow diagram](../doc_files/core_perimeter_zoning.jpg)
 
-
 ## Createbar workflow
 
 This workflow uses the
@@ -47,6 +46,7 @@ As shown below, the workflow does take the actual building footprint into accoun
 ![create_bar measure workflow diagram b](../doc_files/create_bar_b.png)
 
 ### QAQC Reporting
+
 Three additional reporting measures are enabled in this workflow. These reporting measures can be used on any workflow; however, the QAQC report isn't as meaningful on workflows like the urban geometry which create blended space types instead of recognized standard space types. Below is a brief summary of each report. They all make an HTML file, and they all add some output variable requests into the EnergyPlus IDF file that increases the EnergyPlus SQL file size for each building feature.
 
 * OpenStudio Results: This contains annual and monthly energy use breakdown by end use, and unmet heating and cooling hours. It also contains model and results details for many different building components. It is described in more detail [on its common measures readme page](https://github.com/NREL/openstudio-common-measures-gem/tree/develop/lib/measures/openstudio_results).
