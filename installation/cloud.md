@@ -11,8 +11,6 @@ This page provides documentation to support commercial software cloud-based inte
 
 **URBANopt has a defined JSON Schema and supporting data files required to run an URBANopt analysis.  If you have your own software and would like to integrate URBANopt, development efforts to Extract, Transform, and Load (ETL) URBANopt inputs and outputs should be taken into consideration and planned. Please see the section on preparing URBANopt Project Inputs via an Inputs Translator for guidance on this topic as well as Reading URBANopt Outputs via an Outputs Translator.**
 
-
-
 ## Setting up a Cloud/OS Server
 
 The following are a couple of key approaches to consider if you want to run URBANopt in the cloud.
@@ -31,7 +29,6 @@ sudo apt install ./URBANoptCLI-0.8.3.6a224192d0-Linux.deb
 
 The installer provides access to the URBANopt cli (uo cli) and that provides commands for creating, running, and processing results. For more information about the URBANopt cli commands and workflows refer to the [Getting Started page](https://docs.urbanopt.net/getting_started/getting_started.html)
 
-
 ### Option 2 - Connecting to an OpenStudio-Server instance via REST API
 
 ![cloud integration option 2](../../doc_files/cloud_integration_option_2.jpg)
@@ -48,39 +45,36 @@ This [Jupyter notebook](https://github.com/NREL/docker-openstudio-jupyter/blob/o
 
 1. Install rest-client in your ruby gems:
 
-   ```terminal
+   ```bash
    gem install rest-client
    ```
 
-2.	Install PAT to have access to the openstudio_meta CLI and all gems necessary to run it (install directory on windows is  C/ParametricAnalysisTool-3.5.0).
+2. Install PAT to have access to the openstudio_meta CLI and all gems necessary to run it (install directory on windows is  C/ParametricAnalysisTool-3.5.0).
 
-3.	Start an OSAF server cluster on AWS, Google, Microsoft, etc. using the Helm charts. Note the server IP address (referred to as the HOST in the notebook); you will need it to submit the jobs.
+3. Start an OSAF server cluster on AWS, Google, Microsoft, etc. using the Helm charts. Note the server IP address (referred to as the HOST in the notebook); you will need it to submit the jobs.
 
 The command to run the analysis is as follows (you will need to replace the values in angle brackets (< >) with your values):
 
-
-```terminal
-<path/to/openstudio-meta> run_analysis --debug --verbose <path/of/ URBANopt_template.json'> <Server IP address> -z <name_of_zipped_folder> -a single_run
+```bash
+<path/to/openstudio-meta> run_analysis --debug --verbose <path/of/ URBANopt_template.json> <Server IP address> -z <name_of_zipped_folder> -a single_run
 ```
 
 For example:
 
-```terminal
+```bash
 C:\ParametricAnalysisTool-3.1.0\pat\OpenStudio-server\bin\openstudio_metarun_analysis --debug --verbose 'C:/create_URBANopt_OSA/URBANopt_template.json' 'http://10.40.18.67' -z 'URBANopt' -a single_run
 ```
+
 Once the job is submitted, you should be able to see the analysis status and the results on the Server Web Interface that you created.
 Note: The user can choose to recreate the functions that send REST HTTP requests in any coding language they want instead of using openstudio_meta CLI, which is in Ruby language. The details of the ruby based client that contain the REST API functions (e.g. new_analysis, run_analysis, download_datapoint) can be found in the [OpenStudio Analysis Gem](https://github.com/NREL/OpenStudio-analysis-gem/blob/develop/lib/openstudio/analysis/server_api.rb). The openstudio_meta -CLI tool makes uses of that API.
-
 
 ## Preparing URBANopt project inputs via an Inputs Translator
 
 To streamline the creation of URBANopt inputs, a translator will first need to be developed. The translator should generally include methods that map project details defined in the commercial software platform to URBANopt inputs as outlined in the following sections. To see an example of an URBANopt project directory structure you can run the CLI to create a URBANopt project. A example project directory is also provided in the [example project repository](https://github.com/urbanopt/urbanopt-example-geojson-project/tree/develop/example_project). It is recommended that users refer to the following tutorials to understand more about URBANopt required files and their structure:   [Project Creation and GeoJSON File Tutorial](https://urbanopt-tutorial.s3.amazonaws.com/videos/05_CreateProject.mp4)  and  [Scenario Creation and Run](https://urbanopt-tutorial.s3.amazonaws.com/videos/06_CreateRunScenario.mp4).
 
-
 ### Create a valid initial GeoJSON file
 
 The first input of URBANopt is the Feature File which represents a selected set of features for analysis and is in GeoJSON is a widely used format for encoding geographic data. For example, GeoJSON supports representing points, LineString, and Polygon. Geometric objects with additional properties are Feature objects and sets of features are contained in FeatureCollection objects. The [GeoJSON schema](https://github.com/urbanopt/urbanopt-geojson-gem/blob/develop/lib/urbanopt/geojson/schema/geojson_schema.json) should be followed when creating a GeoJSON file.
-
 
 ### Add project-level features to the GeoJSON
 

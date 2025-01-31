@@ -23,19 +23,20 @@ Follow the steps below to install the necessary dependencies and run the file wi
 
 1. Once the cluster is up and running, open a terminal prompt or powershell in the directory with the URBANopt example files:
 
-	- [URBANopt_NSGA.json](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.json)
-	- [URBANopt_NSGA.zip](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.zip)
+    - [URBANopt_NSGA.json](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.json)
+    - [URBANopt_NSGA.zip](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.zip)
 
 1. The command to run the analysis is as follows. You will need to replace the values in angle brackets (< >) with your values.
 
-	```bash
-		<path/to/PAT/ruby> <path/to/openstudio-meta> run_analysis --debug --verbose <path/of/URBANopt_NSGA.json> <Server IP address> -a nsga_nrel
-	```
+    ```bash
+    <path/to/PAT/ruby> <path/to/openstudio-meta> run_analysis --debug --verbose <path/of/URBANopt_NSGA.json> <Server IP address> -a nsga_nrel
+    ```
 
-	For example:
-	```bash
-	C:\ParametricAnalysisTool-3.1.0\pat\ruby\bin\ruby.exe  C:\ParametricAnalysisTool-3.1.0\pat\OpenStudio-server\bin\openstudio_meta run_analysis --debug --verbose C:\PATProject\URBANopt_NSGA.json 10.10.10.10 -a nsga_nrel
-	```
+    For example:
+
+    ```bash
+    C:\ParametricAnalysisTool-3.1.0\pat\ruby\bin\ruby.exe  C:\ParametricAnalysisTool-3.1.0\pat\OpenStudio-server\bin\openstudio_meta run_analysis --debug --verbose C:\PATProject\URBANopt_NSGA.json 10.10.10.10 -a nsga_nrel
+    ```
 
 Once the job is submitted, you should be able to see the analysis on the Server Web Interface:
 
