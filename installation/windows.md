@@ -82,7 +82,7 @@ Follow the steps below or watch the [Windows Manual Installation Video](https://
 
 1. Install [OpenStudio 3.9.0](https://github.com/NREL/OpenStudio/releases/tag/v3.9.0)
 
-1. Create file `C:\ruby-2.7.2-1-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
+1. Create file `C:\ruby-3.2.2-1-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
 
     ```ruby
     require 'C:\openstudio-X.X.X\Ruby\openstudio.rb'
