@@ -25,16 +25,10 @@ Follow the steps below or watch the [Windows Installer Video](https://urbanopt-t
 
 If you are unfamiliar with git or GitBash, you can check out this [video tutorial](https://www.youtube.com/watch?v=iGutIN5t9Mo).
 
-### GitBash
-
-```terminal
-/c/urbanopt-cli-X.X.X/setup-env.sh
-```
-
 ### Powershell or Windows Command Prompt
 
 ```terminal
-c:\urbanopt-cli-X.X.X\setup-env.ps1
+powershell -File C:\URBANopt-cli-X.X.X\setup-env.ps1 
 ```
 
 <span class="label label-red">Important Note</span> Each time you want to work on URBANopt and you open a new terminal to do so, you will need to run the `env_uo` script to configure your terminal session environment:
