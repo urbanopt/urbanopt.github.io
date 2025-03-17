@@ -11,7 +11,7 @@ The URBANopt<sup>&trade;</sup> installer includes Ruby and OpenStudio. The matri
 
 |URBANopt Version|OpenStudio| OpenStudio-HPXML | ResStock | Ruby | Python | REopt API | Modelica Buildings Library |
 |:--------------:|:--------:|:----------------:|:--------:|:----:|:------:|:---------:|:--------------------------:|
-| 1.0.0          | 3.9.0    | 1.9.0            | 3.4.0    | 3.2.2| 3.10   | v3        | 11                         |
+| 1.0.1          | 3.9.0    | 1.9.0            | 3.4.0    | 3.2.2| 3.10   | v3        | 11                         |
 | 0.14.0         | 3.7.0    | 1.7.0            | 3.2.0    | 2.7.2| 3.10   | v3        | 10                         |
 | 0.13.0         | 3.7.0    | 1.7.0            | 3.2.0    | 2.7.2| 3.10   | v3        | 10                         |
 | 0.12.0         | 3.7.0    | 1.7.0            |   -      | 2.7.2| 3.10   | v3        | 10                         |
