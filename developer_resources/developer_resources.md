@@ -78,6 +78,14 @@ Follow these steps when testing local gems via the CLI:
 1. ```bundle exec rake install``` (to install the CLI in a place that has access to those local gems)
 1. ```bundle exec uo ...``` (to execute the CLI calls)
 
+## Developing Python modules
+
+1. Build a Python tool to connect to UO SDK
+1. To test a branch of your package, _hosted on github_, use this pattern in `dependencies.json`:
+    - { "name": "https://github.com/{user}/{repository}/archive/{branch}.tar.gz"}
+1. As an example:
+    - { "name": "https://github.com/urbanopt/urbanopt-des/archive/develop.tar.gz"}
+
 ## Example Project Development
 
 1. Develop new functionality in the example project directory.
