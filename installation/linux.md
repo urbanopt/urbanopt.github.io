@@ -13,7 +13,7 @@ For CLI usage examples, see our [Getting Started page](../getting_started/gettin
 
 ## Install with the URBANopt Installer
 
-1. Download the desired version of the [.deb package](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/).
+1. Download the desired version of the installer. For URBANopt versions starting with 1.0.1, you can find installers in the `Assets` section of each [URBANopt release on GitHub](https://github.com/urbanopt/urbanopt-cli/releases). Older versions of URBANopt can be found in the [URBANopt Amazon S3 bucket](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/).
 
 1. This will install to ```/usr/local/``` directory.
 e.g.:  ```/usr/local/urbanopt-cli-1.0.0/```
