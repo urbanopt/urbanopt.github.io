@@ -17,7 +17,7 @@ We also have [tutorial videos](../resources/tutorials/tutorials.md) available to
 
 Follow the steps below or watch the [Windows Installer Video](https://urbanopt-tutorial.s3.amazonaws.com/videos/01_Windows_Installer.mp4).
 
-1. Download the desired version of the [.exe installer](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/).
+1. Download the desired version of the installer. For URBANopt versions starting with 1.0.1, you can find installers in the `Assets` section of each [URBANopt release on GitHub](https://github.com/urbanopt/urbanopt-cli/releases). Older versions of URBANopt can be found in the [URBANopt Amazon S3 bucket](http://urbanopt-cli-installers.s3-website-us-west-2.amazonaws.com/).
 
 1. Use the GUI installer and choose a directory to install. Once installed, open a  terminal and run the provided setup script for that shell (below are the setup scripts for each respective shell environment).
 
