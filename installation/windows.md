@@ -34,13 +34,13 @@ If you are unfamiliar with git or GitBash, you can check out this [video tutoria
 ### Powershell
 
 ```terminal
-powershell -File C:\URBANopt-cli-X.X.X\setup-env.ps1 
+powershell -File C:\URBANopt-cli-X.X.X\setup-env.ps1
 ```
 
 ### Windows Command Prompt
 
 ```terminal
-c:\urbanopt-cli-X.X.X\setup-env.ps1
+c:\urbanopt-cli-X.X.X\setup-env.bat
 ```
 
 <span class="label label-red">Important Note</span> Each time you want to work on URBANopt and you open a new terminal to do so, you will need to run the `env_uo` script to configure your terminal session environment:
