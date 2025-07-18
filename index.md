@@ -10,9 +10,9 @@ nav_order: 0
 
 # URBANopt SDK Documentation
 
-URBANopt<sup>&trade;</sup> (Urban Renewable Building And Neighborhood optimization) is an EnergyPlus<sup>&trade;</sup>- and OpenStudio<sup>&copy;</sup>-based simulation platform aimed at district- and campus-scale thermal and electrical analysis for Community and Urban District Energy Modeling.
+URBANopt<sup>&trade;</sup> is an EnergyPlus<sup>&trade;</sup>- and OpenStudio<sup>&copy;</sup>-based simulation platform for district, campus, and neighborhood-scale energy modeling, including thermal and electrical analysis.
 
-**_URBANopt is not a standalone program for end users._** URBANopt is a Software Development Kit (SDK) &mdash; a collection of open source modules focused on underlying analytics for a variety of multi-building design and analysis use cases. Commercial software developers can use existing URBANopt modules, customize URBANopt modules, and create new modules to help implement the desired workflows for their end user tools. Other users of the SDK could include researchers looking to create customized workflows to perform specific environmental design tasks.
+**_URBANopt is not a standalone program for end users._** URBANopt is a Software Development Kit (SDK) &mdash; a collection of open source modules focused on underlying analytics for a variety of multi-building design and analysis use cases. Commercial software developers can use existing URBANopt modules, customize URBANopt modules, and create new modules to help implement the desired workflows for their end user tools. Other users of the SDK could include researchers looking to create customized workflows to perform specific modeling and analysis tasks.
 
 <img src="doc_files/uo_highlevel.png" alt="graphic showing urbanopt at a high level" />
 
@@ -21,9 +21,9 @@ URBANopt<sup>&trade;</sup> (Urban Renewable Building And Neighborhood optimizati
 
 The URBANopt project is focused on enabling three primary use cases:
 
-1. Design of low energy campuses and districts through multi-building efficiency scenario analysis
-2.  Design and optimization of grid-interactive efficient buildings (GEBs) at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems
-3. Detailed design of next-generation district thermal systems
+1. Design of cost-effective and reliable integrated energy solutions for campuses and districts through multi-building scenario analysis
+2.  Design and optimization of grid-interactive buildings at a district-scale in conjunction with distributed energy resources (DERs) and electric distribution systems
+3. Detailed design of next-generation district thermal systems, including community-scale geothermal systems and waste heat recovery/use
 
 
 A summary of the capabilities associated with each use case is shown below:

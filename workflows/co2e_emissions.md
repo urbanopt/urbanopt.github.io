@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Carbon Emissions
+title: CO2e Emissions
 parent: Workflows
 nav_order: 1
 ---
 
-# **Carbon Emissions Reporting**
+# **CO2e Emissions Reporting**
 
-The following documents the capabilities added to URBANopt&trade; to calculate carbon emissions associated with building electricity, natural gas, propane and fuel oil number 2 use.
-Carbon emissions calculations are added to URBANopt to enable users to plan/design for low/net zero carbon buildings, neighborhoods, and urban districts. Users can calculate emissions and compare the results across multiple UO Scenarios.
+The following documents the capabilities added to URBANopt&trade; to calculate emissions associated with building electricity, natural gas, propane and fuel oil number 2 use.
+CO2e emissions calculations are added to URBANopt to enable users to model emissions using a variety of potential emissions calculation approaches depending on the modeling use, amongst a variety of other metrics (e.g., cost, energy, reliability) when performing scenario analysis.
 
 # Electricity Emissions
 
@@ -209,7 +209,7 @@ URBANopt emissions inputs, along with their choices, are listed below:
 
 These inputs are used to retrieve hourly or annual data of electricity emissions factors, defined in kgCO2e/MWH, stored in the [measure resource folder](https://github.com/NREL/openstudio-common-measures-gem/tree/develop/lib/measures/add_ems_emissions_reporting/resources). Emission factors are then multiplied by the associated facility total electricity energy use profiles to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
 
-To activate electricity carbon emissions calculations, inputs should be defined in the geoJSON FeatureaFile. Users can enable the emissions calculations for all of the features by adding the emissions inputs to the site/project properties at the top of the geoJSON file.
+To activate electricity CO2e emissions calculations, inputs should be defined in the geoJSON FeatureaFile. Users can enable the emissions calculations for all of the features by adding the emissions inputs to the site/project properties at the top of the geoJSON file.
 When adding emissions inputs in the project properties, URBANopt will apply these inputs to all of the building features in the features array. Below is an example of the enabling emissions calculations via adding project properties.
 
 ```json
@@ -238,7 +238,7 @@ When adding emissions inputs in the project properties, URBANopt will apply thes
 
 # Natural Gas, Propane, and FuelOil #2 Emissions
 
-Emission factors for natural gas, propane, and fuel oil no. 2 are based on EPA eGRID data and calculated using a 100-year global warming potential (GWP) horizon based on ASHRAE 189.1. See the [Greenhouse Gas Emissions Technical Reference](https://portfoliomanager.energystar.gov/pdf/reference/Emissions.pdf) for more details.
+Emission factors for natural gas, propane, and fuel oil no. 2 are based on EPA eGRID data and calculated using a 100-year global warming potential (GWP) horizon based on ASHRAE 189.1. See the [Technical Reference](https://portfoliomanager.energystar.gov/pdf/reference/Emissions.pdf) for more details.
 
 ```text
 Natural Gas :  181.7 kg/MWh
