@@ -398,7 +398,7 @@ The following table lists some of the functionality that is available in URBANop
 				<td>EV charging examples are available in commercial building feature <strong>IDs 2-6</strong> of the selected projects.  EV charge scaling by occupancy is enabled in feature <strong>ID 2</strong>. The <a href="https://github.com/urbanopt/urbanopt-cli/blob/v0.8.0/example_files/mappers/EvCharging.rb" target="_blank">EV Charging Mapper</a> is used to enable the measure required for this functionality. See the <a href="../resources/scenarios/evcharging.html"> EV Charging Scenario</a> for more information. </td>
 			</tr>
 			<tr>
-				<th>Carbon Emissions Reporting</th>
+				<th>CO2e Emissions Reporting</th>
 				<td>&#10004;</td>
 				<td>&#10004;</td>
 				<td>&#10004;</td>
@@ -406,7 +406,7 @@ The following table lists some of the functionality that is available in URBANop
 				<td>&#10004;</td>
 				<td></td>
 				<td></td>
-				<td>Carbon Emissions reporting is enabled in commercial building feature IDs <strong>3 & 7</strong>, and residential feature <strong>ID 14</strong> of the selected projects. See <a href="./carbon_emissions.html">Carbon Emissions Reporting</a> for more information. </td>
+				<td>CO2e Emissions reporting is enabled in commercial building feature IDs <strong>3 & 7</strong>, and residential feature <strong>ID 14</strong> of the selected projects. See <a href="./co2e_emissions.html">CO2e Emissions Reporting</a> for more information. </td>
 			</tr>
 	  </tbody>
   </table>

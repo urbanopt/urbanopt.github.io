@@ -23,11 +23,11 @@ Refer to the [Getting Started page](../getting_started/getting_started.md) to vi
 
 ## Overview
 
-District energy systems have been leveraged for hundreds of years to move energy (typically waste heat from industrial processes) to effectively maintain comfort in neighboring buildings; however, modeling the potential and effectiveness of these systems has been a challenge due to complexity. The URBANopt DES workflow aims to make DES analysis more approachable in hopes of encouraging adoption through better evaluation of new systems or expansions of in situ systems. The URBANopt DES workflow leverages a tool called the GeoJSON to Modelica Translator (GMT) to enable the analysis of DES systems.
+District energy systems have been leveraged for hundreds of years to move energy (typically waste heat from industrial processes) to effectively maintain comfort in neighboring buildings; however, modeling the potential and effectiveness of these systems has been a challenge due to complexity. The URBANopt DES workflow aims to make DES analysis more approachable, enabling better evaluation of new systems or expansions of in situ systems. The URBANopt DES workflow leverages a tool called the GeoJSON to Modelica Translator (GMT) to enable the analysis of DES systems.
 
-The GeoJSON Modelica Translator (GMT) is a one-way trip from GeoJSON in combination with a well-defined instance of the system parameters schema to a Modelica package with multiple buildings loads, energy transfer stations, distribution networks, and central plants. The project will eventually allow multiple paths to build up different district heating and cooling system topologies; however, the initial implementation is limited to 1GDH and 4GDHC.
+The GeoJSON Modelica Translator (GMT) is a one-way trip from GeoJSON in combination with a well-defined instance of the system parameters schema to a Modelica package with multiple buildings loads, energy transfer stations, distribution networks, and central plants. The project will eventually allow multiple paths to build up different district heating and cooling system topologies; however, the initial implementation is limited to 4GDHC and 5GDHC.
 
-The project is motivated by the need to easily evaluate district energy systems. The goal is to eventually cover the various generations of heating and cooling systems as shown in the figure below. The need to move towards 5GDHC systems results in higher efficiencies and greater access to additional waste-heat sources.
+The project is motivated by the need to easily evaluate district energy systems. The goal is to eventually cover the various generations of heating and cooling systems as shown in the figure below. For example, 5GDHC systems can result in higher efficiencies and greater access to additional waste-heat sources.
 
 ![image of DES generations](https://raw.githubusercontent.com/urbanopt/geojson-modelica-translator/develop/docs/images/des-generations.png)
 
@@ -86,6 +86,12 @@ More example projects are available in an accompanying [example repository](http
 Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-translator/developer_resources/) if you are interested in contributing to the GMT project.
 
 ## Publications and References
+
+- Allen, Amy, Jing Wang, Shadi Abdel Haleem, Matt Mitchell, Nicholas Long, Gregor Henze, Jay Tulley. 2025. [“From Theory to Practice: Feasibility Study of a Thermal Microgrid at a DoD Installation.”](https://technologyportal.ashrae.org/papers/paperdetail/11765) 2025 ASHRAE Annual Conference - Phoenix 131 Part 2 (June).
+
+- Zwickl-Bernhard, Sebastian, Nicholas Long, Simon Jordan, Felix Bauer, Juliet G. Simpson, and Whitney Trainor-Guitton. 2025. [“Optimizing District Energy Systems under Uncertainty: Insights from a Case Study from Washington D.C., USA.”](https://doi.org/10.1016/j.enconman.2025.119979) Energy Conversion and Management 341 (October): 119979. 
+
+- Simpson, Juliet G., Nicholas Long, and Guangdong Zhu. 2024. [“Decarbonized District Energy Systems: Past Review and Future Projections.”](https://doi.org/10.1016/j.ecmx.2024.100726) Energy Conversion and Management: X 24 (October).
 
 - Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nrel.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
 
