@@ -7,9 +7,9 @@ parent: Workflows
 # DISCO
 
 Overall, the combined URBANopt™-DISCO workflow allows users to investigate the impacts of building loads and colocated
-and Distributed Energy Resource (DER) strategies on electric distribution system performance and required network upgrades. For example,
+distributed energy resource (DER) strategies on electric distribution system performance and required network upgrades. For example,
 the URBANopt-DISCO capabilities can help understand the value of building energy efficiency and demand
-flexibility in decarbonization/electrification scenarios at a neighborhood/district/community scale based on power flow solutions. This combined workflow addresses how controllable building loads can support grid planning activities by scaling up their projected growth in selected distribution network(s).
+flexibility in upgrade and new/load growth scenarios at a neighborhood/district/community scale based on power flow solutions.
 
 
 ## DISCO Background
@@ -36,7 +36,7 @@ and changing the controls or setpoints on voltage regulators and capacitor banks
 Prior to running the DISCO analysis, the URBANopt-OpenDSS workflow is used to create OpenDSS models for the distribution system.
  These OpenDSS models represent the distribution grid's operational baseline in terms of power flow solutions. Network models in OpenDSS, along with the cost database file and technical catalog for distribution
 system equipment are passed on to DISCO (more details about these inputs are provided below). Several URBANopt scenarios can be defined to represent the district with varying
-amounts of building efficiency, electrification, building demand flexibility, PV penetration, and battery storage. These scenarios are designed to provide variations in building loads which are used in power flow simulations within DISCO to analyze overall grid impacts.
+amounts of building efficiency, building demand flexibility, PV penetration, and battery storage. These scenarios are designed to provide variations in building loads which are used in power flow simulations within DISCO to analyze overall grid impacts.
 
 The DISCO module loops through these scenarios and analyzes the thermal and voltage violations to
 determine the grid infrastructure upgrades required, if any, and reports the associated costs in each
@@ -75,7 +75,7 @@ these files is provided below.
 
 	- `cost_database.xlsx`: This is a customizable cost database containing technical specifications
 	and associated per unit upgrade costs for electrical network equipment such as lines,
-	transformers etc.. Users can customize and/or create
+	transformers etc. Users can customize and/or create
 	their own databases of proprietary equipment costs if they wish to do so to reflect the costs
 	and available equipment of the distribution system they are looking to represent. The cost
 	database used in DISCO is based on the catalog of equipment used to create synthetic network
@@ -199,9 +199,9 @@ the [OpenDSS documentation](../opendss/opendss.md).
 	 OpenDSS files as well detailed feeder statistics in case the user wants to delve deeper into
 	 the technical aspects of the feeder.
 	 `run_upgrade_cost_analysis.log`: Contains detailed run log for the DISCO simulation including
-	 `INFO` and `ERROR` messages. More details on debugging the error codes can be found [here](https://nrel.github.io/disco/debugging-issues.html).\
+	 `INFO` and `ERROR` messages. [More details on debugging the error codes](https://nrel.github.io/disco/debugging-issues.html).\
 	 `upgrade_summary.json`: This file reports out the DISCO results for the analysis. It contains
 	 information on results, violation_summary, costs_per_equipment and equipment which have been
 	 described above.
 
-	 More documentation on the DISCO automated upgrades cost analysis can be found [here](https://nrel.github.io/disco/analysis-workflows/upgrade-cost-analysis.html).
+	 [More documentation on the DISCO automated upgrades cost analysis](https://nrel.github.io/disco/analysis-workflows/upgrade-cost-analysis.html).

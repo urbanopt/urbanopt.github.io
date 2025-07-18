@@ -391,7 +391,7 @@ nav_order: 1
   <li class="acc"><input id="accordion18" type="checkbox" /><label for="accordion18">DES Functionality</label>
     <div class="show">
       <p><strong>DES functionality is available in URBANopt CLI version 0.5.2 and above.</strong></p>
-      <p>Once a scenario has been run and processed as explained in the sections above, a district thermal simulation can then be run using the output from the URBANopt SDK. While Additional district energy system simulation capabilities will be added in the future, only timeseries simulations of 4th generation district heating & cooling systems are currently available.</p>
+      <p>Once a scenario has been run and processed as explained in the sections above, a district thermal simulation can then be run using the output from the URBANopt SDK. While additional district energy system simulation capabilities will be added in the future, only simulations of 4th and 5th generation district heating & cooling systems are currently available.</p>
       <p>Follow the steps below to configure, create, and run your DES simulation:</p>
       <ol class="t">
         <li class="t">Build a system parameters JSON config file from the existing URBANopt processed results:
@@ -441,7 +441,7 @@ nav_order: 1
   </li>
   <li class="acc"><input id="accordionV" type="checkbox" /><label for="accordionV">Validate EUI Results</label>
     <div class="show">
-    <p>URBANopt provides a method to validate the energy use intensity (EUI) results from your full year simulation against a relatively wide range of potential EUI values. This can be used to confirm that your simulation results are within the right ballpark. Note: this does not guarantee that no errors or inaccuracies are present, it just helps perform an initial check on simulation output results. The schema file is included in the project_dir and can be customized if your buildings are unusual. </p>
+    <p>URBANopt provides a method to validate the energy use intensity (EUI) results from your full year simulation against a relatively wide range of potential EUI values. This can be used to confirm that your simulation results are within "the right ballpark" or a general expected range of values. Note: this does not guarantee that no errors or inaccuracies are present, it just helps perform an initial check on simulation output results. The schema file is included in the project_dir and can be customized if your buildings are unusual. </p>
     <p>This functionality requires the <code>--scenario_file</code> and <code>--feature_file</code> options to be specified.</p>
     <p>Currently only supports validating eui, and requires the path to the validation_schema that you are using.  An example validation schema can be found in the project directory.</p>
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo validate --eui validation_schema.yaml --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
