@@ -15,7 +15,7 @@ The [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem) extends
 - Reads _Feature_ and _Scenario_ Reports and parses their latitude, longitude, electric load profile, and available roof area to use as inputs to the **REopt API**. These values can be overwritten with settings from the assumptions file.
 - Reads _Feature_ and _Scenario_ Reports populates the ElectricTariff > coincident_peak_load_active_timesteps input to the **REopt API** with the 1-indexed indices of the top 100 timesteps with the largest power demands. At finer **REopt** modeling resolutions than 1 hour, the number of timesteps in this array is determined as 100 * time_steps_per_hour. This value can be overwritten with settings from the assumptions file.
 - Makes calls to the **REopt API** for optimal distributed energy resource (DER) technology sizing, dispatch, and financial metrics based using additional customizable input parameters stored in an input `.json` file
-- Optionally makes calls to the **REopt API** for resilience statistics on an optimized system (i.e. average outage duration sustained by system)
+- Optionally makes calls to the **REopt API** for backup power statistics on an optimized system (i.e. average outage duration sustained by system)
 - Saves responses from the **REopt API** to local files (by default in a `reopt` folder in the Scenario or Feature Report directory)
 - Updates Feature or Scenario Report's `distributed_generation` attributes based on a **REopt API** response
 - Updates a Feature or Scenario Report's `timeseries_csv` based on a **REopt API** response
