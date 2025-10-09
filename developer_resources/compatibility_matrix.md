@@ -9,23 +9,24 @@ nav_order: 1
 
 The URBANopt<sup>&trade;</sup> installer includes Ruby and OpenStudio. The matrix below shows the versions details for each installer version.
 
-|URBANopt Version|OpenStudio| OpenStudio-HPXML | ResStock | Ruby | Python | REopt API | Modelica Buildings Library |
-|:--------------:|:--------:|:----------------:|:--------:|:----:|:------:|:---------:|:--------------------------:|
-| 1.0.2          | 3.9.0    | 1.9.0            | 3.4.0    | 3.2.2| 3.10   | v3        | 11                         |
-| 1.0.1          | 3.9.0    | 1.9.0            | 3.4.0    | 3.2.2| 3.10   | v3        | 11                         |
-| 0.14.0         | 3.7.0    | 1.7.0            | 3.2.0    | 2.7.2| 3.10   | v3        | 10                         |
-| 0.13.0         | 3.7.0    | 1.7.0            | 3.2.0    | 2.7.2| 3.10   | v3        | 10                         |
-| 0.12.0         | 3.7.0    | 1.7.0            |   -      | 2.7.2| 3.10   | v3        | 10                         |
-| 0.11.0         | 3.7.0    | 1.7.0            |   -      | 2.7.2| 3.10   | v2        | 10                         |
-| 0.10.0         | 3.6.1    | 1.6.0            |   -      | 2.7  | 3.10   | v2        | 9                          |
-| 0.9.1 - 0.9.2  | 3.5.1    | 1.5.1            |   -      | 2.7  | 3.10   | v2        | 9                          |
-| 0.9.0          | 3.5.0    | 1.5.0            |   -      | 2.7  | 3.10   | v2        | 9                          |
-| 0.8.0 - 0.8.2  | 3.4.0    | 1.4.0            |   -      | 2.7  | 3.7    | v1        | 8                          |
-| 0.7.0 - 0.7.1  | 3.3.0    | 1.3.0            |   -      | 2.7  | 3.7    | v1        | 7                          |
-| 0.6.0 - 0.6.4  | 3.2.0    | 1.2.0            |   -      | 2.7  | 3.7    | v1        | 7                          |
-| 0.5.0 - 0.5.1  | 3.1.0    | 1.1.0            |   -      | 2.5  | 3.7    | v1        |   -                        |
-| 0.4.0 - 0.4.1  | 3.0.1    |   -              |   -      | 2.5  | 3.7    | v1        |   -                        |
-| 0.3.1          | 3.0.1    |  -               |   -      | 2.5  | 3.7    | v1        |   -                        |
+|URBANopt Version|OpenStudio| OpenStudio-HPXML | ResStock      | Ruby | Python | REopt API | Modelica Buildings Library |
+|:--------------:|:--------:|:----------------:|:-------------:|:----:|:------:|:---------:|:--------------------------:|
+| 1.1.0          | 3.10.0   | 1.10.0           | v3.4.0-331b7ab| 3.2.2| 3.10   | v3        | 12.1                       |
+| 1.0.2          | 3.9.0    | 1.9.0            | 3.4.0         | 3.2.2| 3.10   | v3        | 11                         |
+| 1.0.1          | 3.9.0    | 1.9.0            | 3.4.0         | 3.2.2| 3.10   | v3        | 11                         |
+| 0.14.0         | 3.7.0    | 1.7.0            | 3.2.0         | 2.7.2| 3.10   | v3        | 10                         |
+| 0.13.0         | 3.7.0    | 1.7.0            | 3.2.0         | 2.7.2| 3.10   | v3        | 10                         |
+| 0.12.0         | 3.7.0    | 1.7.0            |   -           | 2.7.2| 3.10   | v3        | 10                         |
+| 0.11.0         | 3.7.0    | 1.7.0            |   -           | 2.7.2| 3.10   | v2        | 10                         |
+| 0.10.0         | 3.6.1    | 1.6.0            |   -           | 2.7  | 3.10   | v2        | 9                          |
+| 0.9.1 - 0.9.2  | 3.5.1    | 1.5.1            |   -           | 2.7  | 3.10   | v2        | 9                          |
+| 0.9.0          | 3.5.0    | 1.5.0            |   -           | 2.7  | 3.10   | v2        | 9                          |
+| 0.8.0 - 0.8.2  | 3.4.0    | 1.4.0            |   -           | 2.7  | 3.7    | v1        | 8                          |
+| 0.7.0 - 0.7.1  | 3.3.0    | 1.3.0            |   -           | 2.7  | 3.7    | v1        | 7                          |
+| 0.6.0 - 0.6.4  | 3.2.0    | 1.2.0            |   -           | 2.7  | 3.7    | v1        | 7                          |
+| 0.5.0 - 0.5.1  | 3.1.0    | 1.1.0            |   -           | 2.5  | 3.7    | v1        |   -                        |
+| 0.4.0 - 0.4.1  | 3.0.1    |   -              |   -           | 2.5  | 3.7    | v1        |   -                        |
+| 0.3.1          | 3.0.1    |  -               |   -           | 2.5  | 3.7    | v1        |   -                        |
 
 ## URBANopt Compatibility Matrix
 
@@ -33,6 +34,7 @@ URBANopt<sup>&trade;</sup> depends on various other components to function. Ensu
 
 |URBANopt Version   |URBANopt CLI|OpenStudio|Ruby   |Gems                                 |
 |:-----------------:|:----------:|:--------:|:-----:|:------------------------------------|
+| **1.1.0**         | 1.1.0      | 3.10      | 3.2.2 | **URBANopt Gems:** <br/>Core Gem v1.1.0 <br/> GeoJSON Gem v1.1.0 <br/> REopt Gem v1.1.0 <br/> Reporting Gem v1.1.0 <br/> RNM-US Gem v1.1.0 <br/> Scenario Gem v1.1.0 <br/> **Python Dependencies:** <br/> DISCO v0.5.1 <br/> DiTTo Reader v0.6.4 <br/> URBANopt-DES v0.1.2 <br/> ThermalNetwork v0.4.1 **OpenStudio Gems:**<br/>Extension Gem v0.9.4  <br/> Common Measures v0.12.3 <br/> Model Articulation v0.12.2 <br/> Load Flexibility v0.11.1 <br/> EE Gem v0.12.5 <br/> Calibration Gem v0.12.2 <br/> GEB Gem v0.7.0 |
 | **1.0.2**         | 1.0.2      | 3.9      | 3.2.2 | **URBANopt Gems:** <br/>Core Gem v1.0.0 <br/> GeoJSON Gem v1.0.0 <br/> REopt Gem v1.0.0 <br/> Reporting Gem v1.0.0 <br/> RNM-US Gem v1.0.0 <br/> Scenario Gem v1.0.0 <br/> **Python Dependencies:** <br/> DISCO v0.5.1 <br/> DiTTo Reader v0.6.4 <br/> URBANopt-DES v0.1.1 <br/> ThermalNetwork v0.4.0 **OpenStudio Gems:**<br/>Extension Gem v0.8.3  <br/> Common Measures v0.11.1 <br/> Model Articulation v0.11.1 <br/> Load Flexibility v0.10.1 <br/> EE Gem v0.11.1 <br/> Calibration Gem v0.11.1 <br/> GEB Gem v0.6.0 |
 | **1.0.0**         | 1.0.0      | 3.9      | 3.2.2 | **URBANopt Gems:** <br/>Core Gem v1.0.0 <br/> GeoJSON Gem v1.0.0 <br/> REopt Gem v1.0.0 <br/> Reporting Gem v1.0.0 <br/> RNM-US Gem v1.0.0 <br/> Scenario Gem v1.0.0 <br/> **Python Dependencies:** <br/> DISCO v0.5.1 <br/> DiTTo Reader v0.6.4 <br/> GeoJSON Modelica Translator v0.9.2 <br/> ThermalNetwork v0.3.3 **OpenStudio Gems:**<br/>Extension Gem v0.8.3  <br/> Common Measures v0.11.1 <br/> Model Articulation v0.11.1 <br/> Load Flexibility v0.10.1 <br/> EE Gem v0.11.1 <br/> Calibration Gem v0.11.1 <br/> GEB Gem v0.6.0 |
 | **0.14.0**        | 0.14.0     | 3.7      | 2.7.2 | **URBANopt Gems:** <br/>Core Gem v0.11.0 <br/> GeoJSON Gem v0.11.2 <br/> REopt Gem v0.12.0 <br/> Reporting Gem v0.10.1 <br/> RNM-US Gem v0.7.0 <br/> Scenario Gem v0.12.0<br/> **Python Dependencies:** <br/> DISCO v0.5.1 <br/> DiTTo Reader v0.6.4 <br/> GeoJSON Modelica Translator v0.8.0 <br/> ThermalNetwork v0.3.0 **OpenStudio Gems:**<br/>Extension Gem v0.7.1  <br/> Common Measures v0.9.0 <br/> Model Articulation v0.9.0 <br/> Load Flexibility v0.8.0 <br/> EE Gem v0.9.0 <br/> Calibration Gem v0.9.0 <br/> GEB Gem v0.4.0 |
