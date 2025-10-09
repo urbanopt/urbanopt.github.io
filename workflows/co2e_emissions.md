@@ -2,6 +2,7 @@
 layout: default
 title: CO2e Emissions
 parent: Workflows
+published: false
 nav_order: 1
 ---
 
@@ -209,7 +210,7 @@ URBANopt emissions inputs, along with their choices, are listed below:
 
 These inputs are used to retrieve hourly or annual data of electricity emissions factors, defined in kgCO2e/MWH, stored in the [measure resource folder](https://github.com/NREL/openstudio-common-measures-gem/tree/develop/lib/measures/add_ems_emissions_reporting/resources). Emission factors are then multiplied by the associated facility total electricity energy use profiles to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
 
-To activate electricity CO2e emissions calculations, inputs should be defined in the geoJSON FeatureaFile. Users can enable the emissions calculations for all of the features by adding the emissions inputs to the site/project properties at the top of the geoJSON file.
+To activate electricity CO2e emissions calculations, inputs should be defined in the geoJSON Feature File. Users can enable the emissions calculations for all of the features by adding the emissions inputs to the site/project properties at the top of the geoJSON file.
 When adding emissions inputs in the project properties, URBANopt will apply these inputs to all of the building features in the features array. Below is an example of the enabling emissions calculations via adding project properties.
 
 ```json
