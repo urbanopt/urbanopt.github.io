@@ -1,39 +1,33 @@
 ---
 layout: default
-title: REopt Post Processing
+title: URBANopt Cost Analysis Capabilities
 parent: REopt
 grand_parent: Workflows
 nav_order: 2
 ---
 ## Intro
 
-**REopt** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
+This document outlines capabilities for calculating capital and operational costs associated with buildings in a district, campus, or neighborhood using **URBANopt**. These cost calculations will support comparison of various **URBANopt** scenarios, providing insights into the financial implications of different design decisions and enhancing visibility into project feasibility and affordability. For example, users can define costs for a baseline new construction project and compare them with scenarios featuring increasing levels of efficiency. This functionality also supports evaluating tradeoffs between capital investments in building energy efficiency and demand flexibility technologies and their resulting impacts on operational energy savings. The workflow utilizes user-defined costs for each **URBANopt** scenario and leverages **REopt** techno-economic engine to calculate financial parameters such as Net Present Value and Lifecycle Capital Cost for the analysis period.
 
-CLI commands are used to run and post-process each scenario, and onscreen help is always available with `uo --help`.
+These following sections detail the inputs required, expected outputs, software architecture and workflow for running the analysis.
 
-Also note that two types of REopt optimization are available:
-- **_scenario-level_**, which optimizes for the aggregate load of the entire district being simulated, and
-- **_feature-level_**, which optimizes each building's load individually.
 
-You may chose to optimize by one or both of these approaches according to your project objectives.
+## User Cost Inputs
 
-## Workflow
+### Capital Costs for Buildings
 
-### REopt Optimization Assumption Files
+This is a user input for the total capital cost associated with a single building in each scenario. It can be added as a total cost \(\$\) or cost per floor area \(\$/sq.ft.\). The capital costs for each building will be aggregated for all the buildings on the site and will be reported at the scenario level, allowing direct comparison across scenarios. This input field provides flexibility for different use case, such as:
 
-In your URBANopt project directory, you should see two example **REopt** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a new baseline REopt-enabled ScenarioFile with the `uo create --scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt API**.
+- Users may specify known total costs per building for both baseline and high-efficiency scenarios.
+- Alternatively, users may enter incremental costs for high-efficiency scenarios, defined relative to the baseline cost. 
 
-In particular, you will want to make sure that the `urdb_label` in the assumptions file maps to a suitable utility rate _label_ from the [URDB](https://openei.org/apps/IURDB/). The _label_ is the last term of the URL of a utility rate detail page (i.e. the _label_ for the rate at [https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305](https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305) is 5b0d83af5457a3f276733305).
+### Electricity Utility Rate
 
-Also note that the example `reopt/multiPV_assumptions.json` file contains an array of PV inputs to allow for the optimization of multiple PV systems at once.
+This will be specified through the [Utility Rate Database (URDB)](https://apps.openei.org/USURDB/) label at the project level. This is used to calculate the operating costs for electricity consumption across scenarios. 
 
-Lots of detail can be specified by customizing the REopt assumptions file. Some examples:
-- To simulate an off-grid scenario: change `off_grid_flag` to `true`.
-- To set min/max renewable fraction of power in a district: change `renewable_electricity_min_pct` and/or `renewable_electricity_max_pct` to a value between 0-1, where 0 is 0% renewable and 1 is 100% renewable. Max renewable can be larger than 1 if more energy is produced than consumed.
+### Fuel Utility Rate
 
-### REopt Time Series Resolution
-
-The **REopt** time series resolution is controlled by the **Scenario** `time_steps_per_hour` setting in the assumptions file, and can be different than the Scenario or Feature Report resolution resulting from the OpenStudio simulation (and recorded in the CSV). Note that resolutions that are not evenly divisible by each other (i.e. 7 time steps per hour into 4 per hour) may cause unexpected results or errors due to rounding errors. If a **REopt** resolution is not defined in the assumptions file, the recommended resolution of 1 per hour is used.
+This is the user specified fuel cost \(\$/MMBtu\) at the project level. The rate is applied when calculating operating costs for fuel consumption across scenarios. The initial capability supports `Natural Gas` fuel type.
 
 ### Mapping REopt Assumption Files to Features
 
