@@ -3,7 +3,7 @@ layout: default
 title: REopt Customization
 parent: REopt
 grand_parent: Workflows
-nav_order: 3
+nav_order: 4
 ---
 ## Customization
 

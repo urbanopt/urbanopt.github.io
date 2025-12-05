@@ -3,11 +3,11 @@ layout: default
 title: URBANopt Cost Analysis Capabilities
 parent: REopt
 grand_parent: Workflows
-nav_order: 2
+nav_order: 3
 ---
 ## Intro
 
-This document outlines capabilities for calculating capital and operational costs associated with buildings in a district, campus, or neighborhood using **URBANopt**. These cost calculations will support comparison of various **URBANopt** scenarios, providing insights into the financial implications of different design decisions and enhancing visibility into project feasibility and affordability. For example, users can define costs for a baseline new construction project and compare them with scenarios featuring increasing levels of efficiency. This functionality also supports evaluating tradeoffs between capital investments in building energy efficiency and demand flexibility technologies and their resulting impacts on operational energy savings. The workflow utilizes user-defined costs for each **URBANopt** scenario and leverages **REopt** techno-economic engine to calculate financial parameters such as Net Present Value and Lifecycle Capital Cost for the analysis period.
+This document outlines capabilities for calculating capital and operational costs associated with buildings in a district, campus, or neighborhood using **URBANopt**. These cost calculations will support comparison of various **URBANopt** scenarios, providing insights into the financial implications of different design decisions and enhancing visibility into project feasibility and affordability. For example, users can define costs for a baseline new construction project and compare them with scenarios featuring increasing levels of efficiency. This functionality also supports evaluating tradeoffs between capital investments in building energy efficiency and demand flexibility technologies and their resulting impacts on operational energy savings. The workflow utilizes user-defined costs for each **URBANopt** scenario and leverages the **REopt** techno-economic engine to calculate financial parameters such as Net Present Value and Lifecycle Capital Cost for the analysis period.
 
 These following sections detail the inputs required, expected outputs, software architecture and workflow for running the analysis.
 
