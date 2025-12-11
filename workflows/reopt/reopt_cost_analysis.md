@@ -25,11 +25,11 @@ Note that dummy values of \$100 and \$100/sq.ft. will be propagated for each bui
 
 ### Electricity Utility Rate
 
-This will be specified through the [Utility Rate Database (URDB)](https://apps.openei.org/USURDB/) label at the project level. This is used to calculate the operating costs for electricity consumption across scenarios. 
+The electricity utility rate will be specified through the [Utility Rate Database (URDB)](https://apps.openei.org/USURDB/) label at the project level. This is used to calculate the operating costs for electricity consumption across scenarios. 
 
 ### Fuel Utility Rate
 
-This is the user specified fuel cost \(\$/MMBtu\) at the project level. The rate is applied when calculating operating costs for fuel consumption across scenarios. The initial capability supports `Natural Gas` fuel type. Note that dummy values of \$100/MMBtu will be used in the **REopt Assumption File** initially. Users should modify the value to reflect the actual fuel cost of their project.
+The fuel utility rate is user specified \(\$/MMBtu\) at the project level. The rate is applied when calculating operating costs for fuel consumption across scenarios. The initial capability supports `Natural Gas` fuel type. Note that dummy values of \$100/MMBtu will be used in the **REopt Assumption File** initially. Users should modify the value to reflect the actual fuel cost of their project.
 
 |             Input           |      Unit      | URBANopt SDK Location  |                     Notes                     |
 | ----------------------------| -------------- | ---------------------- | --------------------------------------------- |
@@ -45,13 +45,13 @@ Currently, building energy upgrades are not supported as a distinct technology t
 
 Although `Wind` is not modeled within the **URBANopt–REopt** integration, it provides the necessary input fields and analytical capabilities required to represent building energy upgrade costs. By repurposing the `Wind` technology type in this manner, we can support upgrade cost analysis without modifications to the core **REopt** schema.
 
-In the future, if **REopt** introduces explicit support for input of building capital costs, the integration will be updated to leverage the new inputs directly, replacing the temporary Wind-based representation.
+In the future, if/when **REopt** introduces explicit support for input of building capital costs, the integration will be updated to leverage the new inputs directly, replacing the temporary Wind-based representation.
 
-The **REopt** input assumption file will be updated to include building energy upgrade costs under `Wind`.
+The **REopt** input assumption file is used to include building energy upgrade costs under `Wind`.
 
 ### Fuel Cost Calculation
 
-To calculate the fuel cost for building fuel energy consumption, the `SpaceHeatingLoad > fuel_loads_mmbtu_per_hour` **REopt** property will be used. The `fuel_loads_mmbtu_per_hour` field takes an array of hourly fuel consumption values for the building. Using the **URBANopt** default feature reports, the hourly fuel load values are populated into this field. The `fuel cost per MMBtu` is then copied from the user-specified value in the **REopt Assumption File** into the `ExistingBoiler > fuel_cost_per_mmbtu` property in the **REopt** input schema. These inputs are passed on to **REopt**, which then calculates the total fuel cost associated with the building. The `Boiler` object is used in order to calculate fuel costs while the boiler is not actually modelled on the site.
+To calculate the fuel cost for building fuel energy consumption, the `SpaceHeatingLoad > fuel_loads_mmbtu_per_hour` **REopt** property will be used. The `fuel_loads_mmbtu_per_hour` field takes an array of hourly fuel consumption values for the building. Using the **URBANopt** default feature reports, the hourly fuel load values are populated into this field. The `fuel cost per MMBtu` is then copied from the user-specified value in the **REopt Assumption File** into the `ExistingBoiler > fuel_cost_per_mmbtu` property in the **REopt** input schema. These inputs are passed on to **REopt**, which then calculates the total fuel cost associated with the building. The `Boiler` object is used in order to calculate Natural Gas fuel costs while the boiler is not actually modelled on the site.
 
 More details on the **REopt** input schema can be found at: https://developer.nrel.gov/api/reopt/stable/help/?API_KEY=DEMO_KEY.
 
@@ -63,7 +63,7 @@ More details on the **REopt** input schema can be found at: https://developer.nr
 
 ![workflow_diagram](../../doc_files/reopt_cost_analysis_workflow.jpg)
 
-This figure describes the overall workflow for running the **REopt** cost analysis. The user creates an **URBANopt-REopt** project and adds the necessary user cost inputs. The **URBANopt** project is then run, followed by default post processing. Next, the **REopt** post processing command is run. During this step, the user inputs are copied into the **REopt Assumption Files**. To get the total capital costs for a scenario, individual building capital costs would be multiplied with the floor area (if costs were input as \$/sq.ft.), then individual building capital costs would be added to calculate total building capital costs across all buildings. Then, the **REopt API** call is made sending the **REopt** input assumptions file and analysis is run. The **REopt** outputs are then reported back to the **URBANopt SDK**.
+This figure describes the overall workflow for running the **REopt** cost analysis. The user creates an **URBANopt-REopt** project and adds the necessary user cost inputs. The **URBANopt** project is then run, followed by default post processing. Next, the **REopt** scenario post processing command is run. During this step, the user inputs are copied into the **REopt Assumption Files**. To get the total capital costs for a scenario, individual building capital costs would be multiplied with the floor area (if costs were input as \$/sq.ft.) or taken as is if costs were input as total per building, then individual building capital costs would be added to calculate total building capital costs across all buildings. Then, the **REopt API** call is made with the **REopt** input assumptions file and the analysis is run. The **REopt** outputs are then reported back to the **URBANopt SDK**.
 
 ## Outputs
 
