@@ -91,7 +91,7 @@ uo process --default --feature <path/to/FEATUREFILE.json> --scenario <path/to/Re
 
 5. ### REopt Post Process Results
 
-The Reopt Scenario or Feature Post Rrocessing is done with the --reopt-resilienc tag to run the ERP capability as follows:
+The Reopt Scenario or Feature Post Processing is done with the --reopt-resilience tag to run the ERP capability as follows:
 
 To Run the Scenario Post Processing
 
@@ -102,10 +102,10 @@ uo process --reopt-scenario --feature <path/to/FEATUREFILE.json> --scenario <pat
 To Run the Feature Post Processing
 
 ```bash
-uo process --reopt-scenario --feature <path/to/FEATUREFILE.json> --scenario <path/to/ReoptERPScenarioFile.csv> --reopt-resilience
+uo process --reopt-feature --feature <path/to/FEATUREFILE.json> --scenario <path/to/ReoptERPScenarioFile.csv> --reopt-resilience
 ```
 
-Optionally, a user specifiec REopt ERP assumption file, can be provided. The format for the assumption file must follow what is used in `erp_assumptions.json`. If an assumption file is not provided, by default the `erp_assumptions.json` is used.
+Optionally, a user specified REopt ERP assumption file, can be provided. The format for the assumption file must follow what is used in `erp_assumptions.json`. If an assumption file is not provided, by default the `erp_assumptions.json` is used.
 
 ```bash
 uo process --reopt-scenario --feature <path/to/FEATUREFILE.json> --scenario <path/to/ReoptERPScenarioFile.csv> --reopt-resilience --reopt-erp-assumptions-file <path/to/erp_assumptionsFile.json>
