@@ -10,7 +10,7 @@ nav_order: 5
 This  document describes the integration of URBANopt with REopt's Energy Resilience Planning capability. 
 
 ERP calculates outage survivability metrics, estimating how long an energy system can operate during a grid outage.
-It models how resources such as solar, battery and generators can sustain critical loads during grid outages, considering technology reliability, configurarion and dispatch strategies for detailed resilience planning.
+It models how resources such as solar, battery and generators can sustain critical loads during grid outages, considering technology reliability, configuration and dispatch strategies for detailed resilience planning.
 
 To use ERP within URBANopt, a user can start by creating a REopt example project, which exposes the required ERP inputs. The steps below describe the workflow.
 
