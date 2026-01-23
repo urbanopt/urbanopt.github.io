@@ -1,13 +1,15 @@
 ---
 layout: default
-title: URBANopt Cost Analysis Capabilities
+title: URBANopt-REopt Cost Analysis Capabilities
 parent: REopt
 grand_parent: Workflows
 nav_order: 3
 ---
-## Intro
+## URBANopt&trade;-REopt&reg; Cost Analysis (Alpha) Capabilities
 
-This document outlines capabilities for calculating capital and operational costs associated with buildings in a district, campus, or neighborhood using **URBANopt**. These cost calculations will support comparison of various **URBANopt** scenarios, providing insights into the financial implications of different design decisions and enhancing visibility into project feasibility and affordability. For example, users can define costs for a baseline new construction project and compare them with scenarios featuring increasing levels of efficiency. This functionality also supports evaluating tradeoffs between capital investments in building energy efficiency and demand flexibility technologies and their resulting impacts on operational energy savings. The workflow utilizes user-defined costs for each **URBANopt** scenario and leverages the **REopt** techno-economic engine to calculate financial parameters such as Net Present Value and Lifecycle Capital Cost for the analysis period.
+The URBANopt-REopt Cost Analysis capabilities can be used to calculate capital and operational costs associated with buildings in a district, campus, or neighborhood using URBANopt-REopt workflows. These cost calculations will support comparison of various **URBANopt** scenarios, providing insights into the financial implications of different design decisions and enhancing visibility into project feasibility and cost-effectiveness. For example, users can define costs for a baseline new construction project and compare them with scenarios featuring increasing levels of energy efficiency. This functionality also supports evaluating tradeoffs between capital investments in building energy efficiency and demand flexibility technologies and their resulting impacts on operational energy savings. 
+
+The workflow utilizes user-defined costs for each **URBANopt** scenario and leverages the **REopt** techno-economic engine to calculate financial parameters such as Net Present Value and Lifecycle Capital Cost for the analysis period. These are Alpha capabilities initially released in URBANopt version 1.2.0 for initial user testing and feedback and may be refined and updated in future releases.
 
 These following sections detail the inputs required, expected outputs, software architecture and workflow for running the analysis.
 
@@ -18,10 +20,13 @@ These following sections detail the inputs required, expected outputs, software 
 
 This is a user input for the total capital cost associated with a single building in each scenario. It can be added as a total cost \(\$\) or cost per floor area \(\$/sq.ft.\). The capital costs for each building will be aggregated for all the buildings on the site and will be reported at the scenario level, allowing direct comparison across scenarios. This input field provides flexibility for different use case, such as:
 
-- Users may specify known total costs per building for both baseline and high-efficiency scenarios.
-- Alternatively, users may enter incremental costs for high-efficiency scenarios, defined relative to the baseline cost. 
+- Users may specify known total capital costs per building for both baseline and high-efficiency scenarios.
 
-Note that dummy values of \$100 and \$100/sq.ft. will be propagated for each building in the **REopt Scenario File** initially. Users should modify the values to reflect the actual capital costs of their project.
+Note that dummy values of \$1 and \$1/sq.ft. will be propagated for each building in the **REopt Scenario File** initially. Users should modify the values to reflect the actual capital costs of their project.
+
+### Analysis Period
+
+The analysis period for financial calculations can be modified in the **REopt Assumptions File**, under the `Financial.analysis_years` field. This is set at 20 years in the example URBANopt-REopt assumptions files.
 
 ### Electricity Utility Rate
 
@@ -29,13 +34,13 @@ The electricity utility rate will be specified through the [Utility Rate Databas
 
 ### Fuel Utility Rate
 
-The fuel utility rate is user specified \(\$/MMBtu\) at the project level. The rate is applied when calculating operating costs for fuel consumption across scenarios. The initial capability supports `Natural Gas` fuel type. Note that dummy values of \$100/MMBtu will be used in the **REopt Assumption File** initially. Users should modify the value to reflect the actual fuel cost of their project.
+The fuel utility rate is user specified \(\$/MMBtu\) at the project level. The rate is applied when calculating operating costs for fuel consumption across scenarios. The initial capability supports `Natural Gas` fuel type. Note that placeholder values of \$1/MMBtu will be used in the **REopt Assumptions File** initially. **Users should modify the value to reflect the actual fuel cost of their project.**
 
 |             Input           |      Unit      | URBANopt SDK Location  |                     Notes                     |
 | ----------------------------| -------------- | ---------------------- | --------------------------------------------- |
-| Capital costs for buildings | \$ or \$/sq.ft.| REopt Scenario File          | New fields will be added for \$ and \$/sq.ft. |
-| Electricity utility rate    | URDB Label     | REopt Assumption File | Existing field will be used                   |
-| Fuel utility rate           | \$/MMBtu       | REopt Assumption File | New field will be added                       |
+| Capital costs for buildings | \$ or \$/sq.ft.| REopt Scenario File          | New fields added for \$ and \$/sq.ft. |
+| Electricity utility rate    | URDB Label     | REopt Assumption File | Existing field used                   |
+| Fuel utility rate           | \$/MMBtu       | REopt Assumption File | New field added                       |
 
 ## REopt Calculations
 
@@ -51,7 +56,7 @@ The **REopt** input assumption file is used to include building energy upgrade c
 
 ### Fuel Cost Calculation
 
-To calculate the fuel cost for building fuel energy consumption, the `SpaceHeatingLoad > fuel_loads_mmbtu_per_hour` **REopt** property will be used. The `fuel_loads_mmbtu_per_hour` field takes an array of hourly fuel consumption values for the building. Using the **URBANopt** default feature reports, the hourly fuel load values are populated into this field. The `fuel cost per MMBtu` is then copied from the user-specified value in the **REopt Assumption File** into the `ExistingBoiler > fuel_cost_per_mmbtu` property in the **REopt** input schema. These inputs are passed on to **REopt**, which then calculates the total fuel cost associated with the building. The `Boiler` object is used in order to calculate Natural Gas fuel costs while the boiler is not actually modelled on the site.
+To calculate the fuel cost for building fuel energy consumption, the `SpaceHeatingLoad > fuel_loads_mmbtu_per_hour` **REopt** property is used. The `fuel_loads_mmbtu_per_hour` field takes an array of hourly fuel consumption values for the building. Using the **URBANopt** default feature reports, the hourly fuel load values are populated into this field. The `fuel cost per MMBtu` is then copied from the user-specified value in the **REopt Assumption File** into the `ExistingBoiler > fuel_cost_per_mmbtu` property in the **REopt** input schema. These inputs are passed on to **REopt**, which then calculates the total fuel cost associated with the building. The `Boiler` object is used in order to calculate Natural Gas fuel costs while the boiler is not actually modeled on the site.
 
 More details on the **REopt** input schema can be found at: https://developer.nrel.gov/api/reopt/stable/help/?API_KEY=DEMO_KEY.
 
@@ -73,10 +78,8 @@ The existing **REopt** output reports will be used to report the financial outpu
 
 - `initial_capital_costs_after_incentives`: Up-front capital costs for all technologies, in present value excluding replacement costs, and accounting for incentives.
 
-- `lifecycle_capital_costs`: Net capital costs for all technologies, in present value, including replacement costs and incentives.
+- `lifecycle_capital_costs`: Net capital costs for all technologies, in present value, including replacement costs and incentives. Note: The replacement costs and incentives are currently not considered in the analysis.
 
 - `lifecycle_fuel_costs_after_tax`: LCC component. Present value of all fuel costs over the analysis period, after tax
 
 - `lifecycle_elecbill_after_tax`: LCC component. Present value of all electric utility charges, including compensation for exports, after tax.
-
-- `NPV`: Net present value of savings realized by the project.

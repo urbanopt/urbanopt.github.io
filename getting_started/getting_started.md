@@ -174,10 +174,10 @@ nav_order: 1
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --scenario-file &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
     </div>
   </li>
-  <li class="acc"><input id="enable-reopt" type="checkbox" /><label for="enable-reopt">Enable REopt&trade; Functionality</label>
+  <li class="acc"><input id="enable-reopt" type="checkbox" /><label for="enable-reopt">Enable URBANopt-REopt&reg; Functionality</label>
     <div class="show">
       <ol>
-        <li>To run a REopt scenario you will need an internet connection so the REopt™ Gem can access the REopt API.</li>
+        <li>To run a REopt scenario you will need an internet connection so the REopt Gem can access the REopt API.</li>
         <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NREL Developer Network</a> to use the <strong>REopt API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NREL developer key here'&gt;</span></code></pre></div>
         </li>
@@ -195,10 +195,10 @@ nav_order: 1
       <p>Visit the <a href="../workflows/reopt/reopt" class="bold">REopt page</a> for more details on using REopt with URBANopt, or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/08_REopt-URBANopt.mp4" target="_blank" class="bold">REopt Workflow Tutorial Video</a>.</p>
     </div>
   </li>
-    <li class="acc"><input id="reopt-cost" type="checkbox" /><label for="reopt-cost">Enable REopt&trade; Cost Analysis Functionality</label>
+    <li class="acc"><input id="reopt-cost" type="checkbox" /><label for="reopt-cost">Enable URBANopt-REopt Cost Analysis (Alpha) Capabilities</label>
     <div class="show">
       <ol>
-        <li>As with the REopt scenario above, you will need an internet connection so the REopt™ Gem can access the REopt API.</li>
+        <li>As with the REopt scenario above, you will need an internet connection so the REopt Gem can access the REopt API.</li>
         <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NREL Developer Network</a> to use the <strong>REopt API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NREL developer key here'&gt;</span></code></pre></div>
         </li>
@@ -206,7 +206,7 @@ nav_order: 1
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-scenario-cost-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
         </li>
       </ol>
-      <p>Visit the <a href="../workflows/reopt/reopt_cost_analysis" class="bold">REopt Cost Analysis page</a> for more details on this analysis.</p>
+      <p>Visit the <a href="../workflows/reopt/reopt_cost_analysis" class="bold">URBANopt-REopt Cost Analysis page</a> for more details on this analysis.</p>
     </div>
   </li>
 </ul>
