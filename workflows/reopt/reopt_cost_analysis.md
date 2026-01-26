@@ -34,7 +34,7 @@ The electricity utility rate will be specified through the [Utility Rate Databas
 
 ### Fuel Utility Rate
 
-The fuel utility rate is user specified \(\$/MMBtu\) at the project level. The rate is applied when calculating operating costs for fuel consumption across scenarios. The initial capability supports `Natural Gas` fuel type. Note that placeholder values of \$1/MMBtu will be used in the **REopt Assumptions File** initially. **Users should modify the value to reflect the actual fuel cost of their project.**
+The fuel utility rate is user specified \(\$/MMBtu\) at the project level. The rate is applied when calculating operating costs for fuel consumption across scenarios. The initial capability supports `Natural Gas` fuel type. Note that placeholder values of \$4.5/MMBtu will be used in the **REopt Assumptions File** initially. **Users should modify the value to reflect the actual fuel cost of their project.**
 
 |             Input           |      Unit      | URBANopt SDK Location  |                     Notes                     |
 | ----------------------------| -------------- | ---------------------- | --------------------------------------------- |
