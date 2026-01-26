@@ -102,3 +102,87 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 	```bash
 	uo des_run --model <path/to/modelica_dir>
 	```
+
+9. ### Run Lifecycle Cost Analysis (LCCA)
+
+	URBANopt integrates **lifecycle cost analysis (LCCA)** capabilities into the GHP workflow using **REopt**, NREL’s techno-economic optimization engine. This integration enables a financial evaluation of district-scale geothermal heat pump (GHP) systems that have been designed and sized using the URBANopt GHP workflow.
+
+	The REopt-based LCCA computes key financial metrics - including **initial capital cost**, **lifecycle capital cost**, **lifecycle electricity cost**, and **total lifecycle cost** - to assess the cost and financial viability of installing a GHP system at a given site.
+
+	---
+
+	### Financial Assumptions
+
+	REopt requires a set of financial and economic assumptions that define technology costs, incentives, and analysis parameters. These assumptions are provided through a **GHP assumptions JSON file**.
+
+	A default assumptions file is included with the URBANopt installation:
+	urbanopt-cli/example_files/reopt_ghp/ghp_assumptions.json
+
+
+	Users may either:
+	- Use the provided default assumptions file, or
+	- Supply a **custom assumptions file** to override default financial inputs.
+
+	---
+
+	### Economic and Cost Parameters
+
+	The assumptions file includes parameters related to:
+
+	- **GHP and GHE installation costs**
+	- **Hydronic loop installation costs**
+	- **Economic incentives and tax credits** (if applicable)
+	- **Analysis period and discount rate**
+
+	Key parameters include (but are not limited to):
+
+	- `installed_cost_heatpump_per_ton`  
+	Installed cost of ground source heat pumps per ton of capacity.
+
+	- `installed_cost_ghx_per_ft`  
+	Installed cost of the ground heat exchanger per linear foot of borehole.
+
+	- `macrs_bonus_fraction`  
+	Fraction of capital cost eligible for MACRS bonus depreciation.
+
+	- `macrs_itc_reduction`  
+	Reduction applied to depreciable basis due to investment tax credits.
+
+	- `federal_itc_fraction`  
+	Fraction of capital cost eligible for the federal investment tax credit (ITC).
+
+	---
+
+	### Running the REopt GHP LCCA
+
+	The lifecycle cost analysis is executed using the following URBANopt CLI command:
+
+	```bash
+	uo process --reopt-ghp --system_parameter <path/to/sys_param.json> --modelica_model <path/to/modelica_project_dir> --assumption_file <path/to/ghp_assumptions.json>
+	```
+	Where:
+
+	--system_parameter is the system parameter file used for the GHP sizing analysis.
+
+	--modelica_model is the Modelica project directory generated and run in the previous step.
+
+	--assumption_file (optional) specifies a user-defined financial assumptions file. If omitted, the default assumptions file is used.
+
+	### Output Files and Directory Structure
+
+	Upon successful execution, a reopt_ghp directory is created within the scenario run folder:
+
+	```
+	scenario_folder/
+	└── reopt_ghp/
+		├── reopt_ghp_inputs/
+		└── reopt_ghp_outputs/
+	```
+
+	**reopt_ghp_inputs**: Contains REopt input files generated for each building and ground heat exchanger (GHX) in the district. These files are sent to the REopt API for lifecycle cost analysis.
+
+	**reopt_ghp_outputs**: Contains detailed REopt results files with financial outputs for individual buildings and GHP/GHE components.
+
+	In addition, a summary results file is generated: 
+
+	**reopt_ghp_result_summary.json**: This file aggregates and summarizes total lifecycle costs and financial metrics for all buildings and GHP/GHE infrastructure in the district.
