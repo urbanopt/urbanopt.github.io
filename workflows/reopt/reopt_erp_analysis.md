@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Energy Resilience Planning
+title: REopt ERP
 parent: REopt
 grand_parent: Workflows
 nav_order: 5
