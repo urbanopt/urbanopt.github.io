@@ -105,7 +105,7 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 
 9. ### Run Lifecycle Cost Analysis (LCCA)
 
-	URBANopt integrates **lifecycle cost analysis (LCCA)** capabilities into the GHP workflow using **REopt**, techno-economic optimization engine. This integration enables a financial evaluation of district-scale geothermal heat pump (GHP) systems that have been designed and sized using the URBANopt GHP workflow.
+	URBANopt integrates **lifecycle cost analysis (LCCA)** capabilities into the GHP workflow using the **REopt**, techno-economic optimization engine. This integration enables a financial evaluation of district-scale geothermal heat pump (GHP) systems that have been designed and sized using the URBANopt GHP workflow.
 
 	The REopt-based LCCA computes key financial metrics - including **initial capital cost**, **lifecycle capital cost**, **lifecycle electricity cost**, and **total lifecycle cost** - to assess the cost and financial viability of installing a GHP system at a given site.
 
