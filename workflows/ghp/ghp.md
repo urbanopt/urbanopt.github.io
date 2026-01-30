@@ -158,7 +158,7 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 	The lifecycle cost analysis is executed using the following URBANopt CLI command:
 
 	```bash
-	uo process --reopt-ghp --system_parameter <path/to/sys_param.json> --modelica_model <path/to/modelica_project_dir> --assumption_file <path/to/ghp_assumptions.json>
+	uo process --reopt-ghp --system_parameter <path/to/sys_param.json> --modelica_model <path/to/modelica_project_dir> --reopt_ghp_assumptions_file <path/to/ghp_assumptions.json>
 	```
 	Where:
 
