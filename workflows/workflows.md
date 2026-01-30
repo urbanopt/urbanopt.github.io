@@ -39,21 +39,21 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				<td>Builds the OpenStudio Model for an existing residential building</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/set_run_period">Set Run Period</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/set_run_period">Set Run Period</a></th>
 				<td>Commercial</td>
 				<td>Yes</td>
 				<td>Yes</td>
 				<td>OpenStudio Measure used to define the number of timesteps per hour and specify the begin and end date for running the simulation</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ChangeBuildingLocation">Change Building Location</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/ChangeBuildingLocation">Change Building Location</a></th>
 				<td>Commercial</td>
 				<td>Yes</td>
 				<td>Yes</td>
 				<td>An OpenStudio Measure used to specify and load the EPW (weather) file.</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_bar_from_building_type_ratios">Create Bar From Building Type Ratios</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-model-articulation-gem/tree/master/lib/measures/create_bar_from_building_type_ratios">Create Bar From Building Type Ratios</a></th>
 				<td>Commercial</td>
 				<td>Yes (unless using a detailed model)</td>
 				<td>Yes</td>
@@ -61,7 +61,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model">Create Typical Building From Model (1st application)</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model">Create Typical Building From Model (1st application)</a></th>
 				<td>Commercial</td>
 				<td>Yes (unless using a detailed model)</td>
 				<td>Yes</td>
@@ -69,7 +69,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/blended_space_type_from_model">Blended Space Type From Model</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-model-articulation-gem/tree/master/lib/measures/blended_space_type_from_model">Blended Space Type From Model</a></th>
 				<td>Commercial</td>
 				<td>Yes (unless using a detailed model OR CreateBar geometry workflow)</td>
 				<td>Yes</td>
@@ -77,7 +77,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/add_ev_load">Add EV Load</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/add_ev_load">Add EV Load</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in the EV Charging Scenario</td>
@@ -85,7 +85,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/add_ems_to_control_ev_charging">Add EMS to Control EV Charging</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/add_ems_to_control_ev_charging">Add EMS to Control EV Charging</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in the EV Charging Scenario</td>
@@ -110,7 +110,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model">Create Typical Building From Model (2nd application)</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-model-articulation-gem/tree/master/lib/measures/create_typical_building_from_model">Create Typical Building From Model (2nd application)</a></th>
 				<td>Commercial</td>
 				<td>Yes in Default and FloorSpace geometry workflows (unless using a detailed model)</td>
 				<td>Yes</td>
@@ -126,7 +126,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/PredictedMeanVote">Predicted Mean Vote</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/PredictedMeanVote">Predicted Mean Vote</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Yes</td>
@@ -134,7 +134,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/add_ems_emissions_reporting">Add EMS Emissions Reporting</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/add_ems_emissions_reporting">Add EMS Emissions Reporting</a></th>
 				<td>Commercial and Residential</td>
 				<td>No</td>
 				<td>No</td>
@@ -158,7 +158,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/IncreaseInsulationRValueForExteriorWalls">Increase Insulation RValue for Exterior Walls</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/IncreaseInsulationRValueForExteriorWalls">Increase Insulation RValue for Exterior Walls</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in High Efficiency Scenario</td>
@@ -166,7 +166,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ReduceElectricEquipmentLoadsByPercentage">Reduce Electric Equipment Loads By Percentage</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/ReduceElectricEquipmentLoadsByPercentage">Reduce Electric Equipment Loads By Percentage</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in High Efficiency Scenario</td>
@@ -174,7 +174,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/ReduceLightingLoadsByPercentage">Reduce Lighting Loads By Percentage</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/ReduceLightingLoadsByPercentage">Reduce Lighting Loads By Percentage</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in High Efficiency Scenario</td>
@@ -182,7 +182,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_central_ice_storage">Add Central Ice Storage</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_central_ice_storage">Add Central Ice Storage</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in Thermal Storage Scenario</td>
@@ -190,7 +190,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_hpwh">Add Central Ice HPWH</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_hpwh">Add Central Ice HPWH</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in Thermal Storage Scenario</td>
@@ -198,7 +198,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_packaged_ice_storage">Add Packaged Ice Storage</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_packaged_ice_storage">Add Packaged Ice Storage</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>Enabled in Thermal Storage Scenario</td>
@@ -222,7 +222,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/openstudio_results">OpenStudio Results</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/openstudio_results">OpenStudio Results</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>No</td>
@@ -230,7 +230,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 			<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/envelope_and_internal_load_breakdown">Envelope and Internal Load Breakdown</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/envelope_and_internal_load_breakdown">Envelope and Internal Load Breakdown</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>No</td>
@@ -238,7 +238,7 @@ The table below lists the measures that are used in URBANopt workflows, what typ
 				</td>
 			</tr>
 				<tr>
-				<th><a target="_blank" href="https://github.com/NREL/openstudio-common-measures-gem/tree/master/lib/measures/generic_qaqc">Generic QAQC</a></th>
+				<th><a target="_blank" href="https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/master/lib/measures/generic_qaqc">Generic QAQC</a></th>
 				<td>Commercial</td>
 				<td>No</td>
 				<td>No</td>

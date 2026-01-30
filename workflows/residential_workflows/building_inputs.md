@@ -12,7 +12,7 @@ HPXML files are built based on feature information contained in the GeoJSON file
 The [Building Types](building_types.md) section lists all the required and optional GeoJSON fields for each building type.
 
 Following the assignment of fields from the GeoJSON file (e.g., building type, number of stories, floor area), a number of inputs are defaulted using the OpenStudio-HPXML workflow.
-Optionally, input values may be *further* refined/adjusted using either a customizable template or samples from the [ResStock™](https://www.nrel.gov/buildings/resstock.html) workflow. An alpha release of the ResStock samples workflow is included in URBANopt version 0.13.0.
+Optionally, input values may be *further* refined/adjusted using either a customizable template or samples from the [ResStock™](https://www.nlr.gov/buildings/resstock.html) workflow. An alpha release of the ResStock samples workflow is included in URBANopt version 0.13.0.
 
 - [Default Values](#default-values)
 - [Customizable Template](#customizable-template)
@@ -94,13 +94,13 @@ The path field should be either a:
 - relative file path that references a ResStock **buildstock CSV file** mapping GeoJSON feature ID to set of ResStock parameters.
 
 The buildstock CSV file stores a collection of Parameter/Option pairs, organized by ResStock Building ID, that have been sampled from a set of statistical distributions derived from U.S. residential housing stock characterization data.
-An example of a buildstock CSV file is given [here](https://github.com/NREL/resstock/blob/develop/test/base_results/baseline/annual/buildstock.csv).
+An example of a buildstock CSV file is given [here](https://github.com/NatLabRockies/resstock/blob/develop/test/base_results/baseline/annual/buildstock.csv).
 Each sample (i.e., row of the buildstock CSV file) represents several individual dwelling units within the actual housing stock.
 
 ResStock maps individual dwelling unit samples into OpenStudio-HPXML argument values using the:
 
-- [options_lookup.tsv](https://github.com/NREL/resstock/blob/develop/resources/options_lookup.tsv) file
-- [ResStockArguments](https://github.com/NREL/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure
+- [options_lookup.tsv](https://github.com/NatLabRockies/resstock/blob/develop/resources/options_lookup.tsv) file
+- [ResStockArguments](https://github.com/NatLabRockies/resstock/tree/develop/measures/ResStockArguments) OpenStudio measure
 
 Each row of the buildstock CSV file, therefore, becomes a building model created from mapped model input values.
 The basic OpenStudio-HPXML/ResStock/URBANopt workflow is depicted in the flow chart below.
@@ -130,5 +130,9 @@ Building units have variation across schedules but not in terms of their:
 - orientation (e.g., North, South)
 - location (e.g., corner unit, top unit)
 
-After each feature's HPXML file is built (containing 1 or more dwelling units), OpenStudio-HPXML's [HPXMLtoOpenStudio](https://github.com/NREL/OpenStudio-HPXML/tree/master/HPXMLtoOpenStudio) OpenStudio measure is applied to translate and construct an OpenStudio building model.
+After each feature's HPXML file is built (containing 1 or more dwelling units), OpenStudio-HPXML's [HPXMLtoOpenStudio](https://github.com/NatLabRockies/OpenStudio-HPXML/tree/master/HPXMLtoOpenStudio) OpenStudio measure is applied to translate and construct an OpenStudio building model.
 The building model is then simulated using OpenStudio/EnergyPlus.
+
+### Urban System Generator
+
+The new Urban System Generator module can be used to generate the **Buildstock CSV File** mentioned above. For more information on that workflow, go to the [Urban System Generator](./usg.md) page.

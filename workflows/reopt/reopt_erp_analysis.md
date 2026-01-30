@@ -122,4 +122,4 @@ To use ERP within URBANopt, a user can start by creating a REopt example project
 
     More details about the outputs can be found in the <a href="https://developer.nrel.gov/api/reopt/stable/erp/outputs?API_KEY=DEMO_KEY" class="bold" target="_blank" rel="noopener noreferrer">REopt API documentation</a>.
 
-For more details on the REopt ERP implementation, visit the <a href="https://github.com/NREL/REopt-Analysis-Scripts/wiki/4.-API-endpoints#hoststableerp" class="bold" target="_blank" rel="noopener noreferrer">REopt ERP API Endpoints</a> documentation.
+For more details on the REopt ERP implementation, visit the <a href="https://github.com/NatLabRockies/REopt-Analysis-Scripts/wiki/4.-API-endpoints#hoststableerp" class="bold" target="_blank" rel="noopener noreferrer">REopt ERP API Endpoints</a> documentation.

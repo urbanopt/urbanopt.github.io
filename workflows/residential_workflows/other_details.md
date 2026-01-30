@@ -3,7 +3,7 @@ layout: default
 title: Other Details
 parent: Residential Workflows
 grand_parent: Workflows
-nav_order: 4
+nav_order: 5
 ---
 
 ## Other Details

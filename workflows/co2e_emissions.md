@@ -13,7 +13,7 @@ CO2e emissions calculations are added to URBANopt to enable users to model emiss
 
 # Electricity Emissions
 
-The measure used to calculate emissions associated with electricity, called add_ems_emissions_reporting, is in the [openstudio-common-measures](https://github.com/NREL/openstudio-common-measures-gem) GitHub Repository. The functionality and the translated URBANopt user inputs are briefly defined below.
+The measure used to calculate emissions associated with electricity, called add_ems_emissions_reporting, is in the [openstudio-common-measures](https://github.com/NatLabRockies/openstudio-common-measures-gem) GitHub Repository. The functionality and the translated URBANopt user inputs are briefly defined below.
 
 ## Inputs
 
@@ -208,7 +208,7 @@ URBANopt emissions inputs, along with their choices, are listed below:
 
     The default is 2010. Data source: Annual emission factors for historical years are based on the annual CO2e total output emissions rate (SRC2ERTA) from EPA's [Emissions & Generation Resource Integrated Database (eGRID)](https://www.epa.gov/egrid)).
 
-These inputs are used to retrieve hourly or annual data of electricity emissions factors, defined in kgCO2e/MWH, stored in the [measure resource folder](https://github.com/NREL/openstudio-common-measures-gem/tree/develop/lib/measures/add_ems_emissions_reporting/resources). Emission factors are then multiplied by the associated facility total electricity energy use profiles to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
+These inputs are used to retrieve hourly or annual data of electricity emissions factors, defined in kgCO2e/MWH, stored in the [measure resource folder](https://github.com/NatLabRockies/openstudio-common-measures-gem/tree/develop/lib/measures/add_ems_emissions_reporting/resources). Emission factors are then multiplied by the associated facility total electricity energy use profiles to calculate emissions in metric tons (mt) and emissions intensity in kgCO2e/sqft.
 
 To activate electricity CO2e emissions calculations, inputs should be defined in the geoJSON Feature File. Users can enable the emissions calculations for all of the features by adding the emissions inputs to the site/project properties at the top of the geoJSON file.
 When adding emissions inputs in the project properties, URBANopt will apply these inputs to all of the building features in the features array. Below is an example of the enabling emissions calculations via adding project properties.

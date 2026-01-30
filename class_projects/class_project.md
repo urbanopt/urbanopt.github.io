@@ -18,7 +18,7 @@ UBEM is a complex process and cannot be satisfactorily performed “at the last 
 
 The class project is divided into four primary activities each with various tasks. Activity 0 introduces students to key concepts related to UBEM and ensures that they have access to the necessary software tools. Activity 1 is both a tutorial on using the URBANopt™ SDK and an introduction to the concept of demand diversity. Activity 2 takes students through a simplified preliminary design process in which they will propose and evaluate various energy efficiency measures to achieve an energy objective. Activity 3 teaches students how to design distributed energy resources (DERs) using REopt™ integration in URBANopt. Students will also learn the difference between individual building and community design optimization of DERs. Through Activity 4 students understand the concept of load flexibility and will experiment with active control measures to further optimize the energy use in the community by shifting loads.
 
-The class project includes three main documentation components: 1) a general overview of the class project that covers: objectives, timeline, project description and measures library description, 2) a student guide that details all the activities and tasks for the students and the timeline, and 3) an answer key for the instructors only. Instructors interested in utilizing the class project described below should contact [Rawad El Kontar](mailto:rawad.elkontar@nrel.gov) of the URBANopt development team for instructor materials (including example answer key) for the class project and related questions.
+The class project includes three main documentation components: 1) a general overview of the class project that covers: objectives, timeline, project description and measures library description, 2) a student guide that details all the activities and tasks for the students and the timeline, and 3) an answer key for the instructors only. Instructors interested in utilizing the class project described below should contact [Rawad El Kontar](mailto:rawad.elkontar@nlr.gov) of the URBANopt development team for instructor materials (including example answer key) for the class project and related questions.
 
 ### Student Learning Objectives
 
@@ -46,4 +46,4 @@ Students will be best prepared to achieve the project learning objectives if the
 
 - Access to a computer over which they have administrator privileges to install the URBANopt software development kit (SDK) and command-line interface (CLI).
 
-- Obtain an [NREL Developer API Key](https://developer.nrel.gov/) so that the REopt tool can be used.
+- Obtain an [NLR Developer API Key](https://developer.nrel.gov/) so that the REopt tool can be used.

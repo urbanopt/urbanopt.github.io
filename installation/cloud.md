@@ -7,7 +7,7 @@ nav_order: 6
 
 # Commercial Software Cloud-Based Integration of URBANopt
 
-This page provides documentation to support commercial software cloud-based integration of URBANopt™. The process is divided into multiple steps that include preparing URBANopt inputs and projects, setting up the cloud server, and finally retrieving outputs and reformatting them if necessary. Please note that this is only general guidance on scoping potential approaches and that each specific implementation will vary based on the use case, software architecture, etc. Guidance is NOT meant to be exhaustive, and the required approaches/steps/order of implementation can also vary substantially. Also, guidance may change in the future as URBANopt and supporting platform capabilities evolve. Please contact the URBANopt team for specific guidance/questions when scoping potential integration, as well as any recommendations for improving this documentation.
+This page provides documentation to support commercial software cloud-based integration of URBANopt™. Please note that this is only general guidance on scoping potential approaches and that each specific implementation will vary based on the use case, software architecture, etc. Guidance is NOT meant to be exhaustive, and the required approaches/steps/order of implementation can also vary substantially. Also, guidance may change in the future as URBANopt and supporting platform capabilities evolve. Please contact the URBANopt team for specific guidance/questions when scoping potential integration, as well as any recommendations for improving this documentation.
 
 **URBANopt has a defined JSON Schema and supporting data files required to run an URBANopt analysis.  If you have your own software and would like to integrate URBANopt, development efforts to Extract, Transform, and Load (ETL) URBANopt inputs and outputs should be taken into consideration and planned. Please see the section on preparing URBANopt Project Inputs via an Inputs Translator for guidance on this topic as well as Reading URBANopt Outputs via an Outputs Translator.**
 
@@ -15,19 +15,173 @@ This page provides documentation to support commercial software cloud-based inte
 
 The following are a couple of key approaches to consider if you want to run URBANopt in the cloud.
 
-### Option 1 - Running on a server in the cloud
+### Option 1: Docker-Based URBANopt Execution
 
-![cloud integration option 1](../../doc_files/cloud_integration_option_1.jpg)
+For a single-server cloud deployment (for example, an AWS EC2 instance), the simplest and most reproducible approach is to run **URBANopt inside a Docker container**. This avoids installing URBANopt directly on the cloud instance and makes upgrades, rollbacks, and environment consistency as simple as changing the container tag. Note that this option can also be used on a local computer or HPC server.
 
-*Figure 1 - Option 1: Setting everything on a server in the cloud*
+In this workflow, URBANopt runs entirely inside a container, while project files and simulation outputs live on the host filesystem.
 
-In many cases, the most straight-forward path is to deploy a standalone VM instance, such as an AWS EC2 instance, using a supported platform image and an installer to install URBANopt. For example, on AWS EC2, you can deploy an Ubuntu 18.04 AMI and then download the .deb package and install it. For example:
+**URBANopt CLI commands and workflows are unchanged.** You will still use familiar commands such as `uo create`, `uo run`, `uo process`, and related workflows — the only difference is that these commands are executed inside the container rather than directly on the host operating system.
 
-```terminal
-sudo apt install ./URBANoptCLI-0.8.3.6a224192d0-Linux.deb
+**Note on cloud costs**
+
+URBANopt simulations can be CPU- and disk-intensive. Be sure to stop or terminate cloud instances when simulations complete to avoid unnecessary charges.
+
+---
+
+#### Step 1: Launch a Cloud Instance
+
+Launch a Linux-based instance on your preferred cloud platform:
+
+- AWS EC2  
+- Azure Virtual Machines  
+- Google Compute Engine  
+- On-premise or HPC cloud nodes  
+
+**Recommended configuration**
+- Ubuntu 22.04 LTS  
+- Adequate CPUs for parallel simulations  
+- Sufficient disk space for OpenStudio/EnergyPlus outputs  
+
+---
+
+#### Step 2: Connect via SSH
+
+Once the instance is running, get its IP address and connect a terminal to it using SSH:
+
+```
+ssh user@your-instance-ip
 ```
 
-The installer provides access to the URBANopt cli (uo cli) and that provides commands for creating, running, and processing results. For more information about the URBANopt cli commands and workflows refer to the [Getting Started page](https://docs.urbanopt.net/getting_started/getting_started.html)
+**All remaining steps are performed inside this SSH session.**
+
+---
+
+#### Step 3: Install Docker
+
+Most cloud instances do **not** include Docker by default, so make sure that it is installed so you can run the URBANopt docker container.
+
+On Ubuntu 22.04:
+
+```
+sudo apt-get update
+sudo apt-get install -y docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
+To allow running Docker without `sudo`, add your user to the `docker` group:
+
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+Log out and back in if Docker commands still require `sudo`.
+
+Managed container services (AWS ECS, AWS Batch, Kubernetes) already include Docker and do not require this step.
+
+---
+
+#### Step 4: Obtain Your URBANopt Project Files
+
+This guide assumes your URBANopt project is stored in a Git repository and can be cloned onto the instance:
+
+```
+git clone https://github.com/your-org/your-urbanopt-project.git
+cd your-urbanopt-project
+```
+
+Other transfer methods (for example, SCP, rsync, or cloud storage downloads) may also be used.
+
+---
+
+#### Step 5: Pull the URBANopt Docker Image
+
+URBANopt is provided as a prebuilt Docker image on [Docker Hub](https://hub.docker.com/r/nrel/docker-urbanopt).
+For example, version 1.1.0 is named:
+
+```
+nrel/docker-urbanopt:1.1.0
+```
+
+To pull the URBANopt 1.1.0 image locally to the instance, execute the following command:
+
+```
+docker pull nrel/docker-urbanopt:1.1.0
+```
+
+---
+
+#### Step 6: Run URBANopt Using Docker
+
+Run the URBANopt container and mount the project directory into the container, so that URBANopt CLI has access to the project files.
+
+```
+docker run --rm -it \
+  -v "$(pwd):/work" \
+  nrel/docker-urbanopt:1.1.0 \
+  uo run -f example_uo/example_project.json \
+         -s example_uo/baseline_scenario.csv
+```
+
+#### Notes
+
+- `docker run` starts a new container from a Docker image.
+- `--rm` automatically removes the container after it exits (optional).
+- `-it` runs the container in interactive mode with a TTY attached.
+- `-v "$(pwd):/work"` mounts the current host directory into the container at `/work`.
+- `nrel/docker-urbanopt:1.1.0` is the Docker image containing URBANopt version 1.1.0 and its dependencies.
+- `uo run` invokes the URBANopt CLI inside the container.
+- `-f example_uo/example_project.json` specifies the URBANopt project definition file.
+- `-s example_uo/baseline_scenario.csv` specifies the scenario CSV used for the run.
+- `example_project.json` and `baseline_scenario.csv` are **example files provided by URBANopt**
+- User projects will typically use different filenames
+- URBANopt CLI usage and workflows are unchanged from a native installation
+
+---
+
+#### Simulation Outputs
+
+Because the project directory is mounted into the container, **all outputs are written directly to the host filesystem**.
+
+
+For example:
+
+```
+/work/example_uo/run/
+```
+
+maps to:
+
+```
+your-urbanopt-project/example_uo/run/
+```
+
+No results are stored only inside the container.
+
+---
+
+#### Parallel Execution
+
+The number of parallel URBANopt simulations is controlled in project config file `runner.conf`:
+
+```
+num_parallel = 10
+```
+
+The container uses the CPUs available on the host VM. No special Docker configuration is required on Linux-based cloud instances.
+
+---
+
+#### Troubleshooting and Monitoring
+
+- Use `docker logs <container-id>` to inspect container output if running without `-it`.
+- Check `example_uo/run/logs/` for OpenStudio and EnergyPlus logs.
+- Monitor CPU and memory usage on the VM during large runs to ensure adequate resources.
+
+---
+---
 
 ### Option 2 - Connecting to an OpenStudio-Server instance via REST API
 
@@ -35,13 +189,13 @@ The installer provides access to the URBANopt cli (uo cli) and that provides com
 
 *Figure 2 - Option 2: Connecting to OpenStudio server through REST API*
 
-Another option is to use the OpenStudio Analysis Framework (OSAF), also called [OpenStudio-server](https://github.com/NREL/OpenStudio-server).  This approach is useful for applications that are running on serverless computing environments (e.g. AWS Kestrel) that do not have a way to install URBANopt locally.
+Another option is to use the OpenStudio Analysis Framework (OSAF), also called [OpenStudio-server](https://github.com/NatLabRockies/OpenStudio-server).  This approach is useful for applications that are running on serverless computing environments (e.g. AWS Kestrel) that do not have a way to install URBANopt locally.
 
-[OpenStudio-server](https://github.com/NREL/OpenStudio-server) is a web-based application that runs OpenStudio Analysis workflows as well as URBANopt workflows. It provides a REST API to process workflows and run simulations in the cloud. OpenStudio-server can be deployed using a  [Kubernetes Helm chart](https://github.com/NREL/OpenStudio-server-helm) and works with most cloud providers' Kubernetes stacks such as AWS Elastic Kubernetes Service (EKS). Once deployed, your application client can make REST HTTP requests to the OpenStudio-server without having to run it locally.  For details on how to install OpenStudio-server and set up cloud deployment, please consult [README.md.](https://github.com/NREL/OpenStudio-server-helm/#readme) For information on how to run an URBANopt workflow using OpenStudio-server, please consult this example [Jupyter notebook](https://github.com/NREL/docker-openstudio-jupyter/blob/openstudio/notebooks/create_URBANopt_OSA.ipynb).
+[OpenStudio-server](https://github.com/NatLabRockies/OpenStudio-server) is a web-based application that runs OpenStudio Analysis workflows as well as URBANopt workflows. It provides a REST API to process workflows and run simulations in the cloud. OpenStudio-server can be deployed using a  [Kubernetes Helm chart](https://github.com/NatLabRockies/OpenStudio-server-helm) and works with most cloud providers' Kubernetes stacks such as AWS Elastic Kubernetes Service (EKS). Once deployed, your application client can make REST HTTP requests to the OpenStudio-server without having to run it locally.  For details on how to install OpenStudio-server and set up cloud deployment, please consult [README.md.](https://github.com/NatLabRockies/OpenStudio-server-helm/#readme) For information on how to run an URBANopt workflow using OpenStudio-server, please consult this example [Jupyter notebook](https://github.com/NatLabRockies/docker-openstudio-jupyter/blob/openstudio/notebooks/create_URBANopt_OSA.ipynb).
 
-After deploying an OpenStudio-server instance, you can create an OSA folder (OpenStudio Analysis folder), which is a zipped folder that includes an URBANopt project packaged to run via the OpenStudio server. After creating the zipped folder, you can send requests to the OpenStudio-server via the openstudio_meta CLI (openstudio_meta ships with Openstudio-server: https://github.com/NREL/OpenStudio-server/blob/develop/bin/openstudio_meta) which includes a function that sends REST HTTP requests to run the analysis in the OpenStudio server.
+After deploying an OpenStudio-server instance, you can create an OSA folder (OpenStudio Analysis folder), which is a zipped folder that includes an URBANopt project packaged to run via the OpenStudio server. After creating the zipped folder, you can send requests to the OpenStudio-server via the openstudio_meta CLI (openstudio_meta ships with Openstudio-server: https://github.com/NatLabRockies/OpenStudio-server/blob/develop/bin/openstudio_meta) which includes a function that sends REST HTTP requests to run the analysis in the OpenStudio server.
 
-This [Jupyter notebook](https://github.com/NREL/docker-openstudio-jupyter/blob/openstudio/notebooks/create_URBANopt_OSA.ipynb) demonstrates an example of creating the OSA zipped folder and sending a request to run the URBANopt analysis via the openstudio_meta_cli.  To run the Jupyter notebook you can create a ruby kernel and follow these general steps to install the necessary dependencies to run the commands with the openstudio_meta.
+This [Jupyter notebook](https://github.com/NatLabRockies/docker-openstudio-jupyter/blob/openstudio/notebooks/create_URBANopt_OSA.ipynb) demonstrates an example of creating the OSA zipped folder and sending a request to run the URBANopt analysis via the openstudio_meta_cli.  To run the Jupyter notebook you can create a ruby kernel and follow these general steps to install the necessary dependencies to run the commands with the openstudio_meta.
 
 1. Install rest-client in your ruby gems:
 
@@ -66,7 +220,7 @@ C:\ParametricAnalysisTool-3.1.0\pat\OpenStudio-server\bin\openstudio_metarun_ana
 ```
 
 Once the job is submitted, you should be able to see the analysis status and the results on the Server Web Interface that you created.
-Note: The user can choose to recreate the functions that send REST HTTP requests in any coding language they want instead of using openstudio_meta CLI, which is in Ruby language. The details of the ruby based client that contain the REST API functions (e.g. new_analysis, run_analysis, download_datapoint) can be found in the [OpenStudio Analysis Gem](https://github.com/NREL/OpenStudio-analysis-gem/blob/develop/lib/openstudio/analysis/server_api.rb). The openstudio_meta -CLI tool makes uses of that API.
+Note: The user can choose to recreate the functions that send REST HTTP requests in any coding language they want instead of using openstudio_meta CLI, which is in Ruby language. The details of the ruby based client that contain the REST API functions (e.g. new_analysis, run_analysis, download_datapoint) can be found in the [OpenStudio Analysis Gem](https://github.com/NatLabRockies/OpenStudio-analysis-gem/blob/develop/lib/openstudio/analysis/server_api.rb). The openstudio_meta -CLI tool makes uses of that API.
 
 ## Preparing URBANopt project inputs via an Inputs Translator
 
