@@ -111,7 +111,7 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 
 	---
 
-	### Financial Assumptions
+	<h3>Financial Assumptions</h3>
 
 	REopt requires a set of financial and economic assumptions that define technology costs, incentives, and analysis parameters. These assumptions are provided through a **GHP assumptions JSON file**.
 
@@ -125,7 +125,7 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 
 	---
 
-	### Economic and Cost Parameters
+	<h3>Economic and Cost Parameters</h3>
 
 	The assumptions file includes parameters related to:
 
@@ -153,12 +153,12 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 
 	---
 
-	### Running the REopt GHP LCCA
+	<h3>Running the REopt GHP LCCA</h3>
 
 	The lifecycle cost analysis is executed using the following URBANopt CLI command:
 
 	```bash
-	uo process --reopt-ghp --system_parameter <path/to/sys_param.json> --modelica_model <path/to/modelica_project_dir> --assumption_file <path/to/ghp_assumptions.json>
+	uo process --reopt-ghp --system_parameter <path/to/sys_param.json> --modelica_model <path/to/modelica_project_dir> --reopt_ghp_assumptions_file <path/to/ghp_assumptions.json>
 	```
 	Where:
 
@@ -168,7 +168,7 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 
 	--assumption_file (optional) specifies a user-defined financial assumptions file. If omitted, the default assumptions file is used.
 
-	### Output Files and Directory Structure
+	<h3>Output Files and Directory Structure</h3>
 
 	Upon successful execution, a reopt_ghp directory is created within the scenario run folder:
 

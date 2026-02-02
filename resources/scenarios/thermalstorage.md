@@ -35,7 +35,7 @@ This measure applies to packaged single zone air conditioning systems or package
 
 Users inputs are accepted for cooling coil selection, ice storage capacity, system control method, season of PTES availability, and daily operating schedule.
 
-Complete documentation is available [here](https://github.com/NREL/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_packaged_ice_storage).
+Complete documentation is available [here](https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem/tree/master/lib/measures/add_packaged_ice_storage).
 
 ### <a name="its"></a> add_central_ice_storage Measure
 
@@ -43,7 +43,7 @@ This measure applies to buildings with central chilled water plants and allows u
 
 User inputs are accepted for control strategy, chiller selection and sizing, ice tank capacity, various loop temperature setpoints and control mechanisms, season of availability, and daily operating schedule.
 
-Complete documentation is available [here](https://github.com/NREL/openstudio-load-flexibility-measures-gem/blob/master/lib/measures/add_central_ice_storage/docs/Ice%20Measure%20Implementation%20Guide.pdf).
+Complete documentation is available [here](https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem/blob/master/lib/measures/add_central_ice_storage/docs/Ice%20Measure%20Implementation%20Guide.pdf).
 
 ## Using or Modifying the TES Scenario
 
@@ -57,7 +57,7 @@ To modify the Thermal Storage scenario in order to explore other load flexibilit
 
 ## Using TES in Your Own Project
 
-To use the TES measures with your own project, you must download the [openstudio-load-flexibilty-measures](https://github.com/NREL/openstudio-load-flexibility-measures-gem "GitHub Repository") gem (also available from [rubygems.org](https://rubygems.org/gems/openstudio-load-flexibility-measures "RubyGems Download")) and then require it within your mapper file:
+To use the TES measures with your own project, you must download the [openstudio-load-flexibilty-measures](https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem "GitHub Repository") gem (also available from [rubygems.org](https://rubygems.org/gems/openstudio-load-flexibility-measures "RubyGems Download")) and then require it within your mapper file:
 
 ```ruby
 require 'openstudio/load_flexibility_measures'
@@ -114,4 +114,4 @@ Heine, K., P. C. Tabares-Velasco, M. Deru, and B. Polly. "Quantifying the Value 
 
 Heine, K., P. C. Tabares-Velasco, R. Meyer, and M. Deru. "Modeling the Load Flexibility Potentials for Ice Energy Storage," presented at Building Performance Analysis Conference and SimBuild 2020, Chicago, IL, September, 2020. (Accepted)
 
-Kung, F., M. Deru, and E. Bonnema. "Evaluation Framework and Analyses for Thermal Energy Storage Integrated with Packaged Cooling Equipment." Technical Report NREL/TP-550-60415. October 2013. Available [online](https://www.nrel.gov/docs/fy14osti/60415.pdf "Download Report (.pdf)").
+Kung, F., M. Deru, and E. Bonnema. "Evaluation Framework and Analyses for Thermal Energy Storage Integrated with Packaged Cooling Equipment." Technical Report NLR/TP-550-60415. October 2013. Available [online](https://www.nlr.gov/docs/fy14osti/60415.pdf "Download Report (.pdf)").

@@ -14,11 +14,11 @@ flexibility in upgrade and new/load growth scenarios at a neighborhood/district/
 
 ## DISCO Background
 
-[DISCO](https://github.com/NREL/disco) (Distribution Integration Solution Cost Options) is an open-source, NREL-developed,
+[DISCO](https://github.com/NREL/disco) (Distribution Integration Solution Cost Options) is an open-source, NLR-developed,
 python-based software tool for automating distribution analyses at scale. Originally developed to
 support photovoltaic (PV) impact analyses, DISCO can also be used to understand the impact of other
 DERs on distribution substations/feeders. DISCO, as a framework is based
-on power flow modeling with OpenDSS as the grid simulation engine. PyDSS, another NREL developed tool, is used to interface with
+on power flow modeling with OpenDSS as the grid simulation engine. PyDSS, another NLR developed tool, is used to interface with
 OpenDSS and provide additional control layers on DERs.
 
 DISCO combines many features in forms of analysis modules such as snapshot and dynamic hosting
@@ -199,9 +199,9 @@ the [OpenDSS documentation](../opendss/opendss.md).
 	 OpenDSS files as well detailed feeder statistics in case the user wants to delve deeper into
 	 the technical aspects of the feeder.
 	 `run_upgrade_cost_analysis.log`: Contains detailed run log for the DISCO simulation including
-	 `INFO` and `ERROR` messages. [More details on debugging the error codes](https://nrel.github.io/disco/debugging-issues.html).\
+	 `INFO` and `ERROR` messages. [More details on debugging the error codes](https://natlabrockies.github.io/disco/debugging-issues.html).\
 	 `upgrade_summary.json`: This file reports out the DISCO results for the analysis. It contains
 	 information on results, violation_summary, costs_per_equipment and equipment which have been
 	 described above.
 
-	 [More documentation on the DISCO automated upgrades cost analysis](https://nrel.github.io/disco/analysis-workflows/upgrade-cost-analysis.html).
+	 [More documentation on the DISCO automated upgrades cost analysis](https://natlabrockies.github.io/disco/analysis-workflows/upgrade-cost-analysis.html).

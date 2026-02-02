@@ -46,7 +46,8 @@ Follow the steps below or watch the [Mac Manual Installation Video](https://urba
     gem install bundler -v 2.4.10
     ```
 
-1. Install [OpenStudio 3.9.0](https://github.com/NREL/OpenStudio/releases/tag/v3.9.0)
+1. Install [OpenStudio 3.10.0](https://github.com/NatLabRockies/OpenStudio/releases/tag/v3.10.0).
+The latest URBANopt code uses OpenStudio 3.10.0. Browse the [Compatibility Matrix](../developer_resources/compatibility_matrix) page for additional details.
 
 1. Add the `RUBYLIB` path as an "environment variable", pointing to the OpenStudio Ruby location you just installed.  You can use a text editor such as TextEdit, Sublime Text, vi or nano to open `.bash_profile` (or `.zshenv` if using zsh, the default since MacOS 10.15 Catalina).  The following is an example using nano:
 
