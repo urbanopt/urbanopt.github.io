@@ -79,6 +79,7 @@ nav_order: 1
     </div>
     <p>The rest of the CLI commands are the same as for the default workflow. Make sure that you use and inspect the <code>example_project_combined.json</code> FeatureFile in your project directory to see an example of a residential feature specification (feature IDs 14, 15, and 16) and the additional fields required for residential building types.</p>
     <p>Residential building energy models in URBANopt are created using the OpenStudio-HPXML workflow. Visit the <a href="../workflows/residential_workflows/residential_workflows" class="bold">Residential Workflows page</a> to learn more.</p>
+    <p>New ResStock and Urban System Generator (USG) workflows: the combined example project now contains a buildstock mapping CSV that is used to set inputs for residential buildings 15 and 18. This functionality is enabled by setting "characterize_residential_buildings_from_buildstock_csv" to true and providing the "uo_buildstock_mapping_csv_path" for the desired buildings in the GeoJSON Feature File. Additional commands can be run to use the USG to generate data for missing inputs using machine learning models. To learn more about these workflows, visit the <a href="../workflows/residential_workflows/building_inputs#resstock-samples">Building Inputs - ResStock Samples</a> and <a href="../workflows/residential_workflows/usg">Urban System Generator</a> pages.</p>
   </div>
   </li>
   <li class="acc"><input id="accordionPVp" type="checkbox" /><label for="accordionPVp">Include PV features in your project</label>
@@ -174,25 +175,53 @@ nav_order: 1
     <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --scenario-file &lt;path/to/FEATUREFILE.json&gt;</span></code></pre></div>
     </div>
   </li>
-  <li class="acc"><input id="enable-reopt" type="checkbox" /><label for="enable-reopt">Enable REopt&trade; Functionality</label>
+  <li class="acc"><input id="enable-reopt" type="checkbox" /><label for="enable-reopt">Enable URBANopt&trade;-REopt&reg; Functionality</label>
     <div class="show">
       <ol>
-        <li>To run a REopt scenario you will need an internet connection so the REopt™ Gem can access the REopt API.</li>
-        <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NREL Developer Network</a> to use the <strong>REopt API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
-          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NREL developer key here'&gt;</span></code></pre></div>
+        <li>To run a REopt scenario you will need an internet connection so the REopt Gem can access the REopt API.</li>
+        <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NLR Developer Network</a> to use the <strong>REopt API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NLR developer key here'&gt;</span></code></pre></div>
         </li>
-        <li><p>Extend the Scenario CSV File with REopt information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File (named REopt_scenario.csv by default) that has an extra column to map assumptions files to features. Use this Scenario CSV File going forward in future steps. The assumptions file listed in the Scenario CSV will be used when performing a REopt feature optimization.  By default, this is set to <code>multiPV_assumptions.json</code>. If you'd like to use a different file, open the Scenario CSV file, edit the assumptions file name and save. Your new assumptions file should be saved in the <code>reopt</code> directory within your project directory.</p>
+        <li><p>Extend the Scenario CSV File with REopt information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File (named REopt_[base-scenario-name]_scenario.csv by default) that has an extra column to map assumptions files to features. Use this Scenario CSV File going forward in future steps. The assumptions file listed in the Scenario CSV will be used when performing a REopt feature optimization.  By default, this is set to <code>multiPV_assumptions.json</code>. If you'd like to use a different file, open the Scenario CSV file, edit the assumptions file name and save. Your new assumptions file should be saved in the <code>reopt</code> directory within your project directory.</p>
           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-scenario-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
         </li>
-        <li><p>Configure your REopt assumptions. Two example <strong>REopt</strong> assumptions files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://github.com/NREL/REopt-API-Analysis/wiki/Job-Inputs" target="_blank" class="bold">REopt API documentation</a> and can be customized to your specific project needs. Through CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt API</strong>.</p>
+        <li><p>Configure your REopt assumptions. Two example <strong>REopt</strong> assumptions files are located in the <code>reopt</code> folder within your project directory:  <code>base_assumptions.json</code> and <code>multiPV_assumptions.json</code>. These files follow the format outlined in the <a href="https://github.com/NatLabRockies/REopt-API-Analysis/wiki/Job-Inputs" target="_blank" class="bold">REopt API documentation</a> and can be customized to your specific project needs. Through CLI commands, they will be updated with basic information from your Feature and Scenario Reports (i.e. latitude, longitude, electric load profile) and submitted to the <strong>REopt API</strong>.</p>
         <p>In particular, you will want to make sure that the <code>urdb_label</code> in the assumptions file maps to a suitable utility rate <em>label</em> from the <a href="https://openei.org/apps/IURDB/" target="_blank" class="bold">URDB</a>. The <em>label</em> is the last term of the URL of a utility rate detail page (e.g. the <em>label</em> for the rate at <a href="https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305" target="_blank" class="bold">https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305</a> is 5b0d83af5457a3f276733305).</p>
         <p>Also note that the example <code>reopt/multiPV_assumptions.json</code> file contains an array of PV inputs to allow for the optimization of multiple PV systems at once (e.g. rooftop PV and ground mount PV).</p>
         <p><strong>Unless otherwise configured, the <code>multiPV_assumptions.json</code> file will be used inside the REopt-enabled Scenario CSV for feature-level optimizations, and the <code>base_assumptions.json</code> file will be used for scenario-level optimizations. Both of these files can be found in the <code>reopt</code> directory within the project directory.</strong></p>
         <p>A complete list of input fields&mdash;including type, description, and acceptable range&mdash;can be retrieved from the REopt API by entering the following URL in your browser:</p>
-        <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">https://developer.nrel.gov/api/reopt/stable/help?API_KEY=&lt;insert your NREL developer key here&gt;</span></code></pre></div>
+        <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">https://developer.nrel.gov/api/reopt/stable/help?API_KEY=&lt;insert your NLR developer key here&gt;</span></code></pre></div>
         </li>
       </ol>
       <p>Visit the <a href="../workflows/reopt/reopt" class="bold">REopt page</a> for more details on using REopt with URBANopt, or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/08_REopt-URBANopt.mp4" target="_blank" class="bold">REopt Workflow Tutorial Video</a>.</p>
+    </div>
+  </li>
+  <li class="acc"><input id="reopt-cost" type="checkbox" /><label for="reopt-cost">Enable URBANopt-REopt Cost Analysis (Alpha) Capabilities</label>
+    <div class="show">
+      <ol>
+        <li>As with the REopt scenario above, you will need an internet connection so the REopt Gem can access the REopt API.</li>
+        <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NLR Developer Network</a> to use the <strong>REopt API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NLR developer key here'&gt;</span></code></pre></div>
+        </li>
+        <li><p>Extend the Scenario CSV File with REopt information and cost information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File (named REopt_cost_[base-scenario-name]_scenario.csv by default) that has an extra column to map assumptions files to features, and 2 extra columns to enter costs per feature. The scenario CSV File will be prepopulated with placeholder cost information. <strong>Ensure that you update these values with your project's real costs before running the analysis.</strong> You only need values in either the "Total Capital Costs ($)" column or the "Capital Cost Per Floor Area ($/sq.ft.)" column. If both columns are provided, the Total Capital Costs ($) values will be used. Use this Scenario CSV File going forward in future steps. The assumptions file listed in the Scenario CSV will be used when performing a REopt scenario optimization (this functionality is enabled in the reopt-scenario post processor, and not the reopt-feature post processor). See the section above for more information on REopt assumptions files.</p> 
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-scenario-cost-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
+        </li>
+      </ol>
+      <p>Visit the <a href="../workflows/reopt/reopt_cost_analysis" class="bold">URBANopt-REopt Cost Analysis page</a> for more details on this analysis.</p>
+    </div>
+   </li>
+   <li class="acc"><input id="enable-erp" type="checkbox" /><label for="enable-erp">Enable REopt&reg; Energy Resilience Planning (ERP) Functionality</label>
+    <div class="show">
+      <ol>
+        <li>As with the REopt scenarios described above, you will need an internet connection so the REopt™ Gem can access the REopt API.</li>
+        <li>Obtain an API key from the <a href="https://developer.nrel.gov/" class="bold">NLR Developer Network</a> to use the <strong>REopt API</strong>. Copy and paste your key as an environment variable named <code>GEM_DEVELOPER_KEY</code> on your computer. Step-by-step instructions for creating env variables are found in the <a href="../installation/installation" class="bold">installation docs</a> for your operating system.
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> GEM_DEVELOPER_KEY = '&lt;insert your NLR developer key here'&gt;</span></code></pre></div>
+        </li>
+        <li><p>Extend the Scenario CSV File with REopt information and ERP information. After following the instructions above to create a basic Scenario CSV File for each mapper, use the command below to create a new Scenario CSV File based on one of the basic scenarios (named REopt_erp_[base-scenario-name]_scenario.csv by default) that has an extra column to map assumptions files to features.</p>
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">uo create --reopt-erp-scenario-file &lt;path/to/EXISTING_SCENARIO_FILE.csv&gt;</span></code></pre></div>
+          <p>The command will create a `reopt` directory in the project directory that includes example files required to run a REopt optimization. The features in the scenario CSV File will be prepopulated with a link to the multiPV_assumptions_ERP.json file. This assumptions file will be used when performing the REopt optimization. Modify as needed for your ERP scenario. See the section above for more general information on REopt assumptions files. Visit the <a href="../workflows/reopt/reopt_erp_analysis" class="bold">REopt ERP Analysis page</a> for more details on configuring and running the REopt Energy Resilience Planning analysis.</p> 
+        </li>
+      </ol>
     </div>
   </li>
 </ul>
@@ -269,11 +298,12 @@ nav_order: 1
         <li><strong>scenario-level</strong>, which optimizes for the aggregate load of the entire district being simulated assuming there is one primary utility meter, and</li>
         <li><strong>feature-level</strong>, which optimizes each building’s load individually assuming each building is individually metered.</li>
       </ol>
-      <p>You may chose to optimize by one or both of these approaches according to your project objectives. </p>
+      <p>You may chose to optimize by one or both of these approaches according to your project objectives. The cost analysis is enabled in the scenario-level optimization only.</p>
       <div class="important-note"><p>Note&mdash;You will need an internet connection so the REopt™ Gem can access the REopt API.</p></div>
       <p><strong>To optimize at the scenario-level, use the <code>--reopt-scenario</code> flag:</strong></p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-scenario --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt;</span></code></pre></div>
       <p>The <code>--reopt-scenario-assumptions-file</code> (or <code>-a</code>) option can be used to specify the path to the assumptions file to use for this optimization. If none is specified, the <code>base_assumptions.json</code> file in the <code>reopt</code> folder of the project directory will be used.</p>
+      <p>If cost optimization is enabled (via the extra costs column(s) in the scenario CSV), cost results will also be reported. Look through the command line output for additional details and troubleshooting.</p>
       <p><strong>To optimize at the feature-level, use the <code>--reopt-feature</code> flag:</strong></p>
       <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo process --reopt-feature --feature &lt;path/to/FEATUREFILE.json&gt; --scenario &lt;path/to/REoptEnabledSCENARIOFILE.csv&gt;</span></code></pre></div>
       <p>For this optimization, the assumptions file is specified per feature in the Scenario CSV file, and is defaulted to the <code>multiPV_assumptions.json</code> file in the <code>reopt</code> folder of the project directory.</p>
@@ -281,7 +311,7 @@ nav_order: 1
       <p><strong>Additional Options:</strong></p>
       <p>the process command can be used with the following additional REopt-related options:</p>
       <ol>
-        <li><strong>--reopt-resilience</strong>: adding this option will include resilience reporting in the REopt optimization</li>
+        <li><strong>--reopt-resilience</strong>: adding this option will include Energy Resilience Planning (ERP) results in the REopt optimization. For more information on the ERP analysis visit the <a href="../workflows/reopt/reopt_erp_analysis" class="bold">ERP Analysis page</a>.</li>
         <li><strong>--reopt-keep-existing</strong>: the REopt API rate limit (300 API calls per hour) may be reached when processing projects with a large number of features.  If that is the case, use this option to continue processing the remaining features after the hour has elapsed.</li>
       </ol>
       <p>You can run the help command to see the full list of options:</p>

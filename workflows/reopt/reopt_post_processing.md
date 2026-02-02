@@ -7,7 +7,7 @@ nav_order: 2
 ---
 ## Intro
 
-**REopt** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
+**REopt&reg;** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
 
 CLI commands are used to run and post-process each scenario, and onscreen help is always available with `uo --help`.
 

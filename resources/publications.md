@@ -15,7 +15,7 @@ nav_order: 6
 
 - Jing Wang, Rawad El Kontar, Xin Jin, Jennifer King (2023) [Decarbonizing all-electric communities via carbon-responsive control of behind-the-meter resources](https://doi.org/10.1016/j.adapen.2023.100139) Advances in Applied Energy, Volume 10, 100139, ISSN 2666-7924
 
-- Kaiyu Sun, Wanni Zhang, David Goldwasser, Tanushree Charan, Katherine Fleming, Lauren Klun, Ben Polly, Tianzhen Hong (2023) [Development of Prototypical District-Scale Models](https://www.nrel.gov/docs/fy23osti/86589.pdf) NREL
+- Kaiyu Sun, Wanni Zhang, David Goldwasser, Tanushree Charan, Katherine Fleming, Lauren Klun, Ben Polly, Tianzhen Hong (2023) [Development of Prototypical District-Scale Models](https://www.nlr.gov/docs/fy23osti/86589.pdf) NLR
 
 - Robert Flores, Sammy Houssainy, Weixi Wang, Joseph Robertson, Khanh Nguyen Cu, Ben Polly, Ramin Faramarzi, Jim Maclay, Jack Brouwer (2023) [Developing and tuning a community scale energy model for a disadvantaged community](https://doi.org/10.1016/j.enbuild.2023.112861) Energy and Buildings, Volume 285, 112861, ISSN 0378-7788
 
@@ -23,15 +23,15 @@ nav_order: 6
 
 - Peter Schneider,Leslie Badger, Dusan Brhlik, David Goldwasser, Ben Polly (2022) [Resilient, Rural, and Revolutionary: Salisbury Square's Direct-Current Affordable Microgrid Community](https://www.nrel.gov/docs/fy22osti/83181.pdf) NREL
 
-- Rawad El Kontar, Jing Wang, Xin Jin, Jennifer King, Tarek Rakha (2022) [Probabilistic Modeling of Commercial Building Occupancy Patterns Using Location-Based Map Data](https://www.nrel.gov/docs/fy22osti/83345.pdf) NREL
+- Rawad El Kontar, Jing Wang, Xin Jin, Jennifer King, Tarek Rakha (2022) [Probabilistic Modeling of Commercial Building Occupancy Patterns Using Location-Based Map Data](https://www.nlr.gov/docs/fy22osti/83345.pdf) NLR
 
 - Jing Wang, Rawad El Kontar, Xin Jin, Jennifer King (2022) [Electrifying High-Efficiency Future Communities: Impact on Energy, Emissions, and Grid](https://doi.org/10.1016/j.adapen.2022.100095) Advances in Applied Energy, Volume 6, 100095, ISSN 2666-7924
 
 - Allen, A., Henze, G., Baker, K., Pavlak, G, and Murphy, M.  (2022). [An optimization framework for the network design of advanced district thermal energy systems](https://doi.org/10.1016/j.enconman.2022.115839), Energy Conversion and Management, 266, 115839.
 
-- Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nrel.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
+- Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nlr.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
 
-- Zahra Fallahi, P., Houssainy, S., Ling, J., Leach, M., Klun, L., Slovensky, M. (2022). [Designing for Zero Energy and Zero Carbon on a Multi-Building Scale using URBANopt](https://www.nrel.gov/docs/fy22osti/83457.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
+- Zahra Fallahi, P., Houssainy, S., Ling, J., Leach, M., Klun, L., Slovensky, M. (2022). [Designing for Zero Energy and Zero Carbon on a Multi-Building Scale using URBANopt](https://www.nlr.gov/docs/fy22osti/83457.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
 
 ### 2021
 
@@ -49,11 +49,11 @@ Long, Nicholas, Antoine Gautier, Hagar Elarga, Amy Allen, Ted Summer, Lauren Klu
 
 ### 2020
 
-Rawad El Kontar, Ben Polly, Tanushree Charan, Katherine Fleming, Nathan Moore, Nicholas Long, & David Goldwasser. (2020) [URBANopt: An Open-Source Software Development Kit for Community and Urban District Energy Modeling](https://www.nrel.gov/docs/fy21osti/76781.pdf). ASHRAE/IBPSA-USA Building Performance Modeling Conference And SimBuild.
+Rawad El Kontar, Ben Polly, Tanushree Charan, Katherine Fleming, Nathan Moore, Nicholas Long, & David Goldwasser. (2020) [URBANopt: An Open-Source Software Development Kit for Community and Urban District Energy Modeling](https://www.nlr.gov/docs/fy21osti/76781.pdf). ASHRAE/IBPSA-USA Building Performance Modeling Conference And SimBuild.
 
-Houssainy, Sammy, Faramarzi, Ramin, Farahmand, Farhad, Pande, Abhjieet, and Griesser, Jon. (2020). [Community-Scale Energy Efficiency Assessment for Zero Net Energy Using the URBANopt Simulation Platform](https://www.nrel.gov/docs/fy21osti/77417.pdf). ACEEE Summer Study on Energy Efficiency in Buildings, 17-21 August 2020.
+Houssainy, Sammy, Faramarzi, Ramin, Farahmand, Farhad, Pande, Abhjieet, and Griesser, Jon. (2020). [Community-Scale Energy Efficiency Assessment for Zero Net Energy Using the URBANopt Simulation Platform](https://www.nlr.gov/docs/fy21osti/77417.pdf). ACEEE Summer Study on Energy Efficiency in Buildings, 17-21 August 2020.
 
-Shanti Pless, Ben Polly, Sammy Houssainy, Paul Torcellini, William Livingood, Sarah Zaleski, Matt Jungclaus, Tom Hootman, & Mindy Craig. (2020). [A Guide to Energy Master Planning of High-Performance Districts and Communities](https://www.nrel.gov/docs/fy21osti/78495.pdf). Technical Report, NREL.
+Shanti Pless, Ben Polly, Sammy Houssainy, Paul Torcellini, William Livingood, Sarah Zaleski, Matt Jungclaus, Tom Hootman, & Mindy Craig. (2020). [A Guide to Energy Master Planning of High-Performance Districts and Communities](https://www.nlr.gov/docs/fy21osti/78495.pdf). Technical Report, NLR.
 
 ### Earlier Publications
 

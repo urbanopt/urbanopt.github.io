@@ -86,7 +86,7 @@ Follow the steps below or watch the [Windows Manual Installation Video](https://
     gem install bundler -v 2.4.10
     ```
 
-1. Install [OpenStudio 3.9.0](https://github.com/NREL/OpenStudio/releases/tag/v3.9.0)
+1. Install [OpenStudio 3.10.0](https://github.com/NatLabRockies/OpenStudio/releases/tag/v3.10.0). The latest URBANopt code uses OpenStudio 3.10.0. Browse the [Compatibility Matrix](../developer_resources/compatibility_matrix) page for additional details.
 
 1. Create file `C:\ruby-3.2.2-1-x64-mingw32\lib\ruby\site_ruby\openstudio.rb` and edit it to contain the path to your installed OpenStudio (where X.X.X is the OpenStudio version installed):
 

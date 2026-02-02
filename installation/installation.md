@@ -11,3 +11,8 @@ Pick an installation platform to view instructions:
 - [Mac installation](mac.md)
 - [Windows installation](windows.md)
 - [Linux installation](linux.md)
+
+Additionally, you can few the following information:
+
+- [Cloud & Large Simulation Installation](cloud.md)
+- [Troubleshooting Page](troubleshooting.md)

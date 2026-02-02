@@ -10,7 +10,7 @@ Features in the FeatureFile. The EV Charging MapperClass inherits from the High 
 MapperClass and adds EV loads in addition to high efficiency building measures.
 
 The two measures used for this scenario are in the
-[openstudio-common-measures](https://github.com/NREL/openstudio-common-measures-gem "GitHub
+[openstudio-common-measures](https://github.com/NatLabRockies/openstudio-common-measures-gem "GitHub
 Repository") gem. The functionality and available user inputs are briefly described below and links
 to additional documentation are provided.
 
@@ -126,7 +126,7 @@ The following graph shows the EV charging profile load shifted on applying the
 ![](../../doc_files/EVCurtailment.png)
 
 
-*More information about the measures can be found in the **[here](https://www.nrel.gov/docs/fy20osti/77438.pdf)**.*
+*More information about the measures can be found in the **[here](https://www.nlr.gov/docs/fy20osti/77438.pdf)**.*
 
 ## Using or Modifying the EV Charging scenario
 
@@ -208,7 +208,7 @@ before the `add_ems_to_control_ev_charging` measure in the .osw file*
 "Integrating Electric Vehicle Charging Infrastructure into Commercial Buildings and Mixed-Use
 Communities: Design, Modeling, and Control Optimization Opportunities". Presented at 2020 ACEEE
 Summer Study on Energy Efficiency in Buildings, August, 2020. Available
-[online](https://www.nrel.gov/docs/fy20osti/77438.pdf).
+[online](https://www.nlr.gov/docs/fy20osti/77438.pdf).
 
 <a name="ref2"></a> Bedir, A. Crisostomo, N., Allen, J., Wood, E., and Rames. C. (2018). California Plug-In Electric Vehicle
-Infrastructure Projections: 2017-2025. California Energy Commission. CEC-600-2018-001. Available [online](https://www.nrel.gov/docs/fy18osti/70893.pdf).
+Infrastructure Projections: 2017-2025. California Energy Commission. CEC-600-2018-001. Available [online](https://www.nlr.gov/docs/fy18osti/70893.pdf).

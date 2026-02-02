@@ -21,7 +21,7 @@ The flexibility of the system is based on user-defined temperatures and times, w
 1.	Float: all heating elements are turned-off for a user-defined time period unless the tank temperature falls below a minimum value.
 The heat pump will be prioritized in a low tank temperature event, with the electric resistance heaters serving as back-up.
 
-**A more detailed description for using the Add HPWH (Heat Pump Water Heater) Measure is provided in this [General Reference Guide](https://github.com/NREL/openstudio-load-flexibility-measures-gem/blob/master/lib/measures/add_hpwh/docs/Flexible%20Domestic%20Hot%20Water%20Implementation%20Guide.pdf).**
+**A more detailed description for using the Add HPWH (Heat Pump Water Heater) Measure is provided in this [General Reference Guide](https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem/blob/master/lib/measures/add_hpwh/docs/Flexible%20Domestic%20Hot%20Water%20Implementation%20Guide.pdf).**
 
 ## Using or Modifying the FlexibleHotWater Scenario
 
@@ -39,7 +39,7 @@ To modify the *FlexibleHotWater* scenario in order to explore other load flexibi
 
 ## Using the add_hpwh Measure in Your Own Project
 
-To use the `add_hpwh` measure with your own project, you must install the [openstudio-load-flexibility-measures gem](https://github.com/NREL/openstudio-load-flexibility-measures-gem):
+To use the `add_hpwh` measure with your own project, you must install the [openstudio-load-flexibility-measures gem](https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem):
 
 ```bash
 gem install openstudio-load-flexibility-measures

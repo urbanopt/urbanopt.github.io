@@ -45,7 +45,8 @@ e.g.:  ```/usr/local/urbanopt-cli-1.0.0/```
     gem install bundler -v 2.4.10
     ```
 
-1. Install [OpenStudio 3.9.0](https://github.com/NREL/OpenStudio/releases/tag/v3.9.0)
+1. Install [OpenStudio 3.10.0](https://github.com/NatLabRockies/OpenStudio/releases/tag/v3.10.0).
+The latest URBANopt code uses OpenStudio 3.10.0. Browse the [Compatibility Matrix](../developer_resources/compatibility_matrix) page for additional details.
 
 1. Add the `RUBYLIB` environment variable path pointing to OpenStudio Ruby location by pasting the following line into your `.bash_profile`, `.zshenv` or similar file:
 

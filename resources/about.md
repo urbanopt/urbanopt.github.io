@@ -19,7 +19,7 @@ Visit the following links for more details on the URBANopt project:
 - [URBANopt project website](https://www.energy.gov/eere/buildings/urbanopt)
 - [URBANopt Design overview](../doc_files/design_doc.md)
 - [URBANopt GitHub code repositories](https://github.com/urbanopt)
-- [URBANopt SDK core modules overview paper](https://www.nrel.gov/docs/fy21osti/76781.pdf)
+- [URBANopt SDK core modules overview paper](https://www.nlr.gov/docs/fy21osti/76781.pdf)
 - [URBANopt/Dragonfly integration and piloting paper](https://www.mdpi.com/1996-1073/14/18/5931)
 
 ## Project Team
@@ -53,12 +53,12 @@ Visit the following links for more details on the URBANopt project:
 
 ### District Energy Systems
 
-- Nicholas Long, NREL
-- Kyle Benne, NREL
-- Amy Allen, NREL
-- Hagar Elarga, NREL
-- Nathan Moore, NREL
-- Brian Ball, NREL
+- Nicholas Long, NLR
+- Kyle Benne, NLR
+- Amy Allen, NLR
+- Hagar Elarga, NLR
+- Nathan Moore, NLR
+- Brian Ball, NLR
 - Ted Summer, Devetry
 - Michael Wetter, LBNL
 - Antoine Gautier, LBNL

@@ -7,7 +7,7 @@ nav_order: 7
 
 # Optimization
 
-URBANopt can now run optimization and sensitivity analysis algorithms by using the [OpenStudio&reg; Analysis Framework (OSAF)](https://www.tandfonline.com/doi/full/10.1080/19401493.2020.1778788).  This is facilitated by using the OpenStudio Meta CLI from the [Parametric Analysis Tool (PAT)](https://github.com/NREL/OpenStudio-PAT/releases).
+URBANopt can now run optimization and sensitivity analysis algorithms by using the [OpenStudio&reg; Analysis Framework (OSAF)](https://www.tandfonline.com/doi/full/10.1080/19401493.2020.1778788).  This is facilitated by using the OpenStudio Meta CLI from the [Parametric Analysis Tool (PAT)](https://github.com/NatLabRockies/OpenStudio-PAT/releases).
 
 ## Example Optimization
 
@@ -17,14 +17,14 @@ Follow the steps below to install the necessary dependencies and run the file wi
 
 ## Installation and Usage
 
-1. Install [PAT](https://github.com/NREL/OpenStudio-PAT/releases) to have access to the `openstudio_meta CLI` and all gems necessary to run it.  (it is assumed the install directory is c:/ParametricAnalysisTool-3.1.0)
+1. Install [PAT](https://github.com/NatLabRockies/OpenStudio-PAT/releases) to have access to the `openstudio_meta CLI` and all gems necessary to run it.  (it is assumed the install directory is c:/ParametricAnalysisTool-3.1.0)
 
-1. Start an OSAF server cluster on AWS, Google or Microsoft using the [Helm](https://github.com/NREL/openstudio-server-helm) charts.  Note the server IP address; you will need it to submit the jobs.
+1. Start an OSAF server cluster on AWS, Google or Microsoft using the [Helm](https://github.com/NatLabRockies/openstudio-server-helm) charts.  Note the server IP address; you will need it to submit the jobs.
 
 1. Once the cluster is up and running, open a terminal prompt or powershell in the directory with the URBANopt example files:
 
-    - [URBANopt_NSGA.json](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.json)
-    - [URBANopt_NSGA.zip](https://github.com/NREL/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.zip)
+    - [URBANopt_NSGA.json](https://github.com/NatLabRockies/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.json)
+    - [URBANopt_NSGA.zip](https://github.com/NatLabRockies/OpenStudio-server/blob/develop/server/spec/files/URBANopt_NSGA.zip)
 
 1. The command to run the analysis is as follows. You will need to replace the values in angle brackets (< >) with your values.
 

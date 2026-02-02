@@ -93,7 +93,7 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 - Simpson, Juliet G., Nicholas Long, and Guangdong Zhu. 2024. [“Decarbonized District Energy Systems: Past Review and Future Projections.”](https://doi.org/10.1016/j.ecmx.2024.100726) Energy Conversion and Management: X 24 (October).
 
-- Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nrel.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
+- Lämmle, M., Allen, A., Henze, G., Pless, S. (2022). [Valuation of Novel Waste Heat Sources and a Path Towards Adoption](https://www.nlr.gov/docs/fy22osti/83352.pdf). ACEEE Summer Study on Energy Efficiency in Buildings.
 
 - Hinkelman, Kathryn, Jing Wang, Wangda Zuo, Antoine Gautier, Michael Wetter, Chengliang Fan, and Nicholas Long. (2021). [Modelica-Based Modeling and Simulation of District Cooling Systems: A Case Study](https://www.sciencedirect.com/science/article/pii/S0306261922001210). Applied Energy.
 
@@ -103,7 +103,7 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 - Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). [URBANopt District Energy Systems HVAC Measures](https://doi.org/10.11578/dc.20210127.1) National Renewable Energy Laboratory.
 
-- Allen, A., Henze, G., Baker, K., Pavlak Gregory, & Murphy, M. (2021). [Evaluation of Topology Optimization to Achieve Energy Savings at the Urban District Level](https://www.nrel.gov/docs/fy21osti/77625.pdf). 2021 ASHRAE Winter Conference.
+- Allen, A., Henze, G., Baker, K., Pavlak Gregory, & Murphy, M. (2021). [Evaluation of Topology Optimization to Achieve Energy Savings at the Urban District Level](https://www.nlr.gov/docs/fy21osti/77625.pdf). 2021 ASHRAE Winter Conference.
 
 - Long, N., Almajed, F., von Rhein, J., & Henze, G. (2021). Development of a metamodelling framework for building energy models with application to fifth-generation district heating and cooling networks. Journal of Building Performance Simulation, 14(2), 203–225. [https://doi.org/10.1080/19401493.2021.1884291.](https://doi.org/10.1080/19401493.2021.1884291) [https://www.tandfonline.com/doi/abs/10.1080/19401493.2021.1884291](https://www.tandfonline.com/doi/abs/10.1080/19401493.2021.1884291)
 
