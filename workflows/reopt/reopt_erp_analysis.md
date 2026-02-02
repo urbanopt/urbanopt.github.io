@@ -21,7 +21,7 @@ To use ERP within URBANopt, a user can start by creating a REopt example project
     Create one of the example projects. The example command command below creates the most basic URBANopt project:
 
     ```bash
-    uo create --project-folder <path/to/reopt/folder>
+    uo create --project-folder <path/to/new/project-folder>
     ```
 
 2. ### Create Scenario Files
@@ -45,7 +45,7 @@ To use ERP within URBANopt, a user can start by creating a REopt example project
  
     In particular, the `multiPV_assumptions_ERP.json` file contains the key input fields required to run an ERP analysis:
 
-    `outage_start_time_steps`: A list of starting time steps representing when the grid outage may start. This input is used for robust optimization across multiple outages. For example, i f the `timestep_per_hour` field is set to 1, then an `outage_start_time_steps` value of [1000, 2500] would indicate that outages will start at hour 1000 and hour 2500 of the simulation.
+    `outage_start_time_steps`: A list of starting time steps representing when the grid outage may start. This input is used for robust optimization across multiple outages. For example, if the `timestep_per_hour` field is set to 1, then an `outage_start_time_steps` value of [1000, 2500] would indicate that outages will start at hour 1000 and hour 2500 of the simulation.
 
     `outage_durations`: A list of possible durations for grid outages during the simulation. For each start time listed in the `outage_start_time_steps` field above, an outage duration value should be listed in the `outage_durations` field. For example, if the `outage_durations` field is set to [24, 48], the outage starting at hour 1000 will last 24 hours, and the outage starting at hour 2500 will last 48 hours. The maximum (over `outage_start_time_steps`) of the expected value (over `outage_durations` with probabilities `outage_probabilities`) of outage cost is included in the objective function minimized by REopt. By default the `outage_probabilities` field has not be included in the URBANopt-REopt assumptions file as it defaults to giving each outage equal probability. If the user would like to vary the probability of each outage specified in the `outage_start_time_steps`, they can add a new field named `outage_probabilities` containing a list of probabilities for each outage.
 
