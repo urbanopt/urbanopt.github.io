@@ -10,7 +10,7 @@ has_toc: true
 
 ## Introduction
 
-This URBANopt™ class project was developed by researchers at the Colorado School of Mines and National Renewable Energy Laboratory. It is targeted toward educators and students, particularly in the fields of engineering and architecture to support the use of URBANopt in the classroom and teaching of district-scale energy concepts and modeling.
+This URBANopt™ class project was developed by researchers at the Colorado School of Mines and National Laboratory of the Rockies. It is targeted toward educators and students, particularly in the fields of engineering and architecture to support the use of URBANopt in the classroom and teaching of district-scale energy concepts and modeling.
 
 The project will introduce students to the objectives, tools, and methodologies of urban-scale building energy analysis. Students will build upon their knowledge of individual building energy modeling to learn the capabilities and limitations of Urban Building Energy Modeling (UBEM). Using the URBANopt platform, students will explore the synergies that may be achieved when buildings and distributed energy resources (DERs) are designed to operate interactively rather than individually.
 
@@ -46,4 +46,4 @@ Students will be best prepared to achieve the project learning objectives if the
 
 - Access to a computer over which they have administrator privileges to install the URBANopt software development kit (SDK) and command-line interface (CLI).
 
-- Obtain an [NLR Developer API Key](https://developer.nrel.gov/) so that the REopt tool can be used.
+- Obtain an [NLR Developer API Key](https://developer.nlr.gov/) so that the REopt tool can be used.

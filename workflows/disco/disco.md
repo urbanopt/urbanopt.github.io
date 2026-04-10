@@ -14,7 +14,7 @@ flexibility in upgrade and new/load growth scenarios at a neighborhood/district/
 
 ## DISCO Background
 
-[DISCO](https://github.com/NREL/disco) (Distribution Integration Solution Cost Options) is an open-source, NLR-developed,
+[DISCO](https://github.com/NatLabRockies/disco) (Distribution Integration Solution Cost Options) is an open-source, NLR-developed,
 python-based software tool for automating distribution analyses at scale. Originally developed to
 support photovoltaic (PV) impact analyses, DISCO can also be used to understand the impact of other
 DERs on distribution substations/feeders. DISCO, as a framework is based

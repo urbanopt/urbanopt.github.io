@@ -24,7 +24,7 @@ The Thermal Energy Storage (TES) scenario applies ice storage to each Building F
 
 ## Measures
 
-The two thermal storage measures used for this scenario are contained in the [openstudio-load-flexibility-measures](https://github.com/NREL/openstudio-load-flexibility-measures-gem "GitHub Repository") gem. The function and available user inputs are briefly described below and links to additional documentation are provided.
+The two thermal storage measures used for this scenario are contained in the [openstudio-load-flexibility-measures](https://github.com/NatLabRockies/openstudio-load-flexibility-measures-gem "GitHub Repository") gem. The function and available user inputs are briefly described below and links to additional documentation are provided.
 
 ### <a name="ptes"></a> add_packaged_ice_storage Measure
 

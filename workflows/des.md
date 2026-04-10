@@ -89,7 +89,7 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 - Allen, Amy, Jing Wang, Shadi Abdel Haleem, Matt Mitchell, Nicholas Long, Gregor Henze, Jay Tulley. 2025. [“From Theory to Practice: Feasibility Study of a Thermal Microgrid at a DoD Installation.”](https://technologyportal.ashrae.org/papers/paperdetail/11765) 2025 ASHRAE Annual Conference - Phoenix 131 Part 2 (June).
 
-- Zwickl-Bernhard, Sebastian, Nicholas Long, Simon Jordan, Felix Bauer, Juliet G. Simpson, and Whitney Trainor-Guitton. 2025. [“Optimizing District Energy Systems under Uncertainty: Insights from a Case Study from Washington D.C., USA.”](https://doi.org/10.1016/j.enconman.2025.119979) Energy Conversion and Management 341 (October): 119979. 
+- Zwickl-Bernhard, Sebastian, Nicholas Long, Simon Jordan, Felix Bauer, Juliet G. Simpson, and Whitney Trainor-Guitton. 2025. [“Optimizing District Energy Systems under Uncertainty: Insights from a Case Study from Washington D.C., USA.”](https://doi.org/10.1016/j.enconman.2025.119979) Energy Conversion and Management 341 (October): 119979.
 
 - Simpson, Juliet G., Nicholas Long, and Guangdong Zhu. 2024. [“Decarbonized District Energy Systems: Past Review and Future Projections.”](https://doi.org/10.1016/j.ecmx.2024.100726) Energy Conversion and Management: X 24 (October).
 
@@ -101,7 +101,7 @@ Visit the [developer resources page](https://docs.urbanopt.net/geojson-modelica-
 
 - Kathryn Hinkelman, Jing Wang, Chengliang Fan, Wangda Zuo, Antoine Gautier, Michael Wetter, Nicholas Long. (2021). [A Case Study on Condenser Water Supply Temperature Optimization with a District Cooling Plant.](https://doi.org/10.3384/ecp21181587) Proceedings of 14th Modelica Conference 2021, Linköping, Sweden, September 20-24, 2021, 181, 587–595.
 
-- Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). [URBANopt District Energy Systems HVAC Measures](https://doi.org/10.11578/dc.20210127.1) National Renewable Energy Laboratory.
+- Allen, A., Long, N. L., Moore, N., & Elarga, H. (2021). [URBANopt District Energy Systems HVAC Measures](https://doi.org/10.11578/dc.20210127.1)  Energy Laboratory.
 
 - Allen, A., Henze, G., Baker, K., Pavlak Gregory, & Murphy, M. (2021). [Evaluation of Topology Optimization to Achieve Energy Savings at the Urban District Level](https://www.nlr.gov/docs/fy21osti/77625.pdf). 2021 ASHRAE Winter Conference.
 

@@ -189,7 +189,7 @@ URBANopt emissions inputs, along with their choices, are listed below:
     - 2048
     - 2050
 
-    The default is 2030. Data source: Hourly marginal emissions factors for future years are based on the long-run marginal emissions rates for a region's load (co2_lrmer_enduse) from NREL's [Cambium tool](https://scenarioviewer.nrel.gov/) LowRECost scenario.
+    The default is 2030. Data source: Hourly marginal emissions factors for future years are based on the long-run marginal emissions rates for a region's load (co2_lrmer_enduse) from NLR's [Cambium tool](https://scenarioviewer.nlr.gov/) LowRECost scenario.
 
 1. *emissions_ hourly _historical_year* This optional string input defines the hourly emission factors for historical years of interest. Options are: “2019”. The default is 2019.  Data source: Hourly marginal emissions factors for historical years are based on data from EPA's AVoided Emissions and geneRation Tool [AVERT](https://www.epa.gov/avert).
 
