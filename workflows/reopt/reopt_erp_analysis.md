@@ -53,7 +53,7 @@ To use ERP within URBANopt, a user can start by creating a REopt example project
 
     `urdb_label` this should be updated to match the site location. Instructions on making the update are provided in the [REopt Post Processing Section](./reopt_post_processing.md).
 
-    More details on these inputs are provided in the <a href="https://developer.nrel.gov/api/reopt/stable/help/?API_KEY=DEMO_KEY" class="bold" target="_blank" rel="noopener noreferrer">REopt API documentation</a>.
+    More details on these inputs are provided in the <a href="https://developer.nlr.gov/api/reopt/stable/help/?API_KEY=DEMO_KEY" class="bold" target="_blank" rel="noopener noreferrer">REopt API documentation</a>.
 
     **ERP_assumptions.json File**
 
@@ -120,6 +120,6 @@ To use ERP within URBANopt, a user can start by creating a REopt example project
 
     **mean_fuel_survival_by_duration**: The probability, averaged over outages starting at each hour of the year, of having sufficient fuel to survive up to and including each hour of max_outage_duration.
 
-    More details about the outputs can be found in the <a href="https://developer.nrel.gov/api/reopt/stable/erp/outputs?API_KEY=DEMO_KEY" class="bold" target="_blank" rel="noopener noreferrer">REopt API documentation</a>.
+    More details about the outputs can be found in the <a href="https://developer.nlr.gov/api/reopt/stable/erp/outputs?API_KEY=DEMO_KEY" class="bold" target="_blank" rel="noopener noreferrer">REopt API documentation</a>.
 
 For more details on the REopt ERP implementation, visit the <a href="https://github.com/NatLabRockies/REopt-Analysis-Scripts/wiki/4.-API-endpoints#hoststableerp" class="bold" target="_blank" rel="noopener noreferrer">REopt ERP API Endpoints</a> documentation.

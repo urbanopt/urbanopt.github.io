@@ -217,6 +217,6 @@ While the alpha URBANopt-USG workflows can be used to help predict unknown input
 
 ## Additional Resources 
 
-- [USG Presentation](https://www.nrel.gov/docs/fy26osti/95402.pdf) 
+- [USG Presentation](https://www.nlr.gov/docs/fy26osti/95402.pdf) 
 
 - [USG Repository](https://github.com/NatLabRockies/urban-system-generator) 

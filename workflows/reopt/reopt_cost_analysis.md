@@ -56,11 +56,11 @@ The **REopt** input assumption file is used to include building energy upgrade c
 
 To calculate the fuel cost for building fuel energy consumption, the `SpaceHeatingLoad > fuel_loads_mmbtu_per_hour` **REopt** property is used. The `fuel_loads_mmbtu_per_hour` field takes an array of hourly fuel consumption values for the building. Using the **URBANopt** default feature reports, the hourly fuel load values are populated into this field. The `fuel cost per MMBtu` is then copied from the user-specified value in the **REopt Assumption File** into the `ExistingBoiler > fuel_cost_per_mmbtu` property in the **REopt** input schema. These inputs are passed on to **REopt**, which then calculates the total fuel cost associated with the building. The `Boiler` object is used in order to calculate Natural Gas fuel costs while the boiler is not actually modeled on the site.
 
-More details on the **REopt** input schema can be found at: https://developer.nrel.gov/api/reopt/stable/help/?API_KEY=DEMO_KEY and the descriptions of the inputs can be found here: https://natlabrockies.github.io/REopt.jl/dev/reopt/inputs/.
+More details on the **REopt** input schema can be found at: https://developer.nlr.gov/api/reopt/stable/help/?API_KEY=DEMO_KEY and the descriptions of the inputs can be found here: https://natlabrockies.github.io/REopt.jl/dev/reopt/inputs/.
 
 ### REopt Input Cost Parameters
 
-**REopt** input cost parameters are specified at the project level, and include the `electricity cost escalation rate`, `analysis years`, `discount rate fraction` and `tax rate fraction`. More details for these inputs, including the default values, are provided in the [REopt user manual](https://reopt.nrel.gov/tool/reopt-user-manual.pdf).
+**REopt** input cost parameters are specified at the project level, and include the `electricity cost escalation rate`, `analysis years`, `discount rate fraction` and `tax rate fraction`. More details for these inputs, including the default values, are provided in the [REopt user manual](https://reopt.nlr.gov/tool/reopt-user-manual.pdf).
 
 ## Overall Workflow
 

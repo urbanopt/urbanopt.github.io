@@ -53,7 +53,7 @@ The command above creates a `reopt` directory within the project directory as we
 Feel free to modify these files directly in your project, or create new files. A complete list of input fields&mdash;including type, description, and acceptable range&mdash;can be retrieved from the REopt API by entering the following URL in your browser:
 
 ```bash
-https://developer.nrel.gov/api/reopt/stable/help?API_KEY=<insert your NLR developer key here>
+https://developer.nlr.gov/api/reopt/stable/help?API_KEY=<insert your NLR developer key here>
 ```
 
 The method of specifying which assumption file to use in an optimization depends on the type of REopt optimization:
