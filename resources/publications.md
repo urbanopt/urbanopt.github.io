@@ -9,9 +9,19 @@ nav_order: 6
 
 ### 2026
 
+- Maryam Almaian, Rawad El Kontar, Noof Alkubaisi, and Patrick Kastner (2026). EBuild AI: A Retrieval-Augmented Framework for Generating Global, Simulation-Ready Urban Building Datasets. IBPSA-USA SimBuild 2026 Conference. 
+
+- Rawad El Kontar, Maryam Almaian, Dylan Wald, Deepthi Vaidhynathan, and Ryan King (2026). Generalized and Localized Data-Driven Models for Urban Energy Characterization: A Comparative Analysis for UBEM Inputs Inference. IBPSA-USA SimBuild 2026 Conference. 
+
+- Sugirdhalakshmi Ramaraj, Rawad El Kontar, Hallie Dunham, Margaux Seward, Ben Polly, and Selina Pedi-Smith (2026). Framework for Modeling 3D-Printed Concrete Construction to Assess Energy Efficiency and Backup Power Trade-offs in a Mixed-Use, New Construction Neighborhood Development. IBPSA-USA SimBuild 2026 Conference. 
+
+- Dylan Wald, Rawad El Kontar, and Deepthi Vaidhynathan (2026). Combining Generative Modeling and Advanced Control for Building Scenario Generation. IBPSA-USA SimBuild 2026 Conference. 
+
 - Saumya Sinha, Alexandre Cortiella, Rawad El Kontar, Andrew Glaws, Ryan King, Patrick Emami (2026). [Conditional distribution estimation of building characteristics with diffusion models for urban energy modeling.](https://linkinghub.elsevier.com/retrieve/pii/S0378778826004524) Energy and Buildings, Volume 361, 117392, ISSN 0378-7788.
 
 - Wanni Zhang, Kaiyu Sun, Ben Polly, David Goldwasser, Katherine Fleming, Tianzhen Hong (2026). [District-Scale Analysis of Electricity Load and Strategies to Improve Energy Reliability Using Prototype District Models.](https://www.sciencedirect.com/science/article/pii/S2210670726002350) Sustainable Cities and Society, Volume 143, 107348, ISSN 2210-6707.
+
+- El Kontar, Rawad (2026). AI-Driven Frameworks for Characterizing Urban Energy Systems. https://doi.org/10.2172/3014936
 
 ### 2025
 
@@ -41,9 +51,9 @@ nav_order: 6
 
 ### 2022
 
-- Peter Schneider,Leslie Badger, Dusan Brhlik, David Goldwasser, Ben Polly (2022) [Resilient, Rural, and Revolutionary: Salisbury Square's Direct-Current Affordable Microgrid Community](https://www.nlr.gov/docs/fy22osti/83181.pdf). Preprint. ACEEE Summer Study on Energy Efficiency in Buildings
+- Peter Schneider,Leslie Badger, Dusan Brhlik, David Goldwasser, Ben Polly (2022) [Resilient, Rural, and Revolutionary: Salisbury Square's Direct-Current Affordable Microgrid Community](https://www.nlr.gov/docs/fy22osti/83181.pdf). Preprint. ACEEE Summer Study on Energy Efficiency in Buildings
 
-- Rawad El Kontar, Jing Wang, Xin Jin, Jennifer King, Tarek Rakha (2022) [Probabilistic Modeling of Commercial Building Occupancy Patterns Using Location-Based Map Data](https://www.nlr.gov/docs/fy22osti/83345.pdf). Preprint. ACEEE Summer Study on Energy Efficiency in Buildings
+- Rawad El Kontar, Jing Wang, Xin Jin, Jennifer King, Tarek Rakha (2022) [Probabilistic Modeling of Commercial Building Occupancy Patterns Using Location-Based Map Data](https://www.nlr.gov/docs/fy22osti/83345.pdf). Preprint. ACEEE Summer Study on Energy Efficiency in Buildings
 
 - Wang, Jing, Rawad El Kontar, Xin Jin, and Jennifer King (2022). [Feasibility Study of Real-Time Carbon Emission Responsive Electric Vehicle Charging Control in Buildings](https://docs.nlr.gov/docs/fy22osti/82437.pdf). Preprint. ACEEE Summer Study on Energy Efficiency in Buildings.
 

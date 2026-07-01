@@ -425,16 +425,20 @@ nav_order: 1
       <p>Follow the steps below to configure, create, and run your DES simulation:</p>
       <ol class="t">
         <li class="t">Build a system parameters JSON config file from the existing URBANopt processed results:
-           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo des_params --sys-param-file &lt;path/to/create/new/sys_params.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt; --feature &lt;path/to/FEATUREFILE.json&gt; --model-type time_series</span></code></pre></div>
+           <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo des_params --sys-param &lt;path/to/create/new/sys_params.json&gt; --scenario &lt;path/to/SCENARIOFILE.csv&gt; <br/>--feature &lt;path/to/FEATUREFILE.json&gt; --model-type time_series --district-type 5G</span></code></pre></div>
+           <p>Available values for district-type are: 'steam', '4G', '5G', and '5G_ghe'.</p>
         </li>
         <li class="t">Create a Modelica model directory and give it a name:
-          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text">  uo des_create --sys-param &lt;path/to/sys_params.json&gt; --feature &lt;path/to/FEATUREFILE.json&gt; --des-name &lt;path/to/create/new/modelica_dir&gt; --model-type time_series</span></code></pre></div>
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo des_create --sys-param &lt;path/to/sys_params.json&gt; --feature &lt;path/to/FEATUREFILE.json&gt; --des-name &lt;path/to/create/new/modelica_dir&gt;</span></code></pre></div>
         </li>
         <li class="t"> Run the Modelica simulation:
            <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo des_run --model &lt;path/to/modelica_dir&gt;</span></code></pre></div>
         </li>
+        <li class="t"> Process the Modelica simulation:
+          <div class="language-terminal highlighter-rouge"><pre class="highlight"><code><span class="code-text"> uo des_process --model &ltpath/to/modelica_dir&gt;</span></code></pre></div>
+        </li>
       </ol>
-      <p>For more information, visit the <a href="../workflows/des">DES</a> or <a href="../workflows/ghp">GHP</a> workflow pages. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/12_DES_Tutorial.mp4" target="_blank" class="bold">DES Workflow Tutorial Video</a>.</p>
+      <p>For more information, visit the <a href="../workflows/des">DES</a> or <a href="../workflows/ghp/ghp">GHP</a> workflow pages. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/12_DES_Tutorial.mp4" target="_blank" class="bold">DES Workflow Tutorial Video</a>.</p>
     </div>
   </li>
   <li class="acc" id="rnm"><input id="rnm2" type="checkbox" /><label for="rnm2">RNM Functionality</label>
@@ -452,7 +456,7 @@ nav_order: 1
       <li class="t"><code><span class="code-text">--opendss</span></code>: Use this option to request that an OpenDSS-compatible electrical database JSON file be created.</li>
       </ul>
       <p>Once the RNM Workflow is run, the resulting DSS files can be processed with OpenDSS, if desired. View the OpenDSS section for command details.</p>
-      <p>View the <a href="../workflows/rnm">RNM Workflow page</a> for more info. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/10_RNM-workflow.mp4" target="_blank" class="bold">RNM Workflow Tutorial Video</a>.</p>
+      <p>View the <a href="../workflows/rnm/rnm">RNM Workflow page</a> for more info. Or watch the <a href="https://urbanopt-tutorial.s3.amazonaws.com/videos/10_RNM-workflow.mp4" target="_blank" class="bold">RNM Workflow Tutorial Video</a>.</p>
     </div>
   </li>
   <li class="acc" id="disco"><input id="disco2" type="checkbox" /><label for="disco2">DISCO Functionality</label>

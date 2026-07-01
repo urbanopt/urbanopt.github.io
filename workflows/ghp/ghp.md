@@ -103,7 +103,13 @@ In order to use the URBANopt-GHP capabilities, the example `GHP Project` can be 
 	uo des_run --model <path/to/modelica_dir>
 	```
 
-9. ### Run Lifecycle Cost Analysis (LCCA)
+9. ### Process Modelica Models
+
+	```bash
+	uo des_process --model <path/to/modelica_dir>
+	```
+
+10. ### Run Lifecycle Cost Analysis (LCCA)
 
 	URBANopt integrates **lifecycle cost analysis (LCCA)** capabilities into the GHP workflow using the **REopt**, techno-economic optimization engine. This integration enables a financial evaluation of district-scale geothermal heat pump (GHP) systems that have been designed and sized using the URBANopt GHP workflow.
 

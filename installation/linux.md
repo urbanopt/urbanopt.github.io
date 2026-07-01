@@ -9,6 +9,8 @@ nav_order: 3
 
 As of version 1.0.0, an URBANopt<sup>&trade;</sup> installer (Ubuntu 18.04) is available to install the URBANopt CLI, Ruby, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
 
+Additionally, as of version 1.2.0, the URBANopt installer ships will all ruby dependencies installed. An internet connection is no longer necessary to run the basic OpenStudio workflow.  Internet connection is still needed to install the python dependencies for OpenDSS, RNM, Thermal Network, and UO DES.
+
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
 ## Install with the URBANopt Installer
@@ -74,13 +76,15 @@ The latest URBANopt code uses OpenStudio 3.10.0. Browse the [Compatibility Matri
 
 ## URBANopt Python Dependencies
 
-The URBANopt CLI has integrated 3 python workflows: OpenDSS, DES, and DISCO. The following command will install python and pip as well as the python packages urbanopt-ditto-reader, geojson-modelica-translator, thermalnetwork, and nrel-disco.
+The URBANopt CLI has integrated 3 python workflows: OpenDSS, DES, and DISCO. Urban System Generator is also available as of version 1.2.0. The following command will install python and pip as well as the python packages urbanopt-ditto-reader, geojson-modelica-translator, thermalnetwork, and nrel-disco.
 
 ```terminal
 uo install_python
 ```
 
 The python installation path will be printed in the terminal once python is successfully installed; you may want to save this path for use in future troubleshooting.
+
+Note: the python dependency manager was updated to `uv` starting in version 1.3.0.
 
 ## DES Installation
 
