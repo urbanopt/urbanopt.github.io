@@ -83,7 +83,7 @@ uo install_python
 
 The python installation path will be printed in the terminal once python is successfully installed; you may want to save this path for use in future troubleshooting.
 
-Note: the python dependency manager was updated to `uv` starting in version 1.3.0.
+**Note:** the python dependency manager was updated to `uv` starting in version 1.3.0. uv is included in the URBANopt installer, but if you are doing a manual install, you will first need to [install uv](https://docs.astral.sh/uv/getting-started/installation/) before running the install python command above.
 
 ## DES Installation
 
