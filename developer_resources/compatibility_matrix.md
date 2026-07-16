@@ -9,8 +9,11 @@ nav_order: 1
 
 The URBANopt<sup>&trade;</sup> installer includes Ruby and OpenStudio. The matrix below shows the versions details for each installer version.
 
+**Note that the residential workflow is not available in version 1.4.0.rc1. It will be restored in the official version 1.4.0 release.**
+
 |URBANopt Version|OpenStudio| OpenStudio-HPXML | ResStock      | Ruby | Python | REopt API | Modelica Buildings Library |
 |:--------------:|:--------:|:----------------:|:-------------:|:----:|:------:|:---------:|:--------------------------:|
+| 1.4.0.rc1 		 | 3.11.0   | N/A           | N/A | 3.2.2| 3.11   | v3        | 12.1                       |
 | 1.3.0 		 | 3.10.0   | 1.10.0           | v3.4.0-331b7ab| 3.2.2| 3.10   | v3        | 12.1                       |
 | 1.2.0          | 3.10.0   | 1.10.0           | v3.4.0-331b7ab| 3.2.2| 3.10   | v3        | 12.1                       |
 | 1.1.0          | 3.10.0   | 1.10.0           | v3.4.0-331b7ab| 3.2.2| 3.10   | v3        | 12.1                       |
@@ -36,6 +39,7 @@ URBANopt<sup>&trade;</sup> depends on various other components to function. Ensu
 
 |URBANopt Version   |URBANopt CLI|OpenStudio|Ruby   |Gems                                 |
 |:-----------------:|:----------:|:--------:|:-----:|:------------------------------------|
+| **1.4.0.rc1**         | 1.4.0      | 3.11      | 3.2.2 | **URBANopt Gems:** <br/>Core Gem v1.3.0 <br/> GeoJSON Gem v1.3.0 <br/> REopt Gem v1.4.0 <br/> Reporting Gem v1.3.0 <br/> RNM-US Gem v1.3.0 <br/> Scenario Gem v1.3.0 <br/> **Python Dependencies:** <br/> DISCO v0.6.0 <br/> DiTTo Reader v0.6.4 <br/> URBANopt-DES v0.3.0 <br/> ThermalNetwork v0.5.0 <br/> Urban Systems Generator v0.1.1 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.9.7  <br/> Common Measures v0.13.0 <br/> Model Articulation v0.13.0 <br/> Load Flexibility v0.12.0 <br/> EE Gem v0.13.0 <br/> Calibration Gem v0.13.0 <br/> GEB Gem v0.8.0 |
 | **1.3.0**         | 1.3.0      | 3.10      | 3.2.2 | **URBANopt Gems:** <br/>Core Gem v1.2.0 <br/> GeoJSON Gem v1.2.0 <br/> REopt Gem v1.3.1 <br/> Reporting Gem v1.2.0 <br/> RNM-US Gem v1.2.0 <br/> Scenario Gem v1.2.0 <br/> **Python Dependencies:** <br/> DISCO v0.6.0 <br/> DiTTo Reader v0.6.4 <br/> URBANopt-DES v0.2.0 <br/> ThermalNetwork v0.5.0 <br/> Urban Systems Generator v0.1.1 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.9.4  <br/> Common Measures v0.12.3 <br/> Model Articulation v0.12.2 <br/> Load Flexibility v0.11.1 <br/> EE Gem v0.12.5 <br/> Calibration Gem v0.12.2 <br/> GEB Gem v0.7.0 |
 | **1.2.0**         | 1.2.0      | 3.10      | 3.2.2 | **URBANopt Gems:** <br/>Core Gem v1.2.0 <br/> GeoJSON Gem v1.2.0 <br/> REopt Gem v1.2.0 <br/> Reporting Gem v1.2.0 <br/> RNM-US Gem v1.2.0 <br/> Scenario Gem v1.2.0 <br/> **Python Dependencies:** <br/> DISCO v0.5.1 <br/> DiTTo Reader v0.7.0 <br/> URBANopt-DES v0.2.0 <br/> ThermalNetwork v0.5.0 <br/> Urban Systems Generator v0.1.1 <br/> **OpenStudio Gems:**<br/>Extension Gem v0.9.4  <br/> Common Measures v0.12.3 <br/> Model Articulation v0.12.2 <br/> Load Flexibility v0.11.1 <br/> EE Gem v0.12.5 <br/> Calibration Gem v0.12.2 <br/> GEB Gem v0.7.0 |
 | **1.1.0**         | 1.1.0      | 3.10      | 3.2.2 | **URBANopt Gems:** <br/>Core Gem v1.1.0 <br/> GeoJSON Gem v1.1.0 <br/> REopt Gem v1.1.0 <br/> Reporting Gem v1.1.0 <br/> RNM-US Gem v1.1.0 <br/> Scenario Gem v1.1.0 <br/> **Python Dependencies:** <br/> DISCO v0.5.1 <br/> DiTTo Reader v0.6.4 <br/> URBANopt-DES v0.1.2 <br/> ThermalNetwork v0.4.1 <br/>**OpenStudio Gems:**<br/>Extension Gem v0.9.4  <br/> Common Measures v0.12.3 <br/> Model Articulation v0.12.2 <br/> Load Flexibility v0.11.1 <br/> EE Gem v0.12.5 <br/> Calibration Gem v0.12.2 <br/> GEB Gem v0.7.0 |
