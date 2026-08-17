@@ -9,6 +9,9 @@ nav_order: 6
 
 ### 2026
 
+- Rawad El Kontar, Maryam Almaian, Deepthi Vaidhynathan, Sanjana Vijayshankar, Jiazhen Ling, Ryan King, Tarek Rakha. [AI-based analytics and energy modeling framework for characterizing urban energy systems](https://doi.org/10.1016/j.enbuild.2026.118027). Energy and Buildings,
+Volume 369, Part B, 2026, 118027, ISSN 0378-7788.
+
 - Maryam Almaian, Rawad El Kontar, Noof Alkubaisi, and Patrick Kastner (2026). EBuild AI: A Retrieval-Augmented Framework for Generating Global, Simulation-Ready Urban Building Datasets. IBPSA-USA SimBuild 2026 Conference. 
 
 - Rawad El Kontar, Maryam Almaian, Dylan Wald, Deepthi Vaidhynathan, and Ryan King (2026). Generalized and Localized Data-Driven Models for Urban Energy Characterization: A Comparative Analysis for UBEM Inputs Inference. IBPSA-USA SimBuild 2026 Conference. 
@@ -22,6 +25,7 @@ nav_order: 6
 - Wanni Zhang, Kaiyu Sun, Ben Polly, David Goldwasser, Katherine Fleming, Tianzhen Hong (2026). [District-Scale Analysis of Electricity Load and Strategies to Improve Energy Reliability Using Prototype District Models.](https://www.sciencedirect.com/science/article/pii/S2210670726002350) Sustainable Cities and Society, Volume 143, 107348, ISSN 2210-6707.
 
 - El Kontar, Rawad (2026). AI-Driven Frameworks for Characterizing Urban Energy Systems. https://doi.org/10.2172/3014936
+
 
 ### 2025
 
