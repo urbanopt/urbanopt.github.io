@@ -7,7 +7,7 @@ nav_order: 2
 ---
 ## Intro
 
-**REopt** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
+**REopt&reg;** optimization happens during the post-processing of each scenario. Refer to the [Getting Started page](../getting_started/getting_started) for instructions on creating and running building energy models.
 
 CLI commands are used to run and post-process each scenario, and onscreen help is always available with `uo --help`.
 
@@ -21,7 +21,7 @@ You may chose to optimize by one or both of these approaches according to your p
 
 ### REopt Optimization Assumption Files
 
-In your URBANopt project directory, you should see two example **REopt** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a new baseline REopt-enabled ScenarioFile with the `uo create --scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt API**.
+In your URBANopt project directory, you should see two example **REopt** assumption files in a `reopt` folder (`base_assumptions.json` and `multiPV_assumptions.json`). If the `reopt` folder is missing, first create a new baseline REopt-enabled ScenarioFile with the `uo create --scenario-file` command (type `uo create --help` for usage help). These files follow the format outlined in the [API documentation](https://developer.nlr.gov/docs/energy-optimization/reopt-v1/) and can be customized to your specific project needs. Though CLI commands, they will be updated with basic information from your _Feature_ and _Scenario_ Reports (i.e. latitude, longitude, electric load profile) and submitted to the **REopt API**.
 
 In particular, you will want to make sure that the `urdb_label` in the assumptions file maps to a suitable utility rate _label_ from the [URDB](https://openei.org/apps/IURDB/). The _label_ is the last term of the URL of a utility rate detail page (i.e. the _label_ for the rate at [https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305](https://openei.org/apps/IURDB/rate/view/5b0d83af5457a3f276733305) is 5b0d83af5457a3f276733305).
 

@@ -17,8 +17,9 @@ nav_order: 5
 
 1. You will also need to install and configure MBL and Docker as described in the manual section:
 
-- [Installing and configuring the Modelica Buildings Library (MBL)](https://docs.urbanopt.net/geojson-modelica-translator/getting_started/#mbl-installation)
-- [Installing and configuring Docker to run simulations using OpenModelica](https://docs.urbanopt.net/geojson-modelica-translator/getting_started/#docker-installation)
+- [Installing and configuring the Modelica Buildings Library (MBL)](https://docs.urbanopt.net/geojson-modelica-translator/docs/getting_started.html#mbl-installation)
+
+- [Installing and configuring Docker to run simulations using OpenModelica](https://docs.urbanopt.net/geojson-modelica-translator/docs/getting_started.html#docker-installation)
 
 ### Usage
 
@@ -69,4 +70,4 @@ Use the following for additional help on running this command:
 
 ## Manual Installation
 
-Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/getting_started/) as a standalone package with its own CLI.
+Follow the instructions to [install the GMT](https://docs.urbanopt.net/geojson-modelica-translator/docs/getting_started.html) as a standalone package with its own CLI.

@@ -3,11 +3,11 @@ layout: default
 title: REopt Customization
 parent: REopt
 grand_parent: Workflows
-nav_order: 3
+nav_order: 4
 ---
 ## Customization
 
-Advanced developers may choose to customize the **URBANopt REopt Gem**. For example, more attributes are returned from the **REopt API** and saved to disk than currently can be recorded in a Feature or Scenario Report. In these cases, developers will want to clone the [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem) and possibly the [URBANopt Reporting Gem](https://github.com/urbanopt/urbanopt-reporting-gem) and make modifications to these codebases. Such changes can be made accessible through CLI commands (installed from a cloned URBANopt CLI repo) or a local project. See [Developer Resources](../../developer_resources/developer_resources#developing-with-the-cli) for more information about setting up local gems and installing them through modifications to your project's Gemfile.
+Advanced developers may choose to customize the **URBANopt&trade; REopt&reg; Gem**. For example, more attributes are returned from the **REopt API** and saved to disk than currently can be recorded in a Feature or Scenario Report. In these cases, developers will want to clone the [URBANopt REopt Gem](https://github.com/urbanopt/urbanopt-reopt-gem) and possibly the [URBANopt Reporting Gem](https://github.com/urbanopt/urbanopt-reporting-gem) and make modifications to these codebases. Such changes can be made accessible through CLI commands (installed from a cloned URBANopt CLI repo) or a local project. See [Developer Resources](../../developer_resources/developer_resources#developing-with-the-cli) for more information about setting up local gems and installing them through modifications to your project's Gemfile.
 
 ### Adding additional REopt Responses to your Feature and Scenario Reports
 
@@ -97,7 +97,7 @@ To include additional **REopt API** responses to your Feature and Scenario Repor
         feature_report.distributed_generation.lcc_us_dollars = reopt_output['outputs']['Scenario']['Site']['Financial']['lcc_us_dollars'] || 0
     ```
 
-    For an example of a **REopt API** response refer to this [ file](https://github.com/urbanopt/urbanopt-reopt-gem/blob/develop/spec/run/example_scenario/reopt/scenario_report__reopt_run.json). Also, the REopt API output schema is documented [here](https://developer.nrel.gov/docs/energy-optimization/reopt-v1/#Scenariooutputs_panel).
+    For an example of a **REopt API** response refer to this [ file](https://github.com/urbanopt/urbanopt-reopt-gem/blob/develop/spec/run/example_scenario/reopt/scenario_report__reopt_run.json). Also, the REopt API output schema is documented [here](https://developer.nlr.gov/docs/energy-optimization/reopt-v1/#Scenariooutputs_panel).
 
     Finally, in `urbanopt-reopt-gem/lib/reopt/scenario_report_adapter.rb` in the `update_scenario_report` function, parse the lifecycle cost from the **REopt API** response:
 

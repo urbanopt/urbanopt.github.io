@@ -9,6 +9,8 @@ nav_order: 3
 
 As of version 1.0.0, an URBANopt<sup>&trade;</sup> installer (Ubuntu 18.04) is available to install the URBANopt CLI, Ruby, and OpenStudio SDK at the same time.  If you'd rather install the dependencies manually, view the [manual install](#manual-install) section below.
 
+Additionally, as of version 1.2.0, the URBANopt installer ships will all ruby dependencies installed. An internet connection is no longer necessary to run the basic OpenStudio workflow.  Internet connection is still needed to install the python dependencies for OpenDSS, RNM, Thermal Network, and UO DES.
+
 For CLI usage examples, see our [Getting Started page](../getting_started/getting_started.md)
 
 ## Install with the URBANopt Installer
@@ -45,7 +47,8 @@ e.g.:  ```/usr/local/urbanopt-cli-1.0.0/```
     gem install bundler -v 2.4.10
     ```
 
-1. Install [OpenStudio 3.9.0](https://github.com/NREL/OpenStudio/releases/tag/v3.9.0)
+1. Install [OpenStudio 3.10.0](https://github.com/NatLabRockies/OpenStudio/releases/tag/v3.10.0).
+The latest URBANopt code uses OpenStudio 3.10.0. Browse the [Compatibility Matrix](../developer_resources/compatibility_matrix) page for additional details.
 
 1. Add the `RUBYLIB` environment variable path pointing to OpenStudio Ruby location by pasting the following line into your `.bash_profile`, `.zshenv` or similar file:
 
@@ -73,13 +76,16 @@ e.g.:  ```/usr/local/urbanopt-cli-1.0.0/```
 
 ## URBANopt Python Dependencies
 
-The URBANopt CLI has integrated 3 python workflows: OpenDSS, DES, and DISCO. The following command will install python and pip as well as the python packages urbanopt-ditto-reader, geojson-modelica-translator, thermalnetwork, and nrel-disco.
+The URBANopt CLI has integrated 3 python workflows: OpenDSS, DES, and DISCO. Urban System Generator is also available as of version 1.2.0. The following command will install python and pip as well as the python packages urbanopt-ditto-reader, geojson-modelica-translator, thermalnetwork, and nrel-disco.
 
 ```terminal
 uo install_python
 ```
 
 The python installation path will be printed in the terminal once python is successfully installed; you may want to save this path for use in future troubleshooting.
+
+**Note:** the python dependency manager was updated to `uv` starting in version 1.3.0. uv is included in the URBANopt installer, but if you are doing a manual install, you will first need to [install uv](https://docs.astral.sh/uv/getting-started/installation/) before running the install python command above.
+
 
 ## DES Installation
 
