@@ -9,7 +9,7 @@ nav_order: 6
 
 ### 2026
 
-- Simmons, Craig, Tanushree Charan, and Aditie Garg. "An Analysis Framework for Grid Planning and Demand-Side Strategy Evaluation." Proceedings of the 2026 ACEEE Summer Study on Energy Efficiency in Buildings, American Council for an Energy-Efficient Economy, August 2026.
+- Simmons, Craig, Tanushree Charan, and Aditie Garg. [An Analysis Framework for Grid Planning and Demand-Side Strategy Evaluation](https://www.aceee.org/proceedings/an-analysis-framework-for-grid-planning-and-demand-side-strategy-evaluation/). Proceedings of the 2026 ACEEE Summer Study on Energy Efficiency in Buildings, American Council for an Energy-Efficient Economy, August 2026.
 
 - Rawad El Kontar, Maryam Almaian, Deepthi Vaidhynathan, Sanjana Vijayshankar, Jiazhen Ling, Ryan King, Tarek Rakha. [AI-based analytics and energy modeling framework for characterizing urban energy systems](https://doi.org/10.1016/j.enbuild.2026.118027). Energy and Buildings,
 Volume 369, Part B, 2026, 118027, ISSN 0378-7788.
